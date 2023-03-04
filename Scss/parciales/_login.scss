@@ -1,0 +1,321 @@
+/*LOGIN*/
+
+.fondo__inicio{
+    background-image: url("../Imagenes/c-fondoindex.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.contenedor__todo{
+    width: 100%;
+    max-width: 800px;
+    margin: auto;
+    position: relative;
+}
+
+.caja__trasera{
+    margin-top: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    background-color: rgba(243, 47, 12, 0.507);
+}
+
+.caja__trasera div{
+    margin: 100px 40px;
+    color: white;
+    transition: all 500ms;
+}
+
+.caja__trasera div p,
+.caja__trasera button{
+    margin-top: 30px;
+}
+
+.caja__trasera div h3{
+    font-weight: 400;
+    font-size: 26px;
+}
+
+.caja__trasera div p{
+    font-size: 16px;
+    font-weight: 300;
+}
+
+.caja__trasera button{
+    padding: 10px 40px;
+    border: 2px solid #fff;
+    font-size: 14px;
+    background: transparent;
+    font-weight: 600;
+    cursor: pointer;
+    color: white;
+    outline: none;
+    transition: all 300ms;
+}
+
+.caja__trasera button:hover{
+    background: #fff;
+    color: rgba(243, 47, 12, 0.507);
+}
+
+.contenedor__login-register{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    max-width: 380px;
+    position: relative;
+    top: -185px;
+    left: 10px;
+    transition: left 500ms cubic-bezier(0.175, 0.885, 0.320, 1.275);
+}
+
+.contenedor__login-register form{
+    width: 100%;
+    height: 650px;
+    padding: 80px 20px;
+    background: gainsboro;
+    position: absolute;
+    border-radius: 15px;
+}
+
+li{
+    list-style: none;
+}
+
+.contenedor__login-register form h2{
+    font-size: 30px;
+    text-align: center;
+    margin-bottom: 20px;
+    color: rgba(243, 29, 29, 0.726);
+}
+
+.contenedor__login-register form input{
+    width: 95%;
+    margin-top: 20px;
+    padding: 10px;
+    border: none;
+    background: #F2F2F2;
+    font-size: 16px;
+    outline: none;
+    border-radius: 5px;
+}
+.contenedor__login-register form a{
+    text-decoration: none;
+    color: rgb(99, 20, 20);
+    font-weight: bold;
+    font-size: 17px; 
+/*     margin: 150px; */
+}
+
+.contenedor__login-register form a:hover {
+    color: white;
+  }
+
+.contenedor__login-register form .centrado{
+    margin-top: 50px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.contenedor__login-register form .centrado li a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contenedor__login-register form .centrado li a:hover{
+    color: #000;
+}
+
+.contenedor__login-register form button{
+    padding: 10px 40px;
+    margin-top: 40px;
+    margin-left: 120px;
+    border: none;
+    font-size: 14px;
+    background-color: grey;
+/*     background-image: linear-gradient(to right, rgb(119, 31, 9),rgba(243, 29, 29, 0.726),rgb(117, 99, 99)); */
+    font-weight: 600;
+    cursor: pointer;
+    color: white;
+    outline: none;
+    border-radius: 5px;
+}
+
+.contenedor__login-register form button:hover {
+/*     background-color: rgb(184, 16, 49); */
+/*     background: linear-gradient(to right,rgb(117, 99, 99) ,rgba(243, 29, 29, 0.726),rgb(119, 31, 9)); */
+    color: white;
+}
+
+.formulario__login{
+    opacity: 1;
+    display: block;
+}
+.formulario__register{
+    display: none;
+}
+
+@media screen and (max-width: 850px){
+
+    main{
+        margin-top: 50px;
+    }
+
+    .caja__trasera{
+        max-width: 350px;
+        height: 300px;
+        flex-direction: column;
+        margin: auto;
+    }
+
+    .caja__trasera div{
+        margin: 0px;
+        position: absolute;
+    }
+
+    .contenedor__login-register{
+        top: -10px;
+        left: -5px;
+        margin: auto;
+    }
+
+    .contenedor__login-register form{
+        position: relative;
+    }
+} 
+
+
+/* DATOS */
+
+.principal-info-datos{
+    margin-top: 50px;
+    padding: 30px;
+    border-radius: 20px;
+    background-color: rgb(192, 192, 192);
+    border: 1px solid black;
+    font-family: 'Roboto', sans-serif;
+}
+
+.principal-info-datos-info{
+    margin-top: 40px;
+}
+
+.principal-info-datos-clave{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.principal-info-datos-clave button{
+    margin-top: 20px;
+    min-width: 170px;
+    background-color: crimson;
+    color: white;
+    padding: 10px;
+    border-radius: 20px;
+}
+
+.principal-info-datos-clave-datos{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.principal-info-datos-clave-contra{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* CONTRASEÑA */
+
+.clave{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.clave form{
+    background-color: rgb(192, 192, 192);
+    border: 1px solid black;
+    font-family: 'Roboto', sans-serif;
+    border-radius: 20px;
+
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.clave form input{
+
+    margin-bottom: 10px;
+}
+
+.clave form button{
+    margin-top: 20px;
+    min-width: 100px;
+    background-color: crimson;
+    color: white;
+    padding: 10px;
+    border-radius: 20px;
+}
+
+legend{
+    font-size: 16px;
+    font-family: 'Roboto', sans-serif;
+}
+
+label{
+    font-size: 16px;
+    font-family: 'Roboto', sans-serif;
+}
+
+
+fieldset{
+    margin-top: 20px;
+}
+
+.rad1, .rad2{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: row;
+    margin-left: 10px;
+}
+
+.rad2-l{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction:     column;
+}
+
+.rad2-i{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#dewey, #huey{
+    width: 60px;
+    margin-top: 0px;
+}
+
+.rad1 label, .rad2 label{
+    width: 120px;
+}
+
+.rad1 input, .rad2 input{
+    width: 40px;
+}

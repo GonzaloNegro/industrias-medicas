@@ -1,0 +1,100 @@
+.contGrafico{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 100px;
+}
+.grafico{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.grafico-tit{
+    font-family: 'Roboto', sans-serif;
+    margin-top: 20px;
+    margin-bottom: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.grafico-gra{
+    margin-bottom: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.corto{
+    width: 60px;
+    cursor: default;
+}
+
+.medio{
+    width: 100px;
+}
+.largo{
+    width: 500px;
+/*     cursor: default; */
+}
+
+.ini-hist{
+    max-width: 700px;
+}
+
+.contador{
+    margin-top: 40px;
+    width: 600px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.contador_pri{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contador_seg{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contador_ter{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.verMas{
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+.verMas a{
+    text-decoration: none;
+    border: 2px solid crimson;
+    border-radius: 10px;
+    padding: 5px;
+    color: crimson;
+    font-weight: bold;
+    transition: 0.6s;
+}
+
+.verMas a:hover{
+    background-color: rgb(187, 16, 50);
+    transition: 0.6s;
+    color: white;
+}

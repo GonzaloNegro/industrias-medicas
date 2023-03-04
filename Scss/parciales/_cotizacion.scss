@@ -1,0 +1,262 @@
+.not-exit i{
+    color: black;
+    margin-right: 20px;
+}
+
+.not-exit i:hover{
+    color: red;
+}
+
+.not-exit{
+    width: 200px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.not-exit-name {
+    cursor: default;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.not-exit-exit{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn-outline-danger{
+    font-weight: bold;
+    border-radius: 10px;
+    border: 2px solid;
+}
+
+.cot{
+    margin-top: 20px;
+}
+
+.cot-cab{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+    border-radius: 10px 10px 0px 0px;
+}
+
+.cot-cab-tit{
+    padding: 10px;
+    border-right: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+}
+
+.cot-cab-nombre{
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+/* ---- */
+
+.cot-datos{
+    border: 1px solid black;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: row;
+}
+
+.cot-datos-info{
+    padding: 10px;
+    margin-left: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+}
+
+.cot-info{
+    border: 1px solid black;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: row;
+}
+
+.cot-info-inf{
+    padding: 10px;
+    margin-left: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+}
+
+.cot-gri{
+    border: 1px solid black;
+
+}
+
+.cot-gri-info{
+    padding: 10px;
+    margin-left: 80px;
+    margin-bottom: 140px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+}
+
+.cot-fin{
+    border: 1px solid black;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: row;
+}
+
+.cot-fin-info{
+    padding: 10px;
+    margin-left: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+}
+
+
+
+
+
+
+
+
+
+.btn-pdf{
+    padding: 10px;
+    margin-top: 20px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btnPdf{
+    margin-right: 10px;
+    width: 85px;
+    height: 55px;
+    background: crimson;
+    color: #fff;
+    border-radius: 50px;
+    text-align: center;
+    font-size: 18px;
+    box-shadow: 0px 1px 10px rgba(0,0,0,0.3);
+}
+
+.btnPdf:hover{
+	background-color: white;
+	color: crimson;
+    border: 1px solid crimson;
+	transition-property: background-color, white;
+	transition-duration: 1s;
+	transition-delay: 0s;
+}
+
+.agrStock form .nroCot input{
+    width: 50px;
+    background-color: transparent;
+    border: none;
+    border-bottom: none;
+    outline: none;
+}
+
+.pre{
+    width: 120px;
+    height: 70px;
+}
+
+.valorPeque{
+    width: 1px;
+    height: 1px;
+    color: rgb(230, 230, 230);
+}
+
+
+.btnConf{
+    margin-right: 10px;
+    padding: 10px;
+    height: 55px;
+    background: crimson;
+    color: #fff;
+    border-radius: 50px;
+    text-align: center;
+    font-size: 18px;
+    box-shadow: 0px 1px 10px rgba(0,0,0,0.3);
+}
+
+.btnConf:hover{
+	background-color: white;
+	color: crimson;
+    border: 1px solid crimson;
+	transition-property: background-color, white;
+	transition-duration: 1s;
+	transition-delay: 0s;
+}
+
+
+.fa-cloud-arrow-up:hover{
+    color: white;
+}
+
+.agrStock form .inputOculto{
+    width: 100px;
+    padding: 0px;
+    border: none;
+}
+
+.agrStock form .ocult .inputOculto{
+    padding: 0px;
+    border: none;
+}
+
+.agrStock form .ocultar{
+    width: 1px;
+    border-bottom: none;
+    cursor: default;
+}
+
+/* AGREGAR PRODUCTOS */
+
+.inicio-agregar{
+    height: 300px;
+    margin-top: 50px;
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+}
+
+.inicio-agregar-pri{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.inicio-agregar-seg{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.inicio-agregar-ter{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

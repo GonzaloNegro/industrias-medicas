@@ -1,0 +1,26 @@
+.detalles{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.agrStock{
+    margin-top: 40px;
+}
+
+.agrStock-detalles{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+
+    padding: 20px;
+    border: 1px solid crimson;
+    background-color: rgba(199, 199, 199, 0.61);
+    border-radius: 20px;
+}
+
+.agrStock-detalles h3{
+    font-size: 20px;
+    padding: 10px;
+}

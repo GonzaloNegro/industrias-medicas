@@ -1,0 +1,22 @@
+$negro: black;
+$cien: 100px;
+$prc: 100%;
+$a: auto;
+$f: flex;
+$c: column;
+$r: row;
+
+$redes:(
+    instagram: rgb(175, 0, 219),
+    whatsapp: rgb(0, 255, 42),
+    envelope: rgb(255, 22, 22)
+);
+
+$estilos:(
+    padding: 10px
+);
+
+@mixin sizes($width, $heigth){
+    width: $width;
+    height: $heigth;
+}

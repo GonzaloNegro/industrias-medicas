@@ -1,0 +1,464 @@
+.imagenh img {
+    height: $a; }
+  
+.imagenh{
+    width: $a;
+}
+
+.variacion{
+    text-decoration: none;
+    background-image: linear-gradient(crimson, crimson);
+    background-position: 0% $prc;
+    background-repeat: no-repeat;
+    background-size: 0% 2px;
+    transition: background-size .4s;
+    color: black;
+    font-size: 20px;
+    font-weight: bold;
+    &:hover{
+        background-size: $prc 1px;
+    }
+    &:focus {
+        background-size: $prc 1px;
+    }
+
+}
+
+.inicial{
+    color: red;
+}
+
+/* .espacio{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+} */
+
+.logo{
+    display: flex;
+    justify-content: center;
+}
+
+.info{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* ------------------------- */
+/* ------------------------- */
+/* HOME */
+/* ------------------------- */
+/* ------------------------- */
+
+.tamaño{
+    border: none;
+    width: 100%;
+    height: 980px;
+    background-image: url("../Imagenes/esqueleto.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.tamaño-img{
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 10px;
+}
+
+
+/* .carousel-item img{
+    width: 100%;
+    max-height: 740px;
+    opacity: 0.5;
+} */
+
+/* ------------------------- */
+/* ------------------------- */
+/* NOSOTROS */
+/* ------------------------- */
+/* ------------------------- */
+.nos{
+    min-height: 900px;
+    display: flex;
+    justify-content: center;
+}
+
+.nos-tit{
+    margin-left: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.nos-tit img{
+    width: 10%;
+}
+
+.nos-info{
+    margin-top: 40px;
+    margin-bottom: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.nos-info h3{
+    color: crimson;
+}
+
+.nos-info-arr{
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+}
+
+.nos-info-arr-mis{
+    max-width: 300px;
+    margin-right: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+}
+
+.nos-info-arr p{
+    text-align: center;
+}
+
+.nos-info-arr-vis{
+    max-width: 300px;
+    margin-left: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.nos-info-aba{
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.nos-info-aba-tit{
+    display: flex;
+    justify-content: center;
+}
+
+.nos-info-aba-con{
+    display: flex;
+}
+
+.nos-info-aba-con-sup{
+    display: flex;
+    flex-direction: column;
+}
+
+
+.cont-img{
+    position: relative;
+    display: inline-block;
+    text-align: center;
+}
+
+.cont-img img{
+    width: 60%;
+}
+
+.encima{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+/* ------------------------- */
+/* ------------------------- */
+/* PRODUCTOS */
+/* ------------------------- */
+/* ------------------------- */
+.prod{
+    min-height: 900px;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.prod-tit{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.prod-tit img{
+    width: 10%;
+}
+
+.prod-img{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.prod-img-pri{
+    display: flex;
+    padding: 15px;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+
+.prod-img-seg{
+    display: flex;
+    padding: 15px;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+
+.prod-img-ter{
+    display: flex;
+    padding: 15px;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+
+.card{
+    margin: 10px;
+    width: 180px;
+    height: 180px;
+    border-radius: 30px;
+    background: #e0e0e0;
+    box-shadow:  20px 20px 60px #bebebe,
+                -20px -20px 60px #ffffff;
+}
+
+
+.uno{
+    background-image: url("../Imagenes/cabezales.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.dos{
+    background-image: url("../Imagenes/cotiloQuarter.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.tres{
+    background-image: url("../Imagenes/rodillaCCK.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.cuatro{
+    background-image: url("../Imagenes/rodillaDCF.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.cinco{
+    background-image: url("../Imagenes/espaciadores.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.seis{
+    background-image: url("../Imagenes/prot2.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.siete{
+    background-image: url("../Imagenes/vastagoKarey.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.ocho{
+    background-image: url("../Imagenes/vastagoRev.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.nueve{
+    background-image: url("../Imagenes/placatubo.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+.prod-but{
+    padding: 10px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+/* ------------------------- */
+/* ------------------------- */
+/* CONTACTO */
+/* ------------------------- */
+/* ------------------------- */
+
+.con{
+    min-height: 900px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.con-tit{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.con-tit img{
+    width: 10%;
+}
+
+.con-info{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.con-info p{
+    text-align: center;
+}
+
+.con-info-sup{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.con-info-sup-dir{
+    max-width: 120px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+}
+
+.con-info-sup-tel{
+    max-width: 120px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+}
+
+.con-info-sup-mail{
+    max-width: 120px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+}
+
+i{
+    color: crimson;
+}
+
+.con-info-inf{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.con-info-inf-for{
+    width: 600px;
+    margin-bottom: 40px;
+
+    background-color: rgba(199, 199, 199, 0.61);
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.con-info-inf-for form{
+    padding: 10px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.con-info-inf-for input, .con-info-inf-for textarea{
+    padding: 10px;
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid crimson;
+    outline: none;
+}
+
+.con-info-inf-for input{
+    margin: 10px;
+}
+
+.con-info-inf-for textarea{
+    width: 100%;
+}
+
+.con-info-inf-for button{
+    margin-top: 20px;
+    min-width: 100px;
+    background-color: crimson;
+    color: white;
+    padding: 10px;
+    border-radius: 20px;
+}
+
+
+/* ------------------------- */
+/* ------------------------- */
+/* FOOTER */
+/* ------------------------- */
+/* ------------------------- */
+
+footer{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    border-top: 1px solid black;
+}
+
+.fot{
+    display: flex;
+    justify-content: center;
+}
+
+.fot img{
+    width: 20%;
+    border-bottom: 1px solid black;
+}
+
+.tel{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.tel p{
+    text-align: center;
+    font-size: 18px;
+}

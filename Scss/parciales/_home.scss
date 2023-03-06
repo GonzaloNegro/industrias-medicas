@@ -462,3 +462,130 @@ footer{
     text-align: center;
     font-size: 18px;
 }
+
+
+
+
+@media screen and (max-width: 768px){
+    /* HOME */
+    .tamaño{
+        height: 400px;
+        background-image: url("../Imagenes/esqueleto.jpeg");
+        background-repeat: no-repeat;
+        background-size: 100% 400px;
+    }
+    .tamaño-img{
+        width: 300px;
+    }
+    .tamaño-img img{
+        width: 300px;
+    }
+
+
+    /* NOSOTROS */
+    .nos{
+        height: auto;
+        flex-direction: column;
+        padding: 10px;
+    }    
+    .nos-tit{
+        margin-left: 0px;
+    }    
+    .nos-tit img{
+        width: 20%;
+    }    
+    .nos-info{
+        margin-top: 10px;
+        margin-bottom: 40px;
+    }    
+    .nos-info-arr{
+        width: 300px;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }    
+    .nos-info-arr-mis{
+        margin-right: 0px;
+    }    
+    .nos-info-arr p{
+        text-align: justify;
+    }    
+    .nos-info-arr-vis{
+        margin-left: 0px;
+    }    
+    .nos-info-aba{
+        margin-top: 0px;
+        gap: 40px;
+    }
+    .nos-info-aba-con-sup{
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+    .encima p{
+        text-align: justify;
+        font-size: 13px;
+    }
+    .cont-img img{
+        width: 300px;
+    }
+
+
+    /* PRODUCTOS */
+    .prod{
+        flex-direction: column;
+    }   
+    .prod-tit{
+        text-align: center;
+    }    
+    .prod-tit img{
+        width: 20%;
+    }    
+    .prod-img{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }    
+    .prod-img-pri, .prod-img-seg, .prod-img-ter{
+        flex-direction: column;
+    }
+    .prod-but a button{
+        font-size: 12px;
+        margin-bottom: 40px;
+    }
+
+
+    /* CONTACTO */
+    .con{
+        height: auto;
+        justify-content: center;
+        flex-direction: column;
+        gap: 40px;
+    }
+    .con-tit img{
+        width: 20%;
+    }
+    .con-info-sup{
+        width: 300px;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+    
+    .con-info-inf{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .con-info-inf-for{
+        width: 300px;
+    }
+    form div{
+        display: flex;
+        justify-items: center;
+        align-items: center;
+        flex-direction: column;
+    }
+}

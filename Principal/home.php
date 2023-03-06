@@ -93,14 +93,14 @@
                       <img src="../Imagenes/c-hexagono.png" alt="">
                       <div class="encima">
                       <span class="inicial"><strong>CALIDAD</strong></span><br>
-                      Es una de nuestras consignas, la cual significa sinónimo de garantía yseguridad al momento de adquirir uno de nuestros productos o servicios.
+                      <p>Es una de nuestras consignas, la cual significa sinónimo de garantía yseguridad al momento de adquirir uno de nuestros productos o servicios.</p>
                       </div>
                     </div>
                     <div class="cont-img">
                       <img src="../Imagenes/c-hexagono.png" alt="">
                       <div class="encima">
                       <span class="inicial"><strong>SALUD</strong></span><br>
-                      Es nuestro interés y también<br> un ideal trabajar para que desde nuestro lugar de trabajo logremos, a través de nuestros productos y servicios,<br> el bienestar total que debe<br> tener toda persona.
+                      <p>Es nuestro interés y también<br> un ideal trabajar para que desde nuestro lugar de trabajo logremos, a través de nuestros productos y servicios,<br> el bienestar total que debe<br> tener toda persona.</p>
                     </div>
                   </div>
                 </div>

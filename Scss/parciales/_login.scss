@@ -163,21 +163,28 @@ li{
 }
 
 @media screen and (max-width: 850px){
+    .fondo__inicio{
+        background-image: none;
+    }
 
     main{
-        margin-top: 50px;
+        margin-top: 20px;
     }
 
     .caja__trasera{
-        max-width: 350px;
-        height: 300px;
+        max-width: 300px;
+        height: 200px;
+        padding: 5px;
         flex-direction: column;
         margin: auto;
     }
-
     .caja__trasera div{
         margin: 0px;
         position: absolute;
+    }
+    .caja__trasera-register, .caja__trasera-login{
+        width: 100%;
+        text-align: center;
     }
 
     .contenedor__login-register{

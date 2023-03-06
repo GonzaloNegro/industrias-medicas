@@ -40,3 +40,17 @@
     justify-content: center;
     align-items: flex-end;
 }
+
+
+@media screen and (max-width: 768px){
+    /* INDEX */
+    .inicio-img img{
+        width: 300px;
+    }
+    .inicio-dir{
+        flex-direction: column;
+    }
+    .inicio-dir a{
+        color: rgb(49, 49, 49);
+    }
+}

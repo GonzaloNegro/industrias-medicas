@@ -92,7 +92,7 @@ $idRol = $row['idRol'];
                     </div>
                 </form>
                 <div class="agregar">
-                    <a href="./agregarCotizacion.php" class="nuevo" data-bs-toggle="tooltip" title="Nueva pedido médico" data-bs-placement="left">+</a>
+                    <a href="./agregarCotizacion.php" class="nuevo" data-bs-toggle="tooltip" title="Nuevo pedido médico" data-bs-placement="left">+</a>
                 </div>
             </div>
 

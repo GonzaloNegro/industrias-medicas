@@ -21,6 +21,8 @@ $idProd = $_POST['idProd'];
 $nombre = $_POST['nombre'];
 $grupo = $_POST['grupo'];
 $tipo = $_POST['tipo'];
+$minimo = $_POST['minimo'];
+$maximo = $_POST['maximo'];
 
 
 if($grupo == "100"){
@@ -45,7 +47,7 @@ $prod = $row['idProducto'];
 if(isset($prod)){
     header("Location: ../Sistema/Stock/productos.php?exist");
 }else{
-    mysqli_query($datos_base, "UPDATE producto SET producto = '$nombre', idGrupoProducto = '$grupo', idTipoProducto = '$tipo' WHERE idProducto = '$idProd'");
+    mysqli_query($datos_base, "UPDATE producto SET producto = '$nombre', idGrupoProducto = '$grupo', idTipoProducto = '$tipo', minimo = '$minimo', maximo = '$maximo' WHERE idProducto = '$idProd'");
     /* UPDATE en la tabla de productos */
     header("Location: ../Sistema/Stock/productos.php?modif");
 }

@@ -104,10 +104,23 @@ function ConsultarIncidente($no_tic)
                 <div>
                     <input type="text" class="ocultar" name="nroProducto" id="remito" value="<?php echo $consulta[0]?>">
                 </div>
-                <div>
-                    <label for="cant">Cantidad a dar de baja</label>
-                    <input type="number" name="cant" id="cant" min=1 onkeypress="return valideKey(event);" <?php echo "max= ".$consulta[4]."";?> required>
-                </div>
+                <?php 
+                $cantTotal = $consulta[4];
+                if($cantTotal > 0)
+                {
+                ?>
+                    <div>
+                        <label for="cant">Cantidad a dar de baja</label>
+                        <input type="number" name="cant" id="cant" min=1 onkeypress="return valideKey(event);" <?php echo "max= ".$consulta[4]."";?> required>
+                    </div>
+                <?php
+                    }else{echo"
+                        <div>
+                            <p>No hay stock para dar de baja.</p>
+                        </div>
+                    ";
+                    }
+                ?>
                 <div>
                     <textarea style="text-transform:uppercase" name="mot" id="" cols="30" rows="3" required placeholder="Motivo de la baja"></textarea>
                 </div>

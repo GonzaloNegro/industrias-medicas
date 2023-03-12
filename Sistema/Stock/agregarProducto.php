@@ -35,6 +35,20 @@ if(!isset($_SESSION['usuario']))
     <title>Industrias Médicas</title>
 </head>
 <body>
+<script>
+    function valideKey(evt){
+    
+    var code = (evt.which) ? evt.which : evt.keyCode;
+    
+    if(code==8) { // backspace.
+      return true;
+    } else if(code>=48 && code<=57) { // is a number.
+      return true;
+    } else{ // other keys.
+      return false;
+    }
+}
+</script>
 <div class="cont-img">
         <a href="../principal.php" class="imagenb">
             <img src="../../Imagenes/c-titulo.png" alt="logo">
@@ -54,6 +68,12 @@ if(!isset($_SESSION['usuario']))
                 <div style="text-align: center; padding:10px;">
                         <label for="nombre">Nombre producto: </label>
                         <input type="text" style="width: 500px; text-transform:uppercase;" name="nombre" required>
+                </div>
+                <div style="text-align: center; padding:10px;">
+                        <label for="nombre">Mínimo: </label>
+                        <input type="number" style="width: 80px;" min=1 onkeypress="return valideKey(event);" name="minimo" required>
+                        <label for="nombre">Máximo: </label>
+                        <input type="number" style="width: 80px;" min=1 onkeypress="return valideKey(event);" name="maximo" required>
                 </div>
                 <div style="text-align: center; padding:10px;">
                     <label for="grupo">Grupo:</label>

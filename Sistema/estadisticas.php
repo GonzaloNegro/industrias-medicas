@@ -462,7 +462,6 @@ $idRol = $row['idRol'];
                 </div>
 
                 <div class="contGrafico">
-
                     <div class="grafico">
                         <div class="grafico-tit">
                             <h1>Estado ventas</h1>
@@ -480,8 +479,19 @@ $idRol = $row['idRol'];
                             <canvas id="MiGrafica1" style="width: 400px; height: 300px;"></canvas>
                         </div>
                     </div>
-
                 </div>
+
+                <div class="contGrafico">
+                    <div class="grafico">
+                        <div class="grafico-tit">
+                            <h1>Balance 2023</h1>
+                        </div>
+                        <div class="grafico-gra">
+                            <canvas id="MiGrafica2" style="width: 800px; height: 300px;"></canvas>
+                        </div>
+                    </div>
+                </div>
+
             </div>
     <?php
         $sql6 = "SELECT COUNT(*) AS total FROM documento WHERE idEstadoDocumento <> 9 AND idEstadoDocumento <> 10";
@@ -515,10 +525,34 @@ $idRol = $row['idRol'];
         $result6 = $datos_base->query($sql6);
         $row6 = $result6->fetch_assoc();
         $licPagada = $row6['total'];
+
+
+/*         function meses($mes, $año){
+            $mesReal = $mes - 1;
+            if($mesReal == 0){
+                $mesReal = 12;
+            }
+        return $mesReal;
+        }
+
+        echo meses(1, 3); */
+
+        $año2022 = 2022;
+        $año2023 = 2023;
+
+        $mes = 12; 
+        $sql6 = "SELECT SUM(d.monto) AS total
+        FROM movimientodocumento m
+        LEFT JOIN datosdocumento d ON d.idDocumento = m.idDocumento
+        WHERE m.idEstadoDocumento = 10 AND MONTH(m.fecha) = $mes AND YEAR(m.fecha) = $año2022";
+        $result6 = $datos_base->query($sql6);
+        $row6 = $result6->fetch_assoc();
+        $diciembre = $row6['total'];
+        echo $diciembre;
 ?>
 
 
-            <script>
+    <script>
     let miCanvas=document.getElementById("MiGrafica").getContext("2d");
 
     var chart = new Chart(miCanvas,{
@@ -574,6 +608,45 @@ $idRol = $row['idRol'];
         }
     })
     </script>
+
+
+<script>
+    let miCanvas2=document.getElementById("MiGrafica2").getContext("2d");
+
+var chart = new Chart(miCanvas2,{
+    type: "line",
+    data:{
+        labels:[
+            "<?php echo "1- Enero";?>",
+            "<?php echo "2- Febrero";?>",
+            "<?php echo "3- Marzo";?>",
+            "<?php echo "4- Abril";?>",
+            "<?php echo "5- Mayo";?>",
+            "<?php echo "6- Junio";?>",
+            "<?php echo "7- Julio";?>",
+            "<?php echo "8- Agosto";?>",
+            "<?php echo "9- Septiembre";?>", 
+            "<?php echo "10- Octubre";?>",
+            "<?php echo "11- Noviembre";?>",
+            "<?php echo "12- Diciembre";?>", 
+                ],
+        datasets:[{
+            label: "INGRESOS",
+            backgroundColor: "green",
+            borderColor: "green",
+            data:[22, 55, 35, 33, 24, 15, 50, 20, 33, 35, 24, 26]
+        },
+        {
+            label: "EGRESOS",
+            backgroundColor: "red",
+            borderColor: "red",
+            data:[12, 25, 45, 23, 14, 25, 46, 10, 23, 25, 30, 40]
+        },
+    ]
+    }
+})
+    </script>
+
         </section>
     </main>
     <footer>

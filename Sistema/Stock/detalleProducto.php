@@ -23,6 +23,8 @@ function ConsultarIncidente($no_tic)
         $filas['idGrupoProducto'],/*2*/
 		$filas['idTipoProducto'],/* 3 */
         $filas['cantidad'],/*4*/
+        $filas['minimo'],/* 5 */
+        $filas['maximo'],/*6*/
 	];
 }
 
@@ -43,6 +45,20 @@ function ConsultarIncidente($no_tic)
     <title>Industrias Médicas</title>
 </head>
 <body>
+<script>
+    function valideKey(evt){
+    
+    var code = (evt.which) ? evt.which : evt.keyCode;
+    
+    if(code==8) { // backspace.
+      return true;
+    } else if(code>=48 && code<=57) { // is a number.
+      return true;
+    } else{ // other keys.
+      return false;
+    }
+}
+</script>
 <div class="cont-img">
         <a href="../principal.php" class="imagenb">
             <img src="../../Imagenes/c-titulo.png" alt="logo">
@@ -73,10 +89,16 @@ function ConsultarIncidente($no_tic)
                 <div class="nroCot">
                         <label for="cot">Producto nro:</label>
                         <input type="text" id="cot" name="idProd" readonly="readonly" value="<?php echo $consulta[0]?>">
-                    </div>
+                </div>
                 <div style="text-align: center; padding:10px;">
                         <label for="nombre">Nombre producto: </label>
                         <input type="text" style="width: 500px; text-transform:uppercase;" name="nombre" value="<?php echo $consulta[1]?>">
+                </div>
+                <div style="text-align: center; padding:10px;">
+                        <label for="nombre">Mínimo: </label>
+                        <input type="number" style="width: 80px;" min=1 onkeypress="return valideKey(event);" name="minimo" value="<?php echo $consulta[5]?>">
+                        <label for="nombre">Máximo: </label>
+                        <input type="number" style="width: 80px;" min=1 onkeypress="return valideKey(event);" name="maximo" value="<?php echo $consulta[6]?>">
                 </div>
                 <div style="text-align: center; padding:10px;">
                     <label for="grupo">Grupo:</label>

@@ -99,7 +99,7 @@ $idRol = $row['idRol'];
                                     $medio = 0;
                                     $alto = 0;
                                     $doc = $_POST['buscar'];
-                                    $consulta=mysqli_query($datos_base, "SELECT p.idProducto, p.producto, g.grupoProducto, t.tipoProducto, p.cantidad
+                                    $consulta=mysqli_query($datos_base, "SELECT p.idProducto, p.producto, g.grupoProducto, t.tipoProducto, p.cantidad, p.minimo, p.maximo
                                     FROM producto p
                                     LEFT JOIN grupoproducto g ON g.idGrupoProducto = p.idGrupoProducto
                                     LEFT JOIN tipoproducto t ON t.idTipoProducto = p.idTipoProducto
@@ -107,15 +107,15 @@ $idRol = $row['idRol'];
                                     ORDER BY t.tipoProducto ASC, p.cantidad ASC");
                                     while($listar = mysqli_fetch_array($consulta))
                                     {
-                                        if($listar['cantidad'] >= 100 AND $listar['tipoProducto'] == 'Base'){
+                                        if($listar['cantidad'] >= $listar['minimo'] AND $listar['cantidad'] <= $listar['maximo']){
                                             $color = 'green';
-                                            $alto++;
-                                        }elseif($listar['cantidad'] <= 50 AND $listar['tipoProducto'] == 'Base'){
+                                            $medio++;
+                                        }elseif($listar['cantidad'] < $listar['minimo']){
                                             $color = 'red';
                                             $bajo++;
-                                        }elseif($listar['cantidad'] < 100 AND $listar['tipoProducto'] == 'Base'){
-                                            $color = 'brown';
-                                            $medio++;
+                                        }elseif($listar['cantidad'] > $listar['minimo']){
+                                            $color = 'blue';
+                                            $alto++;
                                         }else{
                                             $color = 'black';
                                         }
@@ -138,7 +138,7 @@ $idRol = $row['idRol'];
                                     $bajo = 0;
                                     $medio = 0;
                                     $alto = 0;
-                                    $consulta=mysqli_query($datos_base, "SELECT p.idProducto, p.producto, g.grupoProducto, t.tipoProducto, p.cantidad
+                                    $consulta=mysqli_query($datos_base, "SELECT p.idProducto, p.producto, g.grupoProducto, t.tipoProducto, p.cantidad, p.minimo, p.maximo
                                     FROM producto p
                                     LEFT JOIN grupoproducto g ON g.idGrupoProducto = p.idGrupoProducto
                                     LEFT JOIN tipoproducto t ON t.idTipoProducto = p.idTipoProducto
@@ -146,18 +146,18 @@ $idRol = $row['idRol'];
                                 ");
                                     while($listar = mysqli_fetch_array($consulta)) 
                                     {
-                                            if($listar['cantidad'] >= 100 AND $listar['tipoProducto'] == 'Base'){
-                                                $color = 'green';
-                                                $alto++;
-                                            }elseif($listar['cantidad'] <= 50 AND $listar['tipoProducto'] == 'Base'){
-                                                $color = 'red';
-                                                $bajo++;
-                                            }elseif($listar['cantidad'] < 100 AND $listar['tipoProducto'] == 'Base'){
-                                                $color = 'blue';
-                                                $medio++;
-                                            }else{
-                                                $color = 'black';
-                                            }
+                                        if($listar['cantidad'] >= $listar['minimo'] AND $listar['cantidad'] <= $listar['maximo']){
+                                            $color = 'green';
+                                            $medio++;
+                                        }elseif($listar['cantidad'] < $listar['minimo']){
+                                            $color = 'red';
+                                            $bajo++;
+                                        }elseif($listar['cantidad'] > $listar['minimo']){
+                                            $color = 'blue';
+                                            $alto++;
+                                        }else{
+                                            $color = 'black';
+                                        }
                                         echo
                                         " 
                                             <tr>
@@ -178,10 +178,10 @@ $idRol = $row['idRol'];
                                             <p style='color: red; font-weight: bold;'>STOCK BAJO: $bajo</p>
                                         </div>
                                         <div class=contador_seg>
-                                            <p style='color: blue; font-weight: bold;'>STOCK MEDIO: $medio</p>
+                                            <p style='color: blue; font-weight: bold;'>STOCK ALTO: $alto</p>
                                         </div>
                                         <div class=contador_ter>
-                                            <p style='color: green; font-weight: bold;'>STOCK OPTIMO: $alto</p>
+                                            <p style='color: green; font-weight: bold;'>STOCK OPTIMO: $medio</p>
                                         </div>
                                     </div> 
                                 </table>";

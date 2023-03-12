@@ -36,15 +36,27 @@ $idUsu = $row['idUsuario'];
             <img src="../Imagenes/c-titulo.png" alt="logo">
          </a>
     </div>
-    <header class="hea-pri">
-
-    </header>
+    <header class="hea-pri"></header>
 
     <main>
     <section class="ini">
         <div class="ini-tit">
             <h1>Productos solicitados</h1>
         </div>
+        <div class="container">
+                <form method="POST" action="./prodSolicitados.php">
+                    <div class="form-grilla">
+                        <div class="form-grilla-busc">
+                            <input type="text" style="text-transform:uppercase;" name="buscar"  placeholder="Buscar" class="busc">
+                        </div>
+                        <div class="form-grilla-but">
+                            <input class="button" type="submit" name="btn2" value="BUSCAR"></input>
+                            <input class="button" type="submit" name="btn1" value="LIMPIAR"></input>
+                            <i class="fa-solid fa-phone-plus"></i>
+                        </div>
+                    </div>
+                </form>
+            </div>
         <?php
             $sql6 = "SELECT sum(pl.cantidad) as cantidad
             FROM licitacion l
@@ -65,29 +77,54 @@ $idUsu = $row['idUsuario'];
                     </tr>
                 </thead>
             ";
+            if(isset($_POST['btn2']))
+            {
+                $doc = $_POST['buscar'];
+                $consulta=mysqli_query($datos_base, "SELECT sum(pl.cantidad) as cantidad, pr.producto, g.grupoProducto
+                FROM licitacion l
+                LEFT JOIN productolicitacion pl ON pl.idLicitacion = l.idLicitacion
+                LEFT JOIN producto pr ON pr.idProducto = pl.idProducto
+                LEFT JOIN grupoproducto g ON g.idGrupoProducto = pr.idGrupoProducto
+                WHERE l.idEstadoLicitacion = 6 AND (pl.cantidad LIKE '%$doc%' OR pr.producto LIKE '%$doc%' OR g.grupoProducto LIKE '%$doc%')
+                GROUP BY pr.producto
+                ORDER BY cantidad DESC
+                ");
+                    while($listar = mysqli_fetch_array($consulta)) 
+                    {
+                        echo
+                        " 
+                            <tr>
+                            <td><h4 style='font-size:16px; text-align:left; margin-left: 5px;'>".$listar['producto']."</h4 ></td>
+                            <td><h4 style='font-size:16px; text-align:left; margin-left: 5px;'>".$listar['grupoProducto']."</h4 ></td>
+                            <td><h4 style='font-size:16px;'>".$listar['cantidad']."</h4 ></td>
+                            </tr>
+                        ";
+                }
 
-                        $consulta=mysqli_query($datos_base, "SELECT sum(pl.cantidad) as cantidad, pr.producto, g.grupoProducto
-                        FROM licitacion l
-                        LEFT JOIN productolicitacion pl ON pl.idLicitacion = l.idLicitacion
-                        LEFT JOIN producto pr ON pr.idProducto = pl.idProducto
-                        LEFT JOIN grupoproducto g ON g.idGrupoProducto = pr.idGrupoProducto
-                        WHERE l.idEstadoLicitacion = 6
-                        GROUP BY pr.producto
-                        ORDER BY cantidad DESC
+            } 
+            else{
+                    $consulta=mysqli_query($datos_base, "SELECT sum(pl.cantidad) as cantidad, pr.producto, g.grupoProducto
+                    FROM licitacion l
+                    LEFT JOIN productolicitacion pl ON pl.idLicitacion = l.idLicitacion
+                    LEFT JOIN producto pr ON pr.idProducto = pl.idProducto
+                    LEFT JOIN grupoproducto g ON g.idGrupoProducto = pr.idGrupoProducto
+                    WHERE l.idEstadoLicitacion = 6
+                    GROUP BY pr.producto
+                    ORDER BY cantidad DESC
                     ");
                         while($listar = mysqli_fetch_array($consulta)) 
                         {
                             echo
-                            " 
+                            "
                                 <tr>
-                                <td><h4 style='font-size:16px; text-align:left; margin-left: 5px;'>".$listar['producto']."</h4 ></td>
-                                <td><h4 style='font-size:16px; text-align:left; margin-left: 5px;'>".$listar['grupoProducto']."</h4 ></td>
-                                <td><h4 style='font-size:16px;'>".$listar['cantidad']."</h4 ></td>
+                                    <td><h4 style='font-size:16px; text-align:left; margin-left: 5px;'>".$listar['producto']."</h4></td>
+                                    <td><h4 style='font-size:16px; text-align:left; margin-left: 5px;'>".$listar['grupoProducto']."</h4></td>
+                                    <td><h4 style='font-size:16px;'>".$listar['cantidad']."</h4 ></td>
                                 </tr>
                             ";
                         }
-                    
-                    echo "</table>";
+                    }
+                    echo "</table>"?>
                 ?>
             <div class="agregar">
                 <a href="./estadisticas.php" class="volver">VOLVER</a>

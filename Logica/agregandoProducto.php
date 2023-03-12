@@ -19,7 +19,8 @@ $idUsu = $row['idUsuario'];
 $nombre = $_POST['nombre'];
 $grupo = $_POST['grupo'];
 $tipo = $_POST['tipo'];
-
+$minimo = $_POST['minimo'];
+$maximo = $_POST['maximo'];
 
 
 /* SI UNO DE LOS CAMPOS ESTA REPETIDO */
@@ -31,7 +32,7 @@ $prod = $row['idProducto'];
 if(isset($prod)){
     header("Location: ../Sistema/Stock/productos.php?exist");
 }else{
-    mysqli_query($datos_base, "INSERT INTO producto VALUES (DEFAULT, '$nombre', '$grupo', '$tipo', 0, 1)");
+    mysqli_query($datos_base, "INSERT INTO producto VALUES (DEFAULT, '$nombre', '$grupo', '$tipo', 0, 1, '$minimo', '$maximo')");
     /* INSERT del producto en tabla producto  VERIFICAR QUE NO EXISTA*/
     header("Location: ../Sistema/Stock/productos.php?agregado");
 }

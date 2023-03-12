@@ -45,6 +45,20 @@ $idUsu = $row['idUsuario'];
         <div class="ini-tit">
             <h1>Productos vendidos</h1>
         </div>
+        <div class="container">
+                <form method="POST" action="./prodVendidos.php">
+                    <div class="form-grilla">
+                        <div class="form-grilla-busc">
+                            <input type="text" style="text-transform:uppercase;" name="buscar"  placeholder="Buscar" class="busc">
+                        </div>
+                        <div class="form-grilla-but">
+                            <input class="button" type="submit" name="btn2" value="BUSCAR"></input>
+                            <input class="button" type="submit" name="btn1" value="LIMPIAR"></input>
+                            <i class="fa-solid fa-phone-plus"></i>
+                        </div>
+                    </div>
+                </form>
+            </div>
         <?php
             $sql6 = "SELECT sum(pd.cantidad) as cantidad
             FROM documento d
@@ -65,14 +79,40 @@ $idUsu = $row['idUsuario'];
                     </tr>
                 </thead>
             ";
-                        $consulta=mysqli_query($datos_base, "SELECT sum(pd.cantidad) as cantidad, pr.producto, g.grupoProducto
-                        FROM documento d
-                        LEFT JOIN productodocumento pd ON pd.idDocumento = d.idDocumento
-                        LEFT JOIN producto pr ON pr.idProducto = pd.idProducto
-                        LEFT JOIN grupoproducto g ON g.idGrupoProducto = pr.idGrupoProducto
-                        WHERE d.idEstadoDocumento = 10
-                        GROUP BY pr.producto
-                        ORDER BY cantidad DESC
+            if(isset($_POST['btn2']))
+            {
+                $doc = $_POST['buscar'];
+                $consulta=mysqli_query($datos_base, "SELECT sum(pd.cantidad) as cantidad, pr.producto, g.grupoProducto
+                FROM documento d
+                LEFT JOIN productodocumento pd ON pd.idDocumento = d.idDocumento
+                LEFT JOIN producto pr ON pr.idProducto = pd.idProducto
+                LEFT JOIN grupoproducto g ON g.idGrupoProducto = pr.idGrupoProducto
+                WHERE d.idEstadoDocumento = 10 AND (pd.cantidad LIKE '%$doc%' OR pr.producto LIKE '%$doc%' OR g.grupoProducto LIKE '%$doc%')
+                GROUP BY pr.producto
+                ORDER BY cantidad DESC
+                ");
+                while($listar = mysqli_fetch_array($consulta)) 
+                {
+                    echo
+                    " 
+                        <tr>
+                        <td><h4 style='font-size:16px; text-align:left; margin-left: 5px;'>".$listar['producto']."</h4 ></td>
+                        <td><h4 style='font-size:16px; text-align:left; margin-left: 5px;'>".$listar['grupoProducto']."</h4 ></td>
+                        <td><h4 style='font-size:16px;'>".$listar['cantidad']."</h4 ></td>
+                        </tr>
+                    ";
+                }
+
+            } 
+            else{
+                    $consulta=mysqli_query($datos_base, "SELECT sum(pd.cantidad) as cantidad, pr.producto, g.grupoProducto
+                    FROM documento d
+                    LEFT JOIN productodocumento pd ON pd.idDocumento = d.idDocumento
+                    LEFT JOIN producto pr ON pr.idProducto = pd.idProducto
+                    LEFT JOIN grupoproducto g ON g.idGrupoProducto = pr.idGrupoProducto
+                    WHERE d.idEstadoDocumento = 10
+                    GROUP BY pr.producto
+                    ORDER BY cantidad DESC
                     ");
                         while($listar = mysqli_fetch_array($consulta)) 
                         {
@@ -85,8 +125,8 @@ $idUsu = $row['idUsuario'];
                                 </tr>
                             ";
                         }
-                    echo "</table>"
-                ?>
+                    }
+                    echo "</table>"?>
 
             <div class="agregar">
                 <a href="./estadisticas.php" class="volver">VOLVER</a>

@@ -1,5 +1,5 @@
 <?php 
-/* error_reporting(0); */
+error_reporting(0);
 session_start();
 include('../Utils/conexion.php');
 
@@ -484,10 +484,20 @@ $idRol = $row['idRol'];
                 <div class="contGrafico">
                     <div class="grafico">
                         <div class="grafico-tit">
-                            <h1>Balance 2023</h1>
+                            <h1>INGRESOS</h1>
                         </div>
                         <div class="grafico-gra">
                             <canvas id="MiGrafica2" style="width: 800px; height: 300px;"></canvas>
+                        </div>
+                    </div>
+                </div>
+                <div class="contGrafico">
+                    <div class="grafico">
+                        <div class="grafico-tit">
+                            <h1>EGRESOS</h1>
+                        </div>
+                        <div class="grafico-gra">
+                            <canvas id="MiGrafica3" style="width: 800px; height: 300px;"></canvas>
                         </div>
                     </div>
                 </div>
@@ -537,7 +547,7 @@ $idRol = $row['idRol'];
 
         echo meses(1, 3); */
 
-        $año2022 = 2022;
+/*         $año2022 = 2022;
         $año2023 = 2023;
 
         $mes = 12; 
@@ -548,10 +558,431 @@ $idRol = $row['idRol'];
         $result6 = $datos_base->query($sql6);
         $row6 = $result6->fetch_assoc();
         $diciembre = $row6['total'];
-        echo $diciembre;
+        echo $diciembre; */
+
+
+        /* ESTADISTICAS MENSUAL INGRESOS */
+
+
+    $arraym = [];
+    $arrayf = [];
+
+    $sql6 = "SELECT SUM(d.monto) AS total, m.fecha
+    FROM movimientodocumento m
+    LEFT JOIN datosdocumento d ON d.idDocumento = m.idDocumento
+    WHERE m.idEstadoDocumento = 10 
+    GROUP BY MONTH(m.fecha), YEAR(m.fecha) 
+    ORDER BY m.fecha DESC 
+    LIMIT 0,1";
+    $result6 = $datos_base->query($sql6);
+    $row6 = $result6->fetch_assoc();
+    $monto1 = $row6['total'];
+    $fecha1 = $row6['fecha'];
+    $fec1 = date("m/Y", strtotime($fecha1));
+    if(isset($monto1)){
+        array_push($arraym, $monto1);
+        array_push($arrayf, $fec1);
+    }
+
+    $sql6 = "SELECT SUM(d.monto) AS total, m.fecha
+    FROM movimientodocumento m
+    LEFT JOIN datosdocumento d ON d.idDocumento = m.idDocumento
+    WHERE m.idEstadoDocumento = 10 
+    GROUP BY MONTH(m.fecha), YEAR(m.fecha) 
+    ORDER BY m.fecha DESC 
+    LIMIT 1,1";
+    $result6 = $datos_base->query($sql6);
+    $row6 = $result6->fetch_assoc();
+    $monto2 = $row6['total'];
+    $fecha2 = $row6['fecha'];
+    $fec2 = date("m/Y", strtotime($fecha2));
+    if(isset($monto2)){
+        array_push($arraym, $monto2);
+        array_push($arrayf, $fec2);
+    }
+
+    $sql6 = "SELECT SUM(d.monto) AS total, m.fecha
+    FROM movimientodocumento m
+    LEFT JOIN datosdocumento d ON d.idDocumento = m.idDocumento
+    WHERE m.idEstadoDocumento = 10 
+    GROUP BY MONTH(m.fecha), YEAR(m.fecha) 
+    ORDER BY m.fecha DESC
+    LIMIT 2,1";
+    $result6 = $datos_base->query($sql6);
+    $row6 = $result6->fetch_assoc();
+    $monto3 = $row6['total'];
+    $fecha3 = $row6['fecha'];
+    $fec3 = date("m/Y", strtotime($fecha3));
+    if(isset($monto3)){
+        array_push($arraym, $monto3);
+        array_push($arrayf, $fec3);
+    }
+
+    $sql6 = "SELECT SUM(d.monto) AS total, m.fecha
+    FROM movimientodocumento m
+    LEFT JOIN datosdocumento d ON d.idDocumento = m.idDocumento
+    WHERE m.idEstadoDocumento = 10 
+    GROUP BY MONTH(m.fecha), YEAR(m.fecha) 
+    ORDER BY m.fecha DESC 
+    LIMIT 3,1";
+    $result6 = $datos_base->query($sql6);
+    $row6 = $result6->fetch_assoc();
+    $monto4 = $row6['total'];
+    $fecha4 = $row6['fecha'];
+    $fec4 = date("m/Y", strtotime($fecha4));
+    if(isset($monto4)){
+        array_push($arraym, $monto4);
+        array_push($arrayf, $fec4);
+    }
+
+    $sql6 = "SELECT SUM(d.monto) AS total, m.fecha
+    FROM movimientodocumento m
+    LEFT JOIN datosdocumento d ON d.idDocumento = m.idDocumento
+    WHERE m.idEstadoDocumento = 10 
+    GROUP BY MONTH(m.fecha), YEAR(m.fecha) 
+    ORDER BY m.fecha DESC 
+    LIMIT 4,1";
+    $result6 = $datos_base->query($sql6);
+    $row6 = $result6->fetch_assoc();
+    $monto5 = $row6['total'];
+    $fecha5 = $row6['fecha'];
+    $fec5 = date("m/Y", strtotime($fecha5));
+    if(isset($monto5)){
+        array_push($arraym, $monto5);
+        array_push($arrayf, $fec5);
+    }
+
+    $sql6 = "SELECT SUM(d.monto) AS total, m.fecha
+    FROM movimientodocumento m
+    LEFT JOIN datosdocumento d ON d.idDocumento = m.idDocumento
+    WHERE m.idEstadoDocumento = 10 
+    GROUP BY MONTH(m.fecha), YEAR(m.fecha) 
+    ORDER BY m.fecha DESC 
+    LIMIT 5,1";
+    $result6 = $datos_base->query($sql6);
+    $row6 = $result6->fetch_assoc();
+    $monto6 = $row6['total'];
+    $fecha6 = $row6['fecha'];
+    $fec6 = date("m/Y", strtotime($fecha6));
+    if(isset($monto6)){
+        array_push($arraym, $monto6);
+        array_push($arrayf, $fec6);
+    }
+
+    $sql6 = "SELECT SUM(d.monto) AS total, m.fecha
+    FROM movimientodocumento m
+    LEFT JOIN datosdocumento d ON d.idDocumento = m.idDocumento
+    WHERE m.idEstadoDocumento = 10 
+    GROUP BY MONTH(m.fecha), YEAR(m.fecha) 
+    ORDER BY m.fecha DESC 
+    LIMIT 6,1";
+    $result6 = $datos_base->query($sql6);
+    $row6 = $result6->fetch_assoc();
+    $monto7 = $row6['total'];
+    $fecha7 = $row6['fecha'];
+    $fec7 = date("m/Y", strtotime($fecha7));
+    if(isset($monto7)){
+        array_push($arraym, $monto7);
+        array_push($arrayf, $fec7);
+    }
+
+    $sql6 = "SELECT SUM(d.monto) AS total, m.fecha
+    FROM movimientodocumento m
+    LEFT JOIN datosdocumento d ON d.idDocumento = m.idDocumento
+    WHERE m.idEstadoDocumento = 10 
+    GROUP BY MONTH(m.fecha), YEAR(m.fecha) 
+    ORDER BY m.fecha DESC 
+    LIMIT 7,1";
+    $result6 = $datos_base->query($sql6);
+    $row6 = $result6->fetch_assoc();
+    $monto8 = $row6['total'];
+    $fecha8 = $row6['fecha'];
+    $fec8 = date("m/Y", strtotime($fecha8));
+    if(isset($monto8)){
+        array_push($arraym, $monto8);
+        array_push($arrayf, $fec8);
+    }
+
+    $sql6 = "SELECT SUM(d.monto) AS total, m.fecha
+    FROM movimientodocumento m
+    LEFT JOIN datosdocumento d ON d.idDocumento = m.idDocumento
+    WHERE m.idEstadoDocumento = 10 
+    GROUP BY MONTH(m.fecha), YEAR(m.fecha) 
+    ORDER BY m.fecha DESC 
+    LIMIT 8,1";
+    $result6 = $datos_base->query($sql6);
+    $row6 = $result6->fetch_assoc();
+    $monto9 = $row6['total'];
+    $fecha9 = $row6['fecha'];
+    $fec9 = date("m/Y", strtotime($fecha9));
+    if(isset($monto9)){
+        array_push($arraym, $monto9);
+        array_push($arrayf, $fec9);
+    }
+
+    $sql6 = "SELECT SUM(d.monto) AS total, m.fecha
+    FROM movimientodocumento m
+    LEFT JOIN datosdocumento d ON d.idDocumento = m.idDocumento
+    WHERE m.idEstadoDocumento = 10 
+    GROUP BY MONTH(m.fecha), YEAR(m.fecha) 
+    ORDER BY m.fecha DESC 
+    LIMIT 9,1";
+    $result6 = $datos_base->query($sql6);
+    $row6 = $result6->fetch_assoc();
+    $monto10 = $row6['total'];
+    $fecha10 = $row6['fecha'];
+    $fec10 = date("m/Y", strtotime($fecha10));
+    if(isset($monto10)){
+        array_push($arraym, $monto10);
+        array_push($arrayf, $fec10);
+    }
+
+    $sql6 = "SELECT SUM(d.monto) AS total, m.fecha
+    FROM movimientodocumento m
+    LEFT JOIN datosdocumento d ON d.idDocumento = m.idDocumento
+    WHERE m.idEstadoDocumento = 10 
+    GROUP BY MONTH(m.fecha), YEAR(m.fecha) 
+    ORDER BY m.fecha DESC 
+    LIMIT 10,1";
+    $result6 = $datos_base->query($sql6);
+    $row6 = $result6->fetch_assoc();
+    $monto11 = $row6['total'];
+    $fecha11 = $row6['fecha'];
+    $fec11 = date("m/Y", strtotime($fecha11));
+    if(isset($monto11)){
+        array_push($arraym, $monto11);
+        array_push($arrayf, $fec11);
+    }
+
+    $sql6 = "SELECT SUM(d.monto) AS total, m.fecha
+    FROM movimientodocumento m
+    LEFT JOIN datosdocumento d ON d.idDocumento = m.idDocumento
+    WHERE m.idEstadoDocumento = 10 
+    GROUP BY MONTH(m.fecha), YEAR(m.fecha) 
+    ORDER BY m.fecha DESC 
+    LIMIT 11,1";
+    $result6 = $datos_base->query($sql6);
+    $row6 = $result6->fetch_assoc();
+    $monto12 = $row6['total'];
+    $fecha12 = $row6['fecha'];
+    $fec12 = date("m/Y", strtotime($fecha12));
+    if(isset($monto12)){
+        array_push($arraym, $monto12);
+        array_push($arrayf, $fec12);
+    }
+
+
+/* ------------------------------------------- */
+/* ESTADISTICAS MENSUAL EGRESOS*/
+/* ------------------------------------------- */
+$arraym2 = [];
+$arrayf2 = [];
+
+$sql6 = "SELECT SUM(d.monto) AS total, m.fecha
+FROM movimientolicitacion m
+LEFT JOIN datoslicitacion d ON d.idLicitacion = m.idLicitacion
+WHERE m.idEstadoLicitacion = 6
+GROUP BY MONTH(m.fecha), YEAR(m.fecha) 
+ORDER BY m.fecha DESC 
+LIMIT 0,1";
+$result6 = $datos_base->query($sql6);
+$row6 = $result6->fetch_assoc();
+$montol1 = $row6['total'];
+$fechal1 = $row6['fecha'];
+$fecl1 = date("m/Y", strtotime($fechal1));
+if(isset($montol1)){
+    array_push($arraym2, $montol1);
+    array_push($arrayf2, $fecl1);
+}
+
+$sql6 = "SELECT SUM(d.monto) AS total, m.fecha
+FROM movimientolicitacion m
+LEFT JOIN datoslicitacion d ON d.idLicitacion = m.idLicitacion
+WHERE m.idEstadoLicitacion = 6
+GROUP BY MONTH(m.fecha), YEAR(m.fecha) 
+ORDER BY m.fecha DESC 
+LIMIT 1,1";
+$result6 = $datos_base->query($sql6);
+$row6 = $result6->fetch_assoc();
+$montol2 = $row6['total'];
+$fechal2 = $row6['fecha'];
+$fecl2 = date("m/Y", strtotime($fechal2));
+if(isset($montol2)){
+    array_push($arraym2, $montol2);
+    array_push($arrayf2, $fecl2);
+}
+
+$sql6 = "SELECT SUM(d.monto) AS total, m.fecha
+FROM movimientolicitacion m
+LEFT JOIN datoslicitacion d ON d.idLicitacion = m.idLicitacion
+WHERE m.idEstadoLicitacion = 6
+GROUP BY MONTH(m.fecha), YEAR(m.fecha) 
+ORDER BY m.fecha DESC 
+LIMIT 2,1";
+$result6 = $datos_base->query($sql6);
+$row6 = $result6->fetch_assoc();
+$montol3 = $row6['total'];
+$fechal3 = $row6['fecha'];
+$fecl3 = date("m/Y", strtotime($fechal3));
+if(isset($montol3)){
+    array_push($arraym2, $montol3);
+    array_push($arrayf2, $fecl3);
+}
+
+$sql6 = "SELECT SUM(d.monto) AS total, m.fecha
+FROM movimientolicitacion m
+LEFT JOIN datoslicitacion d ON d.idLicitacion = m.idLicitacion
+WHERE m.idEstadoLicitacion = 6
+GROUP BY MONTH(m.fecha), YEAR(m.fecha) 
+ORDER BY m.fecha DESC 
+LIMIT 3,1";
+$result6 = $datos_base->query($sql6);
+$row6 = $result6->fetch_assoc();
+$montol4 = $row6['total'];
+$fechal4 = $row6['fecha'];
+$fecl4 = date("m/Y", strtotime($fechal4));
+if(isset($montol4)){
+    array_push($arraym2, $montol4);
+    array_push($arrayf2, $fecl4);
+}
+
+$sql6 = "SELECT SUM(d.monto) AS total, m.fecha
+FROM movimientolicitacion m
+LEFT JOIN datoslicitacion d ON d.idLicitacion = m.idLicitacion
+WHERE m.idEstadoLicitacion = 6
+GROUP BY MONTH(m.fecha), YEAR(m.fecha) 
+ORDER BY m.fecha DESC 
+LIMIT 4,1";
+$result6 = $datos_base->query($sql6);
+$row6 = $result6->fetch_assoc();
+$montol5 = $row6['total'];
+$fechal5 = $row6['fecha'];
+$fecl5 = date("m/Y", strtotime($fechal5));
+if(isset($montol5)){
+    array_push($arraym2, $montol5);
+    array_push($arrayf2, $fecl5);
+}
+
+$sql6 = "SELECT SUM(d.monto) AS total, m.fecha
+FROM movimientolicitacion m
+LEFT JOIN datoslicitacion d ON d.idLicitacion = m.idLicitacion
+WHERE m.idEstadoLicitacion = 6
+GROUP BY MONTH(m.fecha), YEAR(m.fecha) 
+ORDER BY m.fecha DESC 
+LIMIT 5,1";
+$result6 = $datos_base->query($sql6);
+$row6 = $result6->fetch_assoc();
+$montol6 = $row6['total'];
+$fechal6 = $row6['fecha'];
+$fecl6 = date("m/Y", strtotime($fechal6));
+if(isset($montol6)){
+    array_push($arraym2, $montol6);
+    array_push($arrayf2, $fecl6);
+}
+
+$sql6 = "SELECT SUM(d.monto) AS total, m.fecha
+FROM movimientolicitacion m
+LEFT JOIN datoslicitacion d ON d.idLicitacion = m.idLicitacion
+WHERE m.idEstadoLicitacion = 6
+GROUP BY MONTH(m.fecha), YEAR(m.fecha) 
+ORDER BY m.fecha DESC 
+LIMIT 6,1";
+$result6 = $datos_base->query($sql6);
+$row6 = $result6->fetch_assoc();
+$montol7 = $row6['total'];
+$fechal7 = $row6['fecha'];
+$fecl7 = date("m/Y", strtotime($fechal7));
+if(isset($montol7)){
+    array_push($arraym2, $montol7);
+    array_push($arrayf2, $fecl7);
+}
+
+$sql6 = "SELECT SUM(d.monto) AS total, m.fecha
+FROM movimientolicitacion m
+LEFT JOIN datoslicitacion d ON d.idLicitacion = m.idLicitacion
+WHERE m.idEstadoLicitacion = 6
+GROUP BY MONTH(m.fecha), YEAR(m.fecha) 
+ORDER BY m.fecha DESC 
+LIMIT 7,1";
+$result6 = $datos_base->query($sql6);
+$row6 = $result6->fetch_assoc();
+$montol8 = $row6['total'];
+$fechal8 = $row6['fecha'];
+$fecl8 = date("m/Y", strtotime($fechal8));
+if(isset($montol8)){
+    array_push($arraym2, $montol8);
+    array_push($arrayf2, $fecl8);
+}
+
+$sql6 = "SELECT SUM(d.monto) AS total, m.fecha
+FROM movimientolicitacion m
+LEFT JOIN datoslicitacion d ON d.idLicitacion = m.idLicitacion
+WHERE m.idEstadoLicitacion = 6
+GROUP BY MONTH(m.fecha), YEAR(m.fecha) 
+ORDER BY m.fecha DESC 
+LIMIT 8,1";
+$result6 = $datos_base->query($sql6);
+$row6 = $result6->fetch_assoc();
+$montol9 = $row6['total'];
+$fechal9 = $row6['fecha'];
+$fecl9 = date("m/Y", strtotime($fechal9));
+if(isset($montol9)){
+    array_push($arraym2, $montol9);
+    array_push($arrayf2, $fecl9);
+}
+
+$sql6 = "SELECT SUM(d.monto) AS total, m.fecha
+FROM movimientolicitacion m
+LEFT JOIN datoslicitacion d ON d.idLicitacion = m.idLicitacion
+WHERE m.idEstadoLicitacion = 6
+GROUP BY MONTH(m.fecha), YEAR(m.fecha) 
+ORDER BY m.fecha DESC 
+LIMIT 9,1";
+$result6 = $datos_base->query($sql6);
+$row6 = $result6->fetch_assoc();
+$montol10 = $row6['total'];
+$fechal10 = $row6['fecha'];
+$fecl10 = date("m/Y", strtotime($fechal10));
+if(isset($montol10)){
+    array_push($arraym2, $montol10);
+    array_push($arrayf2, $fecl10);
+}
+
+$sql6 = "SELECT SUM(d.monto) AS total, m.fecha
+FROM movimientolicitacion m
+LEFT JOIN datoslicitacion d ON d.idLicitacion = m.idLicitacion
+WHERE m.idEstadoLicitacion = 6
+GROUP BY MONTH(m.fecha), YEAR(m.fecha) 
+ORDER BY m.fecha DESC 
+LIMIT 10,1";
+$result6 = $datos_base->query($sql6);
+$row6 = $result6->fetch_assoc();
+$montol11 = $row6['total'];
+$fechal11 = $row6['fecha'];
+$fecl11 = date("m/Y", strtotime($fechal11));
+if(isset($montol11)){
+    array_push($arraym2, $montol11);
+    array_push($arrayf2, $fecl11);
+}
+
+$sql6 = "SELECT SUM(d.monto) AS total, m.fecha
+FROM movimientolicitacion m
+LEFT JOIN datoslicitacion d ON d.idLicitacion = m.idLicitacion
+WHERE m.idEstadoLicitacion = 6
+GROUP BY MONTH(m.fecha), YEAR(m.fecha) 
+ORDER BY m.fecha DESC 
+LIMIT 11,1";
+$result6 = $datos_base->query($sql6);
+$row6 = $result6->fetch_assoc();
+$montol12 = $row6['total'];
+$fechal12 = $row6['fecha'];
+$fecl12 = date("m/Y", strtotime($fechal12));
+if(isset($montol12)){
+    array_push($arraym2, $montol12);
+    array_push($arrayf2, $fecl12);
+}
+
 ?>
-
-
     <script>
     let miCanvas=document.getElementById("MiGrafica").getContext("2d");
 
@@ -611,36 +1042,70 @@ $idRol = $row['idRol'];
 
 
 <script>
-    let miCanvas2=document.getElementById("MiGrafica2").getContext("2d");
+let miCanvas2=document.getElementById("MiGrafica2").getContext("2d");
 
 var chart = new Chart(miCanvas2,{
     type: "line",
     data:{
         labels:[
-            "<?php echo "1- Enero";?>",
-            "<?php echo "2- Febrero";?>",
-            "<?php echo "3- Marzo";?>",
-            "<?php echo "4- Abril";?>",
-            "<?php echo "5- Mayo";?>",
-            "<?php echo "6- Junio";?>",
-            "<?php echo "7- Julio";?>",
-            "<?php echo "8- Agosto";?>",
-            "<?php echo "9- Septiembre";?>", 
-            "<?php echo "10- Octubre";?>",
-            "<?php echo "11- Noviembre";?>",
-            "<?php echo "12- Diciembre";?>", 
-                ],
+            <?php 
+                $largo = count($arrayf);
+                $i = $largo -1;
+                while($i >= 0){
+                    echo json_encode($arrayf[$i]).',';
+                    $i--;
+                }
+                ;?>
+        ],
         datasets:[{
             label: "INGRESOS",
-            backgroundColor: "green",
+            backgroundColor: "",
             borderColor: "green",
-            data:[22, 55, 35, 33, 24, 15, 50, 20, 33, 35, 24, 26]
+            data:[
+                <?php 
+                $largo = count($arraym);
+                $i = $largo - 1;
+                while($i >= 0){
+                    echo json_encode($arraym[$i]).',';
+                    $i--;
+                }
+                ;?>
+                ]
         },
-        {
+    ]
+    }
+})
+    </script>
+<script>
+let miCanvas3=document.getElementById("MiGrafica3").getContext("2d");
+
+var chart = new Chart(miCanvas3,{
+    type: "line",
+    data:{
+        labels:[
+            <?php 
+                $largo = count($arrayf2);
+                $i = $largo -1;
+                while($i >= 0){
+                    echo json_encode($arrayf2[$i]).',';
+                    $i--;
+                }
+                ;?>
+        ],
+        datasets:[{
             label: "EGRESOS",
-            backgroundColor: "red",
+            backgroundColor: "",
             borderColor: "red",
-            data:[12, 25, 45, 23, 14, 25, 46, 10, 23, 25, 30, 40]
+            data:[
+                <?php 
+                $largo = count($arraym2);
+                $i = $largo - 1;
+                while($i >= 0){
+                    echo json_encode($arraym2[$i]).',';
+                    $i--;
+                }
+                ;?>
+                ]
         },
     ]
     }

@@ -88,9 +88,14 @@ $montototal = $row6['suma']; */
 
 $coniva = $montototal *1.21;
 
+$sent= "SELECT idUsuario FROM postulacionlicitacion WHERE idPostulacion = '$idPos'";
+$resultado = $datos_base->query($sent);
+$row = $resultado->fetch_assoc();
+$postulante = $row['idUsuario'];
+
 
 /* TABLA datoslicitacion Se modifica el el usuario que la gano, monto y observacion nueva del usuario ingresada*/
-mysqli_query($datos_base, "UPDATE datoslicitacion SET idUsuario = '$idUsu', monto = '$coniva' WHERE idLicitacion = '$idLic'");
+mysqli_query($datos_base, "UPDATE datoslicitacion SET idUsuario = '$postulante', monto = '$coniva' WHERE idLicitacion = '$idLic'");
 
 header("Location: ../Sistema/Licitaciones/licOrdenCompra.php?ok");
 mysqli_close($datos_base);

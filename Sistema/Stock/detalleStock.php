@@ -63,7 +63,7 @@ function ConsultarIncidente($no_tic)
     <main>
         <section class="inicio">
         <div class="inicio-tit">
-                <h1>Modificar producto de stock</h1>
+                <h1>Dar de baja stock</h1>
         </div>
         <div class="agrStock" style="padding:10px;">
             <form method="POST" action="../../Logica/modificarStock.php">
@@ -113,6 +113,9 @@ function ConsultarIncidente($no_tic)
                         <label for="cant">Cantidad a dar de baja</label>
                         <input type="number" name="cant" id="cant" min=1 onkeypress="return valideKey(event);" <?php echo "max= ".$consulta[4]."";?> required>
                     </div>
+                    <div>
+                        <button type="submit">MODIFICAR</button>
+                    </div>
                 <?php
                     }else{echo"
                         <div>
@@ -121,12 +124,7 @@ function ConsultarIncidente($no_tic)
                     ";
                     }
                 ?>
-                <div>
-                    <textarea style="text-transform:uppercase" name="mot" id="" cols="30" rows="3" required placeholder="Motivo de la baja"></textarea>
-                </div>
-                <div>
-                    <button type="submit">MODIFICAR</button>
-                </div>
+
             </form>
         
             <div class="agregar">

@@ -1,5 +1,5 @@
 <?php
-error_reporting(0);
+
 session_start();
 include('../../Utils/conexion.php');
 
@@ -116,8 +116,8 @@ function ConsultarIncidente($no_tic)
                                 $direccion = $row6['direccion'];
                                 $nombre = $row6['nombre'];
                     ?>
-                        <p>Señores: <?php echo $nombre ?></p>
-                        <p>Domicilio: <?php echo $direccion ?></p>
+                        <p>Señores: <?php if(isset($nombre)){echo $nombre;} ?></p>
+                        <p>Domicilio: <?php if(isset($direccion)){echo $direccion;} ?></p>
                     </div>
                 </div>
 <!--                 <div class="cot-info">

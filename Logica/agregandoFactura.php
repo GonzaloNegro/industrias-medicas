@@ -64,7 +64,7 @@ foreach ($_POST['idpro'] as $ids)
     /* HACER UN UPDATE DE EL ESTADO DEL PRODUCTO PARA QUE PASE DE RESERVADO A BAJA Y NO QUEDE EL RESERVADO CONTANDO
         FALTARIA EN LO DE DAR BAJA, TAMBIEN ACTUALIZARLO ASI NO QUEDA RESERVADO
     */
-    $actualizar=$datos_base->query("INSERT INTO movimientoproducto VALUES(DEFAULT, '$editPro', '$fechaActual', 3, '$editCant', 'VENTA')");
+    $actualizar=$datos_base->query("INSERT INTO movimientoproducto VALUES(DEFAULT, '$editPro', '$fechaActual', 3, '$editCant', 3)");
 }
 
 

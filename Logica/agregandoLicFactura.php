@@ -65,7 +65,7 @@ foreach ($_POST['idpro'] as $ids)
     $totalNuevo = $cantidadReal + $editCant;
 
     /* REGISTRAR MOVIMIENTO DE PRODUCTOS */
-    mysqli_query($datos_base, "INSERT INTO movimientoproducto VALUES (DEFAULT, '$editPro', '$fechaActual', 1, '$editCant','LICITACIÓN')");
+    mysqli_query($datos_base, "INSERT INTO movimientoproducto VALUES (DEFAULT, '$editPro', '$fechaActual', 1, '$editCant', 2)");
 
     /* ACTUALIZO */
     $actualizar=$datos_base->query("UPDATE producto SET cantidad = '$totalNuevo' WHERE idProducto = '$editPro'");

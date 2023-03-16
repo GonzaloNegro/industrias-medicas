@@ -22,7 +22,6 @@ $fechaActual = date('Y-m-d');
 
 $id = $_POST['nroProducto'];
 $cant = $_POST['cant'];
-$mot = $_POST['mot'];
 
 $sql6 = "SELECT cantidad FROM producto WHERE idProducto = '$id'";
 $result6 = $datos_base->query($sql6);
@@ -35,7 +34,7 @@ $total = $cantidadbd - $cant;
 mysqli_query($datos_base, "UPDATE producto SET cantidad = '$total' WHERE idProducto = '$id'");
 
 /* INSERT añadirlo en tabla de movimientoproducto como una BAJA*/
-mysqli_query($datos_base, "INSERT INTO movimientoproducto VALUES (DEFAULT, '$id', '$fechaActual', 3, '$cant', '$mot')");
+mysqli_query($datos_base, "INSERT INTO movimientoproducto VALUES (DEFAULT, '$id', '$fechaActual', 3, '$cant', 5)");
 
 
 header("Location: ../Sistema/Stock/stock.php?ok");

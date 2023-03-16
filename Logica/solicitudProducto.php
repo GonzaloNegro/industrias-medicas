@@ -49,6 +49,6 @@ if(isset($_POST['insertar'])){
     }
 
 
-header("Location: ../Sistema/Licitaciones/solLic.php?pedido");
+header("Location: ../Sistema/Stock/stock.php?pedido");
 mysqli_close($datos_base);
 ?>

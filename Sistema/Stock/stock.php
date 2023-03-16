@@ -46,7 +46,7 @@ $idRol = $row['idRol'];
     ?>
     <script type="text/javascript">
         function ok(){
-            swal(  {title: "Productos suprimidos correctamente",
+            swal.fire(  {title: "Productos suprimidos correctamente",
                     icon: "success",
                     showConfirmButton: true,
                     showCancelButton: false,
@@ -54,7 +54,7 @@ $idRol = $row['idRol'];
 	</script>
     <script type="text/javascript">
     function pedido(){
-        swal(  {title: "Stock solicitado correctamente",
+        swal.fire(  {title: "Stock solicitado correctamente",
                 icon: "success",
                 showConfirmButton: true,
                 showCancelButton: false,

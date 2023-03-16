@@ -17,7 +17,7 @@ function ConsultarIncidente($no_tic)
         $filas['fecha'],/*2*/
 		$filas['idEstadoProducto'],/* 3 */
         $filas['cantidad'],/*4*/
-        $filas['motivo'],/*5*/
+        $filas['idMotivo'],/*5*/
 	];
 }
 
@@ -85,7 +85,11 @@ function ConsultarIncidente($no_tic)
                 <div style="text-align: center; padding:10px;">
                     <h4>Motivo:</h4>
                     <p><?php 
-                    echo $consulta[5];?></p>
+                            $sql6 = "SELECT motivo FROM motivo WHERE idMotivo = $consulta[5]";
+                            $result6 = $datos_base->query($sql6);
+                            $row6 = $result6->fetch_assoc();
+                            $motivo = $row6['motivo'];
+                    echo $motivo;?></p>
                 </div>
             </form>
         

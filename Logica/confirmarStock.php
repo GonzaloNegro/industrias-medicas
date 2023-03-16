@@ -82,7 +82,7 @@ foreach ($_POST['idpro'] as $ids)
     /* FALTA INGRESAR EL NUMERO DEL DOCUMENTO---- TAMBIEN INSERTAR LA COLUMNA idDocumento EN LA TABLA movimientoproducto 
     Y FALTARIA EN LO DE DAR BAJA TAMBIEN AGREGAR EL ID
     */
-    $actualizar=$datos_base->query("INSERT INTO movimientoproducto VALUES(DEFAULT, '$editPro', '$fechaActual', 2, '$editCant', 'RESERVA DE VENTA')");
+    $actualizar=$datos_base->query("INSERT INTO movimientoproducto VALUES(DEFAULT, '$editPro', '$fechaActual', 2, '$editCant', 4)");
 }
 
 

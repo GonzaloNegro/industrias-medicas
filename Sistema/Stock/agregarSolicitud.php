@@ -73,16 +73,16 @@ function ConsultarIncidente($no_tic)
                 <h1>Solicitud de Stock</h1>
         </div>
         <div class="agrStock">
-            <form method="POST" action="../../Logica/solicitudProducto.php">
+            <form method="POST" action="../../Logica/solicitudProductoParticular.php">
                 <div>
-                    <input type="text" class="ocultar" name="nroProducto" id="remito" value="<?php echo $consulta[0]?>">
+                    <input type="text" class="ocultar" name="producto" id="remito" value="<?php echo $consulta[0]?>">
                 </div>
                 <div style="text-align: center; padding:10px;">
                     <h4>Nombre del producto:</h4>
                     <p><?php echo $consulta[1];?></p>
                 </div>
                 <div>
-                    <input type="number" name="cant" id="" min=1 onkeypress="return valideKey(event);" placeholder="Cantidad" required>
+                    <input type="number" name="cantidad" id="" min=1 onkeypress="return valideKey(event);" placeholder="Cantidad" required>
                 </div>
                 <div>
                     <textarea style="text-transform:uppercase" name="obs" id="obs" cols="30" rows="3" placeholder="Observación"></textarea>

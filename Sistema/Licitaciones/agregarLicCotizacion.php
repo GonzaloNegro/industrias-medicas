@@ -36,12 +36,22 @@ $idUsu = $row['idUsuario']
         // Clona la fila oculta que tiene los campos base, y la agrega al final de la tabla
         $("#adicional").on('click', function(){
             $("#tabla tbody tr:eq(0)").clone().removeClass('fila-fija').appendTo("#tabla");
+            numero++;
+            contador.innerHTML = "Cantidad de productos: "+numero;
         });
-        
+
         // Evento que selecciona la fila y la elimina 
         $(document).on("click",".eliminar",function(){
             var parent = $(this).parents().get(0);
             $(parent).remove();
+            if(numero == 0){
+            }else{
+                numero--;
+                contador.innerHTML = "Cantidad de productos: "+numero;
+                if(numero == 0){
+                    location.reload();
+                }
+            }
         });
     });
 </script>
@@ -72,12 +82,12 @@ $idUsu = $row['idUsuario']
                 <h1>Generar una nueva licitación</h1>
         </div>
         <div class="agrStock">
-            <form method="POST" action="../../Logica/agregandoNuevaLicCotizacion.php">
+            <form method="POST" id="formcot" action="../../Logica/agregandoNuevaLicCotizacion.php">
                 <div>
                     <table class="table"  id="tabla">
                         <tr class="fila-fija">
                             <td>
-                                <select name="producto[]" class="form-control" required>
+                                <select name="producto[]" id="prod" class="form-control" required>
                                     <option value="" selected disabled="producto[]">-SELECCIONE EL PRODUCTO-</option>
                                     <?php
                                     $consulta= "SELECT * FROM producto";
@@ -88,8 +98,8 @@ $idUsu = $row['idUsuario']
                                     <?php endforeach ?>
                                 </select>
                             </td>
-                            <td><input type="number" required name="cantidad[]" min=1 onkeypress="return valideKey(event);" placeholder="Cantidad"/></td>
-                            <td class="eliminar"><button type="button">Eliminar</button></td>
+                            <td><input type="number" required id="cant" name="cantidad[]" min=1 onkeypress="return valideKey(event);" placeholder="Cantidad"/></td>
+                            <td class="eliminar"><button  type="button" id="menos">Eliminar</button></td>
                         </tr>
                     </table>
                 </div>
@@ -101,7 +111,8 @@ $idUsu = $row['idUsuario']
                     <textarea name="obs" style="text-transform:uppercase" id="" cols="30" rows="3" placeholder="Observaciones"></textarea>
                 </div>
                 <div>
-                    <button type="submit" name="insertar">GENERAR</button>
+                <p id="contar">Cantidad de productos: 1</p>
+                    <button type="submit" id="btncot"  name="insertar">GENERAR</button>
                     <button id="adicional" name="adicional" type="button">Insertar otro producto </button>
                 </div>
             </form>
@@ -115,5 +126,6 @@ $idUsu = $row['idUsuario']
     <script src="https://kit.fontawesome.com/ebb188da7c.js" crossorigin="anonymous"></script>
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
     <script src="../Js/script.js"></script>
+    <script src="../Ventas/scriptcot.js"></script>
 </body>
 </html>

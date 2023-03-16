@@ -113,7 +113,7 @@ $idRol = $row['idRol'];
                                     LEFT JOIN producto p ON p.idProducto = s.idProducto
                                     LEFT JOIN estadosolicitud e ON e.idEstadoSolicitud = s.idEstadoSolicitud
                                     WHERE s.idSolicitud LIKE '%$doc%' OR p.producto LIKE '%$doc%' OR s.fecha LIKE '%$doc%' OR s.cantidad LIKE '%$doc%' OR e.estadoSolicitud LIKE '%$doc%'
-                                    ORDER BY s.fecha ASC");
+                                    ORDER BY e.estadoSolicitud DESC");
                                     while($listar = mysqli_fetch_array($consulta)) 
                                     {
                                         if($listar['estadoSolicitud'] == 'FINALIZADA'){
@@ -147,7 +147,7 @@ $idRol = $row['idRol'];
                                     FROM solicitudes s
                                     LEFT JOIN producto p ON p.idProducto = s.idProducto
                                     LEFT JOIN estadosolicitud e ON e.idEstadoSolicitud = s.idEstadoSolicitud
-                                    ORDER BY s.fecha ASC");
+                                    ORDER BY e.estadoSolicitud DESC");
                                     while($listar = mysqli_fetch_array($consulta)) 
                                     {
 

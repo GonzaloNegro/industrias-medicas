@@ -9,7 +9,7 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="../Css/estilos.css"/>
     <title>Industrias Médicas</title>
@@ -17,11 +17,11 @@
 <body>
 <script type="text/javascript">
 			function done(){
-				swal("Solicitud enviada", "Verifique su correo para reestablecer su contraseña", "success");
+				swal.fire("Solicitud enviada", "Verifique su correo para reestablecer su contraseña", "success");
 			}	</script>
 			<script>
 			function error(){
-				swal("Usuario o email incorrecto", "No existe usuario registrado con el usuario o email ingresado", "error");
+				swal.fire("Usuario o email incorrecto", "No existe usuario registrado con el usuario o email ingresado", "error");
 			}	
 			</script>
 <div class="cont-img" id="imagen">

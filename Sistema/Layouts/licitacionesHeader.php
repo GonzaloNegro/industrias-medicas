@@ -177,7 +177,7 @@
                     </div>
                    <!--  <a href=""><i class="fa-regular fa-bell"></i></a> -->
                    <div class="not-exit-exit">
-                       <a href="../Utils/salir.php">
+                       <a href="../../Utils/salir.php">
                            <button class="btn btn-outline-danger" type="submit">Salir</button>
                         </a>
                    </div>

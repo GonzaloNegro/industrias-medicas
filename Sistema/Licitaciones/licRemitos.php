@@ -26,7 +26,7 @@ $idRol = $row['idRol'];
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="../../Css/estilos.css"/>
     <title>Industrias Médicas</title>
@@ -46,7 +46,7 @@ $idRol = $row['idRol'];
         ?>
 <script type="text/javascript">
 			function ok(){
-				swal(  {title: "Se ha aceptado la Orden de compra",
+				swal.fire(  {title: "Se ha aceptado la Orden de compra",
 						icon: "success",
 						showConfirmButton: true,
 						showCancelButton: false,
@@ -55,7 +55,7 @@ $idRol = $row['idRol'];
 			</script>
 <script type="text/javascript">
 function cargado(){
-    swal(  {title: "Se ha cargado correctamente su remito.",
+    swal.fire(  {title: "Se ha cargado correctamente su remito.",
             icon: "success",
             showConfirmButton: true,
             showCancelButton: false,
@@ -64,7 +64,7 @@ function cargado(){
 </script>
 <script type="text/javascript">
 function no(){
-    swal(  {title: "Se ha rechazado la Orden de compra",
+    swal.fire(  {title: "Se ha rechazado la Orden de compra",
             icon: "error",
             showConfirmButton: true,
             showCancelButton: false,

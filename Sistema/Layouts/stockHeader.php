@@ -176,7 +176,7 @@
                     <p style='color: blue; font-weight: bold;'><u>Usuario</u>: <?php echo $nom;?></p>
                 </div>
                <div class="not-exit-exit">
-                   <a href="../Utils/salir.php">
+                   <a href="../../Utils/salir.php">
                        <button class="btn btn-outline-danger" type="submit">Salir</button>
                     </a>
                </div>

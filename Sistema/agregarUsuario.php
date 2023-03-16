@@ -1,5 +1,5 @@
 <?php
-error_reporting(0);
+/* error_reporting(0); */
 session_start(); 
 include('../Utils/conexion.php');
 if(!isset($_SESSION['usuario'])) 
@@ -15,7 +15,6 @@ $row = $resultado->fetch_assoc();
 $nom = $row['usuario'];
 $idUsu = $row['idUsuario']
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -27,19 +26,20 @@ $idUsu = $row['idUsuario']
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
     <link rel="stylesheet" type="text/css" href="../Css/estilos.css"/>
     <title>Industrias Médicas</title>
 </head>
 <body>
 <script type="text/javascript">
 			function done(){
-				swal("Usuario guardado!", "Se ha registrado el usuario!", "success");
+				swal.fire("Usuario guardado!", "Se ha registrado el usuario!", "success");
 			}	</script>
 			<script>
 			function error(){
-				swal("Usuario no guardado!", "Nombre de usuario ya registrado!", "error");
+				swal.fire("Usuario no guardado!", "Nombre de usuario ya registrado!", "error");
 			}	
 			</script>
 <div class="cont-img" id="imagen">
@@ -72,21 +72,8 @@ $idUsu = $row['idUsuario']
                         <input class="form-control" type="text" name="regDir" placeholder="Dirección" required>
                     </div>
                     <div>
-                        <label>Rol:</label>
-                            <select name="rol" class="form-control" required>
-                                <option value="" selected disabled="rol">-SELECCIONE UNA-</option>
-                                <?php
-                                $consulta= "SELECT * FROM roles";
-                                $ejecutar= mysqli_query($datos_base, $consulta) or die(mysqli_error($datos_base));
-                                ?>
-                                <?php foreach ($ejecutar as $opciones): ?> 
-                                <option value="<?php echo $opciones['idRol']?>"><?php echo $opciones['rol']?></option>
-                                <?php endforeach ?>
-                            </select>
-                    </div>
-                    <div>
                         <label>Tipo:</label>
-                            <select name="tipo" class="form-control" required>
+                            <select name="tipo" id="lista1" class="form-control" required>
                                 <option value="" selected disabled="tipo">-SELECCIONE UNA-</option>
                                 <?php
                                 $consulta= "SELECT * FROM tipousuario";
@@ -96,6 +83,19 @@ $idUsu = $row['idUsuario']
                                 <option value="<?php echo $opciones['idTipoUsuario']?>"><?php echo $opciones['tipo']?></option>
                                 <?php endforeach ?>
                             </select>
+                    </div>
+                    <div id="select2lista">
+<!--                         <label>Rol:</label>
+                            <select name="rol" id="lista1" class="form-control" required>
+                                <option value="" selected disabled="rol">-SELECCIONE UNA-</option>
+                                <?php
+                                $consulta= "SELECT * FROM roles";
+                                $ejecutar= mysqli_query($datos_base, $consulta) or die(mysqli_error($datos_base));
+                                ?>
+                                <?php foreach ($ejecutar as $opciones): ?> 
+                                <option value="<?php echo $opciones['idRol']?>"><?php echo $opciones['rol']?></option>
+                                <?php endforeach ?>
+                            </select> -->
                     </div>
                     <div>
                         <button type="submit">Agregar</button>
@@ -120,6 +120,27 @@ $idUsu = $row['idUsuario']
             </div>
         </section>
     </main>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            recargarLista();
+
+            $('#lista1').change(function(){
+                recargarLista();
+            });
+        })
+    </script>
+    <script type="text/javascript">
+        function recargarLista(){
+            $.ajax({
+                type: "POST",
+                url: "./datosCarga.php",
+                data: "tipo=" + $('#lista1').val(),
+                success:function(r){
+                    $('#select2lista').html(r);
+                }
+            });
+        }
+    </script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
         <script>
             AOS.init();

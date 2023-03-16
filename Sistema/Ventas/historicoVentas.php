@@ -43,34 +43,6 @@ $idRol = $row['idRol'];
             header("Location: ../principal.php");
         }
         ?>
-<script type="text/javascript">
-			function ok(){
-				swal(  {title: "Presupuesto generado correctamente",
-						icon: "success",
-						showConfirmButton: true,
-						showCancelButton: false,
-						})
-						.then((confirmar) => {
-						if (confirmar) {
-							window.location.href='./cotizaciones.php';
-						}
-						}
-						);
-			}	
-			</script>
-<script type="text/javascript">
-			function no(){
-				swal(  {title: "El presupuesto no se ha generado. Por favor verifique los datos ingresados",
-						icon: "error",
-						})
-						.then((confirmar) => {
-						if (confirmar) {
-							window.location.href='./cotizaciones.php';
-						}
-						}
-						);
-			}	
-			</script>
     <?php include('../Layouts/ventasHeader.php'); ?>
     <main>
     <section class="ini">

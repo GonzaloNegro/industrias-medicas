@@ -46,7 +46,7 @@ $idRol = $row['idRol'];
         ?>
 <script type="text/javascript">
 			function ok(){
-				swal(  {title: "Presupuesto generado correctamente",
+				swal.fire(  {title: "Presupuesto generado correctamente",
 						icon: "success",
 						showConfirmButton: true,
 						showCancelButton: false,
@@ -61,7 +61,7 @@ $idRol = $row['idRol'];
 			</script>
 <script type="text/javascript">
 			function no(){
-				swal(  {title: "El presupuesto no se ha generado. Por favor verifique los datos ingresados",
+				swal.fire(  {title: "El presupuesto no se ha generado. Por favor verifique los datos ingresados",
 						icon: "error",
 						})
 						.then((confirmar) => {

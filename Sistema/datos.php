@@ -31,7 +31,7 @@ $direccion = $row['direccion'];
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="../Css/estilos.css"/>
     <title>Industrias Médicas</title>
@@ -39,7 +39,7 @@ $direccion = $row['direccion'];
 <body>
 <script type="text/javascript">
 			function ok(){
-				swal(  {title: "Datos modificados correctamente",
+				swal.fire(  {title: "Datos modificados correctamente",
 						icon: "success",
 						showConfirmButton: true,
 						showCancelButton: false,
@@ -48,7 +48,7 @@ $direccion = $row['direccion'];
 			</script>
 <script type="text/javascript">
 			function error(){
-				swal(  {title: "No se ha podido modificar el usuario, verifique los datos ingresados",
+				swal.fire(  {title: "No se ha podido modificar el usuario, verifique los datos ingresados",
 						icon: "error",
                         showConfirmButton: true,
 						showCancelButton: false,

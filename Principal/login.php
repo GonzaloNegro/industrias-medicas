@@ -8,7 +8,7 @@
     <link rel="shortcut icon" href="../Imagenes/c-titulo.png">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link rel="stylesheet" type="text/css" href="../Css/estilos.css"/>
     <title>Industrias Médicas</title>
 <!--     <meta name="description" content="La store mas grande de impresiòn 3D ¡Buscá tu artículo preferido y solicitalo ya mismo!"> -->
@@ -17,7 +17,7 @@
 <body class="fondo__inicio">
 <script type="text/javascript">
 			function error(){
-				swal(  {title: "Usuario o contraseña incorrecta.",
+				swal.fire(  {title: "Usuario o contraseña incorrecta.",
 						icon: "error",
 						})
 						.then((confirmar) => {
@@ -30,22 +30,22 @@
 			</script>
             <script type="text/javascript">
 			function ok(){
-				swal(  {title: "Bienvenido!",
+				swal.fire(  {title: "Bienvenido!",
 						icon: "success",
 						showConfirmButton: true,
 						showCancelButton: false,
 						})
 						.then((confirmar) => {
 						if (confirmar) {
-							window.location.href='../Sistema/Principal.php';
+							window.location.href='../Sistema/principal.php';
 						}
 						}
 						);
 			}	
 			</script>
-                        <script type="text/javascript">
+            <script type="text/javascript">
 			function reg(){
-				swal(  {title: "Usuario registrado!",
+				swal.fire(  {title: "Usuario registrado!",
 						icon: "success",
 						showConfirmButton: true,
 						showCancelButton: false,

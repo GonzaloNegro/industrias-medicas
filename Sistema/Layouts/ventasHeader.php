@@ -172,10 +172,15 @@
                     </ul>
                 </div>
                 <div class="not-exit">
+                    <div class="not-exit-name">
+                        <p style='color: blue; font-weight: bold;'><u>Usuario</u>: <?php echo $nom;?></p>
+                    </div>
                    <!--  <a href=""><i class="fa-regular fa-bell"></i></a> -->
-                    <a href="../../Utils/salir.php">
-                        <button class="btn btn-outline-danger" type="submit">Salir</button>
-                    </a>
+                   <div class="not-exit-exit">
+                       <a href="../../Utils/salir.php">
+                           <button class="btn btn-outline-danger" type="submit">Salir</button>
+                        </a>
+                   </div>
                 </div>
             </div>
         </nav>

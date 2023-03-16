@@ -98,3 +98,31 @@
     transition: 0.6s;
     color: white;
 }
+
+.formFilter{
+    width: 100%;
+}
+
+.contFilter{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    flex-direction: row;
+    gap: 1rem;
+}
+
+.contFilter--search{
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 1rem;
+}
+
+.contResult{
+    width: auto;
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+}

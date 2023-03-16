@@ -31,6 +31,36 @@ $idUsu = $row['idUsuario'];
     <title>Industrias Médicas</title>
 </head>
 <body>
+<script>
+    function imprim2(){
+        var mywindow = window.open('', 'PRINT', 'height=400,width=600');
+        mywindow.document.write('<html><head>');
+        mywindow.document.write('<link rel="stylesheet" href="../Css/estilos.css">');
+    
+        mywindow.document.write('</head><body >');
+        mywindow.document.write(document.getElementById('imprimirEsto').innerHTML);
+        mywindow.document.write('</body></html>');
+        mywindow.document.close(); // necesario para IE >= 10
+        mywindow.focus(); // necesario para IE >= 10
+        mywindow.print();
+        mywindow.close();
+        return true;}
+</script>
+<style type="text/css" media="print">
+        @media print {
+                        #formulario{display:none;}
+                        #vlv {display:none;}
+                        #imp {display:none;}
+                        #logo {display:none;}
+                        #titulo {display:none;}
+                        header {display:none;}
+                                        }
+</style>
+        <script>
+        function imprim2() {
+        window.print();
+                }
+</script>
     <?php
         if (!isset($_POST['buscar'])){$_POST['buscar'] = '';}
         if (!isset($_POST['buscadesde'])){$_POST['buscadesde'] = '';}
@@ -39,7 +69,7 @@ $idUsu = $row['idUsuario'];
         if (!isset($_POST["orden"])){$_POST["orden"] = '';}
 
     ?>
-    <div class="cont-img">
+    <div class="cont-img" id="logo">
         <a href="./principal.php" class="imagenb">
             <img src="../Imagenes/c-titulo.png" alt="logo">
          </a>
@@ -48,18 +78,39 @@ $idUsu = $row['idUsuario'];
 
     <main>
     <section class="ini">
-        <div class="ini-tit">
+        <div class="ini-tit" id="titulo">
             <h1>Productos vendidos</h1>
         </div>
        
-        <form id="form2" name="form2" method="POST" action="./prodVendidos.php">
-        <div class="col-12 row">
-
-            <div class="mb-3">
-                    <label  class="form-label">Nombre a buscar</label>
-                    <input type="text" class="form-control" id="buscar" name="buscar" value="<?php echo $_POST["buscar"] ?>" >
-            </div>
-
+        <form id="form2" name="form2"  method="POST" class="formFilter" action="./prodVendidos.php">
+        <div class="contFilter" id="formulario">
+                <div class="contFilter--name">
+                        <label  class="form-label">Nombre a buscar</label>
+                        <input type="text" class="form-control" id="buscar" name="buscar" value="<?php echo $_POST["buscar"] ?>" >
+                </div>
+                <div class="contFilter--order">
+                        Selecciona el orden
+                        <select id="assigned-tutor-filter" id="orden" name="orden" class="form-control mt-2" >
+                                <?php if ($_POST["orden"] != ''){ ?>
+                                        <option value="<?php echo $_POST["orden"]; ?>">
+                                                <?php 
+                        if ($_POST["orden"] == '1'){echo 'Ordenar por nombre';} 
+                        if ($_POST["orden"] == '2'){echo 'Ordenar por Grupo';} 
+                        if ($_POST["orden"] == '3'){echo 'Ordenar por Cantidad';} 
+                        ?>
+                        </option>
+                        <?php } ?>
+                        <option value="">Sin orden</option>
+                        <option value="1">Ordenar por nombre</option>
+                        <option value="2">Ordenar por Grupo</option>
+                        <option value="3">Ordenar por Cantidad</option>
+                </select>
+                </div>
+                <div class="contFilter--search">
+                    <input type="submit" class="btn " value="Ver" style="margin-top: 38px; background-color: blue; color: white;">
+                    <button type="submit" class="btn btn-success" id="imp" onclick="javascript:imprim2();">Imprimir</button>
+                </div>
+        </div>
 <!--             <h4 class="card-title">Filtro de búsqueda</h4>
             <div class="col-11">
                         <table class="table">
@@ -90,43 +141,8 @@ $idUsu = $row['idUsuario'];
                                 </thead>
                         </table>
                 </div> -->
-            
-            <div class="col-11">
-
-                        <table class="table">
-                                <thead>
-                                        <tr class="filters">
-                                                <th>
-                                                        Selecciona el orden
-                                                        <select id="assigned-tutor-filter" id="orden" name="orden" class="form-control mt-2" style="border: #bababa 1px solid; color:#000000;" >
-                                                                <?php if ($_POST["orden"] != ''){ ?>
-                                                                <option value="<?php echo $_POST["orden"]; ?>">
-                                                                <?php 
-                                                                if ($_POST["orden"] == '1'){echo 'Ordenar por nombre';} 
-                                                                if ($_POST["orden"] == '2'){echo 'Ordenar por Grupo';} 
-                                                                if ($_POST["orden"] == '3'){echo 'Ordenar por Cantidad';} 
-                                                                ?>
-                                                                </option>
-                                                                <?php } ?>
-                                                                <option value="">Sin orden</option>
-                                                                <option value="1">Ordenar por nombre</option>
-                                                                <option value="2">Ordenar por Grupo</option>
-                                                                <option value="3">Ordenar por Cantidad</option>
-                                                        </select>
-                                                </th>
-                                          
-                                              
-                                      
-                                        </tr>
-                                </thead>
-                        </table>
-                </div>
 
 
-                <div class="col-1">
-                        <input type="submit" class="btn " value="Ver" style="margin-top: 38px; background-color: blue; color: white;">
-                </div>
-        </div>
 
 
         <?php 
@@ -189,14 +205,16 @@ $idUsu = $row['idUsuario'];
          $numeroSql = mysqli_num_rows($sql);
 
         ?>
-        <p style="font-weight: bold; color:blue;"><i class="mdi mdi-file-document"></i> <?php echo $numeroSql; ?> Resultados encontrados</p>
+        <div class="contResult">
+                <p style="font-weight: bold; color:blue; margin-bottom: 0px;"><i class="mdi mdi-file-document"></i> <?php echo $numeroSql; ?> Resultados encontrados</p>
+        </div>
 </form>
 
 
-        <div class="table-responsive">
+        <div class="table-responsive" id="imprimirEsto">
             <table class="table">
                 <thead>
-                        <tr style="background-color:blue; color:#FFFFFF;">
+                        <tr>
                                 <th style=" text-align: center;"> Producto </th>
                                 <th style=" text-align: center;"> Grupo </th>
                                 <th style=" text-align: center;"> Cantidad </th>
@@ -205,9 +223,9 @@ $idUsu = $row['idUsuario'];
                 <tbody>
                 <?php While($rowSql = $sql->fetch_assoc()) {?>
                         <tr>
-                        <td style="text-align: center;"><?php echo $rowSql["producto"]; ?></td>
-                        <td style="text-align: center;"><?php echo $rowSql["grupoProducto"]; ?></td>
-                        <td style="text-align: center;"><?php echo $rowSql["cantidad"]; ?></td>
+                        <td><h4 style="font-size:14px; text-align:left; margin-left: 5px;"><?php echo $rowSql["producto"]; ?></h4></td>
+                        <td><h4 style="font-size:14px; text-align:left; margin-left: 5px;"><?php echo $rowSql["grupoProducto"]; ?></h4></td>
+                        <td><h4 style="font-size:14px; text-align:left; margin-left: 5px;"><?php echo $rowSql["cantidad"]; ?></h4></td>
                         </tr>
                
                <?php } ?>
@@ -215,7 +233,7 @@ $idUsu = $row['idUsuario'];
             </table>
         </div>
 
-        <div class="agregar">
+        <div class="agregar" id="imp">
             <a href="./estadisticas.php" class="volver">VOLVER</a>
         </div>
     </section>

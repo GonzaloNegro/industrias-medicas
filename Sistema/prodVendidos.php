@@ -67,7 +67,6 @@ $idUsu = $row['idUsuario'];
         if (!isset($_POST['buscahasta'])){$_POST['buscahasta'] = '';}
         if (!isset($_POST["cantidad"])){$_POST["cantidad"] = '';}
         if (!isset($_POST["orden"])){$_POST["orden"] = '';}
-
     ?>
     <div class="cont-img" id="logo">
         <a href="./principal.php" class="imagenb">
@@ -97,6 +96,7 @@ $idUsu = $row['idUsuario'];
                         if ($_POST["orden"] == '1'){echo 'Ordenar por nombre';} 
                         if ($_POST["orden"] == '2'){echo 'Ordenar por Grupo';} 
                         if ($_POST["orden"] == '3'){echo 'Ordenar por Cantidad';} 
+                        if ($_POST["orden"] == '4'){echo 'Ordenar por Precio';} 
                         ?>
                         </option>
                         <?php } ?>
@@ -104,6 +104,7 @@ $idUsu = $row['idUsuario'];
                         <option value="1">Ordenar por nombre</option>
                         <option value="2">Ordenar por Grupo</option>
                         <option value="3">Ordenar por Cantidad</option>
+                        <option value="4">Ordenar por Precio</option>
                 </select>
                 </div>
                 <div class="contFilter--search">
@@ -151,7 +152,7 @@ $idUsu = $row['idUsuario'];
         $aKeyword = explode(" ", $_POST['buscar']);
 
         if ($_POST["buscar"] == '' AND $_POST['idGrupoProducto'] == '' AND $_POST['buscadesde'] == '' AND $_POST['buscahasta'] == '' AND $_POST['grupo'] == ''){ 
-                $query ="SELECT sum(pd.cantidad) as cantidad, pr.producto, g.grupoProducto
+                $query ="SELECT sum(pd.cantidad) as cantidad, pr.producto, g.grupoProducto, (pd.cantidad * pd.precio) AS total
                 FROM documento d
                 LEFT JOIN productodocumento pd ON pd.idDocumento = d.idDocumento
                 LEFT JOIN producto pr ON pr.idProducto = pd.idProducto
@@ -160,7 +161,7 @@ $idUsu = $row['idUsuario'];
                 GROUP BY pr.producto ";
         }else{
 
-                $query = "SELECT sum(pd.cantidad) as cantidad, pr.producto, g.grupoProducto
+                $query = "SELECT sum(pd.cantidad) as cantidad, pr.producto, g.grupoProducto, (pd.cantidad * pd.precio) AS total
                 FROM documento d
                 LEFT JOIN productodocumento pd ON pd.idDocumento = d.idDocumento
                 LEFT JOIN producto pr ON pr.idProducto = pd.idProducto
@@ -195,7 +196,11 @@ $idUsu = $row['idUsuario'];
          }
 
          if ($_POST["orden"] == '3' ){
-                $query .= "  ORDER BY cantidad ASC ";
+                $query .= "  ORDER BY cantidad DESC ";
+         }
+
+         if ($_POST["orden"] == '4' ){
+                $query .= "  ORDER BY total DESC ";
          }
 }
 
@@ -215,9 +220,10 @@ $idUsu = $row['idUsuario'];
             <table class="table">
                 <thead>
                         <tr>
-                                <th style=" text-align: center;"> Producto </th>
-                                <th style=" text-align: center;"> Grupo </th>
-                                <th style=" text-align: center;"> Cantidad </th>
+                            <th style=" text-align: center;">PRODUCTO</th>
+                            <th style=" text-align: center;">GRUPO</th>
+                            <th style=" text-align: center;">CANTIDAD</th>
+                            <th style=" text-align: center;">PRECIO</th>
                         </tr>
                 </thead>
                 <tbody>
@@ -226,6 +232,7 @@ $idUsu = $row['idUsuario'];
                         <td><h4 style="font-size:14px; text-align:left; margin-left: 5px;"><?php echo $rowSql["producto"]; ?></h4></td>
                         <td><h4 style="font-size:14px; text-align:left; margin-left: 5px;"><?php echo $rowSql["grupoProducto"]; ?></h4></td>
                         <td><h4 style="font-size:14px; text-align:left; margin-left: 5px;"><?php echo $rowSql["cantidad"]; ?></h4></td>
+                        <td><h4 style="font-size:14px; text-align:left; margin-left: 5px;"><?php echo "$".$rowSql["total"]; ?></h4></td>
                         </tr>
                
                <?php } ?>

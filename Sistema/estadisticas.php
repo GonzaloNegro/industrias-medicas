@@ -41,193 +41,7 @@ $idRol = $row['idRol'];
             header("Location: ./principal.php");
         }
     ?>
-    <div class="cont-img">
-    <a href="./principal.php" class="imagenb">
-            <img src="../Imagenes/c-titulo.png" alt="logo">
-         </a>
-    </div>
-    <header class="hea-pri">
-        <nav class="navbar navbar-expand-lg navbar-light">
-            <div class="container-fluid navpri">
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav">
-                    <li class="nav-item dropdown">
-                            <a href="#" class="nav-link dropdown-toggle variacion" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Datos usuario</a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li class="nav-item">
-                                    <a class="nav-link variacion" href="./datos.php">Mis datos</a>
-                                </li>
-                                <?php
-                                    $rolgerente = 1;
-                                    $roladmin = 2;
-                                    $roldeposito = 3;
-                                    $rolventas = 4;
-                                    $rolobra = 5;
-                                    $rolproveedor = 6;
-                                    if($idRol == $rolgerente OR $idRol == $roladmin){
-                                ?>
-                                <li >
-                                    <a class="nav-link variacion" href="./usuarios.php">Usuarios</a>
-                                </li>
-                                <?php
-                                    }
-                                ?>
-                            </ul>
-                        </li>
-                        <li class="nav-item">
-                            <a href="./principal.php" class="nav-link variacion" aria-current="page">Principal</a>
-                        </li>
-                        <?php
-                            if($idRol == $rolgerente OR $idRol == $roldeposito){
-                        ?>
-                        <li class="nav-item dropdown">
-                            <a href="#" class="nav-link dropdown-toggle variacion" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Stock</a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li class="nav-item">
-                                    <a class="nav-link variacion" href="./Stock/stock.php">Consultar stock</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link variacion" href="./Stock/movimientoStock.php">Movimiento stock</a>
-                                </li>
-                                <li>
-                                    <a class="nav-link variacion" href="./Stock/stockRevisar.php">A revisar</a>
-                                </li>
-                                <li>
-                                    <a class="nav-link variacion" href="./Stock/productos.php">Productos</a>
-                                </li>
-                                <li>
-                                    <a class="nav-link variacion" href="./Stock/gruposProductos.php">Grupos Productos</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <?php
-                            }
-                        ?>
-                        <?php
-                            if($idRol == $rolgerente OR $idRol == $roladmin OR $idRol == $rolventas OR $idRol == $rolproveedor){
-                        ?>
-                        <li class="nav-item dropdown">
-                            <a href="#" class="nav-link dropdown-toggle variacion" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Licitaciones</a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <?php
-                                    if($idRol == $rolgerente OR $idRol == $roladmin){
-                                ?>
-                                <li class="nav-item">
-                                    <a class="nav-link variacion" href="./Licitaciones/historicoLicitaciones.php">Histórico</a>
-                                </li>
-                                <?php
-                                    }
-                                ?>
-                                <?php
-                                    if($idRol == $rolgerente OR $idRol == $rolventas){
-                                ?>
-                                <li class="nav-item">
-                                    <a href="./Licitaciones/solLic.php" class="nav-link variacion" aria-current="page">Solicitar</a>
-                                </li>
-                                <?php
-                                    }
-                                ?>
-                                <?php
-                                    if($idRol == $rolgerente OR $idRol == $roladmin){
-                                ?>
-                                <li class="nav-item">
-                                    <a class="nav-link variacion" href="./Licitaciones/solicitudLicitacion.php">Solicitudes</a>
-                                </li>
-                                <?php
-                                    }
-                                ?>
-                                <li class="nav-item">
-                                    <a class="nav-link variacion" href="./Licitaciones/licCotizaciones.php">Cotizaciones</a>
-                                </li>
-                                <li>
-                                    <a class="dropdown-item nav-link variacion" href="./Licitaciones/licOrdenCompra.php">Orden de compra</a>
-                                </li>
-                                <li>
-                                    <a class="dropdown-item nav-link variacion" href="./Licitaciones/licRemitos.php">Remitos</a>
-                                </li>
-                                <li>
-                                    <a class="dropdown-item nav-link variacion" href="./Licitaciones/licFacturas.php">Facturas</a>
-                                </li>
-                                <li>
-                                    <a class="dropdown-item nav-link variacion" href="./Licitaciones/licOrdenPago.php">Orden de pago</a>
-                                </li>
-                                <li>
-                                    <a class="dropdown-item nav-link variacion" href="./Licitaciones/licRecibo.php">Recibo</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <?php
-                            }
-                        ?>
-                        <?php
-                            if($idRol == $rolgerente OR $idRol == $roladmin OR $idRol == $rolobra){
-                        ?>
-                        <li class="nav-item dropdown">
-                            <a href="#" class="nav-link dropdown-toggle variacion" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Ventas</a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <?php
-                                    if($idRol == $rolgerente OR $idRol == $roladmin){
-                                ?>
-                                <li class="nav-item">
-                                    <a class="nav-link variacion" href="./Ventas/historicoVentas.php">Histórico</a>
-                                </li>
-                                <?php
-                                    }
-                                ?>
-                                <li class="nav-item">
-                                    <a class="nav-link variacion" href="./Ventas/cotizaciones.php">Pedido Médico</a>
-                                </li>
-                                <li >
-                                    <a class="nav-link variacion" href="./Ventas/presupuestos.php">Presupuestos</a>
-                                </li>
-                                <li>
-                                    <a class="dropdown-item nav-link variacion" href="./Ventas/ordenCompra.php">Orden de compra</a>
-                                </li>
-                                <li>
-                                    <a class="dropdown-item nav-link variacion" href="./Ventas/remitos.php">Remitos</a>
-                                </li>
-                                <li>
-                                    <a class="dropdown-item nav-link variacion" href="./Ventas/facturas.php">Facturas</a>
-                                </li>
-                                <li>
-                                    <a class="dropdown-item nav-link variacion" href="./Ventas/ordenPago.php">Orden de pago</a>
-                                </li>
-                                <li>
-                                    <a class="dropdown-item nav-link variacion" href="./Ventas/recibo.php">Recibo</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <?php
-                            }
-                        ?>
-                        <?php
-                            if($idRol == $rolgerente OR $idRol == $roladmin){
-                        ?>
-                        <li class="nav-item">
-                            <a href="./estadisticas.php" class="nav-link variacion" aria-current="page">Estadisticas</a>
-                        </li>
-                        <?php
-                            }
-                        ?>
-                    </ul>
-                </div>
-                <div class="not-exit">
-                    <div class="not-exit-name">
-                        <p style='color: blue; font-weight: bold;'><u>Usuario</u>: <?php echo $nom;?></p>
-                    </div>
-                   <!--  <a href=""><i class="fa-regular fa-bell"></i></a> -->
-                   <div class="not-exit-exit">
-                       <a href="../Utils/salir.php">
-                           <button class="btn btn-outline-danger" type="submit">Salir</button>
-                        </a>
-                   </div>
-                </div>
-            </div>
-        </nav>
-    </header>
+    <?php include('./Layouts/usuarioHeader.php'); ?>
 
     <main>
         <section>
@@ -359,7 +173,7 @@ $idRol = $row['idRol'];
 
                             ?>
                             <p><?php 
-                            echo "%".round(($docven * 100)/$doctot, 2);?></p>
+                            echo round(($docven * 100)/$doctot, 2)."%";?></p>
                         </div>
                     </div>
 
@@ -378,85 +192,89 @@ $idRol = $row['idRol'];
                     </div>
                 </div>
 
+                <div class="tercer-card">
+                    <div class="card stats">
+                        <div class="card-body">
+                            <h5 class="card-title">Productos mas solicitados</h5>
+                            <a href='prodSolicitados.php' class="btn btn-info">Ver todos</a>
+                        </div>
+                    </div>
+                    
+                    <div class="card stats">
+                        <div class="card-body">
+                            <h5 class="card-title">Productos mas vendidos</h5>
+                            <a href='prodVendidos.php' class="btn btn-info">Ver todos</a>
+                        </div>
+                    </div>
+                </div>
 
 
-
-                <div class="principal-datos" data-aos="fade-zoom-in"
-                                                        data-aos-easing="ease-in-back"
-                                                        data-aos-delay="300"
-                                                        data-aos-offset="0">
+                <div class="principal-datos">
                     <div class="principal-datos-cont">
-                        <h2>PRODUCTOS MÁS VENDIDOS</h2>
+                        <h2>OBRA SOCIAL MÁS RECURRENTE</h2>
                         <?php
                     echo "<table>
-                            <thead class=colm>
-                                <tr>
-                                    <th><p>CANT</p></th>
-                                    <th><p style='text-align:center;'>PRODUCTO</p></th>
-                                </tr>
-                            </thead>
-                        ";
-                                $consulta=mysqli_query($datos_base, "SELECT sum(pd.cantidad) as cantidad, pr.producto
-                                FROM documento d
-                                LEFT JOIN productodocumento pd ON pd.idDocumento = d.idDocumento
-                                LEFT JOIN producto pr ON pr.idProducto = pd.idProducto
-                                WHERE d.idEstadoDocumento = 10
-                                GROUP BY pr.producto
-                                ORDER BY cantidad DESC
-                                LIMIT 3");
-                                    while($listar = mysqli_fetch_array($consulta)) 
-                                    {
-                                        echo
-                                        " 
-                                            <tr>
-                                            <td><h4 style='font-size:16px;'>".$listar['cantidad']."</h4 ></td>
-                                            <td><h4 style='font-size:16px;'>".$listar['producto']."</h4 ></td>                                 
-                                            </tr>
-                                        ";
-                                    }
+                    <thead class=colm>
+                        <tr>
+                            <th><p>PROVEEDOR</p></th>
+                            <th><p style='text-align:center;'>CANTIDAD</p></th>
+                        </tr>
+                    </thead>
+                ";
+                        $consulta=mysqli_query($datos_base, "SELECT COUNT(da.idDocumento) AS cantidad, u.usuario
+                        FROM datosdocumento da 
+                        LEFT JOIN documento d ON d.idDocumento = da.idDocumento
+                        LEFT JOIN usuario u ON u.idUsuario = da.idUsuario
+                        WHERE d.idEstadoDocumento = 10 
+                        GROUP BY da.idUsuario 
+                        LIMIT 3");
+                            while($listar = mysqli_fetch_array($consulta)) 
+                            {
+                                echo
+                                " 
+                                    <tr>
+                                    <td><h4 style='font-size:16px;'>".$listar['usuario']."</h4 ></td>
+                                    <td><h4 style='font-size:16px; text-align: center;'>".$listar['cantidad']."</h4 ></td>
+                                    </tr>
+                                ";
+                            }
                                 echo "</table>";
-                                echo "<div class='verMas'><a href='prodVendidos.php'>Ver todos</a></div>"
                                     ?>
                     </div>
                 </div>
                 <br>
 
 
-                <div class="principal-datos" data-aos="fade-zoom-in"
-                                                        data-aos-easing="ease-in-back"
-                                                        data-aos-delay="300"
-                                                        data-aos-offset="0">
+                <div class="principal-datos">
                     <div class="principal-datos-cont">
-                        <h2>PRODUCTOS MAS SOLICITADO A PROVEEDORES</h2>
+                        <h2>PROVEEDORES MÁS RECURRENTES</h2>
                         <?php
                     echo "<table>
                             <thead class=colm>
                                 <tr>
-                                    <th><p>CANT</p></th>
-                                    <th><p style='text-align:center;'>PRODUCTO</p></th>
+                                    <th><p>PROVEEDOR</p></th>
+                                    <th><p style='text-align:center;'>CANTIDAD</p></th>
                                 </tr>
                             </thead>
                         ";
-                                $consulta=mysqli_query($datos_base, "SELECT sum(pl.cantidad) as cantidad, pr.producto
-                                FROM licitacion l
-                                LEFT JOIN productolicitacion pl ON pl.idLicitacion = l.idLicitacion
-                                LEFT JOIN producto pr ON pr.idProducto = pl.idProducto
-                                WHERE l.idEstadoLicitacion = 6
-                                GROUP BY pr.producto
-                                ORDER BY cantidad DESC
+                                $consulta=mysqli_query($datos_base, "SELECT COUNT(da.idLicitacion) AS cantidad, u.usuario
+                                FROM datoslicitacion da 
+                                LEFT JOIN licitacion l ON l.idLicitacion = da.idLicitacion
+                                LEFT JOIN usuario u ON u.idUsuario = da.idUsuario
+                                WHERE l.idEstadoLicitacion = 6 
+                                GROUP BY da.idUsuario 
                                 LIMIT 3");
                                     while($listar = mysqli_fetch_array($consulta)) 
                                     {
                                         echo
                                         " 
                                             <tr>
-                                            <td><h4 style='font-size:16px;'>".$listar['cantidad']."</h4 ></td>
-                                            <td><h4 style='font-size:16px;'>".$listar['producto']."</h4 ></td>                                 
+                                            <td><h4 style='font-size:16px;'>".$listar['usuario']."</h4 ></td>
+                                            <td><h4 style='font-size:16px; text-align: center;'>".$listar['cantidad']."</h4 ></td>
                                             </tr>
                                         ";
                                     }
                                 echo "</table>";
-                                echo "<div class='verMas'><a href='prodSolicitados.php'>Ver todos</a></div>"
                                     ?>
                     </div>
                 </div>

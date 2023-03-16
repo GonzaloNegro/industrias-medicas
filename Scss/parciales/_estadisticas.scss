@@ -126,3 +126,30 @@
     justify-content: center;
     padding: 10px;
 }
+
+.tercer-card{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 2rem;
+    padding: 20px;
+}
+
+.stats{
+    width: 300px;
+}
+.card-body{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+}
+.card-body a{
+    color: white;
+}
+.card-body a:hover{
+    color: white;
+}

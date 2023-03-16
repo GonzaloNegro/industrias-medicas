@@ -69,15 +69,9 @@
                         <li class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle variacion" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Licitaciones</a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <?php
-                                    if($idRol == $rolgerente OR $idRol == $roladmin){
-                                ?>
                                 <li class="nav-item">
                                     <a class="nav-link variacion" href="./Licitaciones/historicoLicitaciones.php">Histórico</a>
                                 </li>
-                                <?php
-                                    }
-                                ?>
                                 <?php
                                     if($idRol == $rolgerente OR $idRol == $rolventas){
                                 ?>
@@ -125,15 +119,9 @@
                         <li class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle variacion" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Ventas</a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <?php
-                                    if($idRol == $rolgerente OR $idRol == $roladmin){
-                                ?>
                                 <li class="nav-item">
                                     <a class="nav-link variacion" href="./Ventas/historicoVentas.php">Histórico</a>
                                 </li>
-                                <?php
-                                    }
-                                ?>
                                 <li class="nav-item">
                                     <a class="nav-link variacion" href="./Ventas/cotizaciones.php">Pedido Médico</a>
                                 </li>

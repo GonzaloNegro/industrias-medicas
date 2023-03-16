@@ -96,7 +96,8 @@ $idUsu = $row['idUsuario'];
                                                 <?php 
                         if ($_POST["orden"] == '1'){echo 'Ordenar por nombre';} 
                         if ($_POST["orden"] == '2'){echo 'Ordenar por Grupo';} 
-                        if ($_POST["orden"] == '3'){echo 'Ordenar por Cantidad';} 
+                        if ($_POST["orden"] == '3'){echo 'Ordenar por Cantidad';}
+                        if ($_POST["orden"] == '4'){echo 'Ordenar por Precio';} 
                         ?>
                         </option>
                         <?php } ?>
@@ -104,6 +105,7 @@ $idUsu = $row['idUsuario'];
                         <option value="1">Ordenar por nombre</option>
                         <option value="2">Ordenar por Grupo</option>
                         <option value="3">Ordenar por Cantidad</option>
+                        <option value="4">Ordenar por Precio</option>
                 </select>
                 </div>
                 <div class="contFilter--search">
@@ -151,7 +153,7 @@ $idUsu = $row['idUsuario'];
         $aKeyword = explode(" ", $_POST['buscar']);
 
         if ($_POST["buscar"] == '' AND $_POST['idGrupoProducto'] == '' AND $_POST['buscadesde'] == '' AND $_POST['buscahasta'] == '' AND $_POST['grupo'] == ''){ 
-                $query ="SELECT sum(pl.cantidad) as cantidad, pr.producto, g.grupoProducto
+                $query ="SELECT sum(pl.cantidad) as cantidad, pr.producto, g.grupoProducto, (pl.cantidad * pl.precio) AS total
                 FROM licitacion l
                 LEFT JOIN productolicitacion pl ON pl.idLicitacion = l.idLicitacion
                 LEFT JOIN producto pr ON pr.idProducto = pl.idProducto
@@ -161,7 +163,7 @@ $idUsu = $row['idUsuario'];
                 ORDER BY cantidad DESC ";
         }else{
 
-                $query = "SELECT sum(pl.cantidad) as cantidad, pr.producto, g.grupoProducto
+                $query = "SELECT sum(pl.cantidad) as cantidad, pr.producto, g.grupoProducto, (pl.cantidad * pl.precio) AS total
                 FROM licitacion l
                 LEFT JOIN productolicitacion pl ON pl.idLicitacion = l.idLicitacion
                 LEFT JOIN producto pr ON pr.idProducto = pl.idProducto
@@ -196,7 +198,11 @@ $idUsu = $row['idUsuario'];
          }
 
          if ($_POST["orden"] == '3' ){
-                $query .= "  ORDER BY cantidad ASC ";
+                $query .= "  ORDER BY cantidad DESC ";
+         }
+
+         if ($_POST["orden"] == '4' ){
+                $query .= "  ORDER BY total DESC ";
          }
 }
 
@@ -216,9 +222,10 @@ $idUsu = $row['idUsuario'];
             <table class="table" style="width: 90%; margin: 0 auto;">
                 <thead>
                         <tr>
-                                <th style=" text-align: center;"> Producto </th>
-                                <th style=" text-align: center;"> Grupo </th>
-                                <th style=" text-align: center;"> Cantidad </th>
+                        <th style=" text-align: center;">PRODUCTO</th>
+                                <th style=" text-align: center;">GRUPO</th>
+                                <th style=" text-align: center;">CANTIDAD</th>
+                                <th style=" text-align: center;">PRECIO</th>
                         </tr>
                 </thead>
                 <tbody>
@@ -227,6 +234,7 @@ $idUsu = $row['idUsuario'];
                         <td><h4 style="font-size:14px; text-align:left; margin-left: 5px;"><?php echo $rowSql["producto"]; ?></h4></td>
                         <td><h4 style="font-size:14px; text-align:left; margin-left: 5px;"><?php echo $rowSql["grupoProducto"]; ?></h4></td>
                         <td><h4 style="font-size:14px; text-align:left; margin-left: 5px;"><?php echo $rowSql["cantidad"]; ?></h4></td>
+                        <td><h4 style="font-size:14px; text-align:left; margin-left: 5px;"><?php echo "$".$rowSql["total"]; ?></h4></td>
                         </tr>
                
                <?php } ?>

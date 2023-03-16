@@ -125,17 +125,11 @@
                         <li class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle variacion" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Ventas</a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <?php
-                                    if($idRol == $rolgerente OR $idRol == $roladmin){
-                                ?>
                                 <li class="nav-item">
                                     <a class="nav-link variacion" href="./historicoVentas.php">Histórico</a>
                                 </li>
-                                <?php
-                                    }
-                                ?>
                                 <li class="nav-item">
-                                    <a class="nav-link variacion" href="./cotizaciones.php">Cotizaciones</a>
+                                    <a class="nav-link variacion" href="./cotizaciones.php">Pedido Médico</a>
                                 </li>
                                 <li >
                                     <a class="nav-link variacion" href="./presupuestos.php">Presupuestos</a>

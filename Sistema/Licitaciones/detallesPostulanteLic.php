@@ -142,7 +142,7 @@ function ConsultarIncidente($no_tic)
 
                             if($fechaActual >= $fven AND $est == 1){
                                 ?>
-                                <button type="submit">ACEPTAR POSTULACIÓN</button>
+                                <button type="submit" class="btn btn-success">ACEPTAR POSTULACIÓN</button>
                                 <?php
                             }
                         ?>

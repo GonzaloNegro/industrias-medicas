@@ -54,7 +54,7 @@ include('../Utils/conexion.php');
                         <input class="form-control" type="password" name="nueva" placeholder="Clave nueva" required>
                     </div>
                     <div>
-                        <button type="submit">Cambiar</button>
+                        <button type="submit" class="btn btn-success">Cambiar</button>
                     </div>
                 </form>
                 <?php

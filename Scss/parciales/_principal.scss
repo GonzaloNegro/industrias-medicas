@@ -417,3 +417,11 @@
     align-items: center;
     flex-direction: column;
 }
+.not-exit{
+    width: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    gap: 5px;
+}

@@ -108,7 +108,7 @@ function ConsultarIncidente($no_tic)
                 <?php
                 if($rutafin != "" AND $est ==3){?>
                 <div>
-                    <button type="submit">CONFIRMAR REMITO</button>
+                    <button type="submit" class="btn btn-success">CONFIRMAR REMITO</button>
                 </div>
                 <?php }?>
             </form>

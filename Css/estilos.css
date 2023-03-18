@@ -378,14 +378,14 @@ i {
 .con-info-inf-for textarea {
   width: 100%; }
 
-.con-info-inf-for button {
-  margin-top: 20px;
-  min-width: 100px;
-  background-color: crimson;
-  color: white;
-  padding: 10px;
-  border-radius: 20px; }
-
+/* .con-info-inf-for button{
+    margin-top: 20px;
+    min-width: 100px;
+    background-color: crimson;
+    color: white;
+    padding: 10px;
+    border-radius: 20px;
+} */
 /* ------------------------- */
 /* ------------------------- */
 /* FOOTER */
@@ -474,9 +474,10 @@ footer {
     flex-direction: column; }
   .prod-img-pri, .prod-img-seg, .prod-img-ter {
     flex-direction: column; }
-  .prod-but a button {
-    font-size: 12px;
-    margin-bottom: 40px; }
+  /*     .prod-but a button{
+        font-size: 12px;
+        margin-bottom: 40px;
+    } */
   /* CONTACTO */
   .con {
     height: auto;
@@ -767,14 +768,14 @@ li {
 .clave form input {
   margin-bottom: 10px; }
 
-.clave form button {
-  margin-top: 20px;
-  min-width: 100px;
-  background-color: crimson;
-  color: white;
-  padding: 10px;
-  border-radius: 20px; }
-
+/* .clave form button{
+    margin-top: 20px;
+    min-width: 100px;
+    background-color: crimson;
+    color: white;
+    padding: 10px;
+    border-radius: 20px;
+} */
 legend {
   font-size: 16px;
   font-family: 'Roboto', sans-serif; }
@@ -1151,6 +1152,14 @@ fieldset {
   align-items: center;
   flex-direction: column; }
 
+.not-exit {
+  width: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  gap: 5px; }
+
 .ini {
   height: auto;
   display: flex;
@@ -1179,7 +1188,8 @@ fieldset {
 .form-grilla-but {
   display: flex;
   justify-content: center;
-  align-items: center; }
+  align-items: center;
+  gap: 5px; }
 
 .busc {
   min-width: 600px;
@@ -1191,21 +1201,22 @@ fieldset {
   border-bottom: 1px solid crimson;
   outline: none; }
 
-.button {
-  margin-right: 10px;
-  min-width: 100px;
-  background-color: crimson;
-  color: white;
-  padding: 10px;
-  border-radius: 20px; }
+/* .button{
+    margin-right: 10px;
+    min-width: 100px;
+    background-color: crimson;
+    color: white;
+    padding: 10px;
+    border-radius: 20px;
+}
 
-.button:hover {
-  background-color: #f7fbfd;
-  color: crimson;
-  transition-property: background-color, #f7fbfd;
-  transition-duration: 1s;
-  transition-delay: 0s; }
-
+.button:hover{
+	background-color: #f7fbfd;
+	color: crimson;
+	transition-property: background-color, #f7fbfd;
+	transition-duration: 1s;
+	transition-delay: 0s;
+} */
 .agregar a {
   text-decoration: none; }
 
@@ -1222,7 +1233,8 @@ fieldset {
   text-align: center;
   font-size: 30px;
   box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.3);
-  z-index: 100; }
+  z-index: 100;
+  font-weight: bold; }
 
 .nuevo:hover {
   background-color: white;
@@ -1280,14 +1292,6 @@ tr:hover td {
   border-bottom: 1px solid crimson;
   outline: none; }
 
-.agrStock form button {
-  margin-top: 20px;
-  min-width: 100px;
-  background-color: crimson;
-  color: white;
-  padding: 10px;
-  border-radius: 20px; }
-
 .volver {
   position: absolute;
   width: 85px;
@@ -1301,7 +1305,8 @@ tr:hover td {
   text-align: center;
   font-size: 18px;
   box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.3);
-  z-index: 100; }
+  z-index: 100;
+  transition: 0.6s; }
 
 .volver:hover {
   background-color: white;
@@ -1313,7 +1318,7 @@ tr:hover td {
 
 .agregando {
   position: absolute;
-  width: 85px;
+  width: 90px;
   height: 55px;
   line-height: 55px;
   top: 30px;
@@ -1324,7 +1329,8 @@ tr:hover td {
   text-align: center;
   font-size: 18px;
   box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.3);
-  z-index: 100; }
+  z-index: 100;
+  transition: 0.6s; }
 
 .agregando:hover {
   background-color: white;
@@ -1356,6 +1362,18 @@ tr:hover td {
 .agrStock-detalles h3 {
   font-size: 20px;
   padding: 10px; }
+
+.btn-pdf {
+  gap: 5px; }
+
+.btnPuntaje {
+  padding: 10px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  gap: 10px; }
 
 .not-exit i {
   color: black;
@@ -1476,25 +1494,6 @@ tr:hover td {
   justify-content: center;
   align-items: center; }
 
-.btnPdf {
-  margin-right: 10px;
-  width: 85px;
-  height: 55px;
-  background: crimson;
-  color: #fff;
-  border-radius: 50px;
-  text-align: center;
-  font-size: 18px;
-  box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.3); }
-
-.btnPdf:hover {
-  background-color: white;
-  color: crimson;
-  border: 1px solid crimson;
-  transition-property: background-color, white;
-  transition-duration: 1s;
-  transition-delay: 0s; }
-
 .agrStock form .nroCot input {
   width: 50px;
   background-color: transparent;
@@ -1510,25 +1509,6 @@ tr:hover td {
   width: 1px;
   height: 1px;
   color: #e6e6e6; }
-
-.btnConf {
-  margin-right: 10px;
-  padding: 10px;
-  height: 55px;
-  background: crimson;
-  color: #fff;
-  border-radius: 50px;
-  text-align: center;
-  font-size: 18px;
-  box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.3); }
-
-.btnConf:hover {
-  background-color: white;
-  color: crimson;
-  border: 1px solid crimson;
-  transition-property: background-color, white;
-  transition-duration: 1s;
-  transition-delay: 0s; }
 
 .fa-cloud-arrow-up:hover {
   color: white; }

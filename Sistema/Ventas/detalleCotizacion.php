@@ -183,7 +183,7 @@ function ConsultarIncidente($no_tic)
                 </div>
             </div>
             <div class="btn-pdf" id="botones">
-                <button type="submit" class="btnPdf" id="imp" onclick="javascript:imprim2();">Imprimir</button>
+                <button type="submit" class="btn btn-info" id="imp" style="color:white;" onclick="javascript:imprim2();">Imprimir</button>
                 <?php 
 
                 $sql6 = "SELECT idEstadoDocumento FROM documento WHERE idDocumento = '$id'";
@@ -192,7 +192,7 @@ function ConsultarIncidente($no_tic)
                 $est = $row6['idEstadoDocumento'];
 
                 if($est == 1){
-                    echo "<a class='btnPdf' href=./cotizacionPresupuesto.php?no=".$id." class=mod><button type='submit' class='btnPdf' id='vlv'>Modificar</button></a>";
+                    echo "<a class='btnPdf' href=./cotizacionPresupuesto.php?no=".$id." class=mod><button type='submit' class='btn btn-success' id='vlv'>Modificar</button></a>";
                 }
                 ?>
             </div>

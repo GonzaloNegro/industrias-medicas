@@ -88,11 +88,13 @@ function ConsultarIncidente($no_tic)
                     <div>
                         Por favor, valore nuestro servicio brindado, siendo 1 el valor mas bajo y 5 el mas alto:
                     </div>
-                    <button type="submit" name="uno" class="btnConf">1</button>
-                    <button type="submit" name="dos" class="btnConf">2</button>
-                    <button type="submit" name="tres" class="btnConf">3</button>
-                    <button type="submit" name="cuatro" class="btnConf">4</button>
-                    <button type="submit" name="cinco" class="btnConf">5</button>
+                    <div class="btnPuntaje">
+                        <button type="submit" name="uno" class="btn btn-success">1</button>
+                        <button type="submit" name="dos" class="btn btn-success">2</button>
+                        <button type="submit" name="tres" class="btn btn-success">3</button>
+                        <button type="submit" name="cuatro" class="btn btn-success">4</button>
+                        <button type="submit" name="cinco" class="btn btn-success">5</button>
+                    </div>
                 </div>
                 <?php }}?>
             </form>

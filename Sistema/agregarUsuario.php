@@ -98,7 +98,7 @@ $idUsu = $row['idUsuario']
                             </select> -->
                     </div>
                     <div>
-                        <button type="submit">Agregar</button>
+                        <button type="submit" class="btn btn-success" style="margin-top:10px;">Agregar</button>
                     </div><br>
                     <p>Se generará automaticamente la clave "industrias"<br> que deberá cambiarse al iniciar sesión.</p>
                 </form>

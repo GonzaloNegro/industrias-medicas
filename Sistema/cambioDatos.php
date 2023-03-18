@@ -78,7 +78,7 @@ $direccionUsu = $row['direccion'];
                         <input class="form-control" id="dir" type="text" name="direccion" required value="<?php echo $direccionUsu?>">
                     </div>
                     <div>
-                        <button type="submit">Cambiar</button>
+                        <button type="submit" class="btn btn-success">Cambiar</button>
                     </div>
                 </form>
                 <?php

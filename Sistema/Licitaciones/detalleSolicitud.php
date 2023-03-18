@@ -99,7 +99,7 @@ function ConsultarIncidente($no_tic)
                     <textarea style="text-transform:uppercase" name="obs" id="obs" cols="30" rows="3" placeholder="Agregar una Observación"></textarea>
                 </div>
                 <div>
-                    <button type="submit">GENERAR SOLICITUD</button>
+                    <button type="submit" class="btn btn-success">GENERAR SOLICITUD</button>
                 </div>
                 <?php }
                 else{?>

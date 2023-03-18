@@ -80,8 +80,8 @@ $idRol = $row['idRol'];
                             <input type="text" style="text-transform:uppercase;" name="buscar"  placeholder="Buscar" class="busc">
                         </div>
                         <div class="form-grilla-but">
-                            <input class="button" type="submit" name="btn2" value="BUSCAR"></input>
-                            <input class="button" type="submit" name="btn1" value="LIMPIAR"></input>
+                            <input class="btn btn-success" type="submit" name="btn2" value="BUSCAR"></input>
+                            <input class="btn btn-danger" type="submit" name="btn1" value="LIMPIAR"></input>
                         </div>
                     </div>
                 </form>

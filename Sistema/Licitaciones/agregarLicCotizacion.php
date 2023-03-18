@@ -99,7 +99,7 @@ $idUsu = $row['idUsuario']
                                 </select>
                             </td>
                             <td><input type="number" required id="cant" name="cantidad[]" min=1 onkeypress="return valideKey(event);" placeholder="Cantidad"/></td>
-                            <td class="eliminar"><button  type="button" id="menos">Eliminar</button></td>
+                            <td class="eliminar"><button  type="button" class="btn btn-danger" id="menos">Eliminar</button></td>
                         </tr>
                     </table>
                 </div>
@@ -112,8 +112,8 @@ $idUsu = $row['idUsuario']
                 </div>
                 <div>
                 <p id="contar">Cantidad de productos: 1</p>
-                    <button type="submit" id="btncot"  name="insertar">GENERAR</button>
-                    <button id="adicional" name="adicional" type="button">Insertar otro producto </button>
+                    <button type="submit" id="btncot" class="btn btn-success" name="insertar">GENERAR</button>
+                    <button id="adicional" name="adicional" class="btn btn-info" style="color:white;" type="button">Insertar otro producto </button>
                 </div>
             </form>
           

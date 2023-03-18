@@ -78,7 +78,7 @@ function ConsultarIncidente($no_tic)
                 </div>
                 <?php if($rutafin != "" AND $est == 5){?>
                 <div>
-                    <button type="submit">CONFIRMAR FACTURA</button>
+                    <button type="submit" class="btn btn-success">CONFIRMAR FACTURA</button>
                 </div>
                 <?php }?>
             </form>

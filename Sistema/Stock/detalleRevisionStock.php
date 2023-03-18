@@ -109,7 +109,7 @@ function ConsultarIncidente($no_tic)
                             echo "<p>No hay stock suficiente, por favor realice una solicitud de compra.</p>";
                         } else{
                     ?>
-                    <button class="btnConf">CONFIRMAR</button>
+                    <button class="btn btn-success">CONFIRMAR</button>
                     <?php 
                         }
                     ?>

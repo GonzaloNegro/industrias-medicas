@@ -88,7 +88,7 @@ function ConsultarIncidente($no_tic)
                     <textarea style="text-transform:uppercase" name="obs" id="obs" cols="30" rows="3" placeholder="Observación"></textarea>
                 </div>
                 <div>
-                    <button type="submit">SOLICITAR</button>
+                    <button type="submit" class="btn btn-success">SOLICITAR</button>
                 </div>
             </form>
           

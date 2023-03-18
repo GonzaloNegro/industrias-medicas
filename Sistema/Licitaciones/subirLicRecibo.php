@@ -60,7 +60,7 @@ function ConsultarIncidente($no_tic)
                     <input type="file" name="fichero" size="150" id="archivo" accept="application/pdf" required>
                 </div>
                 <div>
-                    <button type="submit" name="submit">GUARDAR</button>
+                    <button type="submit" class="btn btn-success" name="submit">GUARDAR</button>
                 </div>
             </form>
           

@@ -130,7 +130,7 @@ function ConsultarIncidente($no_tic)
                     <input type="text" class="ocultar" name="nroProducto" id="remito" value="<?php echo $consulta[0]?>">
                 </div>
                 <div>
-                    <button type="submit">MODIFICAR</button>
+                    <button type="submit" class="btn btn-success">MODIFICAR</button>
                 </div>
             </form>
         

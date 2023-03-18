@@ -192,7 +192,7 @@ function ConsultarIncidente($no_tic)
 
             </div>
             <div class="btn-pdf" id="botones">
-                <button type="submit" class="btnPdf pre" id="imp" onclick="javascript:imprim2();">Imprimir</button>
+                <button type="submit" id="imp" class="btn btn-info" style="color:white;" onclick="javascript:imprim2();">Imprimir</button>
                 <form method="POST" action="../../Logica/ordenCompraRemito.php">
                     <input type="text" name="idnro" class="valorPeque" value="<?php echo $id;?>">
                     <?php
@@ -203,8 +203,8 @@ function ConsultarIncidente($no_tic)
 
                         if($est == 2){
                             ?>
-                            <button type="submit" class="btnPdf pre" name="aceptar" id="imp">Aceptar OC</button>
-                            <button type="submit" class="btnPdf pre" name="rechazar" id="imp">Rechazar OC</button>
+                            <button type="submit" class="btn btn-success" name="aceptar" id="imp">Aceptar OC</button>
+                            <button type="submit" class="btn btn-danger" name="rechazar" id="imp">Rechazar OC</button>
                             <?php
                         }
                         ?>

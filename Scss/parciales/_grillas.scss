@@ -32,6 +32,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    gap: 5px;
 }
 
 .busc{
@@ -46,7 +47,7 @@
     outline: none;
 }
 
-.button{
+/* .button{
     margin-right: 10px;
     min-width: 100px;
     background-color: crimson;
@@ -61,7 +62,7 @@
 	transition-property: background-color, #f7fbfd;
 	transition-duration: 1s;
 	transition-delay: 0s;
-}
+} */
 
 .agregar a{
     text-decoration: none;
@@ -81,6 +82,7 @@
     font-size: 30px;
     box-shadow: 0px 1px 10px rgba(0,0,0,0.3);
     z-index: 100;
+    font-weight: bold;
 }
 
 .nuevo:hover{
@@ -152,17 +154,6 @@ tr:hover td{
     outline: none;
 }
 
-
-
-.agrStock form button{
-    margin-top: 20px;
-    min-width: 100px;
-    background-color: crimson;
-    color: white;
-    padding: 10px;
-    border-radius: 20px;
-}
-
 .volver{
     position : absolute;
     width : 85px ;
@@ -177,6 +168,7 @@ tr:hover td{
     font-size: 18px;
     box-shadow: 0px 1px 10px rgba(0,0,0,0.3);
     z-index: 100;
+    transition: 0.6s;
 }
 
 .volver:hover{
@@ -191,7 +183,7 @@ tr:hover td{
 
 .agregando{
     position: absolute;
-    width: 85px;
+    width: 90px;
     height: 55px;
     line-height: 55px;
     top: 30px;
@@ -203,6 +195,7 @@ tr:hover td{
     font-size: 18px;
     box-shadow: 0px 1px 10px rgba(0,0,0,0.3);
     z-index: 100;
+    transition: 0.6s;
 }
 
 .agregando:hover{

@@ -77,7 +77,7 @@ function ConsultarIncidente($no_tic)
                 </div>
                 <?php if($rutafin != "" AND $est ==5){?>
                 <div>
-                    <button type="submit">CONFIRMAR OP</button>
+                    <button type="submit" class="btn btn-success">CONFIRMAR OP</button>
                 </div>
                 <?php }?>
             </form>

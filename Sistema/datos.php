@@ -86,10 +86,10 @@ $direccion = $row['direccion'];
                         </div>
                         <div class="principal-info-datos-clave">
                             <div class="principal-info-datos-clave-datos">
-                                <a href="./cambioDatos.php"><button>Modificar datos</button></a>
+                                <a href="./cambioDatos.php"><button class="btn btn-danger">Modificar datos</button></a>
                             </div>
                             <div class="principal-info-datos-clave-contra">
-                                <a href="./cambioClave.php"><button>Cambiar contraseña</button></a>
+                                <a href="./cambioClave.php"><button class="btn btn-danger">Cambiar contraseña</button></a>
                             </div>
                         </div>
                     </div>

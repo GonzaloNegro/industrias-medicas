@@ -114,7 +114,7 @@ function ConsultarIncidente($no_tic)
                         <input type="number" name="cant" id="cant" min=1 onkeypress="return valideKey(event);" <?php echo "max= ".$consulta[4]."";?> required>
                     </div>
                     <div>
-                        <button type="submit">MODIFICAR</button>
+                        <button type="submit" class="btn btn-success">MODIFICAR</button>
                     </div>
                 <?php
                     }else{echo"

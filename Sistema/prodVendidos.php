@@ -241,7 +241,7 @@ $idUsu = $row['idUsuario'];
         </div>
 
         <div class="agregar" id="imp">
-            <a href="./estadisticas.php" class="volver">VOLVER</a>
+            <a href="./estadisticas.php" class="volver"><i class="fa-sharp fa-solid fa-arrow-left"></i></a>
         </div>
     </section>
     </main>

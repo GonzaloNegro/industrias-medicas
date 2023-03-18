@@ -47,7 +47,7 @@
                         <input class="form-control" type="email" name="email" placeholder="Email registrado" required>
                     </div>
                     <div>
-                        <button type="submit">Enviar</button>
+                        <button type="submit" class="btn btn-success">Enviar</button>
                     </div>
                 </form>
                 <?php
@@ -64,7 +64,7 @@
 			?>
             </div>
             <div class="agregar">
-                <a href="./login.php" class="volver" id="vlv">VOLVER</a>
+                <a href="./login.php" class="volver" id="vlv"><i class="fa-sharp fa-solid fa-arrow-left"></i></a>
             </div>
         </section>
     </main>

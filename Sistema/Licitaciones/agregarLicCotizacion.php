@@ -118,7 +118,7 @@ $idUsu = $row['idUsuario']
             </form>
           
             <div class="agregar">
-                    <a href="./licCotizaciones.php" class="volver">VOLVER</a>
+                    <a href="./licCotizaciones.php" class="volver"><i class="fa-sharp fa-solid fa-arrow-left"></i></a>
                 </div>
         </div>
         </section>

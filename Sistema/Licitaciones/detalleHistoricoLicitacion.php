@@ -158,7 +158,7 @@ function ConsultarIncidente($no_tic)
                                 echo "</table><br><br>";
                                     ?>
             <div class="agregar">
-                    <a href="./historicoLicitaciones.php" class="volver">VOLVER</a>
+                    <a href="./historicoLicitaciones.php" class="volver"><i class="fa-sharp fa-solid fa-arrow-left"></i></a>
                 </div>
         </div>
         </section>

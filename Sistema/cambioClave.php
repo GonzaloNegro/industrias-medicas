@@ -71,7 +71,7 @@ include('../Utils/conexion.php');
 			?>
             </div>
             <div class="agregar">
-                <a href="./datos.php" class="volver" id="vlv">VOLVER</a>
+                <a href="./datos.php" class="volver" id="vlv"><i class="fa-sharp fa-solid fa-arrow-left"></i></a>
             </div>
         </section>
     </main>

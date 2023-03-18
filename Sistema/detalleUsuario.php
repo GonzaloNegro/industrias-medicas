@@ -149,7 +149,7 @@ function ConsultarIncidente($no_tic)
                 </div>
             </form>
             <div class="agregar">
-                    <a href="./usuarios.php" class="volver">VOLVER</a>
+                    <a href="./usuarios.php" class="volver"><i class="fa-sharp fa-solid fa-arrow-left"></i></a>
                 </div>
         </div>
         </section>

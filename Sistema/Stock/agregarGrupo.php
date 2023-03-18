@@ -61,7 +61,7 @@ if(!isset($_SESSION['usuario']))
             </form>
         
             <div class="agregar">
-                    <a href="./gruposProductos.php" class="volver">VOLVER</a>
+                    <a href="./gruposProductos.php" class="volver"><i class="fa-sharp fa-solid fa-arrow-left"></i></a>
                 </div>
         </div>
         </section>

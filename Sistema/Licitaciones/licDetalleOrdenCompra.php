@@ -212,7 +212,7 @@ function ConsultarIncidente($no_tic)
                
             </div>
             <div class="agregar">
-                <a href="./licOrdenCompra.php" class="volver" id="vlv">VOLVER</a>
+                <a href="./licOrdenCompra.php" class="volver" id="vlv"><i class="fa-sharp fa-solid fa-arrow-left"></i></a>
             </div>
         </section>
     </main>

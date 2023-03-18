@@ -47,6 +47,7 @@ h1, h2 {
   font-size: 20px;
   font-weight: bold; }
   .variacion:hover {
+    color: #aa0000;
     background-size: 100% 1px; }
   .variacion:focus {
     background-size: 100% 1px; }
@@ -284,7 +285,8 @@ h1, h2 {
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: row; }
+  flex-direction: row;
+  gap: 5px; }
 
 /* ------------------------- */
 /* ------------------------- */
@@ -566,7 +568,7 @@ footer {
   align-items: center;
   -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
-  background-color: rgba(243, 47, 12, 0.507); }
+  background-color: #db0000; }
 
 .caja__trasera div {
   margin: 100px 40px;
@@ -598,7 +600,7 @@ footer {
 
 .caja__trasera button:hover {
   background: #fff;
-  color: rgba(243, 47, 12, 0.507); }
+  color: #db0000; }
 
 .contenedor__login-register {
   display: flex;
@@ -625,7 +627,7 @@ li {
   font-size: 30px;
   text-align: center;
   margin-bottom: 20px;
-  color: rgba(243, 29, 29, 0.726); }
+  color: #db0000; }
 
 .contenedor__login-register form input {
   width: 95%;
@@ -639,7 +641,7 @@ li {
 
 .contenedor__login-register form a {
   text-decoration: none;
-  color: #631414;
+  color: #db0000;
   font-weight: bold;
   font-size: 17px;
   /*     margin: 150px; */ }
@@ -660,7 +662,7 @@ li {
   align-items: center; }
 
 .contenedor__login-register form .centrado li a:hover {
-  color: #000; }
+  color: #aa0000; }
 
 .contenedor__login-register form button {
   padding: 10px 40px;
@@ -1294,19 +1296,20 @@ tr:hover td {
 
 .volver {
   position: absolute;
-  width: 85px;
-  height: 55px;
-  line-height: 55px;
+  width: 50px;
+  height: 50px;
+  padding: 10px;
   top: 30px;
   left: 30px;
-  background: crimson;
+  background: transparent;
   color: #fff;
   border-radius: 50px;
   text-align: center;
   font-size: 18px;
   box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.3);
   z-index: 100;
-  transition: 0.6s; }
+  transition: 0.6s;
+  border: 1px solid crimson; }
 
 .volver:hover {
   background-color: white;

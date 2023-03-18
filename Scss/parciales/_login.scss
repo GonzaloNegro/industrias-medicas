@@ -20,7 +20,7 @@
     align-items: center;
     -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
-    background-color: rgba(243, 47, 12, 0.507);
+    background-color: rgb(219, 0, 0);
 }
 
 .caja__trasera div{
@@ -58,7 +58,7 @@
 
 .caja__trasera button:hover{
     background: #fff;
-    color: rgba(243, 47, 12, 0.507);
+    color: rgb(219, 0, 0);
 }
 
 .contenedor__login-register{
@@ -89,7 +89,7 @@ li{
     font-size: 30px;
     text-align: center;
     margin-bottom: 20px;
-    color: rgba(243, 29, 29, 0.726);
+    color: rgb(219, 0, 0);
 }
 
 .contenedor__login-register form input{
@@ -104,7 +104,7 @@ li{
 }
 .contenedor__login-register form a{
     text-decoration: none;
-    color: rgb(99, 20, 20);
+    color: rgb(219, 0, 0);
     font-weight: bold;
     font-size: 17px; 
 /*     margin: 150px; */
@@ -130,7 +130,7 @@ li{
 }
 
 .contenedor__login-register form .centrado li a:hover{
-    color: #000;
+    color: rgb(170, 0, 0);
 }
 
 .contenedor__login-register form button{

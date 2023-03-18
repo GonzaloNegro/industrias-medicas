@@ -116,7 +116,7 @@ $idUsu = $row['idUsuario']
 			?>
             </div>
             <div class="agregar">
-                <a href="./usuarios.php" class="volver" id="vlv">VOLVER</a>
+                <a href="./usuarios.php" class="volver" id="vlv"><i class="fa-sharp fa-solid fa-arrow-left"></i></a>
             </div>
         </section>
     </main>

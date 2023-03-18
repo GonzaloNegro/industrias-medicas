@@ -136,8 +136,8 @@
                   </div>
             </div>
             <div class="prod-but">
-              <a href="https://www.flipsnack.com/industriasmedicas/brochure.html" target="_blank"><button class="btnConf">Ver catálogo</button></a>
-              <a href="../catalogo.pdf" download="catalogoIM.pdf"><button class="btnConf">Descargar catálogo</button></a> 
+              <a href="https://www.flipsnack.com/industriasmedicas/brochure.html" target="_blank"><button class="btn btn-success">Ver catálogo</button></a>
+              <a href="../catalogo.pdf" download="catalogoIM.pdf"><button class="btn btn-info" style="color:white;">Descargar catálogo</button></a> 
             </div>
         </div>
       </section>
@@ -179,7 +179,7 @@
                             <textarea name="" id="" name="consulta" cols="30" rows="4" placeholder="Mensaje" required></textarea>
                           </div>
                           <div>
-                            <button type="submit">Enviar</button>
+                            <button type="submit" class="btn btn-success">Enviar</button>
                           </div>
                         </form>
                         <?php

@@ -58,7 +58,7 @@ function ConsultarIncidente($no_tic)
                     <input type="text" name="nombre" style="width: 500px; text-transform:uppercase;"  id="remito" value="<?php echo $consulta[1]?>">
                 </div>
                 <div>
-                    <button type="submit">MODIFICAR</button>
+                    <button type="submit" class="btn btn-success">MODIFICAR</button>
                 </div>
             </form>
             <div class="agregar">

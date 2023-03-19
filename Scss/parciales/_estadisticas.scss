@@ -15,7 +15,6 @@
 }
 
 .grafico-tit{
-    font-family: 'Roboto', sans-serif;
     margin-top: 20px;
     margin-bottom: 40px;
     display: flex;
@@ -139,7 +138,19 @@
 }
 
 .stats{
+    height: 100px;
     width: 300px;
+    border-radius: 5px;
+    padding: 20px 10px;
+    margin: 5px;
+    background-color: rgb(72, 220, 247);
+    border: none;
+    color: white;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 .card-body{
     display: flex;

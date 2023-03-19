@@ -7,7 +7,6 @@
 }
 
 .ini-tit{
-    font-family: 'Roboto', sans-serif;
     margin-top: 20px;
     margin-bottom: 40px;
 
@@ -75,7 +74,7 @@
     line-height : 55px ;
     bottom : 30px ;
     right : 30px ;
-    background : #0df053 ;
+    background : #198754 ;
     color: #fff ;
     border-radius : 50px ;
     text-align : center ;
@@ -86,10 +85,8 @@
 }
 
 .nuevo:hover{
-	background-color: white;
-	color: rgb(0, 145, 12);
-    border: 1px solid rgb(0, 145, 12);
-	transition-property: background-color, white;
+	background-color: #157347;
+	color: white;
 	transition-duration: 1s;
 	transition-delay: 0s;
 }
@@ -106,6 +103,7 @@ th, td{
     text-align: center;
 	border: solid 1px #f7fbfd;
 	border-bottom: solid 1px crimson;
+    font-weight: bold;
 }
 
 thead{

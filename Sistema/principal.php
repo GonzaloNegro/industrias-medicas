@@ -41,40 +41,42 @@ $idRol = $row['idRol'];
                 if($idRol == $rolgerente){
                     ?>
                 <div class="principal-info">
-                    <div class="principal-info-pri" data-aos="fade-left"
-                                                    data-aos-anchor="#example-anchor"
-                                                    data-aos-offset="500"
-                                                    data-aos-duration="500">
-                        <div>
-                            <h2>Ventas activas</h2>
-                        </div>
-                        <div>
+
                             <?php 
                                 $sql6 = "SELECT COUNT(*) AS total FROM documento WHERE idEstadoDocumento <> 9 AND idEstadoDocumento <> 10";
                                 $result6 = $datos_base->query($sql6);
                                 $row6 = $result6->fetch_assoc();
                                 $cotact = $row6['total'];
                             ?>
-                            <p><?php echo $cotact;?></p>
+                        <div class="col-md-3">
+                            <div class="card-counter primary">
+                                <div class="card-pri">
+                                    <i class="fa-solid fa-handshake"></i>
+                                    <span class="count-numbers"><?php echo $cotact;?></span>
+                                </div>
+                                <div class="card-sec">
+                                    <span class="count-name">Ventas activas</span>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                    <div class="principal-info-sec" data-aos="fade-left"
-                                                    data-aos-anchor="#example-anchor"
-                                                    data-aos-offset="550"
-                                                    data-aos-duration="550">
-                        <div>
-                            <h2>Licitaciones activas</h2>
-                        </div>
-                        <div>
+
                         <?php 
                                 $sql6 = "SELECT COUNT(*) AS total FROM licitacion WHERE idEstadoLicitacion <> 6 AND idEstadoLicitacion <> 7";
                                 $result6 = $datos_base->query($sql6);
                                 $row6 = $result6->fetch_assoc();
                                 $licact = $row6['total'];
                             ?>
-                            <p><?php echo $licact;?></p>
+                        <div class="col-md-3">
+                            <div class="card-counter success">
+                                <div class="card-pri">
+                                    <i class="fa-solid fa-clipboard-list"></i>
+                                    <span class="count-numbers"><?php echo $licact;?></span>
+                                </div>
+                                <div class="card-sec">
+                                    <span class="count-name">Licitaciones activas</span>
+                                </div>
+                            </div>
                         </div>
-                    </div>
                 </div>
 
                 <div class="principal-datos" data-aos="fade-zoom-in"

@@ -47,89 +47,77 @@ $idRol = $row['idRol'];
         <section>
             <div class="principal">
                 <div class="principal-info">
-                <div class="principal-info-pri" data-aos="fade-left"
-                                                    data-aos-anchor="#example-anchor"
-                                                    data-aos-offset="500"
-                                                    data-aos-duration="500">
-                        <div>
-                            <h2>Puntaje satisfacción ventas</h2>
-                        </div>
-                        <div>
-                            <?php 
-                                $sql6 = "SELECT COUNT(*) AS total FROM valoracionventa";
-                                $result6 = $datos_base->query($sql6);
-                                $row6 = $result6->fetch_assoc();
-                                $cantvalor = $row6['total'];
-
-                                $sql6 = "SELECT SUM(valoracion) AS valoracion FROM valoracionventa";
-                                $result6 = $datos_base->query($sql6);
-                                $row6 = $result6->fetch_assoc();
-                                $valoracion = $row6['valoracion'];
-
-                                $promedio = $valoracion / $cantvalor;
-                            ?>
-                            <p><?php echo round(($promedio) ,2)."/5";?></p>
-
-
-
-                        </div>
-                    </div>
-                    <div class="principal-info-sec" data-aos="fade-left"
-                                                    data-aos-anchor="#example-anchor"
-                                                    data-aos-offset="550"
-                                                    data-aos-duration="550">
-                        <div>
-                            <h2>Ingresos generados</h2>
-                        </div>
-                        <div>
-                            <?php 
-                                $sql6 = "SELECT sum(da.monto) as suma
-                                FROM datosdocumento da
-                                LEFT JOIN documento d ON d.idDocumento = da.idDocumento
-                                WHERE d.idEstadoDocumento = 10";
-                                $result6 = $datos_base->query($sql6);
-                                $row6 = $result6->fetch_assoc();
-                                $cotact = $row6['suma'];
-                            ?>
-                            <p><?php echo "$".round($cotact, 2);?></p>
-
-                        </div>
-                    </div>
-                    <div class="principal-info-ter" data-aos="fade-left"
-                                                    data-aos-anchor="#example-anchor"
-                                                    data-aos-offset="600"
-                                                    data-aos-duration="600">
-                        <div>
-                            <h2>Gastos generados</h2>
-                        </div>
-                        <div>
                         <?php 
-                                $sql6 = "SELECT sum(da.monto) as suma
-                                FROM datoslicitacion da
-                                LEFT JOIN licitacion l ON l.idLicitacion = da.idLicitacion
-                                WHERE l.idEstadoLicitacion = 6";
-                                $result6 = $datos_base->query($sql6);
-                                $row6 = $result6->fetch_assoc();
-                                $lictot = $row6['suma'];
-                            ?>
-                            <p><?php echo "$".round($lictot, 2);?></p>
+                            $sql6 = "SELECT COUNT(*) AS total FROM valoracionventa";
+                            $result6 = $datos_base->query($sql6);
+                            $row6 = $result6->fetch_assoc();
+                            $cantvalor = $row6['total'];
+
+                            $sql6 = "SELECT SUM(valoracion) AS valoracion FROM valoracionventa";
+                            $result6 = $datos_base->query($sql6);
+                            $row6 = $result6->fetch_assoc();
+                            $valoracion = $row6['valoracion'];
+
+                            $promedio = $valoracion / $cantvalor;
+                        ?>
+                    <div class="col-md-3">
+                        <div class="card-counter primary">
+                            <div class="card-pri">
+                                <i class="fa-solid fa-face-smile"></i>
+                                <span class="count-numbers"><?php echo round(($promedio) ,2)."/5";?></span>
+                            </div>
+                            <div class="card-sec">
+                                <span class="count-name">Satisfacciòn ventas</span>
+                            </div>
+                        </div>
+                    </div>
+
+                        <?php 
+                            $sql6 = "SELECT sum(da.monto) as suma
+                            FROM datosdocumento da
+                            LEFT JOIN documento d ON d.idDocumento = da.idDocumento
+                            WHERE d.idEstadoDocumento = 10";
+                            $result6 = $datos_base->query($sql6);
+                            $row6 = $result6->fetch_assoc();
+                            $cotact = $row6['suma'];
+                        ?>
+                    <div class="col-md-3">
+                        <div class="card-counter success">
+                            <div class="card-pri">
+                                <i class="fa-sharp fa-solid fa-arrow-up"></i>
+                                <span class="count-numbers"><?php echo "$".round($cotact, 2);?></span>
+                            </div>
+                            <div class="card-sec">
+                                <span class="count-name">Ingresos generados</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <?php 
+                            $sql6 = "SELECT sum(da.monto) as suma
+                            FROM datoslicitacion da
+                            LEFT JOIN licitacion l ON l.idLicitacion = da.idLicitacion
+                            WHERE l.idEstadoLicitacion = 6";
+                            $result6 = $datos_base->query($sql6);
+                            $row6 = $result6->fetch_assoc();
+                            $lictot = $row6['suma'];
+                        ?>
+                    <div class="col-md-3">
+                        <div class="card-counter danger">
+                            <div class="card-pri">
+                                <i class="fa-sharp fa-solid fa-arrow-down"></i>
+                                <span class="count-numbers"><?php echo "$".round($lictot, 2);?></span>
+                            </div>
+                            <div class="card-sec">
+                                <span class="count-name">Gastos generados</span>
+                            </div>
                         </div>
                     </div>
                 </div>
 
 
 
-
-
                 <div class="secundario-info">
-                    <div class="secundario-info-pri" data-aos="fade-left"
-                                                    data-aos-anchor="#example-anchor"
-                                                    data-aos-offset="500"
-                                                    data-aos-duration="500">
-                        <div>
-                            <h2>Días promedio p/venta</h2>
-                        </div>
-                        <div>
                         <?php 
                                 $sql6 = "SELECT sum(m.cantDias) as cantidad
                                 FROM movimientodocumento m
@@ -148,18 +136,18 @@ $idRol = $row['idRol'];
 
                                 $promTotal = $coantdias / $cantidadDoc;
                             ?>
-                            <p><?php 
-                            echo number_format($promTotal, 2);?></p>
+                    <div class="col-md-3">
+                        <div class="card-counter primary">
+                            <div class="card-pri">
+                                <i class="fa-sharp fa-regular fa-calendar"></i>
+                                <span class="count-numbers"><?php echo number_format($promTotal, 2);?></span>
+                            </div>
+                            <div class="card-sec">
+                                <span class="count-name">Dìas promedio p/venta</span>
+                            </div>
                         </div>
                     </div>
-                    <div class="secundario-info-sec" data-aos="fade-left"
-                                                    data-aos-anchor="#example-anchor"
-                                                    data-aos-offset="550"
-                                                    data-aos-duration="550">
-                         <div>
-                            <h2>Ventas exitosas</h2>
-                        </div>
-                        <div>
+
                         <?php 
                             $sql6 = "SELECT COUNT(*) AS total FROM documento";
                             $result6 = $datos_base->query($sql6);
@@ -172,22 +160,29 @@ $idRol = $row['idRol'];
                             $docven = $row6['total'];
 
                             ?>
-                            <p><?php 
-                            echo round(($docven * 100)/$doctot, 2)."%";?></p>
+                    <div class="col-md-3">
+                        <div class="card-counter success">
+                            <div class="card-pri">
+                                <i class="fa-regular fa-circle-check"></i>
+                                <span class="count-numbers"><?php echo round(($docven * 100)/$doctot, 2)."%";?></span>
+                            </div>
+                            <div class="card-sec">
+                                <span class="count-name">Ventas exitosas</span>
+                            </div>
                         </div>
                     </div>
 
-                    <div class="secundario-info-ter" data-aos="fade-left"
-                                                    data-aos-anchor="#example-anchor"
-                                                    data-aos-offset="600"
-                                                    data-aos-duration="600">
-                        <div>
-                            <h2>Balance</h2>
-                        </div>
-                        <div>
-                            <p><?php 
-                            $balance = $cotact - $lictot;?>
-                            <p><?php echo "$".round($balance, 2);?></p>
+                    <?php $balance = $cotact - $lictot;?>
+
+                    <div class="col-md-3">
+                        <div class="card-counter danger">
+                            <div class="card-pri">
+                                <i class="fa-solid fa-dollar-sign"></i>
+                                <span class="count-numbers"><?php echo "$".round($balance, 2);?></span>
+                            </div>
+                            <div class="card-sec">
+                                <span class="count-name">Balance</span>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -195,15 +190,15 @@ $idRol = $row['idRol'];
                 <div class="tercer-card">
                     <div class="card stats">
                         <div class="card-body">
-                            <h5 class="card-title">Productos mas solicitados</h5>
-                            <a href='prodSolicitados.php' class="btn btn-info">Ver todos</a>
+                            <h5 class="card-title">Productos más solicitados</h5>
+                            <a href='prodSolicitados.php' class="btn btn-secondary">Ver todos</a>
                         </div>
                     </div>
                     
                     <div class="card stats">
                         <div class="card-body">
-                            <h5 class="card-title">Productos mas vendidos</h5>
-                            <a href='prodVendidos.php' class="btn btn-info">Ver todos</a>
+                            <h5 class="card-title">Productos más vendidos</h5>
+                            <a href='prodVendidos.php' class="btn btn-secondary">Ver todos</a>
                         </div>
                     </div>
                 </div>
@@ -309,6 +304,7 @@ $idRol = $row['idRol'];
                         </div>
                     </div>
                 </div>
+
                 <div class="contGrafico">
                     <div class="grafico">
                         <div class="grafico-tit">
@@ -319,8 +315,6 @@ $idRol = $row['idRol'];
                         </div>
                     </div>
                 </div>
-
-            </div>
     <?php
         $sql6 = "SELECT COUNT(*) AS total FROM documento WHERE idEstadoDocumento <> 9 AND idEstadoDocumento <> 10";
         $result6 = $datos_base->query($sql6);
@@ -951,6 +945,6 @@ var chart = new Chart(miCanvas3,{
         </script>
       <script src="https://kit.fontawesome.com/ebb188da7c.js" crossorigin="anonymous"></script>
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
-    <script src="../Js/script.js"></script>
+    <script src="../Js/estadisticas.js"></script>
 </body>
 </html>

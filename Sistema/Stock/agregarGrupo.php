@@ -56,7 +56,7 @@ if(!isset($_SESSION['usuario']))
                         <input type="text" style="width: 500px; text-transform:uppercase;" name="nombre" required>
                 </div>
                 <div>
-                    <button type="submit">AGREGAR</button>
+                    <button type="submit" class="btn btn-success">AGREGAR</button>
                 </div>
             </form>
         

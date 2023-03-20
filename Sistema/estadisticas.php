@@ -23,6 +23,7 @@ $idRol = $row['idRol'];
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300&display=swap" rel="stylesheet">
     <script src="../chart.min.js"></script>
     <link rel="stylesheet" type="text/css" href="../Css/estilos.css"/>
@@ -67,7 +68,7 @@ $idRol = $row['idRol'];
                                 <span class="count-numbers"><?php echo round(($promedio) ,2)."/5";?></span>
                             </div>
                             <div class="card-sec">
-                                <span class="count-name">Satisfacciòn ventas</span>
+                                <span class="count-name">Satisfacción ventas</span>
                             </div>
                         </div>
                     </div>

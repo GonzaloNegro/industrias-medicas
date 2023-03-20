@@ -97,6 +97,10 @@ table{
 
 	border-collapse: collapse;
 	width:90%;
+    background-color: rgba(230, 230, 230, 0.650);
+    box-shadow: 15px 6px 72px 4px rgba(0,0,0,0.18) inset;
+    -webkit-box-shadow: 15px 6px 72px 4px rgba(0,0,0,0.18) inset;
+    -moz-box-shadow: 15px 6px 72px 4px rgba(0,0,0,0.18) inset;
 }
 
 th, td{
@@ -107,7 +111,7 @@ th, td{
 }
 
 thead{
-	background-color: #dbe5e9;
+    background-color: rgba(230, 230, 230, 0.650);
 	border-bottom: solid 5px crimson;
 	width: 100%;
 }/*ACA ESTABA EL PROBLEMA DEL ACOMODAMIENTO EN "VER PENDIENTES" Y "VER" QUE SE ACHICABA EL TABLE*/
@@ -137,8 +141,10 @@ tr:hover td{
     flex-direction: column;
 
     padding: 20px;
-    border: 1px solid crimson;
-    background-color: rgba(199, 199, 199, 0.61);
+    background-color: rgba(230, 230, 230, 0.650);
+    box-shadow: 15px 6px 72px 4px rgba(0,0,0,0.18) inset;
+    -webkit-box-shadow: 15px 6px 72px 4px rgba(0,0,0,0.18) inset;
+    -moz-box-shadow: 15px 6px 72px 4px rgba(0,0,0,0.18) inset;
     border-radius: 20px;
 }
 

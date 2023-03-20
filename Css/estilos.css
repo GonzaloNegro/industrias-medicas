@@ -353,7 +353,10 @@ i {
 .con-info-inf-for {
   width: 600px;
   margin-bottom: 40px;
-  background-color: rgba(199, 199, 199, 0.61);
+  background-color: rgba(230, 230, 230, 0.65);
+  box-shadow: 15px 6px 72px 4px rgba(0, 0, 0, 0.18) inset;
+  -webkit-box-shadow: 15px 6px 72px 4px rgba(0, 0, 0, 0.18) inset;
+  -moz-box-shadow: 15px 6px 72px 4px rgba(0, 0, 0, 0.18) inset;
   border-radius: 20px;
   display: flex;
   justify-content: center;
@@ -397,7 +400,10 @@ footer {
   display: flex;
   justify-content: center;
   flex-direction: column;
-  border-top: 1px solid black; }
+  border-top: 1px solid black;
+  box-shadow: 21px 65px 147px -106px rgba(0, 0, 0, 0.75) inset;
+  -webkit-box-shadow: 21px 65px 147px -106px rgba(0, 0, 0, 0.75) inset;
+  -moz-box-shadow: 21px 65px 147px -106px rgba(0, 0, 0, 0.75) inset; }
 
 .fot {
   display: flex;
@@ -719,8 +725,10 @@ li {
   margin-top: 50px;
   padding: 30px;
   border-radius: 20px;
-  background-color: silver;
-  border: 1px solid black; }
+  background-color: rgba(230, 230, 230, 0.65);
+  box-shadow: 15px 6px 72px 4px rgba(0, 0, 0, 0.18) inset;
+  -webkit-box-shadow: 15px 6px 72px 4px rgba(0, 0, 0, 0.18) inset;
+  -moz-box-shadow: 15px 6px 72px 4px rgba(0, 0, 0, 0.18) inset; }
 
 .principal-info-datos-info {
   margin-top: 40px; }
@@ -756,8 +764,10 @@ li {
   align-items: center; }
 
 .clave form {
-  background-color: silver;
-  border: 1px solid black;
+  background-color: rgba(230, 230, 230, 0.65);
+  box-shadow: 15px 6px 72px 4px rgba(0, 0, 0, 0.18) inset;
+  -webkit-box-shadow: 15px 6px 72px 4px rgba(0, 0, 0, 0.18) inset;
+  -moz-box-shadow: 15px 6px 72px 4px rgba(0, 0, 0, 0.18) inset;
   border-radius: 20px;
   padding: 10px;
   display: flex;
@@ -1033,12 +1043,19 @@ fieldset {
   margin: 0 auto;
   border-radius: 10px;
   background-color: rgba(230, 230, 230, 0.65);
+  box-shadow: 15px 6px 72px 4px rgba(0, 0, 0, 0.18) inset;
+  -webkit-box-shadow: 15px 6px 72px 4px rgba(0, 0, 0, 0.18) inset;
+  -moz-box-shadow: 15px 6px 72px 4px rgba(0, 0, 0, 0.18) inset;
   display: flex;
   justify-content: center;
   align-items: flex-start;
   flex-direction: column;
   font-weight: 400;
   color: black; }
+
+.principal-datos table {
+  background-color: transparent;
+  box-shadow: none; }
 
 .principal-datos h2 {
   font-size: 30px; }
@@ -1303,7 +1320,11 @@ table {
   margin-top: 20px;
   background-color: #dbe5e9;
   border-collapse: collapse;
-  width: 90%; }
+  width: 90%;
+  background-color: rgba(230, 230, 230, 0.65);
+  box-shadow: 15px 6px 72px 4px rgba(0, 0, 0, 0.18) inset;
+  -webkit-box-shadow: 15px 6px 72px 4px rgba(0, 0, 0, 0.18) inset;
+  -moz-box-shadow: 15px 6px 72px 4px rgba(0, 0, 0, 0.18) inset; }
 
 th, td {
   text-align: center;
@@ -1312,7 +1333,7 @@ th, td {
   font-weight: bold; }
 
 thead {
-  background-color: #dbe5e9;
+  background-color: rgba(230, 230, 230, 0.65);
   border-bottom: solid 5px crimson;
   width: 100%; }
 
@@ -1336,8 +1357,10 @@ tr:hover td {
   align-items: center;
   flex-direction: column;
   padding: 20px;
-  border: 1px solid crimson;
-  background-color: rgba(199, 199, 199, 0.61);
+  background-color: rgba(230, 230, 230, 0.65);
+  box-shadow: 15px 6px 72px 4px rgba(0, 0, 0, 0.18) inset;
+  -webkit-box-shadow: 15px 6px 72px 4px rgba(0, 0, 0, 0.18) inset;
+  -moz-box-shadow: 15px 6px 72px 4px rgba(0, 0, 0, 0.18) inset;
   border-radius: 20px; }
 
 .agrStock form input, .agrStock form select, .agrStock form textarea {

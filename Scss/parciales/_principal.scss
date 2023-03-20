@@ -269,6 +269,9 @@
 
     border-radius: 10px;
     background-color: rgba(230, 230, 230, 0.650);
+    box-shadow: 15px 6px 72px 4px rgba(0,0,0,0.18) inset;
+    -webkit-box-shadow: 15px 6px 72px 4px rgba(0,0,0,0.18) inset;
+    -moz-box-shadow: 15px 6px 72px 4px rgba(0,0,0,0.18) inset;
 
     display: flex;
     justify-content: center;
@@ -276,6 +279,10 @@
     flex-direction: column;
     font-weight: 400;
     color: black;
+}
+.principal-datos  table{
+    background-color: transparent;
+    box-shadow: none ;
 }
 
 .principal-datos h2{

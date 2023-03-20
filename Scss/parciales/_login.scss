@@ -205,8 +205,10 @@ li{
     margin-top: 50px;
     padding: 30px;
     border-radius: 20px;
-    background-color: rgb(192, 192, 192);
-    border: 1px solid black;
+    background-color: rgba(230, 230, 230, 0.650);
+    box-shadow: 15px 6px 72px 4px rgba(0,0,0,0.18) inset;
+    -webkit-box-shadow: 15px 6px 72px 4px rgba(0,0,0,0.18) inset;
+    -moz-box-shadow: 15px 6px 72px 4px rgba(0,0,0,0.18) inset;
 }
 
 .principal-info-datos-info{
@@ -250,8 +252,10 @@ li{
 }
 
 .clave form{
-    background-color: rgb(192, 192, 192);
-    border: 1px solid black;
+    background-color: rgba(230, 230, 230, 0.650);
+    box-shadow: 15px 6px 72px 4px rgba(0,0,0,0.18) inset;
+    -webkit-box-shadow: 15px 6px 72px 4px rgba(0,0,0,0.18) inset;
+    -moz-box-shadow: 15px 6px 72px 4px rgba(0,0,0,0.18) inset;
     border-radius: 20px;
 
     padding: 10px;

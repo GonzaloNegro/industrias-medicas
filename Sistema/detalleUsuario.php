@@ -145,7 +145,7 @@ function ConsultarIncidente($no_tic)
                         </select>
                 </div>
                 <div>
-                    <button type="submit" name="submit">GUARDAR</button>
+                    <button type="submit" name="submit" class="btn btn-success">GUARDAR</button>
                 </div>
             </form>
             <div class="agregar">

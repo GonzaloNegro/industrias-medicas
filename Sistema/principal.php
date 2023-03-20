@@ -1,5 +1,5 @@
 <?php
-error_reporting(0);
+/* error_reporting(0); */
 session_start(); 
 include('../Utils/conexion.php');
 if(!isset($_SESSION['usuario'])) 
@@ -75,6 +75,25 @@ $idRol = $row['idRol'];
                                 </div>
                                 <div class="card-sec">
                                     <span class="count-name">Licitaciones activas</span>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <?php 
+                                $sql6 = "SELECT COUNT(*) AS total FROM producto WHERE cantidad < minimo";
+                                $result6 = $datos_base->query($sql6);
+                                $row6 = $result6->fetch_assoc();
+                                $stockTotal = $row6['total'];
+                            ?>
+                       <div class="col-md-3">
+                            <div class="card-counter danger">
+                                <div class="card-pri">
+                                    <i class="fa-solid fa-triangle-exclamation"></i>
+                                    <span class="count-numbers"><?php echo $stockTotal;?></span>
+                                </div>
+                                <div class="card-sec">
+                                    <span class="count-name">Stock bajo</span>
                                 </div>
                             </div>
                         </div>

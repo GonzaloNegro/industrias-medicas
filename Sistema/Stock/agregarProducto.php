@@ -102,7 +102,7 @@ if(!isset($_SESSION['usuario']))
                     </select>
                 </div>
                 <div>
-                    <button type="submit">AGREGAR</button>
+                    <button type="submit" class="btn btn-success">AGREGAR</button>
                 </div>
             </form>
         

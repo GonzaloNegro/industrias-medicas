@@ -61,13 +61,18 @@
           <figure class="tamaño-img">
             <img src="../Imagenes/c-logotipo.png" alt="Logo de la marca Industrias Médicas">
           </figure>
+          <div class="tamaño-ico">
+            <a href="#nosotros">
+              <i class="fa-solid fa-arrow-down fa-2x"></i>
+            </a>
+          </div>
         </div>
       </section>
 
       <section id="nosotros">
         <div class="container nos">
             <div class="nos-tit" data-aos="zoom-in">
-                <img src="../Imagenes/c-titulo.png" alt=""><h2>¿QUIENES SOMOS?</h2>
+                <img src="../Imagenes/c-titulo.png" alt=""><h2>¿QUIÉNES SOMOS?</h2>
             </div>
             <div class="nos-info" data-aos="zoom-in">
               <div class="nos-info-arr">
@@ -85,29 +90,21 @@
 
               <div class="nos-info-aba">
                 <div class="nos-info-aba-tit">
-                  <h3>NUESTROS VALORES</h3>
+                  <h2>NUESTROS VALORES</h2>
                 </div>
                 <div class="nos-info-aba-con">
-                  <div class="nos-info-aba-con-sup">
-                    <div class="cont-img">
-                      <img src="../Imagenes/c-hexagono.png" alt="">
-                      <div class="encima">
-                      <span class="inicial"><strong>CALIDAD</strong></span><br>
-                      <p>Es una de nuestras consignas, la cual significa sinónimo de garantía yseguridad al momento de adquirir uno de nuestros productos o servicios.</p>
-                      </div>
-                    </div>
-                    <div class="cont-img">
-                      <img src="../Imagenes/c-hexagono.png" alt="">
-                      <div class="encima">
-                      <span class="inicial"><strong>SALUD</strong></span><br>
-                      <p>Es nuestro interés y también<br> un ideal trabajar para que desde nuestro lugar de trabajo logremos, a través de nuestros productos y servicios,<br> el bienestar total que debe<br> tener toda persona.</p>
-                    </div>
+                  <div class="nos-info-aba-con-pri">
+                    <h3>CALIDAD</h3>
+                    <p>Es una de nuestras consignas, la cual significa sinónimo de garantía yseguridad al momento de adquirir uno de nuestros productos o servicios.</p>
+                  </div>
+                  <div class="nos-info-aba-con-sec">
+                    <h3>SALUD</h3>
+                    <p>Es nuestro interés y también un ideal trabajar para que desde nuestro lugar de trabajo logremos, a través de nuestros productos y servicios, el bienestar total que debe tener toda persona.</p>
                   </div>
                 </div>
-
               </div>
-            </div>
-        </div>
+
+          </div>
       </section>
 
       <section id="productos">
@@ -115,10 +112,7 @@
             <div class="prod-tit" data-aos="fade-right">
                 <img src="../Imagenes/c-titulo.png" alt=""><h2>NUESTROS PRODUCTOS</h2>
             </div>
-            <div class="prod-img" data-aos="fade-left"
-                                  data-aos-anchor="#example-anchor"
-                                  data-aos-offset="1000"
-                                  data-aos-duration="1000">
+            <div class="prod-img" >
                   <div class="prod-img-pri">
                     <div class="card uno"></div>
                     <div class="card dos"></div>
@@ -178,7 +172,7 @@
                           <div>
                             <textarea name="" id="" name="consulta" cols="30" rows="4" placeholder="Mensaje" required></textarea>
                           </div>
-                          <div>
+                          <div style="padding: 5px;">
                             <button type="submit" class="btn btn-success">Enviar</button>
                           </div>
                         </form>
@@ -194,7 +188,7 @@
             </div>
         </div>
       </section>
-      <footer>
+      <footer class="fotHome">
         <div class="fot">
             <img src="../Imagenes/c-logotipo.png" alt="">
         </div>

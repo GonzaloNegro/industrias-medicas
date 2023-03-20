@@ -19,6 +19,10 @@ nav {
 h1, h2 {
   cursor: default; }
 
+h1, h3, h4, p {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bold; }
+
 .navPrincipal {
   background-color: white; }
 
@@ -55,11 +59,6 @@ h1, h2 {
 .inicial {
   color: red; }
 
-/* .espacio{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-} */
 .logo {
   display: flex;
   justify-content: center; }
@@ -78,16 +77,26 @@ h1, h2 {
   border: none;
   width: 100%;
   height: 980px;
-  background-image: url("../Imagenes/esqueleto.jpeg");
-  background-repeat: no-repeat;
-  background-size: cover;
+  background: #e6e6e6;
+  background: linear-gradient(0deg, #e6e6e6 0%, white 100%, #00d4ff 100%);
   display: flex;
-  justify-content: center;
-  align-items: center; }
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: column; }
 
 .tamaño-img {
-  background-color: rgba(255, 255, 255, 0.7);
   border-radius: 10px; }
+
+.tamaño-ico {
+  animation: flec 2000ms ease infinite; }
+
+@keyframes flec {
+  0% {
+    transform: translatey(0); }
+  50% {
+    transform: translatey(-1.5vw); }
+  100% {
+    transform: translatey(0); } }
 
 /* .carousel-item img{
     width: 100%;
@@ -102,10 +111,11 @@ h1, h2 {
 .nos {
   min-height: 900px;
   display: flex;
-  justify-content: center; }
+  justify-content: center;
+  align-items: center;
+  flex-direction: column; }
 
 .nos-tit {
-  margin-left: 80px;
   display: flex;
   justify-content: center;
   align-items: center; }
@@ -114,18 +124,21 @@ h1, h2 {
   width: 10%; }
 
 .nos-info {
+  width: 100%;
   margin-top: 40px;
   margin-bottom: 40px;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  flex-wrap: wrap; }
+  flex-wrap: wrap;
+  gap: 40px; }
 
 .nos-info h3 {
   color: crimson; }
 
 .nos-info-arr {
+  width: 100%;
   display: flex;
   justify-content: space-around;
   flex-direction: row; }
@@ -138,8 +151,8 @@ h1, h2 {
   align-items: center;
   flex-direction: column; }
 
-.nos-info-arr p {
-  text-align: center; }
+.nos-info-arr {
+  text-align: left; }
 
 .nos-info-arr-vis {
   max-width: 300px;
@@ -150,9 +163,11 @@ h1, h2 {
   flex-direction: column; }
 
 .nos-info-aba {
+  width: 100%;
   margin-top: 40px;
   display: flex;
   justify-content: center;
+  align-items: center;
   flex-direction: column; }
 
 .nos-info-aba-tit {
@@ -160,25 +175,27 @@ h1, h2 {
   justify-content: center; }
 
 .nos-info-aba-con {
-  display: flex; }
-
-.nos-info-aba-con-sup {
+  width: 100%;
   display: flex;
+  justify-content: space-around;
+  flex-direction: row; }
+
+.nos-info-aba-con-pri {
+  max-width: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   flex-direction: column; }
 
-.cont-img {
-  position: relative;
-  display: inline-block;
-  text-align: center; }
+.nos-info-aba-con {
+  text-align: left; }
 
-.cont-img img {
-  width: 60%; }
-
-.encima {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%); }
+.nos-info-aba-con-sec {
+  max-width: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column; }
 
 /* ------------------------- */
 /* ------------------------- */
@@ -293,6 +310,10 @@ h1, h2 {
 /* CONTACTO */
 /* ------------------------- */
 /* ------------------------- */
+#contacto {
+  background: #e6e6e6;
+  background: linear-gradient(180deg, #e6e6e6 0%, white 100%); }
+
 .con {
   min-height: 900px;
   display: flex;
@@ -405,7 +426,13 @@ footer {
   -webkit-box-shadow: 21px 65px 147px -106px rgba(0, 0, 0, 0.75) inset;
   -moz-box-shadow: 21px 65px 147px -106px rgba(0, 0, 0, 0.75) inset; }
 
+.fotHome {
+  border-top: none;
+  background: white;
+  box-shadow: none; }
+
 .fot {
+  width: 100%;
   display: flex;
   justify-content: center; }
 
@@ -426,9 +453,9 @@ footer {
   /* HOME */
   .tamaño {
     height: 400px;
-    background-image: url("../Imagenes/esqueleto.jpeg");
-    background-repeat: no-repeat;
-    background-size: 100% 400px; }
+    background-image: none;
+    background: #e6e6e6;
+    background: linear-gradient(0deg, #e6e6e6 0%, white 100%); }
   .tamaño-img {
     width: 300px; }
   .tamaño-img img {
@@ -438,13 +465,14 @@ footer {
     height: auto;
     flex-direction: column;
     padding: 10px; }
-  .nos-tit {
-    margin-left: 0px; }
   .nos-tit img {
     width: 20%; }
   .nos-info {
     margin-top: 10px;
-    margin-bottom: 40px; }
+    margin-bottom: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center; }
   .nos-info-arr {
     width: 300px;
     justify-content: center;
@@ -459,15 +487,15 @@ footer {
   .nos-info-aba {
     margin-top: 0px;
     gap: 40px; }
-  .nos-info-aba-con-sup {
-    display: flex;
+  .nos-info-aba p {
+    text-align: justify; }
+  .nos-info-aba-con {
     flex-direction: column;
-    gap: 20px; }
-  .encima p {
-    text-align: justify;
-    font-size: 13px; }
-  .cont-img img {
-    width: 300px; }
+    align-items: center; }
+  .nos-info-aba-con {
+    text-align: left; }
+  .nos-info-aba-con p {
+    text-align: justify; }
   /* PRODUCTOS */
   .prod {
     flex-direction: column; }
@@ -509,7 +537,9 @@ footer {
     display: flex;
     justify-items: center;
     align-items: center;
-    flex-direction: column; } }
+    flex-direction: column; }
+  .fot img {
+    width: 80%; } }
 
 .sec {
   height: 100%;

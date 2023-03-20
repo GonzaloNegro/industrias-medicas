@@ -29,12 +29,6 @@
     color: red;
 }
 
-/* .espacio{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-} */
-
 .logo{
     display: flex;
     justify-content: center;
@@ -56,20 +50,29 @@
     border: none;
     width: 100%;
     height: 980px;
-    background-image: url("../Imagenes/esqueleto.jpeg");
-    background-repeat: no-repeat;
-    background-size: cover;
+    background: rgb(230,230,230);
+    background: linear-gradient(0deg, rgba(230,230,230,1) 0%, rgba(255,255,255,1) 100%, rgba(0,212,255,1) 100%);
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
+    flex-direction: column;
 }
 
 .tamaño-img{
-    background-color: rgba(255, 255, 255, 0.7);
     border-radius: 10px;
 }
 
+.tamaño-ico{
+    animation: flec 2000ms ease infinite;
+}
 
+@keyframes flec {
+    0% {
+      transform: translatey(0); }
+    50% {
+      transform: translatey(-1.5vw); } 
+    100% {
+      transform: translatey(0); } }
 /* .carousel-item img{
     width: 100%;
     max-height: 740px;
@@ -85,10 +88,11 @@
     min-height: 900px;
     display: flex;
     justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
 .nos-tit{
-    margin-left: 80px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -99,6 +103,7 @@
 }
 
 .nos-info{
+    width: 100%;
     margin-top: 40px;
     margin-bottom: 40px;
     display: flex;
@@ -106,6 +111,7 @@
     align-items: center;
     flex-direction: column;
     flex-wrap: wrap;
+    gap: 40px;
 }
 
 .nos-info h3{
@@ -113,6 +119,7 @@
 }
 
 .nos-info-arr{
+    width: 100%;
     display: flex;
     justify-content: space-around;
     flex-direction: row;
@@ -128,8 +135,8 @@
 
 }
 
-.nos-info-arr p{
-    text-align: center;
+.nos-info-arr{
+    text-align: left;
 }
 
 .nos-info-arr-vis{
@@ -142,9 +149,11 @@
 }
 
 .nos-info-aba{
+    width: 100%;
     margin-top: 40px;
     display: flex;
     justify-content: center;
+    align-items: center;
     flex-direction: column;
 }
 
@@ -154,31 +163,33 @@
 }
 
 .nos-info-aba-con{
+    width: 100%;
     display: flex;
+    justify-content: space-around;
+    flex-direction: row;
 }
 
-.nos-info-aba-con-sup{
+.nos-info-aba-con-pri{
+    max-width: 300px;
     display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+}
+
+.nos-info-aba-con{
+    text-align: left;
+}
+
+.nos-info-aba-con-sec{
+    max-width: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     flex-direction: column;
 }
 
-
-.cont-img{
-    position: relative;
-    display: inline-block;
-    text-align: center;
-}
-
-.cont-img img{
-    width: 60%;
-}
-
-.encima{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
 
 
 /* ------------------------- */
@@ -316,6 +327,10 @@
 /* ------------------------- */
 /* ------------------------- */
 
+#contacto{
+    background: rgb(230,230,230);
+    background: linear-gradient(180deg, rgba(230,230,230,1) 0%, rgba(255,255,255,1) 100%);
+}
 .con{
     min-height: 900px;
     display: flex;
@@ -450,7 +465,14 @@ footer{
     -moz-box-shadow: 21px 65px 147px -106px rgba(0,0,0,0.75) inset;
 }
 
+.fotHome{
+    border-top: none;
+    background: white;
+    box-shadow: none;
+}
+
 .fot{
+    width: 100%;
     display: flex;
     justify-content: center;
 }
@@ -478,9 +500,9 @@ footer{
     /* HOME */
     .tamaño{
         height: 400px;
-        background-image: url("../Imagenes/esqueleto.jpeg");
-        background-repeat: no-repeat;
-        background-size: 100% 400px;
+        background-image: none;
+        background: rgb(230,230,230);
+        background: linear-gradient(0deg, rgba(230,230,230,1) 0%, rgba(255,255,255,1) 100%);
     }
     .tamaño-img{
         width: 300px;
@@ -495,16 +517,16 @@ footer{
         height: auto;
         flex-direction: column;
         padding: 10px;
-    }    
-    .nos-tit{
-        margin-left: 0px;
-    }    
+    }
     .nos-tit img{
         width: 20%;
     }    
     .nos-info{
         margin-top: 10px;
         margin-bottom: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }    
     .nos-info-arr{
         width: 300px;
@@ -525,19 +547,20 @@ footer{
         margin-top: 0px;
         gap: 40px;
     }
-    .nos-info-aba-con-sup{
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
-    }
-    .encima p{
+    .nos-info-aba p{
         text-align: justify;
-        font-size: 13px;
+    }    
+    .nos-info-aba-con{
+        flex-direction: column;
+        align-items: center;
     }
-    .cont-img img{
-        width: 300px;
+    .nos-info-aba-con{
+        text-align: left;
     }
-
+    .nos-info-aba-con p{
+        text-align: justify;
+    }
+    
 
     /* PRODUCTOS */
     .prod{
@@ -595,5 +618,9 @@ footer{
         justify-items: center;
         align-items: center;
         flex-direction: column;
+    }
+
+    .fot img{
+        width: 80%;
     }
 }

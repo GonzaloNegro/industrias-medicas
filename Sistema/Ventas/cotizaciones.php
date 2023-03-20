@@ -107,7 +107,7 @@ $idRol = $row['idRol'];
                                     <th><p>N°COTIZACION</p></th>
                                     <th><p>FECHA</p></th>
                                     <th><p>USUARIO</p></th>
-                                    <th><p>MÉDICO</p></th>
+                                    <th><p>MÉDICO/S</p></th>
                                     <th><p>PACIENTE</p></th>
                                     <th><p>DETALLES</p></th>
                                 </tr>

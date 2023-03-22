@@ -120,7 +120,7 @@ $idRol = $row['idRol'];
                                         echo
                                         " 
                                             <tr>
-                                            <td><h4 style='font-size:16px;'>".$listar['idLicitacion']."</h4 ></td>
+                                            <td><h4 style='font-size:16px;text-align: right; margin-right: 5px; '>".$listar['idLicitacion']."</h4 ></td>
                                             <td><h4 style='font-size:16px;'>".$fec."</h4 ></td>
                                             <td><h4 style='font-size:16px;'>".$fecven."</h4 ></td>
                                         
@@ -161,7 +161,7 @@ $idRol = $row['idRol'];
                                         echo
                                         " 
                                             <tr>
-                                            <td><h4 style='font-size:16px;'>".$listar['idLicitacion']."</h4 ></td>
+                                            <td><h4 style='font-size:16px;text-align: right; margin-right: 5px; '>".$listar['idLicitacion']."</h4 ></td>
                                             <td><h4 style='font-size:16px;'>".$fec."</h4 ></td>
                                             <td><h4 style='font-size:16px;'>".$fecven."</h4 ></td>";
 

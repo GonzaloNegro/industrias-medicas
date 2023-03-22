@@ -204,6 +204,22 @@ $idRol = $row['idRol'];
                     </div>
                 </div>
 
+                <div class="tercer-card">
+                    <div class="card stats">
+                        <div class="card-body">
+                            <h5 class="card-title">Obras sociales mas recurrentes</h5>
+                            <a href='obrasRecurrentes.php' class="btn btn-secondary">Ver todos</a>
+                        </div>
+                    </div>
+                    
+                    <div class="card stats">
+                        <div class="card-body">
+                            <h5 class="card-title">Proveedores màs recurrentes</h5>
+                            <a href='provRecurrentes.php' class="btn btn-secondary">Ver todos</a>
+                        </div>
+                    </div>
+                </div>
+
 
                 <div class="principal-datos">
                     <div class="principal-datos-cont">
@@ -213,7 +229,7 @@ $idRol = $row['idRol'];
                     <thead class=colm>
                         <tr>
                             <th><p>PROVEEDOR</p></th>
-                            <th><p style='text-align:center;'>CANTIDAD</p></th>
+                            <th><p style='text-align:right;'>CANTIDAD</p></th>
                         </tr>
                     </thead>
                 ";
@@ -230,7 +246,7 @@ $idRol = $row['idRol'];
                                 " 
                                     <tr>
                                     <td><h4 style='font-size:16px;'>".$listar['usuario']."</h4 ></td>
-                                    <td><h4 style='font-size:16px; text-align: center;'>".$listar['cantidad']."</h4 ></td>
+                                    <td><h4 style='font-size:16px; text-align: right; margin-right: 5px;'>".$listar['cantidad']."</h4 ></td>
                                     </tr>
                                 ";
                             }
@@ -249,7 +265,7 @@ $idRol = $row['idRol'];
                             <thead class=colm>
                                 <tr>
                                     <th><p>PROVEEDOR</p></th>
-                                    <th><p style='text-align:center;'>CANTIDAD</p></th>
+                                    <th><p style='text-align:right;'>CANTIDAD</p></th>
                                 </tr>
                             </thead>
                         ";
@@ -266,7 +282,7 @@ $idRol = $row['idRol'];
                                         " 
                                             <tr>
                                             <td><h4 style='font-size:16px;'>".$listar['usuario']."</h4 ></td>
-                                            <td><h4 style='font-size:16px; text-align: center;'>".$listar['cantidad']."</h4 ></td>
+                                            <td><h4 style='font-size:16px; text-align: right; margin-right: 5px; '>".$listar['cantidad']."</h4 ></td>
                                             </tr>
                                         ";
                                     }
@@ -274,6 +290,134 @@ $idRol = $row['idRol'];
                                     ?>
                     </div>
                 </div>
+
+                <?php
+                /* GRÁFICO DÍAS VENTA */
+                    $sql6 = "SELECT COUNT(*) AS CANTIDADDIAS FROM documento WHERE idEstadoDocumento = 10";
+                    $result6 = $datos_base->query($sql6);
+                    $row6 = $result6->fetch_assoc();
+                    $cantidadDiasVentas = $row6['CANTIDADDIAS'];
+
+
+                    $sql6 = "SELECT SUM(cantDias) AS total
+                    FROM movimientodocumento WHERE idEstadoDocumento = 2";
+                    $result6 = $datos_base->query($sql6);
+                    $row6 = $result6->fetch_assoc();
+                    $cotPresupuestada = round(($row6['total'] / $cantidadDiasVentas) ,1);
+
+                    $sql6 = "SELECT SUM(cantDias) AS total
+                    FROM movimientodocumento WHERE idEstadoDocumento = 3";
+                    $result6 = $datos_base->query($sql6);
+                    $row6 = $result6->fetch_assoc();
+                    $ordenCompra = round(($row6['total'] / $cantidadDiasVentas) ,1);
+
+                    $sql6 = "SELECT SUM(cantDias) AS total
+                    FROM movimientodocumento WHERE idEstadoDocumento = 8";
+                    $result6 = $datos_base->query($sql6);
+                    $row6 = $result6->fetch_assoc();
+                    $deposito = round(($row6['total'] / $cantidadDiasVentas) ,1);
+
+                    $sql6 = "SELECT SUM(cantDias) AS total
+                    FROM movimientodocumento WHERE idEstadoDocumento = 4";
+                    $result6 = $datos_base->query($sql6);
+                    $row6 = $result6->fetch_assoc();
+                    $remito = round(($row6['total'] / $cantidadDiasVentas) ,1);
+
+                    $sql6 = "SELECT SUM(cantDias) AS total
+                    FROM movimientodocumento WHERE idEstadoDocumento = 5";
+                    $result6 = $datos_base->query($sql6);
+                    $row6 = $result6->fetch_assoc();
+                    $factura = round(($row6['total'] / $cantidadDiasVentas) ,1);
+
+                    $sql6 = "SELECT SUM(cantDias) AS total
+                    FROM movimientodocumento WHERE idEstadoDocumento = 6";
+                    $result6 = $datos_base->query($sql6);
+                    $row6 = $result6->fetch_assoc();
+                    $ordenPago = round(($row6['total'] / $cantidadDiasVentas) ,1);
+
+                    $sql6 = "SELECT SUM(cantDias) AS total
+                    FROM movimientodocumento WHERE idEstadoDocumento = 10";
+                    $result6 = $datos_base->query($sql6);
+                    $row6 = $result6->fetch_assoc();
+                    $pagado = round(($row6['total'] / $cantidadDiasVentas) ,1);
+
+
+
+                   /* GRÀFICO DÌAS DE LICITACIÒN */ 
+                   $sql6 = "SELECT COUNT(*) AS CANTIDADDIAS FROM licitacion WHERE idEstadoLicitacion = 6";
+                   $result6 = $datos_base->query($sql6);
+                   $row6 = $result6->fetch_assoc();
+                   $cantidadDiasLicitacion = $row6['CANTIDADDIAS'];
+
+
+
+                   $sql6 = "SELECT SUM(m.cantDias) AS total
+                   FROM movimientolicitacion m
+                   LEFT JOIN licitacion l ON l.idLicitacion = m.idLicitacion
+                   WHERE m.idEstadolicitacion = 2
+                   AND l.idEstadoLicitacion = 6";
+                   $result6 = $datos_base->query($sql6);
+                   $row6 = $result6->fetch_assoc();
+                   $licOrdenCompra = round(($row6['total'] / $cantidadDiasLicitacion) ,1);
+
+                   $sql6 = "SELECT SUM(m.cantDias) AS total
+                   FROM movimientolicitacion m
+                   LEFT JOIN licitacion l ON l.idLicitacion = m.idLicitacion
+                   WHERE m.idEstadolicitacion = 3
+                   AND l.idEstadoLicitacion = 6";
+                   $result6 = $datos_base->query($sql6);
+                   $row6 = $result6->fetch_assoc();
+                   $licRemito = round(($row6['total'] / $cantidadDiasLicitacion) ,1);
+
+                   $sql6 = "SELECT SUM(m.cantDias) AS total
+                   FROM movimientolicitacion m
+                   LEFT JOIN licitacion l ON l.idLicitacion = m.idLicitacion
+                   WHERE m.idEstadolicitacion = 4
+                   AND l.idEstadoLicitacion = 6";
+                   $result6 = $datos_base->query($sql6);
+                   $row6 = $result6->fetch_assoc();
+                   $licFactura = round(($row6['total'] / $cantidadDiasLicitacion) ,1);
+
+                   $sql6 = "SELECT SUM(m.cantDias) AS total
+                   FROM movimientolicitacion m
+                   LEFT JOIN licitacion l ON l.idLicitacion = m.idLicitacion
+                   WHERE m.idEstadolicitacion = 5
+                   AND l.idEstadoLicitacion = 6";
+                   $result6 = $datos_base->query($sql6);
+                   $row6 = $result6->fetch_assoc();
+                   $licOrdenPago = round(($row6['total'] / $cantidadDiasLicitacion) ,1);
+
+                   $sql6 = "SELECT SUM(m.cantDias) AS total
+                   FROM movimientolicitacion m
+                   LEFT JOIN licitacion l ON l.idLicitacion = m.idLicitacion
+                   WHERE m.idEstadolicitacion = 6
+                   AND l.idEstadoLicitacion = 6";
+                   $result6 = $datos_base->query($sql6);
+                   $row6 = $result6->fetch_assoc();
+                   $licAprobada = round(($row6['total'] / $cantidadDiasLicitacion) ,1);
+                ?>
+
+
+
+                <div class="contGrafico">
+                    <div class="grafico">
+                        <div class="grafico-tit">
+                            <h1>Días promedio por estado de venta</h1>
+                        </div>
+                        <div class="grafico-gra">
+                            <canvas id="MiGrafica4" style="width: 800px; height: 300px;"></canvas>
+                        </div>
+                    </div>
+                    <div class="grafico">
+                        <div class="grafico-tit">
+                            <h1>Días promedio por estado de Licitación</h1>
+                        </div>
+                        <div class="grafico-gra">
+                            <canvas id="MiGrafica5" style="width: 800px; height: 300px;"></canvas>
+                        </div>
+                    </div>
+                </div>
+                
 
                 <div class="contGrafico">
                     <div class="grafico">
@@ -796,6 +940,80 @@ if(isset($montol12)){
 }
 
 ?>
+    <script>
+    let miCanvas4=document.getElementById("MiGrafica4").getContext("2d");
+
+    var chart = new Chart(miCanvas4,{
+        type: "bar",
+        data:{
+            labels:[
+                "<?php echo "1- Pedido Médico";?>",
+                "<?php echo "2- Presupuesto:";?>",
+                "<?php echo "3- Orden de compra:";?>",
+                "<?php echo "4- Depósito";?>",
+                "<?php echo "5- Remito:";?>",
+                "<?php echo "6- Factura:";?>", 
+                "<?php echo "7- Orden de pago";?>",
+                    ],
+            datasets:[{
+                label: "",
+                backgroundColor: [
+                    "rgb(0, 197, 255)", 
+                    "rgb(255, 0, 0)",
+                    "rgb(0, 197, 255)", 
+                    "rgb(0, 255, 42)",
+                    "rgb(255, 0, 0)",
+                    "rgb(0, 255, 42)",
+                    "rgb(255, 0, 0)",],
+                borderColor: "black",
+                data:[
+                    <?php echo $cotPresupuestada;?>, 
+                    <?php echo $ordenCompra;?>,
+                    <?php echo $deposito;?>, 
+                    <?php echo $remito;?>,
+                    <?php echo $factura;?>,
+                    <?php echo $ordenPago;?>, 
+                    <?php echo $pagado;?>,
+                ]
+            }]
+        }
+    })
+    </script>
+
+<script>
+    let miCanvas5=document.getElementById("MiGrafica5").getContext("2d");
+
+    var chart = new Chart(miCanvas5,{
+        type: "bar",
+        data:{
+            labels:[
+                "<?php echo "1- Lic.Cotizada";?>",
+                "<?php echo "2- Lic.Orden de compra:";?>",
+                "<?php echo "3- Lic.Remito:";?>",
+                "<?php echo "4- Lic.Factura";?>",
+                "<?php echo "5- Lic.Orden de pago:";?>",
+                    ],
+            datasets:[{
+                label: "",
+                backgroundColor: [
+                    "rgb(0, 197, 255)", 
+                    "rgb(255, 0, 0)",
+                    "rgb(0, 197, 255)", 
+                    "rgb(0, 255, 42)",
+                    "rgb(255, 0, 0)",],
+                borderColor: "black",
+                data:[
+                    <?php echo $licOrdenCompra;?>, 
+                    <?php echo $licRemito;?>,
+                    <?php echo $licFactura;?>, 
+                    <?php echo $licOrdenPago;?>,
+                    <?php echo $licAprobada;?>,
+                ]
+            }]
+        }
+    })
+    </script>
+
     <script>
     let miCanvas=document.getElementById("MiGrafica").getContext("2d");
 

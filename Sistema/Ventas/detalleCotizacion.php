@@ -161,7 +161,7 @@ function ConsultarIncidente($no_tic)
                                                 " 
                                                     <tr>
                                                     <td><h4 style='font-size:16px; text-align:left;'>".$listar['producto']."</h4 ></td>
-                                                    <td><h4 style='font-size:16px;'>".$listar['cantidad']."</h4 ></td>
+                                                    <td><h4 style='font-size:16px;text-align: right; margin-right: 5px; '>".$listar['cantidad']."</h4 ></td>
                                                     </tr>
                                                 ";
                                             }

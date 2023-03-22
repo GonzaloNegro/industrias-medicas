@@ -98,7 +98,7 @@ $idUsu = $row['idUsuario']
                                     <?php endforeach ?>
                                 </select>
                             </td>
-                            <td><input type="number" required id="cant" name="cantidad[]" min=1 onkeypress="return valideKey(event);" placeholder="Cantidad"/></td>
+                            <td><input type="number" required id="cant" style="text-align: right; margin-right: 5px; " name="cantidad[]" min=1 onkeypress="return valideKey(event);" placeholder="Cantidad"/></td>
                             <td class="eliminar"><button  type="button" class="btn btn-danger" id="menos">Eliminar</button></td>
                         </tr>
                     </table>

@@ -131,7 +131,7 @@ function valorado(){
                                         echo
                                         " 
                                             <tr>
-                                            <td><h4 style='font-size:16px;'>".$listar['idDocumento']."</h4 ></td>
+                                            <td><h4 style='font-size:16px;text-align: right; margin-right: 5px; '>".$listar['idDocumento']."</h4 ></td>
                                             <td><h4 style='font-size:16px;'>".$fec."</h4 ></td>
                                             <td><h4 style='font-size:16px;'>".$listar['usuario']."</h4 ></td>
                                             <td class='text-center text-nowrap'> <a class='btn btn-sm btn-outline-danger' href=./valorarRecibo.php?no=".$listar['idDocumento']." target=new><svg xmlns='http://www.w3.org/2000/svg' width='20' height='20' fill='currentColor' class='bi bi-filetype-pdf' viewBox='0 0 16 16'>
@@ -163,7 +163,7 @@ function valorado(){
                                         echo
                                         " 
                                             <tr>
-                                            <td><h4 style='font-size:16px;'>".$listar['idDocumento']."</h4 ></td>
+                                            <td><h4 style='font-size:16px;text-align: right; margin-right: 5px; '>".$listar['idDocumento']."</h4 ></td>
                                             <td><h4 style='font-size:16px;'>".$fec."</h4 ></td>
                                             <td><h4 style='font-size:16px;'>".$listar['usuario']."</h4 ></td>
                                             <td class='text-center text-nowrap'><a class='btn btn-sm btn-outline-danger' href=./valorarRecibo.php?no=".$listar['idDocumento']." target=new><svg xmlns='http://www.w3.org/2000/svg' width='20' height='20' fill='currentColor' class='bi bi-filetype-pdf' viewBox='0 0 16 16'>
@@ -221,7 +221,7 @@ function valorado(){
                                             echo
                                             " 
                                                 <tr>
-                                                <td><h4 style='font-size:16px;'>".$listar['idDocumento']."</h4 ></td>
+                                                <td><h4 style='font-size:16px;text-align: right; margin-right: 5px; '>".$listar['idDocumento']."</h4 ></td>
                                                 <td><h4 style='font-size:16px;'>".$fec."</h4 ></td>
                                                 <td><h4 style='font-size:16px;'>".$listar['usuario']."</h4 ></td>
                                                 <td class='text-center text-nowrap'> <a class='btn btn-sm btn-outline-danger' href=./valorarRecibo.php?no=".$listar['idDocumento']." target=new><svg xmlns='http://www.w3.org/2000/svg' width='20' height='20' fill='currentColor' class='bi bi-filetype-pdf' viewBox='0 0 16 16'>
@@ -253,7 +253,7 @@ function valorado(){
                                             echo
                                             " 
                                                 <tr>
-                                                <td><h4 style='font-size:16px;'>".$listar['idDocumento']."</h4 ></td>
+                                                <td><h4 style='font-size:16px;text-align: right; margin-right: 5px; '>".$listar['idDocumento']."</h4 ></td>
                                                 <td><h4 style='font-size:16px;'>".$fec."</h4 ></td>
                                                 <td><h4 style='font-size:16px;'>".$listar['usuario']."</h4 ></td>
                                                 <td class='text-center text-nowrap'><a class='btn btn-sm btn-outline-danger' href=./valorarRecibo.php?no=".$listar['idDocumento']." target=new><svg xmlns='http://www.w3.org/2000/svg' width='20' height='20' fill='currentColor' class='bi bi-filetype-pdf' viewBox='0 0 16 16'>

@@ -125,7 +125,7 @@ $idRol = $row['idRol'];
                                     <?php endforeach ?>
                                 </select>
                             </td>
-                            <td><input type="number" id="cant" required name="cantidad[]" min=1 onkeypress="return valideKey(event);" placeholder="Cantidad"/></td>
+                            <td><input type="number" id="cant" style="text-align: right; margin-right: 5px;" required name="cantidad[]" min=1 onkeypress="return valideKey(event);" placeholder="Cantidad"/></td>
                             <td class="eliminar"><button type="button" class="btn btn-danger">Eliminar</button></td>
                         </tr>
                     </table>

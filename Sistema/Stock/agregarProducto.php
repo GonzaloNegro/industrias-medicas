@@ -71,9 +71,9 @@ if(!isset($_SESSION['usuario']))
                 </div>
                 <div style="text-align: center; padding:10px;">
                         <label for="nombre">Mínimo: </label>
-                        <input type="number" style="width: 80px;" min=1 onkeypress="return valideKey(event);" name="minimo" required>
+                        <input type="number" style="width: 80px; text-align: right; margin-right: 5px; " min=1 onkeypress="return valideKey(event);" name="minimo" required>
                         <label for="nombre">Máximo: </label>
-                        <input type="number" style="width: 80px;" min=1 onkeypress="return valideKey(event);" name="maximo" required>
+                        <input type="number" style="width: 80px; text-align: right; margin-right: 5px; " min=1 onkeypress="return valideKey(event);" name="maximo" required>
                 </div>
                 <div style="text-align: center; padding:10px;">
                     <label for="grupo">Grupo:</label>

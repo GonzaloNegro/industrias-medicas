@@ -115,7 +115,7 @@ function ConsultarIncidente($no_tic)
                                 <tr>
                                     <th><p>ESTADO</p></th>
                                     <th><p>CREACIÓN</p></th>
-                                    <th><p>DÍAS TRANSCURRIDOS</p></th>
+                                    <th><p>DÍAS TRANSCURRIDOS HASTA EL ESTADO</p></th>
                                 </tr>
                             </thead>
                         ";
@@ -132,7 +132,7 @@ function ConsultarIncidente($no_tic)
                                             <tr>
                                             <td><h4 style='font-size:16px;'>".$listar['estadoDocumento']."</h4></td>
                                             <td><h4 style='font-size:16px;'>".$fec."</h4 ></td>
-                                            <td><h4 style='font-size:16px;'>".$listar['cantDias']."</h4 ></td>
+                                            <td><h4 style='font-size:16px;text-align: right; margin-right: 5px; '>".$listar['cantDias']."</h4 ></td>
                                             </tr>
                                         ";
                                     }

@@ -130,7 +130,7 @@ function ConsultarIncidente($no_tic)
                                         <tr>
                                         <td><h4 style='font-size:16px;'>".$listar['estadoLicitacion']."</h4 ></td>
                                         <td><h4 style='font-size:16px;'>".$fec."</h4 ></td>
-                                        <td><h4 style='font-size:16px;'>".$listar['cantDias']."</h4 ></td>
+                                        <td><h4 style='font-size:16px;text-align: right; margin-right: 5px; '>".$listar['cantDias']."</h4 ></td>
                                         </tr>
                                         ";
                                     } 
@@ -150,7 +150,7 @@ function ConsultarIncidente($no_tic)
                                             <tr>
                                             <td><h4 style='font-size:16px;'>".$listar['estadoLicitacion']."</h4 ></td>
                                             <td><h4 style='font-size:16px;'>".$fec."</h4 ></td>
-                                            <td><h4 style='font-size:16px;'>".$listar['cantDias']."</h4 ></td>
+                                            <td><h4 style='font-size:16px; text-align: right; margin-right: 5px; '>".$listar['cantDias']."</h4 ></td>
                                             </tr>
                                         ";
                                     }

@@ -98,7 +98,7 @@ function ConsultarIncidente($no_tic)
                                     $acumulado = $acumulado + 1;
                                 }
                                 echo "
-                                <td><h4 style='font-size:16px';>".$cantstock."</h4></td>
+                                <td><h4 style='font-size:16px; text-align: right; margin-right: 5px; margin-top:20px;'>".$cantstock."</h4></td>
                                 </tr>";
                         }
                         ?>

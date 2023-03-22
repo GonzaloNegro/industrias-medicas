@@ -111,10 +111,10 @@ $idRol = $row['idRol'];
                     echo "<table>
                             <thead class=colm>
                                 <tr>
-                                    <th><p>N°VENTA</p></th>
-                                    <th><p>USUARIO</p></th>
-                                    <th><p>FECHA</p></th>
-                                    <th><p>ESTADO</p></th>
+                                    <th><p style='text-align: center;'>N°VENTA</p></th>
+                                    <th><p style='text-align: center;'>USUARIO</p></th>
+                                    <th><p style='text-align: center;'>FECHA</p></th>
+                                    <th><p style='text-align: center;'>ESTADO</p></th>
                                 </tr>
                             </thead>
                         ";
@@ -134,10 +134,10 @@ $idRol = $row['idRol'];
                                         echo
                                         " 
                                             <tr>
-                                            <td><h4 style='font-size:16px;'>".$listar['idDocumento']."</h4 ></td>
-                                            <td><h4 style='font-size:16px;'>".$listar['usuario']."</h4 ></td>
-                                            <td><h4 style='font-size:16px;'>".$fecha."</h4 ></td>
-                                            <td><h4 style='font-size:16px;'>".$listar['estadoDocumento']."</h4 ></td>                                        
+                                            <td><h4 style='font-size:16px; text-align: right;'>".$listar['idDocumento']."</h4 ></td>
+                                            <td><h4 style='font-size:16px; text-align: center;'>".$listar['usuario']."</h4 ></td>
+                                            <td><h4 style='font-size:16px; text-align: center;'>".$fecha."</h4 ></td>
+                                            <td><h4 style='font-size:16px; text-align: center;'>".$listar['estadoDocumento']."</h4 ></td>                                        
                                             </tr>
                                         ";
                                     }

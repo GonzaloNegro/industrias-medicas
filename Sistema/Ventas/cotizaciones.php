@@ -129,7 +129,7 @@ $idRol = $row['idRol'];
                                         echo
                                         " 
                                             <tr>
-                                            <td><h4 style='font-size:16px;'>".$listar['idDocumento']."</h4 ></td>
+                                            <td><h4 style='font-size:16px;text-align: right; margin-right: 5px; '>".$listar['idDocumento']."</h4 ></td>
                                             <td><h4 style='font-size:16px;'>".$fec."</h4 ></td>
                                             <td><h4 style='font-size:16px;'>".$listar['usuario']."</h4 ></td>
                                             <td><h4 style='font-size:16px;'>".$listar['medico']."</h4 ></td>
@@ -156,7 +156,7 @@ $idRol = $row['idRol'];
                                         echo
                                         " 
                                             <tr>
-                                            <td><h4 style='font-size:16px;'>".$listar['idDocumento']."</h4 ></td>
+                                            <td><h4 style='font-size:16px;text-align: right; margin-right: 5px; '>".$listar['idDocumento']."</h4 ></td>
                                             <td><h4 style='font-size:16px;'>".$fec."</h4 ></td>
                                             <td><h4 style='font-size:16px;'>".$listar['usuario']."</h4 ></td>
                                             <td><h4 style='font-size:16px;'>".$listar['medico']."</h4 ></td>
@@ -203,7 +203,7 @@ $idRol = $row['idRol'];
                                         echo
                                         " 
                                             <tr>
-                                            <td><h4 style='font-size:16px;'>".$listar['idDocumento']."</h4 ></td>
+                                            <td><h4 style='font-size:16px;text-align: right; margin-right: 5px; '>".$listar['idDocumento']."</h4 ></td>
                                             <td><h4 style='font-size:16px;'>".$fec."</h4 ></td>
                                             <td><h4 style='font-size:16px;'>".$listar['usuario']."</h4 ></td>
                                             <td><h4 style='font-size:16px;'>".$listar['medico']."</h4 ></td>
@@ -230,7 +230,7 @@ $idRol = $row['idRol'];
                                         echo
                                         " 
                                             <tr>
-                                            <td><h4 style='font-size:16px;'>".$listar['idDocumento']."</h4 ></td>
+                                            <td><h4 style='font-size:16px;text-align: right; margin-right: 5px; '>".$listar['idDocumento']."</h4 ></td>
                                             <td><h4 style='font-size:16px;'>".$fec."</h4 ></td>
                                             <td><h4 style='font-size:16px;'>".$listar['usuario']."</h4 ></td>
                                             <td><h4 style='font-size:16px;'>".$listar['medico']."</h4 ></td>

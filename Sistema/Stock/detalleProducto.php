@@ -96,9 +96,9 @@ function ConsultarIncidente($no_tic)
                 </div>
                 <div style="text-align: center; padding:10px;">
                         <label for="nombre">Mínimo: </label>
-                        <input type="number" style="width: 80px;" min=1 onkeypress="return valideKey(event);" name="minimo" value="<?php echo $consulta[5]?>">
+                        <input type="number" style="width: 80px; text-align: right; margin-right: 5px; " min=1 onkeypress="return valideKey(event);" name="minimo" value="<?php echo $consulta[5]?>">
                         <label for="nombre">Máximo: </label>
-                        <input type="number" style="width: 80px;" min=1 onkeypress="return valideKey(event);" name="maximo" value="<?php echo $consulta[6]?>">
+                        <input type="number" style="width: 80px; text-align: right; margin-right: 5px; " min=1 onkeypress="return valideKey(event);" name="maximo" value="<?php echo $consulta[6]?>">
                 </div>
                 <div style="text-align: center; padding:10px;">
                     <label for="grupo">Grupo:</label>

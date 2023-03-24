@@ -76,7 +76,8 @@ function valorado(){
     <main>
         <section class="ini">
             <div class="ini-tit">
-                <h1>Recibo</h1>
+                <h1>VENTAS</h1>
+                <h5>RECIBO DE PAGOS PARA CLIENTES</h5>
             </div>
             <div class="container">
 

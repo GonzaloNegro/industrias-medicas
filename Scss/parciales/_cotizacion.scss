@@ -1,30 +1,29 @@
-.not-exit i{
-    color: black;
-    margin-right: 20px;
-}
-
-.not-exit i:hover{
-    color: red;
-}
-
 .not-exit{
-    width: 200px;
+    min-width: 200px;
+    height: 40px;
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
+    gap: 40px;
 }
 
-.not-exit-name {
+.not-exit-name{
+    width: 100%;
+    height: auto;
     cursor: default;
     display: flex;
     justify-content: center;
     align-items: center;
+    font-size: 14px;
 }
 
 .not-exit-exit{
     display: flex;
     justify-content: center;
     align-items: center;
+}
+p{
+    margin-bottom: 0rem;
 }
 
 .btn-outline-danger{
@@ -46,12 +45,14 @@
 }
 
 .cot-cab-tit{
+    width: 100%;
     padding: 10px;
     border-right: 1px solid black;
     display: flex;
     justify-content: center;
     align-items: flex-start;
     flex-direction: column;
+    margin-left: 80px;
 }
 
 .cot-cab-nombre{
@@ -163,6 +164,7 @@
 .valorPeque{
     width: 1px;
     height: 1px;
+    cursor: default;
     color: rgb(230, 230, 230);
 }
 

@@ -72,7 +72,8 @@ $idRol = $row['idRol'];
     <main>
         <section class="ini">
             <div class="ini-tit">
-                <h1>Presupuesto</h1>
+                <h1>VENTAS</h1>
+                <h5>PRESUPUESTO PARA VENTA DE PRODUCTOS</h5>
             </div>
             <div class="container">
                 <form method="POST" action="./presupuestos.php">

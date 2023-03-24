@@ -48,7 +48,8 @@ $idRol = $row['idRol'];
     <main>
     <section class="ini">
             <div class="ini-tit">
-                <h1>Histórico Ventas</h1>
+                <h1>VENTAS</h1>
+                <h5>HISTÓRICO</h5>
             </div>
             <div class="container">
 

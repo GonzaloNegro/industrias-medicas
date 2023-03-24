@@ -12,10 +12,10 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav">
                     <li class="nav-item dropdown">
-                            <a href="#" class="nav-link dropdown-toggle variacion" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Datos usuario</a>
+                            <a href="#" class="nav-link dropdown-toggle variacion" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">DATOS USUARIO</a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <li class="nav-item">
-                                    <a class="nav-link variacion" href="../datos.php">Mis datos</a>
+                                    <a class="nav-link variacion" href="../datos.php">MIS DATOS</a>
                                 </li>
                                 <?php
                                     $rolgerente = 1;
@@ -27,7 +27,7 @@
                                     if($idRol == $rolgerente OR $idRol == $roladmin){
                                 ?>
                                 <li>
-                                    <a class="nav-link variacion" href="../usuarios.php">Usuarios</a>
+                                    <a class="nav-link variacion" href="../usuarios.php">USUARIOS</a>
                                 </li>
                                 <?php
                                     }
@@ -35,28 +35,28 @@
                             </ul>
                         </li>
                         <li class="nav-item">
-                            <a href="../principal.php" class="nav-link variacion" aria-current="page">Principal</a>
+                            <a href="../principal.php" class="nav-link variacion" aria-current="page">PRINCIPAL</a>
                         </li>
                         <?php
                             if($idRol == $rolgerente OR $idRol == $roldeposito){
                         ?>
                         <li class="nav-item dropdown">
-                            <a href="#" class="nav-link dropdown-toggle variacion" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Stock</a>
+                            <a href="#" class="nav-link dropdown-toggle variacion" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">STOCK</a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <li class="nav-item">
-                                    <a class="nav-link variacion" href="../Stock/stock.php">Consultar stock</a>
+                                    <a class="nav-link variacion" href="../Stock/stock.php">CONSULTAR STOCK</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link variacion" href="../Stock/movimientoStock.php">Movimiento stock</a>
+                                    <a class="nav-link variacion" href="../Stock/movimientoStock.php">MOVIMIENTOS STOCK</a>
                                 </li>
                                 <li>
-                                    <a class="nav-link variacion" href="../Stock/stockRevisar.php">A revisar</a>
+                                    <a class="nav-link variacion" href="../Stock/stockRevisar.php">A REVISAR</a>
                                 </li>
                                 <li>
-                                    <a class="nav-link variacion" href="../Stock/productos.php">Productos</a>
+                                    <a class="nav-link variacion" href="../Stock/productos.php">PRODUCTOS</a>
                                 </li>
                                 <li>
-                                    <a class="nav-link variacion" href="../Stock/gruposProductos.php">Grupos Productos</a>
+                                    <a class="nav-link variacion" href="../Stock/gruposProductos.php">GRUPOS PRODUCTOS</a>
                                 </li>
                             </ul>
                         </li>
@@ -67,16 +67,16 @@
                             if($idRol == $rolgerente OR $idRol == $roladmin OR $idRol == $rolventas OR $idRol == $rolproveedor){
                         ?>
                         <li class="nav-item dropdown">
-                            <a href="#" class="nav-link dropdown-toggle variacion" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Licitaciones</a>
+                            <a href="#" class="nav-link dropdown-toggle variacion" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">LICITACIONES</a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <li class="nav-item">
-                                    <a class="nav-link variacion" href="./historicoLicitaciones.php">Histórico</a>
+                                    <a class="nav-link variacion" href="./historicoLicitaciones.php">HISTÓRICO</a>
                                 </li>
                                 <?php
                                     if($idRol == $rolgerente OR $idRol == $rolventas){
                                 ?>
                                 <li class="nav-item">
-                                    <a href="./solLic.php" class="nav-link variacion" aria-current="page">Solicitar</a>
+                                    <a href="./solLic.php" class="nav-link variacion" aria-current="page">SOLICITAR</a>
                                 </li>
                                 <?php
                                     }
@@ -85,28 +85,28 @@
                                     if($idRol == $rolgerente OR $idRol == $roladmin){
                                 ?>
                                 <li class="nav-item">
-                                    <a class="nav-link variacion" href="./solicitudLicitacion.php">Solicitudes</a>
+                                    <a class="nav-link variacion" href="./solicitudLicitacion.php">SOLICITUDES</a>
                                 </li>
                                 <?php
                                     }
                                 ?>
                                 <li class="nav-item">
-                                    <a class="nav-link variacion" href="./licCotizaciones.php">Cotizaciones</a>
+                                    <a class="nav-link variacion" href="./licCotizaciones.php">COTIZACIONES</a>
                                 </li>
                                 <li>
-                                    <a class="dropdown-item nav-link variacion" href="./licOrdenCompra.php">Orden de compra</a>
+                                    <a class="dropdown-item nav-link variacion" href="./licOrdenCompra.php">ORDEN DE COMPRA</a>
                                 </li>
                                 <li>
-                                    <a class="dropdown-item nav-link variacion" href="./licRemitos.php">Remitos</a>
+                                    <a class="dropdown-item nav-link variacion" href="./licRemitos.php">REMITOS</a>
                                 </li>
                                 <li>
-                                    <a class="dropdown-item nav-link variacion" href="./licFacturas.php">Facturas</a>
+                                    <a class="dropdown-item nav-link variacion" href="./licFacturas.php">FACTURAS</a>
                                 </li>
                                 <li>
-                                    <a class="dropdown-item nav-link variacion" href="./licOrdenPago.php">Orden de pago</a>
+                                    <a class="dropdown-item nav-link variacion" href="./licOrdenPago.php">ORDEN DE PAGO</a>
                                 </li>
                                 <li>
-                                    <a class="dropdown-item nav-link variacion" href="./licRecibo.php">Recibo</a>
+                                    <a class="dropdown-item nav-link variacion" href="./licRecibo.php">RECIBO</a>
                                 </li>
                             </ul>
                         </li>
@@ -117,31 +117,31 @@
                             if($idRol == $rolgerente OR $idRol == $roladmin OR $idRol == $rolobra){
                         ?>
                         <li class="nav-item dropdown">
-                            <a href="#" class="nav-link dropdown-toggle variacion" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Ventas</a>
+                            <a href="#" class="nav-link dropdown-toggle variacion" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">VENTAS</a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <li class="nav-item">
-                                    <a class="nav-link variacion" href="../Ventas/historicoVentas.php">Histórico</a>
+                                    <a class="nav-link variacion" href="../Ventas/historicoVentas.php">HISTÓRICO</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link variacion" href="../Ventas/cotizaciones.php">Pedido Médico</a>
+                                    <a class="nav-link variacion" href="../Ventas/cotizaciones.php">PEDIDO MÉDICO</a>
                                 </li>
                                 <li >
-                                    <a class="nav-link variacion" href="../Ventas/presupuestos.php">Presupuestos</a>
+                                    <a class="nav-link variacion" href="../Ventas/presupuestos.php">PRESUPUESTOS</a>
                                 </li>
                                 <li>
-                                    <a class="dropdown-item nav-link variacion" href="../Ventas/ordenCompra.php">Orden de compra</a>
+                                    <a class="dropdown-item nav-link variacion" href="../Ventas/ordenCompra.php">ORDEN DE COMPRA</a>
                                 </li>
                                 <li>
-                                    <a class="dropdown-item nav-link variacion" href="../Ventas/remitos.php">Remitos</a>
+                                    <a class="dropdown-item nav-link variacion" href="../Ventas/remitos.php">REMITOS</a>
                                 </li>
                                 <li>
-                                    <a class="dropdown-item nav-link variacion" href="../Ventas/facturas.php">Facturas</a>
+                                    <a class="dropdown-item nav-link variacion" href="../Ventas/facturas.php">FACTURAS</a>
                                 </li>
                                 <li>
-                                    <a class="dropdown-item nav-link variacion" href="../Ventas/ordenPago.php">Orden de pago</a>
+                                    <a class="dropdown-item nav-link variacion" href="../Ventas/ordenPago.php">ORDEN DE PAGO</a>
                                 </li>
                                 <li>
-                                    <a class="dropdown-item nav-link variacion" href="../Ventas/recibo.php">Recibo</a>
+                                    <a class="dropdown-item nav-link variacion" href="../Ventas/recibo.php">RECIBO</a>
                                 </li>
                             </ul>
                         </li>
@@ -152,7 +152,7 @@
                             if($idRol == $rolgerente OR $idRol == $roladmin){
                         ?>
                         <li class="nav-item">
-                            <a href="../estadisticas.php" class="nav-link variacion" aria-current="page">Estadisticas</a>
+                            <a href="../estadisticas.php" class="nav-link variacion" aria-current="page">ESTADISTICAS</a>
                         </li>
                         <?php
                             }
@@ -161,12 +161,11 @@
                 </div>
                 <div class="not-exit">
                     <div class="not-exit-name">
-                        <p style='color: blue; font-weight: bold;'><u>Usuario</u>: <?php echo $nom;?></p>
+                        <p><i class="fa-solid fa-user" style="color: #dc3545;">&nbsp<?php echo $nom;?></i></p>
                     </div>
-                   <!--  <a href=""><i class="fa-regular fa-bell"></i></a> -->
                    <div class="not-exit-exit">
                        <a href="../../Utils/salir.php">
-                           <button class="btn btn-outline-danger" type="submit">Salir</button>
+                            <i class="fa-solid fa-right-from-bracket fa-2x" style="color: #dc3545;"></i>
                         </a>
                    </div>
                 </div>

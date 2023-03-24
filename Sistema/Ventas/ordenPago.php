@@ -67,7 +67,8 @@ function cargado(){
     <main>
         <section class="ini">
             <div class="ini-tit">
-                <h1>Ordenes de Pago</h1>
+                <h1>VENTAS</h1>
+                <h5>ORDEN DE PAGO PARA CLIENTES</h5>
             </div>
             <div class="container">
 

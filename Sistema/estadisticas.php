@@ -65,7 +65,7 @@ $idRol = $row['idRol'];
                         <div class="card-counter primary">
                             <div class="card-pri">
                                 <i class="fa-solid fa-face-smile"></i>
-                                <span class="count-numbers"><?php echo round(($promedio) ,2)."/5";?></span>
+                                <span class="count-numbers"><?php echo number_format(($promedio) ,2)."/5";?></span>
                             </div>
                             <div class="card-sec">
                                 <span class="count-name">Satisfacción ventas</span>
@@ -86,7 +86,7 @@ $idRol = $row['idRol'];
                         <div class="card-counter success">
                             <div class="card-pri">
                                 <i class="fa-sharp fa-solid fa-arrow-up"></i>
-                                <span class="count-numbers"><?php echo "$".round($cotact, 2);?></span>
+                                <span class="count-numbers"><?php echo "$".number_format($cotact, 2);?></span>
                             </div>
                             <div class="card-sec">
                                 <span class="count-name">Ingresos generados</span>
@@ -107,7 +107,7 @@ $idRol = $row['idRol'];
                         <div class="card-counter danger">
                             <div class="card-pri">
                                 <i class="fa-sharp fa-solid fa-arrow-down"></i>
-                                <span class="count-numbers"><?php echo "$".round($lictot, 2);?></span>
+                                <span class="count-numbers"><?php echo "$".number_format($lictot, 2);?></span>
                             </div>
                             <div class="card-sec">
                                 <span class="count-name">Gastos generados</span>
@@ -165,7 +165,7 @@ $idRol = $row['idRol'];
                         <div class="card-counter success">
                             <div class="card-pri">
                                 <i class="fa-regular fa-circle-check"></i>
-                                <span class="count-numbers"><?php echo round(($docven * 100)/$doctot, 2)."%";?></span>
+                                <span class="count-numbers"><?php echo number_format(($docven * 100)/$doctot, 2)."%";?></span>
                             </div>
                             <div class="card-sec">
                                 <span class="count-name">Ventas exitosas</span>
@@ -179,7 +179,7 @@ $idRol = $row['idRol'];
                         <div class="card-counter danger">
                             <div class="card-pri">
                                 <i class="fa-solid fa-dollar-sign"></i>
-                                <span class="count-numbers"><?php echo "$".round($balance, 2);?></span>
+                                <span class="count-numbers"><?php echo "$".number_format($balance, 2);?></span>
                             </div>
                             <div class="card-sec">
                                 <span class="count-name">Balance</span>
@@ -192,104 +192,31 @@ $idRol = $row['idRol'];
                     <div class="card stats">
                         <div class="card-body">
                             <h5 class="card-title">Productos más solicitados</h5>
-                            <a href='prodSolicitados.php' class="btn btn-secondary">Ver todos</a>
+                            <a href='prodSolicitados.php' class="btn btn-info">Ver todos</a>
                         </div>
                     </div>
                     
                     <div class="card stats">
                         <div class="card-body">
                             <h5 class="card-title">Productos más vendidos</h5>
-                            <a href='prodVendidos.php' class="btn btn-secondary">Ver todos</a>
+                            <a href='prodVendidos.php' class="btn btn-info">Ver todos</a>
                         </div>
                     </div>
-                </div>
-
-                <div class="tercer-card">
                     <div class="card stats">
                         <div class="card-body">
-                            <h5 class="card-title">Obras sociales mas recurrentes</h5>
-                            <a href='obrasRecurrentes.php' class="btn btn-secondary">Ver todos</a>
+                            <h5 class="card-title">Obras sociales más recurrentes</h5>
+                            <a href='obrasRecurrentes.php' class="btn btn-info">Ver todos</a>
                         </div>
                     </div>
                     
                     <div class="card stats">
                         <div class="card-body">
-                            <h5 class="card-title">Proveedores màs recurrentes</h5>
-                            <a href='provRecurrentes.php' class="btn btn-secondary">Ver todos</a>
+                            <h5 class="card-title">Proveedores más recurrentes</h5>
+                            <a href='provRecurrentes.php' class="btn btn-info">Ver todos</a>
                         </div>
                     </div>
                 </div>
 
-
-                <div class="principal-datos">
-                    <div class="principal-datos-cont">
-                        <h2>OBRA SOCIAL MÁS RECURRENTE</h2>
-                        <?php
-                    echo "<table>
-                    <thead class=colm>
-                        <tr>
-                            <th><p>PROVEEDOR</p></th>
-                            <th><p style='text-align:right;'>CANTIDAD</p></th>
-                        </tr>
-                    </thead>
-                ";
-                        $consulta=mysqli_query($datos_base, "SELECT COUNT(da.idDocumento) AS cantidad, u.usuario
-                        FROM datosdocumento da 
-                        LEFT JOIN documento d ON d.idDocumento = da.idDocumento
-                        LEFT JOIN usuario u ON u.idUsuario = da.idUsuario
-                        WHERE d.idEstadoDocumento = 10 
-                        GROUP BY da.idUsuario 
-                        LIMIT 3");
-                            while($listar = mysqli_fetch_array($consulta)) 
-                            {
-                                echo
-                                " 
-                                    <tr>
-                                    <td><h4 style='font-size:16px;'>".$listar['usuario']."</h4 ></td>
-                                    <td><h4 style='font-size:16px; text-align: right; margin-right: 5px;'>".$listar['cantidad']."</h4 ></td>
-                                    </tr>
-                                ";
-                            }
-                                echo "</table>";
-                                    ?>
-                    </div>
-                </div>
-                <br>
-
-
-                <div class="principal-datos">
-                    <div class="principal-datos-cont">
-                        <h2>PROVEEDORES MÁS RECURRENTES</h2>
-                        <?php
-                    echo "<table>
-                            <thead class=colm>
-                                <tr>
-                                    <th><p>PROVEEDOR</p></th>
-                                    <th><p style='text-align:right;'>CANTIDAD</p></th>
-                                </tr>
-                            </thead>
-                        ";
-                                $consulta=mysqli_query($datos_base, "SELECT COUNT(da.idLicitacion) AS cantidad, u.usuario
-                                FROM datoslicitacion da 
-                                LEFT JOIN licitacion l ON l.idLicitacion = da.idLicitacion
-                                LEFT JOIN usuario u ON u.idUsuario = da.idUsuario
-                                WHERE l.idEstadoLicitacion = 6 
-                                GROUP BY da.idUsuario 
-                                LIMIT 3");
-                                    while($listar = mysqli_fetch_array($consulta)) 
-                                    {
-                                        echo
-                                        " 
-                                            <tr>
-                                            <td><h4 style='font-size:16px;'>".$listar['usuario']."</h4 ></td>
-                                            <td><h4 style='font-size:16px; text-align: right; margin-right: 5px; '>".$listar['cantidad']."</h4 ></td>
-                                            </tr>
-                                        ";
-                                    }
-                                echo "</table>";
-                                    ?>
-                    </div>
-                </div>
 
                 <?php
                 /* GRÁFICO DÍAS VENTA */
@@ -425,7 +352,7 @@ $idRol = $row['idRol'];
                             <h1>Estado ventas</h1>
                         </div>
                         <div class="grafico-gra">
-                            <canvas id="MiGrafica" style="width: 400px; height: 300px;"></canvas>
+                            <canvas id="MiGrafica" style="width: 800px; height: 300px;"></canvas>
                         </div>
                     </div>
     
@@ -434,7 +361,7 @@ $idRol = $row['idRol'];
                             <h1>Estado Licitaciones</h1>
                         </div>
                         <div class="grafico-gra">
-                            <canvas id="MiGrafica1" style="width: 400px; height: 300px;"></canvas>
+                            <canvas id="MiGrafica1" style="width: 800px; height: 300px;"></canvas>
                         </div>
                     </div>
                 </div>
@@ -958,12 +885,12 @@ if(isset($montol12)){
             datasets:[{
                 label: "",
                 backgroundColor: [
-                    "rgb(0, 197, 255)", 
+                    "#007bff", 
                     "rgb(255, 0, 0)",
                     "rgb(0, 197, 255)", 
-                    "rgb(0, 255, 42)",
+                    "#66bb6a",
                     "rgb(255, 0, 0)",
-                    "rgb(0, 255, 42)",
+                    "#66bb6a",
                     "rgb(255, 0, 0)",],
                 borderColor: "black",
                 data:[
@@ -996,10 +923,10 @@ if(isset($montol12)){
             datasets:[{
                 label: "",
                 backgroundColor: [
-                    "rgb(0, 197, 255)", 
+                    "#007bff", 
                     "rgb(255, 0, 0)",
                     "rgb(0, 197, 255)", 
-                    "rgb(0, 255, 42)",
+                    "#66bb6a",
                     "rgb(255, 0, 0)",],
                 borderColor: "black",
                 data:[
@@ -1029,9 +956,9 @@ if(isset($montol12)){
             datasets:[{
                 label: "",
                 backgroundColor: [
-                    "rgb(0, 197, 255)", 
-                    "rgb(0, 255, 42)",
-                    "rgb(255, 0, 0)",],
+                    "#007bff", 
+                    "#66bb6a",
+                    "#ef5350",],
                 borderColor: "black",
                 data:[
                     <?php echo $docProceso;?>, 
@@ -1057,9 +984,9 @@ if(isset($montol12)){
             datasets:[{
                 label: "",
                 backgroundColor: [
-                    "rgb(0, 197, 255)", 
-                    "rgb(0, 255, 42)",
-                    "rgb(255, 0, 0)",],
+                    "#007bff", 
+                    "#66bb6a",
+                    "#ef5350",],
                 borderColor: "black",
                 data:[
                     <?php echo $licProceso;?>, 
@@ -1090,8 +1017,8 @@ var chart = new Chart(miCanvas2,{
         ],
         datasets:[{
             label: "INGRESOS",
-            backgroundColor: "",
-            borderColor: "green",
+            backgroundColor: "#66bb6a",
+            borderColor: "#66bb6a",
             data:[
                 <?php 
                 $largo = count($arraym);
@@ -1125,8 +1052,8 @@ var chart = new Chart(miCanvas3,{
         ],
         datasets:[{
             label: "EGRESOS",
-            backgroundColor: "",
-            borderColor: "red",
+            backgroundColor: "#ef5350",
+            borderColor: "#ef5350",
             data:[
                 <?php 
                 $largo = count($arraym2);

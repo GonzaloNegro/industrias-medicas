@@ -21,6 +21,17 @@ include('../Utils/conexion.php');
     <title>Industrias Médicas</title>
 </head>
 <body>
+<script>
+    function valideKey(evt){
+    
+    var code = (evt.which) ? evt.which : evt.keyCode;
+    
+    if(code!=32) { // backspace.
+      return true;
+    } 
+      return false;
+    }
+    </script>
 <script type="text/javascript">
 			function done(){
 				swal.fire("Constraseña cambiada!", "Se ha actualizado tu contraseña!", "success");
@@ -49,9 +60,9 @@ include('../Utils/conexion.php');
                     <div>
                         <input class="form-control" type="text" name="usuario" placeholder="Usuario" required></div>
                     <div>
-                        <input class="form-control" type="password" name="vieja" placeholder="Clave actual" required></div>
+                        <input class="form-control" type="password" name="vieja" onkeypress="return valideKey(event);"  placeholder="Clave actual" required></div>
                     <div>
-                        <input class="form-control" type="password" name="nueva" placeholder="Clave nueva" required>
+                        <input class="form-control" type="password" name="nueva" onkeypress="return valideKey(event);"  placeholder="Clave nueva" required>
                     </div>
                     <div>
                         <button type="submit" class="btn btn-success">Cambiar</button>

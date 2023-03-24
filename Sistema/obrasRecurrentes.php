@@ -111,6 +111,8 @@ $idUsu = $row['idUsuario'];
                 <div class="contFilter--search">
                     <input type="submit" class="btn " value="Ver" style="margin-top: 38px; background-color: blue; color: white;">
                     <button type="submit" class="btn btn-success" id="imp" onclick="javascript:imprim2();">Imprimir</button>
+                    <button type="submit" form="formu" style="border:none; background-color:transparent;"><i class="fa-solid fa-file-excel fa-2x" style="color: #1f5120;"></i>Excel</button>
+                    <button type="submit" form="formupdf" style="border:none; background-color:transparent;"><i class="fa-solid fa-file-pdf fa-2x" style="color: #c82828;"></i>Pdf</button>
                 </div>
         </div>
 <!--             <h4 class="card-title">Filtro de búsqueda</h4>
@@ -155,7 +157,7 @@ $idUsu = $row['idUsuario'];
         if ($_POST["buscar"] == '' AND $_POST['idGrupoProducto'] == '' AND $_POST['buscadesde'] == '' AND $_POST['buscahasta'] == '' AND $_POST['grupo'] == ''){ 
                 $query ="SELECT COUNT(DISTINCT(pr.idDocumento)) AS TOTAL, u.usuario, SUM(da.monto) AS monto, SUM(pr.cantidad) AS cantidad
                 FROM datosdocumento da
-               LEFT JOIN usuario u ON u.idUsuario = da.idUsuario
+                LEFT JOIN usuario u ON u.idUsuario = da.idUsuario
                 LEFT JOIN documento d ON d.idDocumento = da.idDocumento
                 LEFT JOIN productodocumento pr ON pr.idDocumento = d.idDocumento
                 WHERE d.idEstadoDocumento = 10
@@ -219,13 +221,13 @@ $idUsu = $row['idUsuario'];
 
 
         <div class="table-responsive" id="imprimirEsto">
-            <table class="table" style="width: 90%; margin: 0 auto;">
+            <table class="table">
                 <thead>
                         <tr>
-                        <th style=" text-align: center;">O.SOCIAL</th>
-                                <th style=" text-align: center;">CANTIDAD<br/>DE PRODUCTOS SOLICITADOS</th>
-                                <th style=" text-align: center;">VENTAS CONCRETADAS</th>
-                                <th style=" text-align: center;">INVERSIÓN<br/>(INCLUYE IVA)</th>
+                        <th style=" text-align: center; width:500px;">O.SOCIAL</th>
+                                <th style=" text-align: center; width: 300px;">CANTIDAD<br/>DE PRODUCTOS SOLICITADOS</th>
+                                <th style=" text-align: center; width: 200px;">VENTAS CONCRETADAS</th>
+                                <th style=" text-align: center; width: 250px;">INVERSIÓN + IVA</th>
                         </tr>
                 </thead>
                 <tbody>
@@ -234,14 +236,19 @@ $idUsu = $row['idUsuario'];
                         <td><h4 style="font-size:14px; text-align:left; margin-left: 5px;"><?php echo $rowSql["usuario"]; ?></h4></td>
                         <td><h4 style="font-size:14px; text-align: right; margin-left: 5px;"><?php echo $rowSql["cantidad"]; ?></h4></td>
                         <td><h4 style="font-size:14px; text-align: right; margin-right: 5px;"><?php echo $rowSql["TOTAL"]; ?></h4></td>
-                        <td><h4 style="font-size:14px; text-align: right; margin-right: 5px;"><?php echo "$".$rowSql["monto"]*1.21; ?></h4></td>
+                        <td><h4 style="font-size:14px; text-align: right; margin-right: 5px;"><?php echo "$".number_format($rowSql["monto"]*1.21,2); ?></h4></td>
                         </tr>
                
                <?php } ?>
                 </tbody>
             </table>
         </div>
-
+        <form id="formu" action="../Exportar/ExcelObrasRecurrentes.php" method="POST">
+            <input type="text" name="sql" class="valorPeque" readonly="readonly" value="<?php echo $query;?>">
+        </form>
+        <form id="formupdf" action="../Exportar/" method="POST">
+            <input type="text" name="sql" class="valorPeque" readonly="readonly">
+        </form>
         <div class="agregar" id="imp">
             <a href="./estadisticas.php" class="volver"><i class="fa-sharp fa-solid fa-arrow-left"></i></a>
         </div>

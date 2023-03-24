@@ -77,7 +77,8 @@ $idRol = $row['idRol'];
     <main>
         <section class="ini">
             <div class="ini-tit">
-                <h1>Pedido Médico</h1>
+                <h1>VENTAS</h1>
+                <h5>PEDIDO MÉDICO PARA SOLICITUD DE PRODUCTOS</h5>
             </div>
             <div class="container">
 

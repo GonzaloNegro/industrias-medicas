@@ -74,32 +74,53 @@
             <div class="nos-tit" data-aos="zoom-in">
                 <img src="../Imagenes/c-titulo.png" alt=""><h2>¿QUIÉNES SOMOS?</h2>
             </div>
-            <div class="nos-info" data-aos="zoom-in">
-              <div class="nos-info-arr">
+            <div class="nos-info">
+              <div class="nos-info-arr" data-aos="zoom-in">
                 <div class="nos-info-arr-mis">
-                  <h3>NUESTRA MISIÓN</h3>
-                  <P>Nuestro compromiso es el de brindar productos y servicios de alto nivel tecnológico. Nuestra orientación es hacia la excelencia en el servicio que prestamos, y los productos cuentan con las habilitaciones y controles correspondientes (ANMAT-FDA-CE) al igual que la rastreabilidad necesaria para ofrecer seguridad y garantía, tanto a los profesionales como a los pacientes.
-                  Colaborar en el desarrollo de sistemas de salud que cubran las necesidades de los pacientes.
-                  Asumir el compromiso, seriedad y responsabilidad que la salud de cada paciente merece.</P>
+                  <div class="nos-info-arr-mis-img">
+                      <img src="../Imagenes/mision.jpg" alt="">
+                  </div>
+                  <div class="nos-info-arr-mis-txt">
+                    <h3>NUESTRA MISIÓN</h3>
+                    <P>Nuestro compromiso es el de brindar productos y servicios de alto nivel tecnológico. Nuestra orientación es hacia la excelencia en el servicio que prestamos, y los productos cuentan con las habilitaciones y controles correspondientes (ANMAT-FDA-CE) al igual que la rastreabilidad necesaria para ofrecer seguridad y garantía, tanto a los profesionales como a los pacientes.
+                      Colaborar en el desarrollo de sistemas de salud que cubran las necesidades de los pacientes.
+                      Asumir el compromiso, seriedad y responsabilidad que la salud de cada paciente merece.</P>
+                    </div>
                 </div>
-                <div class="nos-info-arr-vis">
-                  <h3>NUESTRA VISIÓN</h3>
-                  <P>Aspiramos a brindar a nuestros clientes una gama de servicios y productos que se acentúa principalmente en nuestros valores de innovación y calidad, basada en una filosofía de mejora continua en tecnología para la salud, en donde se persigan los más altos estándares de desempeño a nivel organizacional, para proporcionar el mejor soporte técnico y garantizar la postventa, buscando la excelencia, ampliando la variedad de nuestros productos y poder así llegar a nuestros mercados, nuevos sectores, nuevas alianzas y ser líderes en nuestro segmento.</P>
-                </div>
-              </div>
 
-              <div class="nos-info-aba">
+                <div class="nos-info-arr-vis">
+                  <div class="nos-info-arr-vis-txt">
+                    <h3>NUESTRA VISIÓN</h3>
+                    <P>Aspiramos a brindar a nuestros clientes una gama de servicios y productos que se acentúa principalmente en nuestros valores de innovación y calidad, basada en una filosofía de mejora continua en tecnología para la salud, en donde se persigan los más altos estándares de desempeño a nivel organizacional, para proporcionar el mejor soporte técnico y garantizar la postventa, buscando la excelencia, ampliando la variedad de nuestros productos y poder así llegar a nuestros mercados, nuevos sectores, nuevas alianzas y ser líderes en nuestro segmento.</P>
+                    </div>
+                    <div class="nos-info-arr-vis-img">
+                      <img src="../Imagenes/vision.jpeg" alt="">
+                    </div>
+                  </div>
+                </div>
+
+              <div class="nos-info-aba" data-aos="zoom-in">
                 <div class="nos-info-aba-tit">
                   <h2>NUESTROS VALORES</h2>
                 </div>
                 <div class="nos-info-aba-con">
                   <div class="nos-info-aba-con-pri">
-                    <h3>CALIDAD</h3>
-                    <p>Es una de nuestras consignas, la cual significa sinónimo de garantía yseguridad al momento de adquirir uno de nuestros productos o servicios.</p>
+                    <div class="nos-info-aba-con-pri-img">
+                      <img src="../Imagenes/calidad.jpg" alt="">
+                    </div>
+                    <div class="nos-info-aba-con-pri-txt">
+                      <h3>CALIDAD</h3>
+                      <p>Es una de nuestras consignas, la cual significa sinónimo de garantía yseguridad al momento de adquirir uno de nuestros productos o servicios. Esto es vital para el paciente y los diferentes clientes. Es cumplir no solo con los requisitos, sino también con las exigencias de los usuarios.</p>
+                    </div>
                   </div>
                   <div class="nos-info-aba-con-sec">
-                    <h3>SALUD</h3>
-                    <p>Es nuestro interés y también un ideal trabajar para que desde nuestro lugar de trabajo logremos, a través de nuestros productos y servicios, el bienestar total que debe tener toda persona.</p>
+                    <div class="nos-info-aba-con-sec-txt">
+                      <h3>SALUD</h3>
+                      <p>Es nuestro interés y también un ideal trabajar para que desde nuestro lugar de trabajo logremos, a través de nuestros productos y servicios, el bienestar total que debe tener toda persona, desde el punto de vista físico, mental, emocional y espiritual y no solo la ausencia de enfermedades o impedimientos físicos.</p>
+                    </div>
+                    <div class="nos-info-aba-con-sec-img">
+                      <img src="../Imagenes/salud.png" alt="">
+                    </div>
                   </div>
                 </div>
               </div>

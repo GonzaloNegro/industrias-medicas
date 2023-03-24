@@ -76,7 +76,8 @@ function no(){
     <main>
         <section class="ini">
             <div class="ini-tit">
-                <h1>Licitación Remitos</h1>
+                <h1>LICITACIONES</h1>
+                <h5>REMITO DE PROVEEDORES</h5>
             </div>
             <div class="container">
 

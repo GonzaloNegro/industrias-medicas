@@ -64,7 +64,8 @@ $idRol = $row['idRol'];
     <main>
         <section class="ini">
             <div class="ini-tit">
-                <h1>Licitación Orden de Compra</h1>
+                <h1>LICITACIONES</h1>
+                <h5>ORDEN DE COMPRA PARA PROVISIÓN A PROVEEDORES</h5>
             </div>
             <div class="container">
 

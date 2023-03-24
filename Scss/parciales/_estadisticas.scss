@@ -140,19 +140,23 @@
 }
 
 .stats{
-    height: 100px;
-    width: 300px;
+    height: 350px;
+    width: 240px;
     border-radius: 5px;
     padding: 20px 10px;
     margin: 5px;
-    background-color: rgb(72, 220, 247);
-    border: none;
-    color: white;
+    background: linear-gradient(0deg, rgba(230,230,230,1) 0%, rgba(255,255,255,1) 100%, rgba(0,212,255,1) 100%);
+    box-shadow: 10px 10px 20px 0px rgba(143,143,143,0.75);
+    -webkit-box-shadow: 10px 10px 20px 0px rgba(143,143,143,0.75);
+    -moz-box-shadow: 10px 10px 20px 0px rgba(143,143,143,0.75);
+    border: 0.5px solid rgba(143,143,143,0.75);
+    color: black;
 
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    flex-wrap: wrap;
 }
 .card-body{
     display: flex;
@@ -165,4 +169,7 @@
 }
 .card-body a:hover{
     color: white;
+}
+.card-title{
+    text-align: center;
 }

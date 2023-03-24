@@ -65,7 +65,7 @@ function ConsultarIncidente($no_tic)
                 </div>
             </form>
             <div class="agregar">
-                    <a href="./remitos.php" class="volver">VOL<i class="fa-sharp fa-solid fa-arrow-left"></i>VER</a>
+                    <a href="./remitos.php" class="volver"><i class="fa-sharp fa-solid fa-arrow-left"></i></a>
                 </div>
         </div>
         </section>

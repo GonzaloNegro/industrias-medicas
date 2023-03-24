@@ -44,8 +44,8 @@ mysqli_query($datos_base, "INSERT INTO datosdocumento VALUES ('$tic1', '$medico'
 
 
     /* PRODUCTOS A INSERTAR */
-    $items1 = ($_POST['cantidad']);
-    $items2 = ($_POST['producto']);
+    $items1 = ($_POST['producto']);
+    $items2 = ($_POST['cantidad']);
     
     ///////////// SEPARAR VALORES DE ARRAYS, EN ESTE CASO SON 4 ARRAYS UNO POR CADA INPUT (ID, NOMBRE, CARRERA Y GRUPO////////////////////)
     while(true) {

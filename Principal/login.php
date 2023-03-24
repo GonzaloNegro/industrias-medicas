@@ -59,11 +59,17 @@
 			}	
 			</script>
     <main>
-<!--     <form action="" id="formu">
-        <input type="text" id="user">
-        <input type="password" id="password">
-        <button disabled id="btn">validar</button>
-    </form> -->
+    <script>
+    function valideKey(evt){
+    
+    var code = (evt.which) ? evt.which : evt.keyCode;
+    
+    if(code!=32) { // backspace.
+      return true;
+    } 
+      return false;
+    }
+    </script>
         <div class="contenedor__todo" data-aos="fade-zoom-in"
                                         data-aos-easing="ease-in-back"
                                         data-aos-delay="500"
@@ -85,7 +91,7 @@
                 <form method="POST" action="../Utils/validarLogin.php" id="formu" class="formulario__login">
                     <h2>Iniciar Sesión</h2>
                     <input type="text" id="user" name="usuario" placeholder="Usuario">
-                    <input type="password" id="password" name="contraseña" placeholder="Contraseña">
+                    <input type="password" id="password" name="contraseña" onkeypress="return valideKey(event);"  placeholder="Contraseña">
                     <button type="submit" disabled id="btn" name="ingreso">Entrar</button>
                     <div class="centrado">
                         <li><a href="./restablecer.php">¿Olvidaste tu contraseña?</a></li>
@@ -116,7 +122,7 @@
                     <input type="text" id="correo" name="regCor" placeholder="Correo Electronico" required>
                     <input type="text" id="correo" name="regDir" placeholder="Dirección" required>
                     <input type="text" id="usuario" name="regUsu" placeholder="Usuario" required>
-                    <input type="password" id="pass" name="regPas" placeholder="Contraseña" required>
+                    <input type="password" id="pass" name="regPas" placeholder="Contraseña" onkeypress="return valideKey(event);"  required>
                     <fieldset>
                         <div class="rad1">
                             <label>Obra Social</label>

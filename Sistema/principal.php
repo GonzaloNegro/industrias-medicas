@@ -125,7 +125,7 @@ $idRol = $row['idRol'];
                                 LEFT JOIN datosdocumento AS da ON da.idDocumento = d.idDocumento
                                 LEFT JOIN usuario AS u ON u.idUsuario = da.idUsuario
                                 WHERE m.idEstadoDocumento = d.idEstadoDocumento
-                                ORDER BY m.fecha DESC
+                                ORDER BY m.fecha DESC, d.idDocumento DESC
                                 LIMIT 4
                                 ");
                                     while($listar = mysqli_fetch_array($consulta)) 

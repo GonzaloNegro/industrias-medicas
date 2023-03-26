@@ -109,8 +109,9 @@ $idUsu = $row['idUsuario'];
                 </div>
                 <div class="contFilter--search">
                     <input type="submit" class="btn " value="Ver" style="margin-top: 38px; background-color: blue; color: white;">
+                    <p>Exportar:</p>
                     <button type="submit" id="imp" style="border:none; background-color:transparent;" onclick="javascript:imprim2();"><i class="fa-solid fa-file-pdf fa-2x" style="color: #c82828;"></i></button>
-                    <button type="submit" form="formu" style="border:none; background-color:transparent;"><i class="fa-solid fa-file-excel fa-2x" style="color: #1f5120;"></i>Excel</button>
+                    <button type="submit" form="formu" style="border:none; background-color:transparent;"><i class="fa-solid fa-file-excel fa-2x" style="color: #1f5120;"></i></button>
                 </div>
         </div>
 <!--             <h4 class="card-title">Filtro de búsqueda</h4>

@@ -83,9 +83,11 @@ $idRol = $row['idRol'];
                         </div>
                     </div>
                 </form>
+                <?php if($idRol == $roladmin OR $idRol == $rolgerente){ ?>
                 <div class="agregar">
                     <a href="./agregarLicCotizacion.php" class="nuevo" data-bs-toggle="tooltip" title="Nueva licitación" data-bs-placement="left">+</a>
                 </div>
+                <?php }?>
             </div>
 
              <?php

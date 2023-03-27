@@ -41,6 +41,11 @@ include('../Utils/conexion.php');
 				swal.fire("Usuario o contraseña incorrecta!", "Por favor revise los datos ingresados!", "error");
 			}	
 			</script>
+            <script>
+			function con(){
+				swal.fire("La contraseña es demasiado corta", "Por favor genere una nueva clave de al menos 8 caracteres", "error");
+			}	
+			</script>
 <div class="cont-img" id="imagen">
         <a href="./principal.php" class="imagenb">
             <img src="../Imagenes/c-titulo.png" alt="logo">
@@ -64,6 +69,7 @@ include('../Utils/conexion.php');
                     <div>
                         <input class="form-control" type="password" name="nueva" onkeypress="return valideKey(event);"  placeholder="Clave nueva" required>
                     </div>
+                    <p style="font-size:12px;">*La contraseña debe ser de al menos 8 caracteres.</p>
                     <div>
                         <button type="submit" class="btn btn-success">Cambiar</button>
                     </div>
@@ -77,6 +83,11 @@ include('../Utils/conexion.php');
 				if(isset($_GET['error'])){
 					/*echo "<h4>CUIL O CONTRASEÑA INCORRECTA</h4>";*/?>
 					<script>error();</script>
+					<?php
+				}
+                if(isset($_GET['con'])){
+					/*echo "<h4>CUIL O CONTRASEÑA INCORRECTA</h4>";*/?>
+					<script>con();</script>
 					<?php
 				}
 			?>

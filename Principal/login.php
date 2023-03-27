@@ -58,6 +58,11 @@
 						);
 			}	
 			</script>
+            <script type="text/javascript">
+			function con(){
+				swal.fire("La contraseña es demasiado corta", "Por favor genere una nueva clave de al menos 8 caracteres", "error");
+			}	
+			</script>
     <main>
     <script>
     function valideKey(evt){
@@ -104,7 +109,7 @@
 					?>
 					<script>ok();</script>
 					<?php			
-				}
+				    }
                     if(isset($_GET['error'])){
                         ?>
                         <script>error();</script>
@@ -115,6 +120,11 @@
                         <script>reg();</script>
                         <?php
                     }
+                    if(isset($_GET['con'])){
+                        ?>
+                        <script>con();</script>
+                        <?php
+                    }
 			    ?>
                 <form method="POST" action="../Utils/validarLogin.php"  class="formulario__register">
                     <h2>Registrate</h2>
@@ -123,6 +133,7 @@
                     <input type="text" id="correo" name="regDir" placeholder="Dirección" required>
                     <input type="text" id="usuario" name="regUsu" placeholder="Usuario" required>
                     <input type="password" id="pass" name="regPas" placeholder="Contraseña" onkeypress="return valideKey(event);"  required>
+                    <p style="font-size:12px;">*La contraseña debe ser de al menos 8 caracteres.</p>
                     <fieldset>
                         <div class="rad1">
                             <label>Obra Social</label>

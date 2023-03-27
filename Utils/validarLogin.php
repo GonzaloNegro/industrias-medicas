@@ -66,23 +66,28 @@ elseif(isset($_POST['registrar'])){
 	$regUsu =$_POST['regUsu'];
 	$regPas =$_POST['regPas'];
 
-	if($_REQUEST['tipo'] == "obra"){
-		$tipo = 5;
+	if(strlen($regPas) < 8){
+		header("location: ../Principal/login.php?con");
+		mysqli_close($datos_base);
+	}else{
+		if($_REQUEST['tipo'] == "obra"){
+			$tipo = 5;
 
-		$regPassword = password_hash($regPas, PASSWORD_DEFAULT);
+			$regPassword = password_hash($regPas, PASSWORD_DEFAULT);
 
-		/* INSERTAR DEFAULT, USUARIO, CONTRASEÑA Y ROL*/
-		mysqli_query($datos_base, "INSERT INTO usuario VALUES (DEFAULT, '$regUsu', '$regPassword', '$tipo', 3, '$regNom', '$regCor', '$regDir', 1)");
+			/* INSERTAR DEFAULT, USUARIO, CONTRASEÑA Y ROL*/
+			mysqli_query($datos_base, "INSERT INTO usuario VALUES (DEFAULT, '$regUsu', '$regPassword', '$tipo', 3, '$regNom', '$regCor', '$regDir', 1)");
 
-	}else if($_REQUEST['tipo'] == "proveedor"){
-		$tipo = 6;
+		}else if($_REQUEST['tipo'] == "proveedor"){
+			$tipo = 6;
 
-		$regPassword = password_hash($regPas, PASSWORD_DEFAULT);
+			$regPassword = password_hash($regPas, PASSWORD_DEFAULT);
 
-		/* INSERTAR DEFAULT, USUARIO, CONTRASEÑA Y ROL*/
-		mysqli_query($datos_base, "INSERT INTO usuario VALUES (DEFAULT, '$regUsu', '$regPassword', '$tipo', 2, '$regNom', '$regCor', '$regDir', 1)");
-	}
-	header("location: ../Principal/login.php?reg");
+			/* INSERTAR DEFAULT, USUARIO, CONTRASEÑA Y ROL*/
+			mysqli_query($datos_base, "INSERT INTO usuario VALUES (DEFAULT, '$regUsu', '$regPassword', '$tipo', 2, '$regNom', '$regCor', '$regDir', 1)");
+		}
+		header("location: ../Principal/login.php?reg");
+		}
 }
 
 /* if($filas){

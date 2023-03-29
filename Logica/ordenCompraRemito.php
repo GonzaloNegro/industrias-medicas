@@ -81,9 +81,9 @@ $dias = $horas / 24;
 $diasRedondedos = floor($dias);
 
 
-if($diasRedondedos = 0){
+/* if($diasRedondedos = 0){
     $diasRedondedos = 0;
-}
+} */
 
 
 /* movimientolicitacion INSERTAR nuevo estado y fecha de vencimiento */

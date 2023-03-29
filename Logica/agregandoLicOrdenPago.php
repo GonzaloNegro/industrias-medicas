@@ -40,9 +40,9 @@ $horas = $minutosTranscurridos / 60;
 $dias = $horas / 24;
 $diasRedondedos = floor($dias);
 
-if($diasRedondedos = 0){
+/* if($diasRedondedos = 0){
     $diasRedondedos = 0;
-}
+} */
 
 /* documento CAMBIAR ESTADO CON UPDATE */
 mysqli_query($datos_base, "UPDATE licitacion SET idEstadoLicitacion = 5 WHERE idLicitacion = '$id'");

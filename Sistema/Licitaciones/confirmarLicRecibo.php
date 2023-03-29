@@ -48,7 +48,7 @@ function ConsultarIncidente($no_tic)
                 <h1>Recibo</h1>
         </div>
         <div class="agrStock">
-            <form method="POST" action="../../Logica/agregandoLicFactura.php">
+            <form method="POST" action="">
                 <div>
                     <label for="remito">PDF:</label>
                     <input type="text" class="ocultar" name="nroRemito" id="remito" value="<?php echo $consulta[0]?>">

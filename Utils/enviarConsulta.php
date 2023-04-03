@@ -1,16 +1,17 @@
 <?php
 include('conexion.php');
+include('./functions.php');
 
-$nombre =$_POST['nombre'];
-$email =$_POST['email'];
-$tel =$_POST['tel'];
-$asunto = $_POST['asunto'];
-$mensaje =$_POST['consulta'];
+$nombre = limpiar_cadena($_POST['nombre']);
+$email = limpiar_cadena($_POST['email']);
+$tel = limpiar_cadena($_POST['tel']);
+$asunto = limpiar_cadena($_POST['asunto']);
+$mensaje = limpiar_cadena($_POST['consulta']);
 
 $destinatario = 'info@industriasmedicas.com';
-$header = 'Enviado desde Industrias Médicas.';
+$header = 'Enviado desde Industrias Médicas';
 
-$mensajeCompleto = $mensaje . "\nAtentamente: " . $nombre;
+$mensajeCompleto = $mensaje . "\nAtentamente: " . $nombre . "\nTeléfono: " . $tel . "\nCorreo: " . $email;
 
 mail($destinatario, $asunto, $mensajeCompleto, $header);
 

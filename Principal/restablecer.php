@@ -21,7 +21,7 @@
 			}	</script>
 			<script>
 			function error(){
-				swal.fire("Usuario o email incorrecto", "No existe usuario registrado con el usuario o email ingresado", "error");
+				swal.fire("Usuario o email incorrecto", "No existe usuario registrado con el email ingresado", "error");
 			}	
 			</script>
 <div class="cont-img" id="imagen">
@@ -39,9 +39,7 @@
                                                         data-aos-delay="300"
                                                         data-aos-offset="0">
                     <div>
-                        <h3 style="padding:10px;">RESTABLECER CONTRASEÑA</h3></div>
-                    <div>
-                        <input class="form-control" type="text" name="usuario" placeholder="Usuario" required>
+                        <h3 style="padding:10px;">RESTABLECER CONTRASEÑA</h3>
                     </div>
                     <div>
                         <input class="form-control" type="email" name="email" placeholder="Email registrado" required>

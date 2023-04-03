@@ -18,7 +18,7 @@
 <body>
     <script type="text/javascript">
 			function ok(){
-				swal(  {title: "Mensaje enviado correctamente!",
+				swal.fire(  {title: "Mensaje enviado correctamente!",
 						icon: "success",
 						showConfirmButton: true,
 						showCancelButton: false,

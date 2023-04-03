@@ -36,19 +36,18 @@ function ConsultarIncidente($no_tic)
 <body>
 
 <script>
-    function imprim2(){
-        var mywindow = window.open('', 'PRINT', 'height=400,width=600');
-        mywindow.document.write('<html><head>');
-        mywindow.document.write('<link rel="stylesheet" href="../Css/estilos.css">');
+    function valideKey(evt){
     
-        mywindow.document.write('</head><body >');
-        mywindow.document.write(document.getElementById('imprimirEsto').innerHTML);
-        mywindow.document.write('</body></html>');
-        mywindow.document.close(); // necesario para IE >= 10
-        mywindow.focus(); // necesario para IE >= 10
-        mywindow.print();
-        mywindow.close();
-        return true;}
+    var code = (evt.which) ? evt.which : evt.keyCode;
+    
+    if(code==8) { // backspace.
+      return true;
+    } else if(code>=48 && code<=57 || code==44) { // is a number.
+      return true;
+    } else{ // other keys.
+      return false;
+    }
+}
 </script>
 
     <div class="cont-img">
@@ -94,7 +93,7 @@ function ConsultarIncidente($no_tic)
                                     <td style=width:85px;><input class="corto" name="idpro['.$registroProductos['idProducto'].']" value="'.$registroProductos['idProducto'].'" readonly="readonly"/></td>
                                     <td><input class="largo" name="pro['.$registroProductos['idProducto'].']" value="'.$registroProductos['producto'].'" readonly="readonly"/></td>
                                     <td><input class="corto" name="cant['.$registroProductos['idProducto'].']" value="'.$registroProductos['cantidad'].'" readonly="readonly"/></td>
-                                    <td><input class="medio" type=number min=1 onkeypress="return valideKey(event);" name="pre['.$registroProductos['idProducto'].']" value="'.$registroProductos['precio'].'" /></td>
+                                    <td><input class="medio" type=number min=1 onkeypress="return valideKey(event);" step=.01 name="pre['.$registroProductos['idProducto'].']" value="'.$registroProductos['precio'].'" /></td>
                                 </tr>';
                         }
                         ?>

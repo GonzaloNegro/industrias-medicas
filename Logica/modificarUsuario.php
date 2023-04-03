@@ -41,13 +41,36 @@ $resultado = $datos_base->query($sql);
 $row = $resultado->fetch_assoc();
 $usuarioregistrado = $row['usuario'];
 
+/* VERIFICO EL ESTADO ACTUAL DEL USUARIO */
+$sql = "SELECT idEstadoUsuario FROM usuario WHERE idUsuario = '$nroUsu'";
+$resultado = $datos_base->query($sql);
+$row = $resultado->fetch_assoc();
+$estadoActualUsuario = $row['idEstadoUsuario'];
+
 
 if($regUsu == $usuarioregistrado)
 {
     header("Location: ../Sistema/usuarios.php?error");
 }else{
-    mysqli_query($datos_base, "UPDATE usuario SET usuario = '$regUsu', idRol = '$regRol', idTipoUsuario = '$regTipo', nombre = '$regNom', correo = '$regCor', direccion = '$regDir', idEstadoUsuario = '$regEstado' WHERE idUsuario = '$nroUsu'"); 
-    header("Location: ../Sistema/usuarios.php?ok");
+    if($estadoActualUsuario == 2 AND $regEstado == 1){
+        mysqli_query($datos_base, "UPDATE usuario SET usuario = '$regUsu', idRol = '$regRol', idTipoUsuario = '$regTipo', nombre = '$regNom', correo = '$regCor', direccion = '$regDir', idEstadoUsuario = '$regEstado' WHERE idUsuario = '$nroUsu'"); 
+
+    /* 	$destinatario = $regCor;
+        $asunto = 'Activación de usuario en Industrias Médicas.';
+        $header = 'Enviado desde Industrias Médicas.';
+        
+        $mensaje = 'Se ha activado su cuenta.';
+        $nombre = 'INDUSTRIAS MÉDICAS';
+        $mensajeCompleto = $mensaje . "\nAtentamente: " . $nombre;
+        
+        mail($destinatario, $asunto, $mensajeCompleto, $header); */
+
+
+        header("Location: ../Sistema/usuarios.php?activo");
+    }else{
+        mysqli_query($datos_base, "UPDATE usuario SET usuario = '$regUsu', idRol = '$regRol', idTipoUsuario = '$regTipo', nombre = '$regNom', correo = '$regCor', direccion = '$regDir', idEstadoUsuario = '$regEstado' WHERE idUsuario = '$nroUsu'"); 
+        header("Location: ../Sistema/usuarios.php?mod");
+    }
 }
 
 mysqli_close($datos_base);

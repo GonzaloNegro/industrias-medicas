@@ -47,15 +47,23 @@ $idRol = $row['idRol'];
             header("Location: ./principal.php");
         }
     ?>
-    <script type="text/javascript">
-        function done(){
-            swal("Usuario modificado!", "Se ha registrado el usuario!", "success");
-        }	</script>
-        <script>
+        <script type="text/javascript">
+        function ok(){
+            swal.fire("Usuario Agregado correctamente!", "Se ha registrado el usuario!", "success");
+        }
+
+        function mod(){
+            swal.fire("Usuario modificado!", "Se han modificado los datos del usuario!", "success");
+        }
+
         function error(){
-            swal("Usuario no guardado!", "Nombre del usuario en uso!", "error");
+            swal.fire("Usuario no guardado!", "Nombre del usuario en uso!", "error");
+        }
+
+        function activo(){
+            swal.fire("Usuario modificado!", "Se ha registrado el usuario! El usuario fué activado correctamente!", "success");
         }	
-    </script>
+        </script>
   <?php include('./Layouts/usuarioHeader.php'); ?>
     <main>
         <section class="ini">
@@ -147,14 +155,20 @@ $idRol = $row['idRol'];
                                     ?>
         </section>
         <?php
-				if(isset($_GET['ok'])){
-					/*echo "<h4>CONTRASEÑA CAMBIADA</h4>";*/?>
-					<script>done();</script>
+				if(isset($_GET['ok'])){?>
+					<script>ok();</script>
 					<?php
 				}
-				if(isset($_GET['error'])){
-					/*echo "<h4>CUIL O CONTRASEÑA INCORRECTA</h4>";*/?>
+                if(isset($_GET['mod'])){?>
+					<script>mod();</script>
+					<?php
+				}
+				if(isset($_GET['error'])){?>
 					<script>error();</script>
+					<?php
+				}
+                if(isset($_GET['activo'])){?>
+					<script>activo();</script>
 					<?php
 				}
 			?>

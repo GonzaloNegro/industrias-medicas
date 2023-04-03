@@ -1,12 +1,11 @@
 <?php
 include('../Utils/conexion.php');
-
+include('../Utils/functions.php');
 /* VALORES INGRESADOS EN EL FORMULARIO */
-$usuario = $_POST['usuario'];
-$email = $_POST['email'];
+$email = limpiar_cadena($_POST['email']);
 
 /* VERIFICO SI HAY ALGUN USUARIO CON ESOS DATOS */
-$sql = "SELECT correo FROM usuario WHERE usuario ='$usuario' AND correo = '$email'";
+$sql = "SELECT correo FROM usuario WHERE correo = '$email'";
 $resultado = $datos_base->query($sql);
 $row = $resultado->fetch_assoc();
 $destinatario = $row['correo'];
@@ -18,7 +17,7 @@ if(isset($destinatario)){
     $nueva = "industrias";
     $regPassword = password_hash($nueva, PASSWORD_DEFAULT);
 
-    mysqli_query($datos_base, "UPDATE usuario SET contraseña = '$regPassword' WHERE usuario = '$usuario' AND correo = '$email'");
+    mysqli_query($datos_base, "UPDATE usuario SET contraseña = '$regPassword' WHERE correo = '$email'");
     /* ENVIO DE MAIL */
     $nombre = 'Industrias Médicas';
     $asunto = 'Reestablecimiento de contraseña';

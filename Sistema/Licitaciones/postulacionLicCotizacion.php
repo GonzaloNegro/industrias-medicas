@@ -54,7 +54,7 @@ function ConsultarIncidente($no_tic)
     
     if(code==8) { // backspace.
       return true;
-    } else if(code>=48 && code<=57) { // is a number.
+    } else if(code>=48 && code<=57 || code==44) { // is a number.
       return true;
     } else{ // other keys.
       return false;
@@ -163,7 +163,7 @@ function ConsultarIncidente($no_tic)
                                     <td style=width:85px;><input class="corto" name="idpro['.$registroProductos['idProducto'].']" value="'.$registroProductos['idProducto'].'" readonly="readonly"/></td>
                                     <td><input class="largo" name="pro['.$registroProductos['idProducto'].']" value="'.$registroProductos['producto'].'" readonly="readonly"/></td>
                                     <td><input class="corto" name="cant['.$registroProductos['idProducto'].']" value="'.$registroProductos['cantidad'].'" readonly="readonly"/></td>
-                                    <td><input class="medio" type=number min=1 onkeypress="return valideKey(event);" name="pre['.$registroProductos['idProducto'].']" value="'.$registroProductos['precio'].'" /></td>
+                                    <td><input class="medio" type=number min=1 onkeypress="return valideKey(event);" step=.01 name="pre['.$registroProductos['idProducto'].']" value="'.$registroProductos['precio'].'" /></td>
                                 </tr>';
                         }
                         ?>

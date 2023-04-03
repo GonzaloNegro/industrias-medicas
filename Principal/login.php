@@ -46,7 +46,24 @@
             <script type="text/javascript">
 			function reg(){
 				swal.fire(  {title: "Usuario registrado!",
+                        text: 'Recibirá un correo cuando Industrias Médicas habilite su cuenta.',
 						icon: "success",
+						showConfirmButton: true,
+						showCancelButton: false,
+						})
+						.then((confirmar) => {
+						if (confirmar) {
+							window.location.href='./login.php';
+						}
+						}
+						);
+			}	
+			</script>
+                        <script type="text/javascript">
+			function ina(){
+				swal.fire(  {title: "Usuario inactivo",
+                        text: 'Su usuario aún no ha sido activado. Industrias Médicas se contactará con usted al darle de alta en el sistema.',
+						icon: "info",
 						showConfirmButton: true,
 						showCancelButton: false,
 						})
@@ -123,6 +140,11 @@
                     if(isset($_GET['con'])){
                         ?>
                         <script>con();</script>
+                        <?php
+                    }
+                    if(isset($_GET['ina'])){
+                        ?>
+                        <script>ina();</script>
                         <?php
                     }
 			    ?>

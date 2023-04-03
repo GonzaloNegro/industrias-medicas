@@ -26,11 +26,13 @@ mysqli_query($datos_base, "UPDATE usuario SET contraseña = '$contra' WHERE idUs
 
 /* $contra = password_hash('1234', PASSWORD_DEFAULT);
 mysqli_query($datos_base, "INSERT INTO usuario VALUES (DEFAULT, 'OSDE', '$contra', 2)"); */
+include('./functions.php');
+
 if(isset($_POST['ingreso'])){
-	$usuario =$_POST['usuario'];
-	$contraseña =$_POST['contraseña'];
+	$usuario = limpiar_cadena($_POST['usuario']);
+	$contraseña = limpiar_cadena($_POST['contraseña']);
 	
-	$destinatario = 'gonzalonnegro@gmail.com';
+/* 	$destinatario = 'gonzalonnegro@gmail.com';
 	$asunto = 'Actualización de su documento en Industrias Médicas.';
 	$header = 'Enviado desde Industrias Médicas.';
 	
@@ -38,21 +40,28 @@ if(isset($_POST['ingreso'])){
 	$nombre = 'INDUSTRIAS MÉDICAS';
 	$mensajeCompleto = $mensaje . "\nAtentamente: " . $nombre;
 	
-	mail($destinatario, $asunto, $mensajeCompleto, $header);
+	mail($destinatario, $asunto, $mensajeCompleto, $header); */
 	
 	
 	$sql = "SELECT * FROM usuario WHERE usuario = '$usuario'";
-	
 	$resultado = $datos_base->query($sql);
+	$row = $resultado->fetch_assoc();
+	$contra = $row['contraseña'];
+	$estado = $row['idEstadoUsuario'];
+
+/* 	$resultado = $datos_base->query($sql);
+	$fila = mysqli_fetch_assoc($resultado); */
 	
-	$fila = mysqli_fetch_assoc($resultado);
-	
-	$passwordHash = $fila['contraseña'];
+	$passwordHash = $contra;
 	
 	if(password_verify($contraseña, $passwordHash)){
-		session_start();
-		$_SESSION['usuario'] = $usuario; 
-		header("location: ../Principal/login.php?ok");
+		if($estado == 1){
+			session_start();
+			$_SESSION['usuario'] = $usuario; 
+			header("location: ../Principal/login.php?ok");
+		}else{
+			header("location: ../Principal/login.php?ina"); 
+		}
 	}else{
 		header("location: ../Principal/login.php?error"); 
 	}
@@ -60,11 +69,11 @@ if(isset($_POST['ingreso'])){
 }
 elseif(isset($_POST['registrar'])){
 
-	$regNom =$_POST['regNom'];
-	$regCor =$_POST['regCor'];
-	$regDir =$_POST['regDir'];
-	$regUsu =$_POST['regUsu'];
-	$regPas =$_POST['regPas'];
+	$regNom = limpiar_cadena($_POST['regNom']);
+	$regCor = limpiar_cadena($_POST['regCor']);
+	$regDir = limpiar_cadena($_POST['regDir']);
+	$regUsu = limpiar_cadena($_POST['regUsu']);
+	$regPas = limpiar_cadena($_POST['regPas']);
 
 	if(strlen($regPas) < 8){
 		header("location: ../Principal/login.php?con");
@@ -76,7 +85,7 @@ elseif(isset($_POST['registrar'])){
 			$regPassword = password_hash($regPas, PASSWORD_DEFAULT);
 
 			/* INSERTAR DEFAULT, USUARIO, CONTRASEÑA Y ROL*/
-			mysqli_query($datos_base, "INSERT INTO usuario VALUES (DEFAULT, '$regUsu', '$regPassword', '$tipo', 3, '$regNom', '$regCor', '$regDir', 1)");
+			mysqli_query($datos_base, "INSERT INTO usuario VALUES (DEFAULT, '$regUsu', '$regPassword', '$tipo', 3, '$regNom', '$regCor', '$regDir', 2)");
 
 		}else if($_REQUEST['tipo'] == "proveedor"){
 			$tipo = 6;
@@ -84,7 +93,7 @@ elseif(isset($_POST['registrar'])){
 			$regPassword = password_hash($regPas, PASSWORD_DEFAULT);
 
 			/* INSERTAR DEFAULT, USUARIO, CONTRASEÑA Y ROL*/
-			mysqli_query($datos_base, "INSERT INTO usuario VALUES (DEFAULT, '$regUsu', '$regPassword', '$tipo', 2, '$regNom', '$regCor', '$regDir', 1)");
+			mysqli_query($datos_base, "INSERT INTO usuario VALUES (DEFAULT, '$regUsu', '$regPassword', '$tipo', 2, '$regNom', '$regCor', '$regDir', 2)");
 		}
 		header("location: ../Principal/login.php?reg");
 		}

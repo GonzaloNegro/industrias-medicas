@@ -21,10 +21,9 @@ date_default_timezone_set('UTC');
 date_default_timezone_set("America/Buenos_Aires");
 $fechaActual = date('Y-m-d');
 
-
 /* CALCULAR DIAS TRANSCURRIDOS ENTRE ANTERIOR ESTADO Y ESTE */
 
-$sent= "SELECT fecha FROM movimientolicitacion WHERE idLicitacion = '$idLic' AND idEstadoLicitacion = 5";
+$sent= "SELECT fecha FROM movimientolicitacion WHERE idLicitacion = '$id' AND idEstadoLicitacion = 5";
 $resultado = $datos_base->query($sent);
 $row = $resultado->fetch_assoc();
 $fechavieja = $row['fecha'];

@@ -99,10 +99,7 @@ $idRol = $row['idRol'];
                         </div>
                 </div>
 
-                <div class="principal-datos" data-aos="fade-zoom-in"
-                                                        data-aos-easing="ease-in-back"
-                                                        data-aos-delay="300"
-                                                        data-aos-offset="0">
+                <div class="principal-datos">
                     <div class="principal-datos-cont">
                         <h2>Estado últimas ventas</h2>
                         <?php $fechaActual = date('d-m-Y'); ?>

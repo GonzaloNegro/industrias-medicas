@@ -173,3 +173,18 @@
 .card-title{
     text-align: center;
 }
+
+
+
+/* ----------------- */
+
+@media screen and (max-width: 768px){
+    .contador{
+        width: 300px;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap: 5px;
+    }
+
+}

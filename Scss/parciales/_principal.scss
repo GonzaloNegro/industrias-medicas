@@ -502,3 +502,51 @@
     justify-content: flex-end;
     align-items: center;
 }
+
+
+
+/* ----------------- */
+
+@media screen and (max-width: 768px){
+    .principal{
+        padding: 0px;
+        margin-bottom: 10px;
+    }
+    .principal-datos{
+        width: 300px;
+        height: auto;
+
+    }
+    .principal-datos h2{
+        font-size: 24px;
+    }
+    
+    .principal-datos-cont p{
+        font-size: 20px;
+    }
+    
+    
+    .principal-datos-cont table{
+        display: block;
+        overflow-x: auto;
+        overflow: auto;
+    }
+    
+    .principal-datos-cont table tr{
+        background-color: transparent;
+        border: none;
+        text-align: left;
+    }
+    
+    .principal-datos-cont table tr th{
+        padding: 5px;
+    }
+    
+    .principal-datos-cont table tr td{
+        padding: 5px;
+    }
+    .inicio-tit{
+        text-align: center;
+    }
+
+}

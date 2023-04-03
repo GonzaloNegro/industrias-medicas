@@ -1351,6 +1351,33 @@ fieldset {
   justify-content: flex-end;
   align-items: center; }
 
+/* ----------------- */
+@media screen and (max-width: 768px) {
+  .principal {
+    padding: 0px;
+    margin-bottom: 10px; }
+  .principal-datos {
+    width: 300px;
+    height: auto; }
+  .principal-datos h2 {
+    font-size: 24px; }
+  .principal-datos-cont p {
+    font-size: 20px; }
+  .principal-datos-cont table {
+    display: block;
+    overflow-x: auto;
+    overflow: auto; }
+  .principal-datos-cont table tr {
+    background-color: transparent;
+    border: none;
+    text-align: left; }
+  .principal-datos-cont table tr th {
+    padding: 5px; }
+  .principal-datos-cont table tr td {
+    padding: 5px; }
+  .inicio-tit {
+    text-align: center; } }
+
 .ini {
   height: auto;
   display: flex;
@@ -1538,6 +1565,30 @@ tr:hover td {
   transition-delay: 0s; }
 
 /* ----------------- */
+@media screen and (max-width: 768px) {
+  .form-grilla {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 20px; }
+  .form-grilla-but {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    gap: 5px; }
+  .busc {
+    min-width: 300px;
+    margin-right: 0px; }
+  table {
+    display: block;
+    overflow-x: auto;
+    overflow: auto; }
+  .ini-tit {
+    margin-top: 20px;
+    margin-bottom: 40px;
+    text-align: center; } }
+
 .detalles {
   display: flex;
   justify-content: center;
@@ -1907,3 +1958,12 @@ p {
 
 .card-title {
   text-align: center; }
+
+/* ----------------- */
+@media screen and (max-width: 768px) {
+  .contador {
+    width: 300px;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 5px; } }

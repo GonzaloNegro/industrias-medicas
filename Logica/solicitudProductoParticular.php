@@ -1,6 +1,7 @@
 <?php
 session_start();
 include('../Utils/conexion.php');
+include('../Utils/functions.php');
 
 date_default_timezone_set('UTC');
 date_default_timezone_set("America/Buenos_Aires");
@@ -8,7 +9,7 @@ $fechaActual = date('Y-m-d');
 
 $producto = $_POST['producto'];
 $cantidad = $_POST['cantidad'];
-$observacion = $_POST['obs'];
+$observacion = limpiar_cadena($_POST['obs']);
 
 mysqli_query($datos_base, "INSERT INTO SOLICITUDES VALUES (DEFAULT, '$producto', '$cantidad', '$observacion', '$fechaActual', 1, 0)");
 

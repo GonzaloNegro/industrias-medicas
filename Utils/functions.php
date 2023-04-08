@@ -1,7 +1,6 @@
 <?php
 # Limpiar cadenas de texto #
 function limpiar_cadena($cadena){
-	$cadena=trim($cadena);
 	$cadena=stripslashes($cadena);
 	$cadena=str_ireplace("<script>", "", $cadena);
 	$cadena=str_ireplace("</script>", "", $cadena);
@@ -26,7 +25,7 @@ function limpiar_cadena($cadena){
 	$cadena=str_ireplace(";", "", $cadena);
 	$cadena=str_ireplace("::", "", $cadena);
 /* 	$cadena=trim($cadena); */
-	$cadena=stripslashes($cadena);
+/* 	$cadena=stripslashes($cadena);*/
 	return $cadena;
 }
 ?>

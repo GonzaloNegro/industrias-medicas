@@ -1,8 +1,9 @@
 <?php
 session_start();
 include('../Utils/conexion.php');
+include('../Utils/functions.php');
 
-$observacion = $_POST['obs'];
+$observacion = limpiar_cadena($_POST['obs']);
 
 date_default_timezone_set('UTC');
 date_default_timezone_set("America/Buenos_Aires");

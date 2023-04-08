@@ -2,7 +2,7 @@
 
 session_start();
 include('../Utils/conexion.php');
-
+include('../Utils/functions.php');
 /*TRAIGO LOS DATOS DE QUIEN INGRESO AL SISTEMA*/
 if(!isset($_SESSION['usuario'])) 
     {       
@@ -18,7 +18,7 @@ $row = $resultado->fetch_assoc();
 $idUsu = $row['idUsuario'];
 
 $idGru = $_POST['idGrupo'];
-$nombre = $_POST['nombre'];
+$nombre = limpiar_cadena($_POST['nombre']);
 
 
 /* SI UNO DE LOS CAMPOS ESTA REPETIDO */

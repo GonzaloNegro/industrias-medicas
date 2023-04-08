@@ -1,6 +1,7 @@
 <?php
 session_start();
 include('../Utils/conexion.php');
+include('../Utils/functions.php');
 
 /*TRAIGO LOS DATOS DE QUIEN INGRESO AL SISTEMA*/
 if(!isset($_SESSION['usuario'])) 
@@ -17,7 +18,7 @@ $row = $resultado->fetch_assoc();
 $idUsu = $row['idUsuario'];
 /* ------------------------- */
 $feclim = $_POST['feclim'];
-$observacion = $_POST['obs'];
+$observacion = limpiar_cadena($_POST['obs']);
 
 date_default_timezone_set('UTC');
 date_default_timezone_set("America/Buenos_Aires");

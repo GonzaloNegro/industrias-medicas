@@ -1,7 +1,7 @@
 <?php
 session_start();
 include('../Utils/conexion.php');
-
+include('../Utils/functions.php');
 /*TRAIGO LOS DATOS DE QUIEN INGRESO AL SISTEMA*/
 if(!isset($_SESSION['usuario'])) 
     {       
@@ -17,9 +17,9 @@ $row = $resultado->fetch_assoc();
 $idUsu = $row['idUsuario'];
 
 
-$usuario = $_POST['usuario'];
-$vieja = $_POST['vieja'];
-$nueva = $_POST['nueva'];
+$usuario = limpiar_cadena($_POST['usuario']);
+$vieja = limpiar_cadena($_POST['vieja']);
+$nueva = limpiar_cadena($_POST['nueva']);
 
 if(strlen($nueva) < 8){
     header("location: ../Sistema/cambioClave.php?con");

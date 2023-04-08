@@ -1,6 +1,7 @@
 <?php
 session_start();
 include('../Utils/conexion.php');
+include('../Utils/functions.php');
 
 /*TRAIGO LOS DATOS DE QUIEN INGRESO AL SISTEMA*/
 if(!isset($_SESSION['usuario'])) 
@@ -30,7 +31,7 @@ $producto = $row6['idProducto'];
 $cantidad = $row6['cantidad'];
 
 $feclim = $_POST['fecven'];
-$obs = $_POST['obs'];
+$obs = limpiar_cadena($_POST['obs']);
 
 /* SI SE AGREGO ALGO, SE GENERA LA LICITACION NUEVA */
 /* -licitacion: se crea una nueva

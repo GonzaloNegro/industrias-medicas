@@ -1,6 +1,7 @@
 <?php
 session_start();
 include('../Utils/conexion.php');
+include('../Utils/functions.php');
 
 /*TRAIGO LOS DATOS DE QUIEN INGRESO AL SISTEMA*/
 if(!isset($_SESSION['usuario'])) 
@@ -16,10 +17,10 @@ $row = $resultado->fetch_assoc();
 /*GUARDO LOS DATOS DEL ID_RESOLUTOR EN UNA VARIABLE*/
 $idUsu = $row['idUsuario'];
 /* ------------------------- */
-$medico = $_POST['medico'];
-$paciente = $_POST['paciente'];
+$medico = limpiar_cadena($_POST['medico']);
+$paciente = limpiar_cadena($_POST['paciente']);
 $centromedico = $_POST['centromedico'];
-$observacion = $_POST['obs'];
+$observacion = limpiar_cadena($_POST['obs']);
 
 date_default_timezone_set('UTC');
 date_default_timezone_set("America/Buenos_Aires");

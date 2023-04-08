@@ -1,6 +1,7 @@
 <?php
 session_start();
 include('../Utils/conexion.php');
+include('../Utils/functions.php');
 
 /*TRAIGO LOS DATOS DE QUIEN INGRESO AL SISTEMA*/
 if(!isset($_SESSION['usuario'])) 
@@ -16,7 +17,7 @@ $row = $resultado->fetch_assoc();
 /*GUARDO LOS DATOS DEL ID_RESOLUTOR EN UNA VARIABLE*/
 $idUsu = $row['idUsuario'];
 
-$nombre = $_POST['nombre'];
+$nombre = limpiar_cadena($_POST['nombre']);
 $grupo = $_POST['grupo'];
 $tipo = $_POST['tipo'];
 $minimo = $_POST['minimo'];

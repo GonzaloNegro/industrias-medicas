@@ -45,9 +45,9 @@ mysqli_query($datos_base, "UPDATE licitacion SET idEstadoLicitacion = 3 WHERE id
     $diasRedondedos = floor($dias);
 
 
-    if($diasRedondedos = 0){
+/*     if($diasRedondedos = 0){
         $diasRedondedos = 0;
-    }
+    } */
     
 
 /* movimientolicitacion INSERTAR nuevo estado y fecha de vencimiento */

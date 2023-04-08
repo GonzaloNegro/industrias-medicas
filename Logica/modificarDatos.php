@@ -1,7 +1,7 @@
 <?php
 session_start();
 include('../Utils/conexion.php');
-
+include('../Utils/functions.php');
 /*TRAIGO LOS DATOS DE QUIEN INGRESO AL SISTEMA*/
 if(!isset($_SESSION['usuario'])) 
     {       
@@ -16,10 +16,10 @@ $row = $resultado->fetch_assoc();
 /*GUARDO LOS DATOS DEL ID_RESOLUTOR EN UNA VARIABLE*/
 $idUsu = $row['idUsuario'];
 
-$usuario = $_POST['usuario'];
-$nombre = $_POST['nombre'];
-$correo = $_POST['correo'];
-$direccion = $_POST['direccion'];
+$usuario = limpiar_cadena($_POST['usuario']);
+$nombre = limpiar_cadena($_POST['nombre']);
+$correo = limpiar_cadena($_POST['correo']);
+$direccion = limpiar_cadena($_POST['direccion']);
 
 
 /* SI UNO DE LOS CAMPOS ESTA REPETIDO */

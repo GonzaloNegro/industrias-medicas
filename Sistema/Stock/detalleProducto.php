@@ -13,7 +13,7 @@ $consulta = ConsultarIncidente($_GET['no']);
 
 function ConsultarIncidente($no_tic)
 {	
-	$datos_base=mysqli_connect('localhost', 'root', '', 'industrias') or exit('No se puede conectar con la base de datos');
+	include('../../Utils/conexion.php');
 	$sentencia =  "SELECT * FROM producto WHERE idProducto='".$no_tic."'";
 	$resultado = mysqli_query($datos_base, $sentencia);
 	$filas = mysqli_fetch_assoc($resultado);

@@ -65,7 +65,6 @@ $idUsu = $row['idUsuario'];
         if (!isset($_POST['buscar'])){$_POST['buscar'] = '';}
         if (!isset($_POST['buscadesde'])){$_POST['buscadesde'] = '';}
         if (!isset($_POST['buscahasta'])){$_POST['buscahasta'] = '';}
-        if (!isset($_POST["cantidad"])){$_POST["cantidad"] = '';}
         if (!isset($_POST["orden"])){$_POST["orden"] = '';}
 
     ?>
@@ -95,17 +94,15 @@ $idUsu = $row['idUsuario'];
                                         <option value="<?php echo $_POST["orden"]; ?>">
                                                 <?php 
                         if ($_POST["orden"] == '1'){echo 'Ordenar por nombre';} 
-                        if ($_POST["orden"] == '2'){echo 'Ordenar por Cantidad productos';}
-                        if ($_POST["orden"] == '3'){echo 'Ordenar por Cantidad ventas';}
-                        if ($_POST["orden"] == '4'){echo 'Ordenar por Monto';} 
+                        if ($_POST["orden"] == '2'){echo 'Ordenar por Cantidad ventas';}
+                        if ($_POST["orden"] == '3'){echo 'Ordenar por Monto';} 
                         ?>
                         </option>
                         <?php } ?>
                         <option value="">Sin orden</option>
                         <option value="1">Ordenar por nombre</option>
-                        <option value="2">Ordenar por Cantidad de productos</option>
-                        <option value="3">Ordenar por Cantidad de ventas</option>
-                        <option value="4">Ordenar por Monto</option>
+                        <option value="2">Ordenar por Cantidad de ventas</option>
+                        <option value="3">Ordenar por Monto</option>
                 </select>
                 </div>
                 <div class="contFilter--search">
@@ -155,21 +152,19 @@ $idUsu = $row['idUsuario'];
         $aKeyword = explode(" ", $_POST['buscar']);
 
         if ($_POST["buscar"] == '' AND $_POST['idGrupoProducto'] == '' AND $_POST['buscadesde'] == '' AND $_POST['buscahasta'] == '' AND $_POST['grupo'] == ''){ 
-                $query ="SELECT COUNT(DISTINCT(pr.idLicitacion)) AS TOTAL, u.usuario, SUM(da.monto) AS monto, SUM(pr.cantidad) AS cantidad
+                $query ="SELECT COUNT(l.idLicitacion) AS TOTAL, u.usuario, SUM(da.monto) AS monto
                 FROM datoslicitacion da
                 LEFT JOIN usuario u ON u.idUsuario = da.idUsuario
                 LEFT JOIN licitacion l ON l.idLicitacion = da.idLicitacion
-                LEFT JOIN productolicitacion pr ON pr.idLicitacion = L.idLicitacion
                 WHERE l.idEstadoLicitacion = 6
-                GROUP BY u.usuario
-                ORDER BY cantidad DESC ";
+                GROUP BY da.IdUsuario
+                ORDER BY u.usuario DESC ";
         }else{
 
-                $query = "SELECT COUNT(DISTINCT(pr.idLicitacion)) AS TOTAL, u.usuario, SUM(da.monto) AS monto, SUM(pr.cantidad) AS cantidad
+                $query = "SELECT COUNT(l.idLicitacion) AS TOTAL, u.usuario, SUM(da.monto) AS monto
                 FROM datoslicitacion da
                 LEFT JOIN usuario u ON u.idUsuario = da.idUsuario
-                LEFT JOIN licitacion l ON l.idLicitacion = da.idLicitacion
-                LEFT JOIN productolicitacion pr ON pr.idLicitacion = L.idLicitacion ";
+                LEFT JOIN licitacion l ON l.idLicitacion = da.idLicitacion ";
 
                 if ($_POST["buscar"] != '' ){ 
                         $query .= " WHERE (u.usuario LIKE LOWER('%".$aKeyword[0]."%')) AND l.idEstadoLicitacion = 6 GROUP BY u.usuario ";
@@ -196,14 +191,10 @@ $idUsu = $row['idUsuario'];
          }
 
          if ($_POST["orden"] == '2' ){
-                $query .= "  ORDER BY cantidad DESC ";
-         }
-
-         if ($_POST["orden"] == '3' ){
                 $query .= "  ORDER BY TOTAL DESC ";
          }
 
-         if ($_POST["orden"] == '4' ){
+         if ($_POST["orden"] == '3' ){
             $query .= "  ORDER BY monto DESC ";
      }
 }
@@ -224,19 +215,17 @@ $idUsu = $row['idUsuario'];
             <table class="table">
                 <thead>
                         <tr>
-                        <th style=" text-align: center; width:500px;">PROVEEDOR</th>
-                                <th style=" text-align: center; width: 300px;">CANTIDAD<br/>DE PRODUCTOS SOLICITADOS</th>
-                                <th style=" text-align: center; width: 200px;">COMPRAS CONCRETADAS</th>
-                                <th style=" text-align: center; width: 250px;">INVERSIÓN + IVA</th>
+                            <th style=" text-align: center; width:400px;">PROVEEDOR</th>
+                            <th style=" text-align: center; width: 300px;">COMPRAS CONCRETADAS</th>
+                            <th style=" text-align: center; width: 300px;">INVERSIÓN + IVA</th>
                         </tr>
                 </thead>
                 <tbody>
                 <?php While($rowSql = $sql->fetch_assoc()) {?>
                         <tr>
                         <td><h4 style="font-size:14px; text-align:left; margin-left: 5px;"><?php echo $rowSql["usuario"]; ?></h4></td>
-                        <td><h4 style="font-size:14px; text-align: right; margin-left: 5px;"><?php echo $rowSql["cantidad"]; ?></h4></td>
                         <td><h4 style="font-size:14px; text-align: right; margin-right: 5px;"><?php echo $rowSql["TOTAL"]; ?></h4></td>
-                        <td><h4 style="font-size:14px; text-align: right; margin-right: 5px;"><?php echo "$".number_format($rowSql["monto"]*1.21,2); ?></h4></td>
+                        <td><h4 style="font-size:14px; text-align: right; margin-right: 5px;"><?php echo "$".number_format($rowSql["monto"],2); ?></h4></td>
                         </tr>
                
                <?php } ?>

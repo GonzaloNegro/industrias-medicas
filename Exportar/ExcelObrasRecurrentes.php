@@ -26,7 +26,6 @@ include('../Utils/conexion.php');
 
 		$html .= '<tr>';
 		$html .= '<td><b>Obra social</b></td>';
-		$html .= '<td><b>Cantidad de productos solicitados</b></td>';
 		$html .= '<td><b>Ventas concretadas</b></td>';
 		$html .= '<td><b>Inversion (con IVA)</b></td>';
 		$html .= '</tr>';
@@ -39,9 +38,8 @@ include('../Utils/conexion.php');
 		while ($row_msg_contatos = mysqli_fetch_assoc($resultado_msg_contatos)) {
 			$html .= '<tr>';
 			$html .= '<td>' . $row_msg_contatos["usuario"] . '</td>';
-			$html .= '<td>' . $row_msg_contatos["cantidad"] . '</td>';
 			$html .= '<td>' . $row_msg_contatos["TOTAL"] . '</td>';
-            $html .= '<td>$' . $row_msg_contatos["monto"]*1.21 . '</td>';
+            $html .= '<td>$' . $row_msg_contatos["monto"]. '</td>';
 			$html .= '</tr>';
 		}
 		// Configuración en la cabecera

@@ -65,7 +65,6 @@ $idUsu = $row['idUsuario'];
         if (!isset($_POST['buscar'])){$_POST['buscar'] = '';}
         if (!isset($_POST['buscadesde'])){$_POST['buscadesde'] = '';}
         if (!isset($_POST['buscahasta'])){$_POST['buscahasta'] = '';}
-        if (!isset($_POST["cantidad"])){$_POST["cantidad"] = '';}
         if (!isset($_POST["orden"])){$_POST["orden"] = '';}
 
     ?>
@@ -95,17 +94,15 @@ $idUsu = $row['idUsuario'];
                                         <option value="<?php echo $_POST["orden"]; ?>">
                                                 <?php 
                         if ($_POST["orden"] == '1'){echo 'Ordenar por nombre';} 
-                        if ($_POST["orden"] == '2'){echo 'Ordenar por Cantidad productos';}
-                        if ($_POST["orden"] == '3'){echo 'Ordenar por Cantidad ventas';}
-                        if ($_POST["orden"] == '4'){echo 'Ordenar por Monto';} 
+                        if ($_POST["orden"] == '2'){echo 'Ordenar por Cantidad ventas';}
+                        if ($_POST["orden"] == '3'){echo 'Ordenar por Monto';} 
                         ?>
                         </option>
                         <?php } ?>
                         <option value="">Sin orden</option>
                         <option value="1">Ordenar por nombre</option>
-                        <option value="2">Ordenar por Cantidad de productos</option>
-                        <option value="3">Ordenar por Cantidad de ventas</option>
-                        <option value="4">Ordenar por Monto</option>
+                        <option value="2">Ordenar por Cantidad de ventas</option>
+                        <option value="3">Ordenar por Monto</option>
                 </select>
                 </div>
                 <div class="contFilter--search">
@@ -115,6 +112,22 @@ $idUsu = $row['idUsuario'];
                     <button type="submit" form="formu" style="border:none; background-color:transparent;"><i class="fa-solid fa-file-excel fa-2x" style="color: #1f5120;"></i></button>
                 </div>
         </div>
+
+<!--         <?php
+                $sql6 = "SELECT COUNT(d.idDocumento) AS TOTAL, u.usuario, SUM(da.monto) AS monto
+                FROM datosdocumento da
+                LEFT JOIN usuario u ON u.idUsuario = da.idUsuario
+                LEFT JOIN documento d ON d.idDocumento = da.idDocumento
+                WHERE d.idEstadoDocumento = 10
+                GROUP BY da.IdUsuario
+                ORDER BY u.usuario ";
+                $result6 = $datos_base->query($sql6);
+                $row6 = $result6->fetch_assoc();
+                $tot = $row6['TOTAL'];
+                $nombre = $row6['usuario'];
+                $mont = $row6['monto'];
+                echo "RESULTADO ".$mont." - ".$nombre." - ".$tot;
+        ?> -->
 <!--             <h4 class="card-title">Filtro de búsqueda</h4>
             <div class="col-11">
                         <table class="table">
@@ -155,24 +168,22 @@ $idUsu = $row['idUsuario'];
         $aKeyword = explode(" ", $_POST['buscar']);
 
         if ($_POST["buscar"] == '' AND $_POST['idGrupoProducto'] == '' AND $_POST['buscadesde'] == '' AND $_POST['buscahasta'] == '' AND $_POST['grupo'] == ''){ 
-                $query ="SELECT COUNT(DISTINCT(pr.idDocumento)) AS TOTAL, u.usuario, SUM(da.monto) AS monto, SUM(pr.cantidad) AS cantidad
+                $query ="SELECT COUNT(d.idDocumento) AS TOTAL, u.usuario, SUM(da.monto) AS monto
                 FROM datosdocumento da
                 LEFT JOIN usuario u ON u.idUsuario = da.idUsuario
                 LEFT JOIN documento d ON d.idDocumento = da.idDocumento
-                LEFT JOIN productodocumento pr ON pr.idDocumento = d.idDocumento
                 WHERE d.idEstadoDocumento = 10
-                GROUP BY u.usuario
-                ORDER BY cantidad DESC ";
+                GROUP BY da.IdUsuario
+                ORDER BY u.usuario ";
         }else{
 
-                $query = "SELECT COUNT(DISTINCT(pr.idDocumento)) AS TOTAL, u.usuario, SUM(da.monto) AS monto, SUM(pr.cantidad) AS cantidad
+                $query = "SELECT COUNT(d.idDocumento) AS TOTAL, u.usuario, SUM(da.monto) AS monto
                 FROM datosdocumento da
-               LEFT JOIN usuario u ON u.idUsuario = da.idUsuario
-                LEFT JOIN documento d ON d.idDocumento = da.idDocumento
-                LEFT JOIN productodocumento pr ON pr.idDocumento = d.idDocumento ";
+                LEFT JOIN usuario u ON u.idUsuario = da.idUsuario
+                LEFT JOIN documento d ON d.idDocumento = da.idDocumento ";
 
                 if ($_POST["buscar"] != '' ){ 
-                        $query .= " WHERE (u.usuario LIKE LOWER('%".$aKeyword[0]."%')) AND d.idEstadoDocumento = 10 GROUP BY u.usuario ";
+                        $query .= " WHERE (u.usuario LIKE LOWER('%".$aKeyword[0]."%')) AND d.idEstadoDocumento = 10 GROUP BY da.IdUsuario ";
                 
                     for($i = 1; $i < count($aKeyword); $i++) {
                     if(!empty($aKeyword[$i])) {
@@ -196,14 +207,10 @@ $idUsu = $row['idUsuario'];
          }
 
          if ($_POST["orden"] == '2' ){
-                $query .= "  ORDER BY cantidad DESC ";
-         }
-
-         if ($_POST["orden"] == '3' ){
                 $query .= "  ORDER BY TOTAL DESC ";
          }
 
-         if ($_POST["orden"] == '4' ){
+         if ($_POST["orden"] == '3' ){
             $query .= "  ORDER BY monto DESC ";
      }
 }
@@ -224,19 +231,17 @@ $idUsu = $row['idUsuario'];
             <table class="table">
                 <thead>
                         <tr>
-                        <th style=" text-align: center; width:500px;">O.SOCIAL</th>
-                                <th style=" text-align: center; width: 300px;">CANTIDAD<br/>DE PRODUCTOS SOLICITADOS</th>
-                                <th style=" text-align: center; width: 200px;">VENTAS CONCRETADAS</th>
-                                <th style=" text-align: center; width: 250px;">INVERSIÓN + IVA</th>
+                            <th style=" text-align: center; width:400px;">O.SOCIAL</th>
+                            <th style=" text-align: center; width: 300px;">VENTAS CONCRETADAS</th>
+                            <th style=" text-align: center; width: 300px;">INVERSIÓN + IVA</th>
                         </tr>
                 </thead>
                 <tbody>
                 <?php While($rowSql = $sql->fetch_assoc()) {?>
                         <tr>
                         <td><h4 style="font-size:14px; text-align:left; margin-left: 5px;"><?php echo $rowSql["usuario"]; ?></h4></td>
-                        <td><h4 style="font-size:14px; text-align: right; margin-left: 5px;"><?php echo $rowSql["cantidad"]; ?></h4></td>
                         <td><h4 style="font-size:14px; text-align: right; margin-right: 5px;"><?php echo $rowSql["TOTAL"]; ?></h4></td>
-                        <td><h4 style="font-size:14px; text-align: right; margin-right: 5px;"><?php echo "$".number_format($rowSql["monto"]*1.21,2); ?></h4></td>
+                        <td><h4 style="font-size:14px; text-align: right; margin-right: 5px;"><?php echo "$".number_format($rowSql["monto"], 2); ?></h4></td>
                         </tr>
                
                <?php } ?>

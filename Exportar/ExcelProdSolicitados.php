@@ -41,7 +41,7 @@ include('../Utils/conexion.php');
 			$html .= '<td>' . $row_msg_contatos["producto"] . '</td>';
 			$html .= '<td>' . $row_msg_contatos["grupoProducto"] . '</td>';
 			$html .= '<td>' . $row_msg_contatos["cantidad"] . '</td>';
-            $html .= '<td>$' . $row_msg_contatos["total"]*1.21 . '</td>';
+            $html .= '<td>$' . $row_msg_contatos["total"]. '</td>';
 			$html .= '</tr>';
 		}
 		// Configuración en la cabecera

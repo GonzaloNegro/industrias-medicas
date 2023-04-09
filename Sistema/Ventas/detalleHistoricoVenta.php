@@ -61,7 +61,7 @@ function ConsultarIncidente($no_tic)
             </div>
             <div>
                 <?php 
-                    $sql6 = "SELECT d.medico, d.paciente, c.centroMedico, d.monto, u.usuario
+                    $sql6 = "SELECT d.medico, d.paciente, c.centroMedico, SUM(d.monto) AS MONTO, u.usuario
                     FROM datosdocumento d
                     LEFT JOIN centromedico c ON c.idCentro = d.idCentro
                     LEFT JOIN usuario u ON u.idUsuario = d.idUsuario
@@ -72,7 +72,7 @@ function ConsultarIncidente($no_tic)
                     $medico = $row6['medico'];
                     $paciente = $row6['paciente'];
                     $centro = $row6['centroMedico'];
-                    $monto = $row6['monto'];
+                    $monto = $row6['MONTO'];
 
                     $iddocu = $consulta[0];
                 ?>
@@ -80,7 +80,7 @@ function ConsultarIncidente($no_tic)
                 <p><strong><u>Médico/s:</u></strong> <?php echo $medico;?></p>
                 <p><strong><u>Paciente:</u></strong> <?php echo $paciente;?></p>
                 <p><strong><u>Centro Médico:</u></strong> <?php echo $centro;?></p>
-                <p><strong><u>Inversión:</u></strong> <?php echo "$".$monto;?></p>
+                <p><strong><u>Inversión (+ IVA):</u></strong> <?php echo "$".$monto;?></p>
 
                 <?php
                     $consulta=mysqli_query($datos_base, "SELECT p.producto, pr.cantidad, pr.precio

@@ -16,6 +16,20 @@ function ConsultarIncidente($no_tic)
 		$filas['idEstadoDocumento'],
 	];
 }
+
+if(!isset($_SESSION['usuario']))
+    {       
+        header('Location: ./Principal/login.php'); 
+        exit();
+    };
+$iduser = $_SESSION['usuario'];
+$sql = "SELECT idUsuario, usuario, idRol FROM usuario WHERE usuario='$iduser'";
+$resultado = $datos_base->query($sql);
+$row = $resultado->fetch_assoc();
+
+$nom = $row['usuario'];
+$idUsu = $row['idUsuario'];
+$idRol = $row['idRol'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -75,7 +89,7 @@ function ConsultarIncidente($no_tic)
                             echo "El archivo se está procesando";
                         }?>
                 </div>
-                <?php if($rutafin != "" AND $est == 6){?>
+                <?php if($rutafin != "" AND $est == 6 AND $idRol == 5){?>
                 <div>
                     <button type="submit" class="btn btn-success">CONFIRMAR OP</button>
                 </div>

@@ -17,6 +17,19 @@ function ConsultarIncidente($no_tic)
 	];
 }
 
+if(!isset($_SESSION['usuario'])) 
+    {       
+        header('Location: ./Principal/login.php'); 
+        exit();
+    };
+$iduser = $_SESSION['usuario'];
+$sql = "SELECT idUsuario, usuario, idRol FROM usuario WHERE usuario='$iduser'";
+$resultado = $datos_base->query($sql);
+$row = $resultado->fetch_assoc();
+
+$nom = $row['usuario'];
+$idUsu = $row['idUsuario'];
+$idRol = $row['idRol'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -202,7 +215,7 @@ function ConsultarIncidente($no_tic)
                         $row6 = $result6->fetch_assoc();
                         $est = $row6['idEstadoDocumento'];
 
-                        if($est == 3){
+                        if($est == 3 AND $idRol == 1 OR $idRol == 2 OR $idRol == 4){
                             ?>
                             <button type="submit" class="btn btn-success" name="aceptar" id="imp">Enviar a depósito</button>
                             <button type="submit" class="btn btn-danger" name="rechazo" id="imp">Rechazar Orden C.</button>

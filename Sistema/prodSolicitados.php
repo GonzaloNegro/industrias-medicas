@@ -156,24 +156,23 @@ $idUsu = $row['idUsuario'];
         $aKeyword = explode(" ", $_POST['buscar']);
 
         if ($_POST["buscar"] == '' AND $_POST['idGrupoProducto'] == '' AND $_POST['buscadesde'] == '' AND $_POST['buscahasta'] == '' AND $_POST['grupo'] == ''){ 
-                $query ="SELECT sum(pl.cantidad) as cantidad, pr.producto, g.grupoProducto, (pl.cantidad * pl.precio) AS total
+                $query ="SELECT sum(pl.cantidad) as cantidad, pr.producto, g.grupoProducto, sum(pl.cantidad * pl.precio) AS total
                 FROM licitacion l
                 LEFT JOIN productolicitacion pl ON pl.idLicitacion = l.idLicitacion
                 LEFT JOIN producto pr ON pr.idProducto = pl.idProducto
                 LEFT JOIN grupoproducto g ON g.idGrupoProducto = pr.idGrupoProducto
                 WHERE l.idEstadoLicitacion = 6
-                GROUP BY pr.producto
-                ORDER BY cantidad DESC ";
+                GROUP BY pr.idProducto ";
         }else{
 
-                $query = "SELECT sum(pl.cantidad) as cantidad, pr.producto, g.grupoProducto, (pl.cantidad * pl.precio) AS total
+                $query = "SELECT sum(pl.cantidad) as cantidad, pr.producto, g.grupoProducto, sum(pl.cantidad * pl.precio) AS total
                 FROM licitacion l
                 LEFT JOIN productolicitacion pl ON pl.idLicitacion = l.idLicitacion
                 LEFT JOIN producto pr ON pr.idProducto = pl.idProducto
                 LEFT JOIN grupoproducto g ON g.idGrupoProducto = pr.idGrupoProducto ";
 
                 if ($_POST["buscar"] != '' ){ 
-                        $query .= " WHERE (pr.producto LIKE LOWER('%".$aKeyword[0]."%')) AND l.idEstadoLicitacion = 6 GROUP BY pr.producto ";
+                        $query .= " WHERE (pr.producto LIKE LOWER('%".$aKeyword[0]."%')) AND l.idEstadoLicitacion = 6 GROUP BY pr.idProducto ";
                 
                     for($i = 1; $i < count($aKeyword); $i++) {
                     if(!empty($aKeyword[$i])) {

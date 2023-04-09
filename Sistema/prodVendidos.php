@@ -145,32 +145,29 @@ $idUsu = $row['idUsuario'];
                         </table>
                 </div> -->
 
-
-
-
         <?php 
 
         if ($_POST['buscar'] == ''){ $_POST['buscar'] = ' ';}
         $aKeyword = explode(" ", $_POST['buscar']);
 
         if ($_POST["buscar"] == '' AND $_POST['idGrupoProducto'] == '' AND $_POST['buscadesde'] == '' AND $_POST['buscahasta'] == '' AND $_POST['grupo'] == ''){ 
-                $query ="SELECT sum(pd.cantidad) as cantidad, pr.producto, g.grupoProducto, (pd.cantidad * pd.precio) AS total
+                $query ="SELECT sum(pd.cantidad) as cantidad, pr.producto, g.grupoProducto, sum(pd.cantidad * pd.precio) AS total
                 FROM documento d
                 LEFT JOIN productodocumento pd ON pd.idDocumento = d.idDocumento
                 LEFT JOIN producto pr ON pr.idProducto = pd.idProducto
                 LEFT JOIN grupoproducto g ON g.idGrupoProducto = pr.idGrupoProducto
                 WHERE d.idEstadoDocumento = 10
-                GROUP BY pr.producto ";
+                GROUP BY pr.idProducto ";
         }else{
 
-                $query = "SELECT sum(pd.cantidad) as cantidad, pr.producto, g.grupoProducto, (pd.cantidad * pd.precio) AS total
+                $query = "SELECT sum(pd.cantidad) as cantidad, pr.producto, g.grupoProducto, sum(pd.cantidad * pd.precio) AS total
                 FROM documento d
                 LEFT JOIN productodocumento pd ON pd.idDocumento = d.idDocumento
                 LEFT JOIN producto pr ON pr.idProducto = pd.idProducto
                 LEFT JOIN grupoproducto g ON g.idGrupoProducto = pr.idGrupoProducto ";
 
                 if ($_POST["buscar"] != '' ){ 
-                        $query .= " WHERE (pr.producto LIKE LOWER('%".$aKeyword[0]."%')) AND d.idEstadoDocumento = 10 GROUP BY pr.producto ";
+                        $query .= " WHERE (pr.producto LIKE LOWER('%".$aKeyword[0]."%')) AND d.idEstadoDocumento = 10 GROUP BY pr.idProducto ";
                 
                     for($i = 1; $i < count($aKeyword); $i++) {
                     if(!empty($aKeyword[$i])) {

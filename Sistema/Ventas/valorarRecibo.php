@@ -16,6 +16,20 @@ function ConsultarIncidente($no_tic)
 		$filas['idEstadoDocumento'],
 	];
 }
+
+if(!isset($_SESSION['usuario']))
+    {       
+        header('Location: ./Principal/login.php'); 
+        exit();
+    };
+$iduser = $_SESSION['usuario'];
+$sql = "SELECT idUsuario, usuario, idRol FROM usuario WHERE usuario='$iduser'";
+$resultado = $datos_base->query($sql);
+$row = $resultado->fetch_assoc();
+
+$nom = $row['usuario'];
+$idUsu = $row['idUsuario'];
+$idRol = $row['idRol'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -82,7 +96,7 @@ function ConsultarIncidente($no_tic)
                     $row = $resultado->fetch_assoc();
                     $valoracionventa = $row['valoracion'];
                     
-                    if(!isset($valoracionventa)){
+                    if(!isset($valoracionventa) AND $idRol == 5){
                     ?>
                 <div>
                     <div>

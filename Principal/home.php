@@ -12,7 +12,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="../Css/estilos.css"/>
     <title>Industrias Médicas</title>
-<!--     <meta name="description" content="La store mas grande de impresiòn 3D ¡Buscá tu artículo preferido y solicitalo ya mismo!"> -->
+    <meta name="description" content="Distribuidora de productos médicos. Nuestro compromiso es brindar productos y servicios de alto nivel tecnológco.">
     <meta name="keywords" content="industrias, medicas, protesis, implantes, argentina, cordoba, home">
 </head>
 <body>
@@ -191,7 +191,7 @@
                             <input type="text" name="asunto" placeholder="Asunto" required>
                           </div>
                           <div>
-                            <textarea name="" id="" name="consulta" cols="30" rows="4" placeholder="Mensaje" required></textarea>
+                            <textarea id="" name="consulta" cols="30" rows="4" placeholder="Mensaje" required></textarea>
                           </div>
                           <div style="padding: 5px;">
                             <button type="submit" class="btn btn-success">Enviar</button>

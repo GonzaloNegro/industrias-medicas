@@ -11,7 +11,7 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link rel="stylesheet" type="text/css" href="../Css/estilos.css"/>
     <title>Industrias Médicas</title>
-<!--     <meta name="description" content="La store mas grande de impresiòn 3D ¡Buscá tu artículo preferido y solicitalo ya mismo!"> -->
+    <meta name="description" content="Distribuidora de productos médicos. Nuestro compromiso es brindar productos y servicios de alto nivel tecnológco.">
     <meta name="keywords" content="industrias, medicas, protesis, implantes, argentina, cordoba, home">
 </head>
 <body class="fondo__inicio">

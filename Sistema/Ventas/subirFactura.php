@@ -58,7 +58,7 @@ function ConsultarIncidente($no_tic)
                 </div>
                 <div>
                     <label for="archivo">Ajuntar pdf</label>
-                    <input type="file" name="fichero" size="150" id="archivo" accept="application/pdf">
+                    <input type="file" name="fichero" size="150" id="archivo" accept="application/pdf" required>
                 </div>
                 <div>
                     <button type="submit" class="btn btn-success" name="submit">GUARDAR</button>

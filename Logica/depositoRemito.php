@@ -44,13 +44,21 @@ mysqli_query($datos_base, "UPDATE documento SET idEstadoDocumento = 8 WHERE idDo
     $horas = $minutosTranscurridos / 60;
     $dias = $horas / 24;
     $diasRedondedos = floor($dias);
-
     echo $diasRedondedos;
-
-
 
 /* movimientodocumento INSERTAR nuevo estado y fecha de vencimiento */
 mysqli_query($datos_base, "INSERT INTO movimientodocumento VALUES ('$id', 8, '$fechaActual', '0000-00-00', '$diasRedondedos')");
+
+$header = 'Enviado desde Industrias Médicas';
+$asunto = "Orden de compra N°".$id." aprobada - Envío a depósito para verificación";
+$fec = date("d-m-Y", strtotime($fechaActual));
+$mensaje = "El día ".$fec." Industrias Médicas ha aprobado la orden de compra del documento N°".$id." y se ha enviado a depósito para verificar disponibilidad de los productos solicitados.\nPor favor ingrese a https://indumedsa.com.ar/ y verifique la nueva solicitud.";
+$destinatario = 'info@industriasmedicas.com';
+
+$mensajeCompleto = $mensaje . "\nIndustrias Médicas";
+
+mail($destinatario, $asunto, $mensajeCompleto, $header);
+
 header("Location: ../Sistema/Ventas/ordenCompra.php?deposito");
 }
 
@@ -79,13 +87,20 @@ $minutosTranscurridos = $segundosTranscurridos / 60;
 $horas = $minutosTranscurridos / 60;
 $dias = $horas / 24;
 $diasRedondedos = floor($dias);
-
 echo $diasRedondedos;
-
-
 
 /* movimientodocumento INSERTAR nuevo estado y fecha de vencimiento */
 mysqli_query($datos_base, "INSERT INTO movimientodocumento VALUES ('$id', 9, '$fechaActual', '0000-00-00', '$diasRedondedos')");
+
+$header = 'Enviado desde Industrias Médicas';
+$asunto = "Orden de compra N°".$id." rechazada";
+$fec = date("d-m-Y", strtotime($fechaActual));
+$mensaje = "El día ".$fec." Industrias Médicas ha rechazado la orden de compra del documento N°".$id.".\nPor favor ingrese a https://indumedsa.com.ar/ para ver mas detalles.";
+$destinatario = 'info@industriasmedicas.com';
+$mensajeCompleto = $mensaje . "\nIndustrias Médicas";
+
+mail($destinatario, $asunto, $mensajeCompleto, $header);
+
 header("Location: ../Sistema/Ventas/ordenCompra.php?rechazo");
 }
 

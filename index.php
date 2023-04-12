@@ -8,7 +8,7 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="./Css/estilos.css"/>
     <title>Industrias Médicas</title>
-<!--     <meta name="description" content="La store mas grande de impresiòn 3D ¡Buscá tu artículo preferido y solicitalo ya mismo!"> -->
+    <meta name="description" content="Distribuidora de productos médicos. Nuestro compromiso es brindar productos y servicios de alto nivel tecnológco.">
     <meta name="keywords" content="industrias, medicas, protesis, implantes, argentina, cordoba, home">
 </head>
 <body>
@@ -19,7 +19,7 @@
                 </div>
                 <div class="inicio-dir" data-aos="zoom-in">
                     <div class="inicio-dir-reg">
-                        <a href="./Principal/login.php">Estoy registrado</a>
+                        <a href="./Principal/login.php">Iniciar sesión/Registrarme</a>
                     </div>
                     <div class="inicio-dir-con">
                         <a href="./Principal/home.php">Conocenos</a>

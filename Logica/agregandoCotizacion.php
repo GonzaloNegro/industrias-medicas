@@ -10,12 +10,13 @@ if(!isset($_SESSION['usuario']))
         exit();
     };
 $iduser = $_SESSION['usuario'];
-$sql = "SELECT idUsuario, usuario FROM usuario WHERE usuario='$iduser'";
+$sql = "SELECT idUsuario, usuario, nombre FROM usuario WHERE usuario='$iduser'";
 $resultado = $datos_base->query($sql);
 $row = $resultado->fetch_assoc();
 
 /*GUARDO LOS DATOS DEL ID_RESOLUTOR EN UNA VARIABLE*/
 $idUsu = $row['idUsuario'];
+$nombre = $row['nombre'];
 /* ------------------------- */
 $medico = limpiar_cadena($_POST['medico']);
 $paciente = limpiar_cadena($_POST['paciente']);
@@ -79,6 +80,15 @@ mysqli_query($datos_base, "INSERT INTO datosdocumento VALUES ('$tic1', '$medico'
         if($item1 === false && $item2 === false) break;
 
     }
+    $header = 'Enviado desde Industrias Médicas';
+    $asunto = "Nuevo pedido médico generado";
+    $destinatario = 'info@industriasmedicas.com';
+    $fec = date("d-m-Y", strtotime($fechaActual));
+    $mensaje = "El día ".$fec." la Obra social: ".$nombre." ha registrado un nuevo pedido médico.\nPor favor ingrese a https://indumedsa.com.ar/ y verifique la nueva solicitud.";
+
+    $mensajeCompleto = $mensaje . "\nIndustrias Médicas";
+
+    mail($destinatario, $asunto, $mensajeCompleto, $header);
 }
 
 header("Location: ../Sistema/Ventas/cotizaciones.php?ok");

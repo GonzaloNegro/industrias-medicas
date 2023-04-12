@@ -9,13 +9,13 @@ if(!isset($_SESSION['usuario']))
         exit();
     };
 $iduser = $_SESSION['usuario'];
-$sql = "SELECT idUsuario, usuario FROM usuario WHERE usuario='$iduser'";
+$sql = "SELECT idUsuario, usuario, nombre FROM usuario WHERE usuario='$iduser'";
 $resultado = $datos_base->query($sql);
 $row = $resultado->fetch_assoc();
 
 /*GUARDO LOS DATOS DEL ID_RESOLUTOR EN UNA VARIABLE*/
 $idUsu = $row['idUsuario'];
-
+$nombre = $row['nombre'];
 
 $id = $_POST['nroRemito'];
 date_default_timezone_set('UTC');
@@ -67,6 +67,15 @@ foreach ($_POST['idpro'] as $ids)
     $actualizar=$datos_base->query("INSERT INTO movimientoproducto VALUES(DEFAULT, '$editPro', '$fechaActual', 3, '$editCant', 3)");
 }
 
+/* ENVIO DE MAIL */
+$header = 'Enviado desde Industrias Médicas';
+$asunto = "Remito N°:".$id." aprobado";
+$fec = date("d-m-Y", strtotime($fechaActual));
+$destinatario = 'info@industriasmedicas.com';
+$mensaje = "El día ".$fec." la Obra social: ".$nombre." ha aprobado el remito N°".$id." generado por Industrias Médicas.\nPor favor ingrese a https://indumedsa.com.ar/ para continuar con el proceso de venta.";
+$mensajeCompleto = $mensaje . "\nAtentamente: Industrias Médicas";
+
+mail($destinatario, $asunto, $mensajeCompleto, $header);
 
 header("Location: ../Sistema/Ventas/facturas.php?ok");
 mysqli_close($datos_base);

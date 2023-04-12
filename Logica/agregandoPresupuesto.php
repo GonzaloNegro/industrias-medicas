@@ -16,7 +16,6 @@ $row = $resultado->fetch_assoc();
 /*GUARDO LOS DATOS DEL ID_RESOLUTOR EN UNA VARIABLE*/
 $idUsu = $row['idUsuario'];
 
-
 $id = $_POST['idCot'];
 $fecven = $_POST['fecven'];
 date_default_timezone_set('UTC');
@@ -79,6 +78,22 @@ $montototal = $row6['suma']; */
 $coniva = $montototal *1.21;
 
 mysqli_query($datos_base, "UPDATE datosdocumento SET monto = '$coniva' WHERE idDocumento = '$id'");
+
+/* ENVIO DE MAIL */
+$sent= "SELECT u.correo FROM usuario u LEFT JOIN datosdocumento da ON da.idUsuario = u.idUsuario WHERE da.idDocumento = '$id'";
+$resultado = $datos_base->query($sent);
+$row = $resultado->fetch_assoc();
+$destinatario = $row['correo'];
+
+if(isset($destinatario)){
+    $header = 'Enviado desde Industrias Médicas';
+    $asunto = "Nuevo presupuesto generado";
+    $fec = date("d-m-Y", strtotime($fechaActual));
+    $mensaje = "El día ".$fec." Industrias Médicas ha registrado un nuevo presupuesto correspondiente a su pedido médico N°".$id.".\nPor favor ingrese a https://indumedsa.com.ar/ y verifique la nueva solicitud."; 
+    $mensajeCompleto = $mensaje . "\nAtentamente: Industrias Médicas";
+    
+    mail($destinatario, $asunto, $mensajeCompleto, $header);
+}
 
 header("Location: ../Sistema/Ventas/presupuestos.php?ok");
 mysqli_close($datos_base);

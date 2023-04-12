@@ -13,6 +13,10 @@
     flex-direction: column;
 }
 
+.inicio-img img{
+    filter: drop-shadow(8px 8px 4px rgba(59, 59, 59, 0.5));
+}
+
 .inicio-dir{
     width: 50%;
     margin-top: 20px;
@@ -25,8 +29,10 @@
 
 .inicio-dir a{
     text-decoration: none;
-    color: crimson;
     font-size: 20px;
+    color: crimson;
+    font-weight: bold;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .inicio-dir-reg{
@@ -48,9 +54,13 @@
         width: 300px;
     }
     .inicio-dir{
+        width: 300px;
         flex-direction: column;
+        gap: 10px;
     }
     .inicio-dir a{
-        color: rgb(49, 49, 49);
+        font-size: 18px;
+        color: rgb(202, 202, 202);
+        text-shadow: 4px 4px 2px rgba(0,0,0,0.6);
     }
 }

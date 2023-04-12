@@ -9,13 +9,13 @@ if(!isset($_SESSION['usuario']))
         exit();
     };
 $iduser = $_SESSION['usuario'];
-$sql = "SELECT idUsuario, usuario FROM usuario WHERE usuario='$iduser'";
+$sql = "SELECT idUsuario, usuario, nombre FROM usuario WHERE usuario='$iduser'";
 $resultado = $datos_base->query($sql);
 $row = $resultado->fetch_assoc();
 
 /*GUARDO LOS DATOS DEL ID_RESOLUTOR EN UNA VARIABLE*/
 $idUsu = $row['idUsuario'];
-
+$nombre = $row['nombre'];
 
 $id = $_POST['nroRecibo'];
 date_default_timezone_set('UTC');
@@ -34,10 +34,18 @@ if(isset($_POST['uno'])){
     $valor = 5;
 }
 
-
 /* valoracionventa INSERTAR*/
 mysqli_query($datos_base, "INSERT INTO valoracionventa VALUES (DEFAULT, '$id', '$valor')");
 
+/* ENVIO DE MAIL */
+$header = 'Enviado desde Industrias Médicas';
+$asunto = "Recibo N°:".$id." recibido y valoración registrada";
+$fec = date("d-m-Y", strtotime($fechaActual));
+$destinatario = 'info@industriasmedicas.com';
+$mensaje = "El día ".$fec." la Obra social: ".$nombre." ha verificado el recibo N°".$id." generado por Industrias Médicas y valorado el proceso de venta.\nIngrese a https://indumedsa.com.ar/ para ver mas detalles.";
+$mensajeCompleto = $mensaje . "\nAtentamente: Industrias Médicas";
+
+mail($destinatario, $asunto, $mensajeCompleto, $header);
 header("Location: ../Sistema/Ventas/recibo.php?valorado");
 mysqli_close($datos_base);
 ?>

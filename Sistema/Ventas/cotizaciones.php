@@ -77,7 +77,12 @@ $idRol = $row['idRol'];
     <main>
         <section class="ini">
             <div class="ini-tit">
-                <h1>VENTAS</h1>
+                <?php
+                if($idRol != $rolobra){?>
+                    <h1>VENTAS</h1>
+                <?php }else{?>
+                    <h1>COMPRAS</h1>
+                <?php }?>
                 <h5>PEDIDO MÉDICO PARA SOLICITUD DE PRODUCTOS</h5>
             </div>
             <div class="container">
@@ -123,7 +128,8 @@ $idRol = $row['idRol'];
                                     LEFT JOIN datosdocumento AS da ON da.idDocumento = d.idDocumento
                                     LEFT JOIN usuario AS u ON u.idUsuario = da.idUsuario
                                     WHERE m.idEstadoDocumento = 1 AND (d.idDocumento LIKE '%$doc%' OR m.fecha LIKE '%$doc%' OR u.usuario LIKE '%$doc%' OR da.medico LIKE '%$doc%' OR da.paciente LIKE '%$doc%')
-                                    GROUP BY d.idDocumento");
+                                    GROUP BY d.idDocumento
+                                    ORDER BY d.idDocumento DESC");
                                     while($listar = mysqli_fetch_array($consulta))
                                     {
                                         $fec = date("d-m-Y", strtotime($listar['fecha']));
@@ -150,7 +156,8 @@ $idRol = $row['idRol'];
                                 LEFT JOIN datosdocumento AS da ON da.idDocumento = d.idDocumento
                                 LEFT JOIN usuario AS u ON u.idUsuario = da.idUsuario
                                 WHERE m.idEstadoDocumento = 1
-                                GROUP BY m.idDocumento");
+                                GROUP BY m.idDocumento
+                                ORDER BY d.idDocumento DESC");
                                     while($listar = mysqli_fetch_array($consulta)) 
                                     {
                                         $fec = date("d-m-Y", strtotime($listar['fecha']));
@@ -197,7 +204,8 @@ $idRol = $row['idRol'];
                                     LEFT JOIN datosdocumento AS da ON da.idDocumento = d.idDocumento
                                     LEFT JOIN usuario AS u ON u.idUsuario = da.idUsuario
                                     WHERE m.idEstadoDocumento = 1 AND (d.idDocumento LIKE '%$doc%' OR m.fecha LIKE '%$doc%' OR u.usuario LIKE '%$doc%' OR da.medico LIKE '%$doc%' OR da.paciente LIKE '%$doc%') AND da.idUsuario = '$idUsu'
-                                    GROUP BY d.idDocumento");
+                                    GROUP BY d.idDocumento
+                                    ORDER BY d.idDocumento DESC");
                                     while($listar = mysqli_fetch_array($consulta))
                                     {
                                         $fec = date("d-m-Y", strtotime($listar['fecha']));
@@ -224,7 +232,8 @@ $idRol = $row['idRol'];
                                 LEFT JOIN datosdocumento AS da ON da.idDocumento = d.idDocumento
                                 LEFT JOIN usuario AS u ON u.idUsuario = da.idUsuario
                                 WHERE m.idEstadoDocumento = 1 AND da.idUsuario = '$idUsu'
-                                GROUP BY d.idDocumento");
+                                GROUP BY d.idDocumento
+                                ORDER BY d.idDocumento DESC");
                                     while($listar = mysqli_fetch_array($consulta)) 
                                     {
                                         $fec = date("d-m-Y", strtotime($listar['fecha']));

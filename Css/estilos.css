@@ -1812,6 +1812,25 @@ p {
   justify-content: center;
   align-items: center; }
 
+.archivo {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 10px; }
+
+/* ----------------- */
+@media screen and (max-width: 768px) {
+  .agrStock {
+    width: 300px; }
+  .agrStock form {
+    width: 300px; }
+  .file--tamaño {
+    max-width: 280px; }
+  .file--tamaño input {
+    max-width: 250px; } }
+
 .contGrafico {
   width: 100%;
   display: flex;

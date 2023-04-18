@@ -67,8 +67,13 @@ function cargado(){
     <main>
         <section class="ini">
             <div class="ini-tit">
-                <h1>VENTAS</h1>
-                <h5>ORDEN DE PAGO PARA CLIENTES</h5>
+                <?php
+                if($idRol != $rolobra){?>
+                    <h1>VENTAS</h1>
+                <?php }else{?>
+                    <h1>COMPRAS</h1>
+                <?php }?>
+                <h5>ORDEN DE PAGO DE CLIENTES</h5>
             </div>
             <div class="container">
 
@@ -115,7 +120,8 @@ function cargado(){
                                     LEFT JOIN datosdocumento AS da ON da.idDocumento = d.idDocumento
                                     LEFT JOIN usuario AS u ON u.idUsuario = da.idUsuario
                                     WHERE m.idEstadoDocumento = 6 AND (m.idDocumento LIKE '%$doc%' OR m.fecha LIKE '%$doc%' OR u.usuario LIKE '%$doc%')
-                                    GROUP BY d.idDocumento");
+                                    GROUP BY d.idDocumento
+                                    ORDER BY d.idDocumento DESC");
                                     while($listar = mysqli_fetch_array($consulta))
                                     {
                                         $fec = date("d-m-Y", strtotime($listar['fecha']));
@@ -150,7 +156,8 @@ function cargado(){
                                     LEFT JOIN datosdocumento AS da ON da.idDocumento = d.idDocumento
                                     LEFT JOIN usuario AS u ON u.idUsuario = da.idUsuario
                                     WHERE m.idEstadoDocumento = 6
-                                    GROUP BY d.idDocumento");
+                                    GROUP BY d.idDocumento
+                                    ORDER BY d.idDocumento DESC");
                                     while($listar = mysqli_fetch_array($consulta)) 
                                     {
                                         $fec = date("d-m-Y", strtotime($listar['fecha']));
@@ -207,7 +214,8 @@ function cargado(){
                                         LEFT JOIN datosdocumento AS da ON da.idDocumento = d.idDocumento
                                         LEFT JOIN usuario AS u ON u.idUsuario = da.idUsuario
                                         WHERE m.idEstadoDocumento = 6 AND (m.idDocumento LIKE '%$doc%' OR m.fecha LIKE '%$doc%' OR u.usuario LIKE '%$doc%') AND da.idUsuario = '$idUsu'
-                                        GROUP BY d.idDocumento");
+                                        GROUP BY d.idDocumento
+                                        ORDER BY d.idDocumento DESC");
                                         while($listar = mysqli_fetch_array($consulta))
                                         {
                                             $fec = date("d-m-Y", strtotime($listar['fecha']));
@@ -242,7 +250,8 @@ function cargado(){
                                         LEFT JOIN datosdocumento AS da ON da.idDocumento = d.idDocumento
                                         LEFT JOIN usuario AS u ON u.idUsuario = da.idUsuario
                                         WHERE m.idEstadoDocumento = 6 AND da.idUsuario = '$idUsu'
-                                        GROUP BY d.idDocumento");
+                                        GROUP BY d.idDocumento
+                                        ORDER BY d.idDocumento DESC");
                                         while($listar = mysqli_fetch_array($consulta)) 
                                         {
                                             $fec = date("d-m-Y", strtotime($listar['fecha']));

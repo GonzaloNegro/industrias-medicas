@@ -205,7 +205,7 @@ $idRol = $row['idRol'];
                 $est = $row6['idEstadoDocumento'];
 
                 if($est == 1 AND $idRol == 1 OR $idRol == 2 OR $idRol == 4){
-                    echo "<a class='btnPdf' href=./cotizacionPresupuesto.php?no=".$id." class=mod><button type='submit' class='btn btn-success' id='vlv'>Modificar</button></a>";
+                    echo "<a class='btnPdf' href=./cotizacionPresupuesto.php?no=".$id." class=mod><button type='submit' class='btn btn-success' id='vlv'>Cotizar</button></a>";
                 }
                 ?>
             </div>

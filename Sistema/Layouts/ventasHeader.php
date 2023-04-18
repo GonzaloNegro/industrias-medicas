@@ -123,7 +123,12 @@
                             if($idRol == $rolgerente OR $idRol == $roladmin OR $idRol == $rolobra){
                         ?>
                         <li class="nav-item dropdown">
-                            <a href="#" class="nav-link dropdown-toggle variacion" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Ventas</a>
+                            <?php
+                            if($idRol != $rolobra){?>
+                            <a href="#" class="nav-link dropdown-toggle variacion" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">VENTAS</a>
+                            <?php }else{?>
+                            <a href="#" class="nav-link dropdown-toggle variacion" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">COMPRAS</a>
+                            <?php }?>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <li class="nav-item">
                                     <a class="nav-link variacion" href="./historicoVentas.php">Histórico</a>

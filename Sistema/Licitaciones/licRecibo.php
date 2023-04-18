@@ -68,7 +68,7 @@ function cargado(){
         <section class="ini">
             <div class="ini-tit">
                 <h1>LICITACIONES</h1>
-                <h5>RECIBO DE PAGO PARA LOS PROVEEDORES</h5>
+                <h5>RECIBO DE PAGO DE PROVEEDORES</h5>
             </div>
             <div class="container">
 
@@ -115,7 +115,8 @@ function cargado(){
                                     LEFT JOIN datoslicitacion AS da ON da.idLicitacion = l.idLicitacion
                                     LEFT JOIN usuario AS u ON u.idUsuario = da.idUsuario
                                     WHERE m.idEstadoLicitacion = 6 (l.idLicitacion LIKE '%$doc%' OR m.fecha LIKE '%$doc%' OR u.usuario LIKE '%$doc%')
-                                    GROUP BY l.idLicitacion");
+                                    GROUP BY l.idLicitacion
+                                    ORDER BY L.idLicitacion DESC");
                                     while($listar = mysqli_fetch_array($consulta)) 
                                     {
                                         $fec = date("d-m-Y", strtotime($listar['fecha']));
@@ -149,7 +150,8 @@ function cargado(){
                                     LEFT JOIN datoslicitacion AS da ON da.idLicitacion = l.idLicitacion
                                     LEFT JOIN usuario AS u ON u.idUsuario = da.idUsuario
                                     WHERE m.idEstadoLicitacion = 6
-                                    GROUP BY l.idLicitacion");
+                                    GROUP BY l.idLicitacion
+                                    ORDER BY L.idLicitacion DESC");
                                     while($listar = mysqli_fetch_array($consulta)) 
                                     {
                                         $fec = date("d-m-Y", strtotime($listar['fecha']));
@@ -205,7 +207,8 @@ function cargado(){
                                         LEFT JOIN datoslicitacion AS da ON da.idLicitacion = l.idLicitacion
                                         LEFT JOIN usuario AS u ON u.idUsuario = da.idUsuario
                                         WHERE m.idEstadoLicitacion = 6 (l.idLicitacion LIKE '%$doc%' OR m.fecha LIKE '%$doc%' OR u.usuario LIKE '%$doc%') AND da.idUsuario = '$idUsu'
-                                        GROUP BY l.idLicitacion");
+                                        GROUP BY l.idLicitacion
+                                        ORDER BY L.idLicitacion DESC");
                                         while($listar = mysqli_fetch_array($consulta)) 
                                         {
                                             $fec = date("d-m-Y", strtotime($listar['fecha']));
@@ -239,7 +242,8 @@ function cargado(){
                                         LEFT JOIN datoslicitacion AS da ON da.idLicitacion = l.idLicitacion
                                         LEFT JOIN usuario AS u ON u.idUsuario = da.idUsuario
                                         WHERE m.idEstadoLicitacion = 6 AND da.idUsuario = '$idUsu'
-                                        GROUP BY l.idLicitacion");
+                                        GROUP BY l.idLicitacion
+                                        ORDER BY L.idLicitacion DESC");
                                         while($listar = mysqli_fetch_array($consulta)) 
                                         {
                                             $fec = date("d-m-Y", strtotime($listar['fecha']));

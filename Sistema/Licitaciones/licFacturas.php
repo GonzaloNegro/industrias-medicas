@@ -115,7 +115,8 @@ function cargado(){
                                     LEFT JOIN datoslicitacion AS da ON da.idLicitacion = l.idLicitacion
                                     LEFT JOIN usuario AS u ON u.idUsuario = da.idUsuario
                                     WHERE m.idEstadoLicitacion = 4 AND (l.idLicitacion LIKE '%$doc%' OR m.fecha LIKE '%$doc%' OR u.usuario LIKE '%$doc%')
-                                    GROUP BY l.idLicitacion");
+                                    GROUP BY l.idLicitacion
+                                    ORDER BY L.idLicitacion DESC");
                                     while($listar = mysqli_fetch_array($consulta)) 
                                     {
                                         $fec = date("d-m-Y", strtotime($listar['fecha']));
@@ -149,7 +150,8 @@ function cargado(){
                                     LEFT JOIN datoslicitacion AS da ON da.idLicitacion = l.idLicitacion
                                     LEFT JOIN usuario AS u ON u.idUsuario = da.idUsuario
                                     WHERE m.idEstadoLicitacion = 4
-                                    GROUP BY l.idLicitacion");
+                                    GROUP BY l.idLicitacion
+                                    ORDER BY L.idLicitacion DESC");
                                     while($listar = mysqli_fetch_array($consulta)) 
                                     {
                                         $fec = date("d-m-Y", strtotime($listar['fecha']));
@@ -205,7 +207,8 @@ function cargado(){
                                         LEFT JOIN datoslicitacion AS da ON da.idLicitacion = l.idLicitacion
                                         LEFT JOIN usuario AS u ON u.idUsuario = da.idUsuario
                                         WHERE m.idEstadoLicitacion = 4 AND (l.idLicitacion LIKE '%$doc%' OR m.fecha LIKE '%$doc%' OR u.usuario LIKE '%$doc%') AND da.idUsuario = '$idUsu'
-                                        GROUP BY l.idLicitacion");
+                                        GROUP BY l.idLicitacion
+                                        ORDER BY L.idLicitacion DESC");
                                         while($listar = mysqli_fetch_array($consulta)) 
                                         {
                                             $fec = date("d-m-Y", strtotime($listar['fecha']));
@@ -239,7 +242,8 @@ function cargado(){
                                         LEFT JOIN datoslicitacion AS da ON da.idLicitacion = l.idLicitacion
                                         LEFT JOIN usuario AS u ON u.idUsuario = da.idUsuario
                                         WHERE m.idEstadoLicitacion = 4 AND da.idUsuario = '$idUsu'
-                                        GROUP BY l.idLicitacion");
+                                        GROUP BY l.idLicitacion
+                                        ORDER BY L.idLicitacion DESC");
                                         while($listar = mysqli_fetch_array($consulta)) 
                                         {
                                             $fec = date("d-m-Y", strtotime($listar['fecha']));

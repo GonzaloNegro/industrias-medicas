@@ -48,7 +48,12 @@ $idRol = $row['idRol'];
     <main>
     <section class="ini">
             <div class="ini-tit">
-                <h1>VENTAS</h1>
+                <?php
+                if($idRol != $rolobra){?>
+                    <h1>VENTAS</h1>
+                <?php }else{?>
+                    <h1>COMPRAS</h1>
+                <?php }?>
                 <h5>HISTÓRICO</h5>
             </div>
             <div class="container">
@@ -88,7 +93,8 @@ $idRol = $row['idRol'];
                                     LEFT JOIN estadodocumento e ON e.idEstadoDocumento = d.idEstadoDocumento
                                     LEFT JOIN datosdocumento da ON da.idDocumento  = d.idDocumento
                                     LEFT JOIN usuario u ON u.idUsuario = da.idUsuario
-                                    WHERE d.idDocumento LIKE '%$doc%' OR e.estadoDocumento LIKE '%$doc%' OR u.usuario LIKE '%$doc%'");
+                                    WHERE d.idDocumento LIKE '%$doc%' OR e.estadoDocumento LIKE '%$doc%' OR u.usuario LIKE '%$doc%'
+                                    ORDER BY d.idDocumento DESC");
                                     while($listar = mysqli_fetch_array($consulta))
                                     {
                                         /* $fec = date("d-m-Y", strtotime($listar['fecha'])); */
@@ -112,6 +118,7 @@ $idRol = $row['idRol'];
                                 LEFT JOIN estadodocumento e ON e.idEstadoDocumento = d.idEstadoDocumento
                                 LEFT JOIN datosdocumento da ON da.idDocumento  = d.idDocumento
                                 LEFT JOIN usuario u ON u.idUsuario = da.idUsuario
+                                ORDER BY d.idDocumento DESC
                                 ");
                                     while($listar = mysqli_fetch_array($consulta)) 
                                     {
@@ -152,7 +159,8 @@ $idRol = $row['idRol'];
                                         LEFT JOIN estadodocumento e ON e.idEstadoDocumento = d.idEstadoDocumento
                                         LEFT JOIN datosdocumento da ON da.idDocumento  = d.idDocumento
                                         LEFT JOIN usuario u ON u.idUsuario = da.idUsuario
-                                        WHERE (d.idDocumento LIKE '%$doc%' OR e.estadoDocumento LIKE '%$doc%' OR u.usuario LIKE '%$doc%') AND da.idUsuario = '$idUsu'");
+                                        WHERE (d.idDocumento LIKE '%$doc%' OR e.estadoDocumento LIKE '%$doc%' OR u.usuario LIKE '%$doc%') AND da.idUsuario = '$idUsu'
+                                        ORDER BY d.idDocumento DESC");
                                         while($listar = mysqli_fetch_array($consulta))
                                         {
                                             /* $fec = date("d-m-Y", strtotime($listar['fecha'])); */
@@ -177,6 +185,7 @@ $idRol = $row['idRol'];
                                     LEFT JOIN datosdocumento da ON da.idDocumento  = d.idDocumento
                                     LEFT JOIN usuario u ON u.idUsuario = da.idUsuario
                                     WHERE da.idUsuario = '$idUsu'
+                                    ORDER BY d.idDocumento DESC
                                     ");
                                         while($listar = mysqli_fetch_array($consulta)) 
                                         {

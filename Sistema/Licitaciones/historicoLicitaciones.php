@@ -76,7 +76,8 @@ $idRol = $row['idRol'];
                                     LEFT JOIN estadolicitacion e ON e.idEstadoLicitacion = l.idEstadoLicitacion
                                     LEFT JOIN datoslicitacion da ON da.idLicitacion = l.idLicitacion
                                     LEFT JOIN usuario u ON u.idUsuario = da.idUsuario
-                                    WHERE l.idLicitacion LIKE '%$doc%' OR e.estadoLicitacion LIKE '%$doc%' OR u.usuario LIKE '%$doc%'");
+                                    WHERE l.idLicitacion LIKE '%$doc%' OR e.estadoLicitacion LIKE '%$doc%' OR u.usuario LIKE '%$doc%'
+                                    ORDER BY L.idLicitacion DESC");
                                     while($listar = mysqli_fetch_array($consulta))
                                     {
                                         /* $fec = date("d-m-Y", strtotime($listar['fecha'])); */
@@ -100,6 +101,7 @@ $idRol = $row['idRol'];
                                 LEFT JOIN estadolicitacion e ON e.idEstadoLicitacion = l.idEstadoLicitacion
                                 LEFT JOIN datoslicitacion da ON da.idLicitacion = l.idLicitacion
                                 LEFT JOIN usuario u ON u.idUsuario = da.idUsuario
+                                ORDER BY L.idLicitacion DESC
                                 ");
                                     while($listar = mysqli_fetch_array($consulta)) 
                                     {
@@ -139,7 +141,8 @@ $idRol = $row['idRol'];
                                         LEFT JOIN estadolicitacion e ON e.idEstadoLicitacion = l.idEstadoLicitacion
                                         LEFT JOIN datoslicitacion da ON da.idLicitacion = l.idLicitacion
                                         LEFT JOIN usuario u ON u.idUsuario = da.idUsuario
-                                        WHERE (l.idLicitacion LIKE '%$doc%' OR e.estadoLicitacion LIKE '%$doc%' OR u.usuario LIKE '%$doc%') AND da.idUsuario = '$idUsu'");
+                                        WHERE (l.idLicitacion LIKE '%$doc%' OR e.estadoLicitacion LIKE '%$doc%' OR u.usuario LIKE '%$doc%') AND da.idUsuario = '$idUsu'
+                                        ORDER BY L.idLicitacion DESC");
                                         while($listar = mysqli_fetch_array($consulta))
                                         {
                                             /* $fec = date("d-m-Y", strtotime($listar['fecha'])); */
@@ -164,6 +167,7 @@ $idRol = $row['idRol'];
                                     LEFT JOIN datoslicitacion da ON da.idLicitacion = l.idLicitacion
                                     LEFT JOIN usuario u ON u.idUsuario = da.idUsuario
                                     WHERE da.idUsuario = '$idUsu'
+                                    ORDER BY L.idLicitacion DESC
                                     ");
                                         while($listar = mysqli_fetch_array($consulta)) 
                                         {

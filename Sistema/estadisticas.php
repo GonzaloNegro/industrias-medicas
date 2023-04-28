@@ -65,7 +65,7 @@ $idRol = $row['idRol'];
                         <div class="card-counter primary">
                             <div class="card-pri">
                                 <i class="fa-solid fa-face-smile"></i>
-                                <span class="count-numbers"><?php echo number_format(($promedio) ,2)."/5";?></span>
+                                <span class="count-numbers"><?php echo number_format(($promedio), 2, ',','.')."/5";?></span>
                             </div>
                             <div class="card-sec">
                                 <span class="count-name">Satisfacción ventas</span>
@@ -86,7 +86,7 @@ $idRol = $row['idRol'];
                         <div class="card-counter success">
                             <div class="card-pri">
                                 <i class="fa-sharp fa-solid fa-arrow-up"></i>
-                                <span class="count-numbers"><?php echo "$".number_format($cotact, 2);?></span>
+                                <span class="count-numbers"><?php echo "$".number_format($cotact, 2, ',','.');?></span>
                             </div>
                             <div class="card-sec">
                                 <span class="count-name">Ingresos generados</span>
@@ -107,7 +107,7 @@ $idRol = $row['idRol'];
                         <div class="card-counter danger">
                             <div class="card-pri">
                                 <i class="fa-sharp fa-solid fa-arrow-down"></i>
-                                <span class="count-numbers"><?php echo "$".number_format($lictot, 2);?></span>
+                                <span class="count-numbers"><?php echo "$".number_format($lictot, 2, ',','.');?></span>
                             </div>
                             <div class="card-sec">
                                 <span class="count-name">Gastos generados</span>
@@ -141,7 +141,7 @@ $idRol = $row['idRol'];
                         <div class="card-counter primary">
                             <div class="card-pri">
                                 <i class="fa-sharp fa-regular fa-calendar"></i>
-                                <span class="count-numbers"><?php echo number_format($promTotal, 2);?></span>
+                                <span class="count-numbers"><?php echo number_format($promTotal, 2, ',','.');?></span>
                             </div>
                             <div class="card-sec">
                                 <span class="count-name">Dìas promedio p/venta</span>
@@ -165,7 +165,7 @@ $idRol = $row['idRol'];
                         <div class="card-counter success">
                             <div class="card-pri">
                                 <i class="fa-regular fa-circle-check"></i>
-                                <span class="count-numbers"><?php echo number_format(($docven * 100)/$doctot, 2)."%";?></span>
+                                <span class="count-numbers"><?php echo number_format(($docven * 100)/$doctot, 2, ',','.')."%";?></span>
                             </div>
                             <div class="card-sec">
                                 <span class="count-name">Ventas exitosas</span>
@@ -179,7 +179,7 @@ $idRol = $row['idRol'];
                         <div class="card-counter danger">
                             <div class="card-pri">
                                 <i class="fa-solid fa-dollar-sign"></i>
-                                <span class="count-numbers"><?php echo "$".number_format($balance, 2);?></span>
+                                <span class="count-numbers"><?php echo "$".number_format($balance, 2, ',','.');?></span>
                             </div>
                             <div class="card-sec">
                                 <span class="count-name">Balance</span>
@@ -324,69 +324,48 @@ $idRol = $row['idRol'];
                    $licAprobada = round(($row6['total'] / $cantidadDiasLicitacion) ,1);
                 ?>
 
-
-
-                <div class="contGrafico">
-                    <div class="grafico">
-                        <div class="grafico-tit">
-                            <h1>Días promedio por estado de venta</h1>
-                        </div>
-                        <div class="grafico-gra">
-                            <canvas id="MiGrafica4" style="width: 800px; height: 300px;"></canvas>
-                        </div>
+                <div class="cuarto--info">
+                    <div class="cuarto--info--btn">
+                        <button class="btn btn-info" style="color: white;" id="change">Venta/Licitación</button>
                     </div>
-                    <div class="grafico">
-                        <div class="grafico-tit">
-                            <h1>Días promedio por estado de Licitación</h1>
-                        </div>
-                        <div class="grafico-gra">
-                            <canvas id="MiGrafica5" style="width: 800px; height: 300px;"></canvas>
-                        </div>
+                    <div class="grafica5">
+                        <h1>Días promedio por estado de Venta</h1>
+                        <canvas id="MiGrafica4"></canvas>
                     </div>
-                </div>
-                
-
-                <div class="contGrafico">
-                    <div class="grafico">
-                        <div class="grafico-tit">
-                            <h1>Estado ventas</h1>
-                        </div>
-                        <div class="grafico-gra">
-                            <canvas id="MiGrafica" style="width: 800px; height: 300px;"></canvas>
-                        </div>
-                    </div>
-    
-                    <div class="grafico">
-                        <div class="grafico-tit">
-                            <h1>Estado Licitaciones</h1>
-                        </div>
-                        <div class="grafico-gra">
-                            <canvas id="MiGrafica1" style="width: 800px; height: 300px;"></canvas>
-                        </div>
+                    <div class="grafica5a">
+                        <h1>Días promedio por estado de Licitación</h1>
+                        <canvas id="MiGrafica5"></canvas>
                     </div>
                 </div>
 
-                <div class="contGrafico">
-                    <div class="grafico">
-                        <div class="grafico-tit">
-                            <h1>INGRESOS</h1>
-                        </div>
-                        <div class="grafico-gra">
-                            <canvas id="MiGrafica2" style="width: 800px; height: 300px;"></canvas>
-                        </div>
+                <div class="cuarto--info">
+                    <div class="cuarto--info--btn">
+                        <button class="btn btn-info" style="color: white;" id="change2">Venta/Licitación</button>
+                    </div>
+                    <div class="grafica6">
+                        <h1>Estado ventas</h1>
+                        <canvas id="MiGrafica"></canvas>
+                    </div>
+                    <div class="grafica6a">
+                    <h1>Estado Licitaciones</h1>
+                        <canvas id="MiGrafica1"></canvas>
                     </div>
                 </div>
 
-                <div class="contGrafico">
-                    <div class="grafico">
-                        <div class="grafico-tit">
-                            <h1>EGRESOS</h1>
-                        </div>
-                        <div class="grafico-gra">
-                            <canvas id="MiGrafica3" style="width: 800px; height: 300px;"></canvas>
-                        </div>
+                <div class="cuarto--info">
+                    <div class="cuarto--info--btn">
+                        <button class="btn btn-info" style="color: white;" id="change3">Ingresos/Egresos</button>
+                    </div>
+                    <div class="grafica7">
+                        <h1>Ingresos</h1>
+                        <canvas id="MiGrafica2"></canvas>
+                    </div>
+                    <div class="grafica7a">
+                        <h1>Egresos</h1>
+                        <canvas id="MiGrafica3"></canvas>
                     </div>
                 </div>
+
     <?php
         $sql6 = "SELECT COUNT(*) AS total FROM documento WHERE idEstadoDocumento <> 9 AND idEstadoDocumento <> 10";
         $result6 = $datos_base->query($sql6);

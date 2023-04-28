@@ -89,7 +89,7 @@ $idRol = $row['idRol'];
                             echo "El archivo se está procesando";
                         }?>
                 </div>
-                <?php if($rutafin != "" AND $est == 6 AND $idRol == 5){?>
+                <?php if($rutafin != "" AND $est == 6 AND $idRol == 1 OR $idRol == 2 OR $idRol == 4){?>
                 <div>
                     <button type="submit" class="btn btn-success">CONFIRMAR OP</button>
                 </div>

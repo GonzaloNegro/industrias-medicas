@@ -59,7 +59,7 @@ function ConsultarIncidente($no_tic)
             <div class="ini-tit">
                 <h1>Histórico Ventas N°<?php echo $consulta[0]; ?></h1>
             </div>
-            <div>
+            <div class="ini-hist">
                 <?php 
                     $sql6 = "SELECT d.medico, d.paciente, c.centroMedico, SUM(d.monto) AS MONTO, u.usuario
                     FROM datosdocumento d
@@ -80,7 +80,7 @@ function ConsultarIncidente($no_tic)
                 <p><strong><u>Médico/s:</u></strong> <?php echo $medico;?></p>
                 <p><strong><u>Paciente:</u></strong> <?php echo $paciente;?></p>
                 <p><strong><u>Centro Médico:</u></strong> <?php echo $centro;?></p>
-                <p><strong><u>Inversión (+ IVA):</u></strong> <?php echo "$".$monto;?></p>
+                <p><strong><u>Inversión (+ IVA):</u></strong> <?php echo "$".number_format(($monto), 2, ',','.');?></p>
 
                 <?php
                     $consulta=mysqli_query($datos_base, "SELECT p.producto, pr.cantidad, pr.precio
@@ -96,7 +96,7 @@ function ConsultarIncidente($no_tic)
                         echo"
                             <li><strong><u>Producto N°".$contador.":</u></strong> ".$listar['producto']."</li>
                             <li><strong><u>Cantidad:</u></strong> ".$listar['cantidad']."</li>
-                            <li><strong><u>Precio unitario:</u></strong> $".$listar['precio']."</li>
+                            <li><strong><u>Precio unitario:</u></strong> $".number_format(($listar['precio']), 2, ',','.')."</li>
                             <br>
                             ";
                     }

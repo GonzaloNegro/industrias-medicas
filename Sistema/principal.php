@@ -150,11 +150,11 @@ $idRol = $row['idRol'];
                     <?php
                         if($idRol == $rolobra){
                     ?>
-                    <div class="principal-informacionVentas" data-aos="fade-zoom-in"
+                    <div class="principal-datos" data-aos="fade-zoom-in"
                                                         data-aos-easing="ease-in-back"
                                                         data-aos-delay="300"
                                                         data-aos-offset="0">
-                        <div class="principal-informacionVentas-cont">
+                        <div class="principal-datos-cont">
                             <h2>Estado últimas ventas</h2>
                             <?php $fechaActual = date('d-m-Y'); ?>
                             <p>Fecha actual: <?php echo $fechaActual;?></p>
@@ -202,11 +202,11 @@ $idRol = $row['idRol'];
                     <?php
                         if($idRol == $rolproveedor){
                     ?>
-                    <div class="principal-informacionVentas" data-aos="fade-zoom-in"
+                    <div class="principal-datos" data-aos="fade-zoom-in"
                                                         data-aos-easing="ease-in-back"
                                                         data-aos-delay="300"
                                                         data-aos-offset="0">
-                        <div class="principal-informacionVentas-cont">
+                        <div class="principal-datos-cont">
                             <h2>Estado últimas licitaciones</h2>
                             <?php $fechaActual = date('d-m-Y'); ?>
                             <p>Fecha actual: <?php echo $fechaActual;?></p>

@@ -51,19 +51,6 @@ mysqli_query($datos_base, "UPDATE documento SET idEstadoDocumento = 10 WHERE idD
 /* movimientodocumento INSERTAR nuevo estado y fecha de vencimiento */
 mysqli_query($datos_base, "INSERT INTO movimientodocumento VALUES ('$id', 10, '$fechaActual', '0000-00-00', '$diasRedondedos')");
 
-
-    /* ENVIO DE MAIL */
-    if(isset($destinatario)){
-        $header = 'Enviado desde Industrias Médicas';
-        $asunto = "Orden de pago N°:".$id." aprobada";
-        $fec = date("d-m-Y", strtotime($fechaActual));
-        $destinatario = 'info@industriasmedicas.com';
-        $mensaje = "El día ".$fec." Industrias Médicas ha aprobado la Orden de pago correspondiente al pedido médico N°".$id.".\nPor favor ingrese a https://indumedsa.com.ar/ para continuar con el proceso de venta.";
-        $mensajeCompleto = $mensaje . "\nAtentamente: Industrias Médicas";
-        
-        mail($destinatario, $asunto, $mensajeCompleto, $header);
-    }
-
 header("Location: ../Sistema/Ventas/recibo.php?ok");
 mysqli_close($datos_base);
 ?>

@@ -17,6 +17,7 @@ $row = $resultado->fetch_assoc();
 $idUsu = $row['idUsuario'];
 $nombre = $row['nombre'];
 
+
 $id = $_POST['nroFactura'];
 date_default_timezone_set('UTC');
 date_default_timezone_set("America/Buenos_Aires");
@@ -50,17 +51,6 @@ mysqli_query($datos_base, "UPDATE documento SET idEstadoDocumento = 6 WHERE idDo
 
 /* movimientodocumento INSERTAR nuevo estado y fecha de vencimiento */
 mysqli_query($datos_base, "INSERT INTO movimientodocumento VALUES ('$id', 6, '$fechaActual', '0000-00-00', '$diasRedondedos')");
-
-
-/* ENVIO DE MAIL */
-$header = 'Enviado desde Industrias Médicas';
-$asunto = "Factura N°:".$id." aprobada";
-$fec = date("d-m-Y", strtotime($fechaActual));
-$destinatario = 'info@industriasmedicas.com';
-$mensaje = "El día ".$fec." la Obra social: ".$nombre." ha aprobado la factura N°".$id." generada por Industrias Médicas.\nPor favor ingrese a https://indumedsa.com.ar/ para continuar con el proceso de venta.";
-$mensajeCompleto = $mensaje . "\nAtentamente: Industrias Médicas";
-
-mail($destinatario, $asunto, $mensajeCompleto, $header);
 
 header("Location: ../Sistema/Ventas/ordenPago.php?ok");
 mysqli_close($datos_base);

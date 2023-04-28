@@ -77,7 +77,17 @@
 			</script>
             <script type="text/javascript">
 			function con(){
-				swal.fire("La contraseña es demasiado corta", "Por favor genere una nueva clave de al menos 8 caracteres", "error");
+				swal.fire("La contraseña es demasiado corta", "Por favor, genere una nueva clave de al menos 8 caracteres", "error");
+			}	
+			</script>
+            <script type="text/javascript">
+			function usu(){
+				swal.fire("Ya se encuentra registrado el nombre de usuario", "Por favor, genere un nuevo nombre de usuario", "error");
+			}	
+			</script>
+            <script type="text/javascript">
+			function cor(){
+				swal.fire("Ya se encuentra registrado el correo seleccionado", "Por favor, registre un nuevo correo", "error");
 			}	
 			</script>
     <main>
@@ -147,12 +157,22 @@
                         <script>ina();</script>
                         <?php
                     }
+                    if(isset($_GET['usu'])){
+                        ?>
+                        <script>usu();</script>
+                        <?php
+                    }
+                    if(isset($_GET['cor'])){
+                        ?>
+                        <script>cor();</script>
+                        <?php
+                    }
 			    ?>
-                <form method="POST" action="../Utils/validarLogin.php"  class="formulario__register">
+                <form method="POST" action="../Utils/validarLogin.php" id="formu2"  class="formulario__register">
                     <h2>Registrate</h2>
                     <input type="text" id="nombreEmpresa" name="regNom" placeholder="Nombre de la Empresa" required>
                     <input type="text" id="correo" name="regCor" placeholder="Correo Electronico" required>
-                    <input type="text" id="correo" name="regDir" placeholder="Dirección" required>
+                    <input type="text" id="direccion" name="regDir" placeholder="Dirección" required>
                     <input type="text" id="usuario" name="regUsu" placeholder="Usuario" required>
                     <input type="password" id="pass" name="regPas" placeholder="Contraseña" onkeypress="return valideKey(event);"  required>
                     <p style="font-size:12px;">*La contraseña debe ser de al menos 8 caracteres.</p>
@@ -171,7 +191,7 @@
                             </div>
                         </div>
                     </fieldset>
-                    <button type="submit" id="registrar" name="registrar">Regístrarse</button>
+                    <button type="submit" disabled id="registrar" name="registrar">Regístrarse</button>
                 </form>
             </div>
         </div>

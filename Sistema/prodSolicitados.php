@@ -236,7 +236,7 @@ $idUsu = $row['idUsuario'];
                         <td><h4 style="font-size:14px; text-align:left; margin-left: 5px;"><?php echo $rowSql["producto"]; ?></h4></td>
                         <td><h4 style="font-size:14px; text-align:left; margin-left: 5px;"><?php echo $rowSql["grupoProducto"]; ?></h4></td>
                         <td><h4 style="font-size:14px; text-align: right; margin-right: 5px;"><?php echo $rowSql["cantidad"]; ?></h4></td>
-                        <td><h4 style="font-size:14px; text-align: right; margin-right: 5px;"><?php echo "$".number_format($rowSql["total"]*1.21,2); ?></h4></td>
+                        <td><h4 style="font-size:14px; text-align: right; margin-right: 5px;"><?php echo "$".number_format($rowSql["total"]*1.21,2, ',','.'); ?></h4></td>
                         </tr>
                
                <?php } ?>

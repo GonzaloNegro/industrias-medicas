@@ -116,3 +116,41 @@ function validar(){
 form.addEventListener("keyup", validar);
 /* FIN LOGIN */
 
+/* REGISTRO */
+
+let form2 = document.querySelector('#formu2');
+let registrar = document.querySelector("#registrar");
+
+function validar2(){
+    let desabilitar = false;
+
+    if(form2.nombreEmpresa.value == ""){
+        desabilitar = true;
+    }
+
+    if(form2.correo.value == ""){
+        desabilitar = true;
+    }
+    if(form2.direccion.value == ""){
+        desabilitar = true;
+    }
+    if(form2.usuario.value == ""){
+        desabilitar = true;
+    }
+    if(form2.pass.value == ""){
+        desabilitar = true;
+    }
+
+    if(desabilitar == true){
+        registrar.disabled = true;
+        registrar.style.backgroundColor="grey";
+/*         btn.style.visibility = "hidden"; */
+    }else{
+        registrar.disabled = false;
+        registrar.style.backgroundColor="crimson";
+/*         btn.style.visibility = "visible"; */
+    }
+}
+form2.addEventListener("keyup", validar2);
+
+/* FIN REGISTRO */

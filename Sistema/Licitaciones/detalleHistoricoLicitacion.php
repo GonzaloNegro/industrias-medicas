@@ -73,7 +73,7 @@ function ConsultarIncidente($no_tic)
                     $idlic = $consulta[0];
                 ?>
                 <p><strong><u>Proveedor:</u></strong> <?php if(isset($usuario)){echo $usuario;}?></p>
-                <p><strong><u>Inversión:</u></strong> <?php if(isset($monto)){echo "$".$monto;}?></p>
+                <p><strong><u>Inversión:</u></strong> <?php if(isset($monto)){echo "$".number_format(($monto), 2, ',','.');}?></p>
 
                 <?php
                     $consulta=mysqli_query($datos_base, "SELECT p.producto, pr.cantidad, pr.precio
@@ -89,7 +89,7 @@ function ConsultarIncidente($no_tic)
                         echo"
                             <li><strong><u>Producto N°".$contador.":</u></strong> ".$listar['producto']."</li>
                             <li><strong><u>Cantidad:</u></strong> ".$listar['cantidad']."</li>
-                            <li><strong><u>Precio unitario:</u></strong> $".$listar['precio']."</li>
+                            <li><strong><u>Precio unitario:</u></strong> $".number_format(($listar['precio']), 2, ',','.')."</li>
                             <br>
                             ";
                     }

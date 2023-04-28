@@ -75,6 +75,26 @@ elseif(isset($_POST['registrar'])){
 	$regUsu = limpiar_cadena($_POST['regUsu']);
 	$regPas = limpiar_cadena($_POST['regPas']);
 
+	/* COMPARAR USUARIO YA REGISTRADOS */
+	$sql = "SELECT * FROM usuario WHERE usuario = '$regUsu'";
+	$resultado = $datos_base->query($sql);
+	$row = $resultado->fetch_assoc();
+	$repUsu = $row['usuario'];
+	if($repUsu == $regUsu){
+		header("location: ../Principal/login.php?usu");
+		mysqli_close($datos_base);
+	}
+
+	/* COMPARAR CORREO YA REGISTRADO */
+	$sql = "SELECT * FROM usuario WHERE correo = '$regCor'";
+	$resultado = $datos_base->query($sql);
+	$row = $resultado->fetch_assoc();
+	$repCor = $row['correo'];
+	if($repCor == $regCor){
+		header("location: ../Principal/login.php?cor");
+		mysqli_close($datos_base);
+	}
+
 	if(strlen($regPas) < 8){
 		header("location: ../Principal/login.php?con");
 		mysqli_close($datos_base);

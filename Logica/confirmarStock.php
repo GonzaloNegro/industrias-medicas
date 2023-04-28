@@ -85,6 +85,16 @@ foreach ($_POST['idpro'] as $ids)
     $actualizar=$datos_base->query("INSERT INTO movimientoproducto VALUES(DEFAULT, '$editPro', '$fechaActual', 2, '$editCant', 4)");
 }
 
+$header = 'Enviado desde Industrias Médicas';
+$asunto = "Confirmación de disponibilidad de productos del documento N°".$id;
+$fec = date("d-m-Y", strtotime($fechaActual));
+$mensaje = "El día ".$fec." el área de depósito autoriza el despacho de productos del documento N°".$id.".\nPor favor ingrese a https://indumedsa.com.ar/ para continuar con el proceso.";
+$destinatario = 'info@industriasmedicas.com';
+
+$mensajeCompleto = $mensaje . "\nIndustrias Médicas";
+
+mail($destinatario, $asunto, $mensajeCompleto, $header);
+
 
 header("Location: ../Sistema/Ventas/remitos.php?ok");
 mysqli_close($datos_base);

@@ -116,7 +116,7 @@ $idRol = $row['idRol'];
                                     LEFT JOIN movimientolicitacion AS m ON m.idLicitacion = l.idLicitacion
                                     WHERE m.idEstadoLicitacion = 1  AND (OR l.idLicitacion LIKE '%$doc%' m.fecha LIKE '%$doc%' OR m.fechaVen LIKE '%$doc%')
                                     GROUP BY l.idLicitacion
-                                    ORDER BY L.idLicitacion DESC");
+                                    ORDER BY l.idLicitacion DESC");
                                     while($listar = mysqli_fetch_array($consulta)) 
                                     {
                                         $fec = date("d-m-Y", strtotime($listar['fecha']));
@@ -157,7 +157,7 @@ $idRol = $row['idRol'];
                                 LEFT JOIN movimientolicitacion AS m ON m.idLicitacion = l.idLicitacion
                                 WHERE m.idEstadoLicitacion = 1
                                 GROUP BY l.idLicitacion
-                                ORDER BY L.idLicitacion DESC");
+                                ORDER BY l.idLicitacion DESC");
                                     while($listar = mysqli_fetch_array($consulta)) 
                                     {   
                                         $lici = $listar['idLicitacion'];

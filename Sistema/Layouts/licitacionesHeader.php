@@ -73,7 +73,7 @@
                                     if($idRol == $rolgerente OR $idRol == $roladmin){
                                 ?>
                                 <li class="nav-item">
-                                    <a class="nav-link variacion" href="../Licitaciones/historicoLicitaciones.php">Histórico</a>
+                                    <a class="nav-link variacion" href="./historicoLicitaciones.php">Histórico</a>
                                 </li>
                                 <?php
                                     }
@@ -82,7 +82,7 @@
                                     if($idRol == $rolgerente OR $idRol == $rolventas){
                                 ?>
                                 <li class="nav-item">
-                                    <a href="../Licitaciones/solLic.php" class="nav-link variacion" aria-current="page">Solicitar</a>
+                                    <a href="./solLic.php" class="nav-link variacion" aria-current="page">Solicitar</a>
                                 </li>
                                 <?php
                                     }
@@ -91,28 +91,28 @@
                                     if($idRol == $rolgerente OR $idRol == $roladmin){
                                 ?>
                                 <li class="nav-item">
-                                    <a class="nav-link variacion" href="../Licitaciones/solicitudLicitacion.php">Solicitudes</a>
+                                    <a class="nav-link variacion" href="./solicitudLicitacion.php">Solicitudes</a>
                                 </li>
                                 <?php
                                     }
                                 ?>
                                 <li class="nav-item">
-                                    <a class="nav-link variacion" href="../Licitaciones/licCotizaciones.php">Cotizaciones</a>
+                                    <a class="nav-link variacion" href="./licCotizaciones.php">Cotizaciones</a>
                                 </li>
                                 <li>
-                                    <a class="dropdown-item nav-link variacion" href="../Licitaciones/licOrdenCompra.php">Orden de compra</a>
+                                    <a class="dropdown-item nav-link variacion" href="./licOrdenCompra.php">Orden de compra</a>
                                 </li>
                                 <li>
-                                    <a class="dropdown-item nav-link variacion" href="../Licitaciones/licRemitos.php">Remitos</a>
+                                    <a class="dropdown-item nav-link variacion" href="./licRemitos.php">Remitos</a>
                                 </li>
                                 <li>
-                                    <a class="dropdown-item nav-link variacion" href="../Licitaciones/licFacturas.php">Facturas</a>
+                                    <a class="dropdown-item nav-link variacion" href="../licFacturas.php">Facturas</a>
                                 </li>
                                 <li>
-                                    <a class="dropdown-item nav-link variacion" href="../Licitaciones/licOrdenPago.php">Orden de pago</a>
+                                    <a class="dropdown-item nav-link variacion" href="./licOrdenPago.php">Orden de pago</a>
                                 </li>
                                 <li>
-                                    <a class="dropdown-item nav-link variacion" href="../Licitaciones/licRecibo.php">Recibo</a>
+                                    <a class="dropdown-item nav-link variacion" href="./licRecibo.php">Recibo</a>
                                 </li>
                             </ul>
                         </li>

@@ -70,7 +70,7 @@
                             <a href="#" class="nav-link dropdown-toggle variacion" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">LICITACIONES</a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <?php
-                                    if($idRol == $rolgerente OR $idRol == $roladmin){
+                                    if($idRol == $rolgerente OR $idRol == $roladmin OR $idRol == $rolproveedor){
                                 ?>
                                 <li class="nav-item">
                                     <a class="nav-link variacion" href="./historicoLicitaciones.php">Histórico</a>

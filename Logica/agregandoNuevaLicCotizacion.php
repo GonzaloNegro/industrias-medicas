@@ -81,23 +81,26 @@ mysqli_query($datos_base, "INSERT INTO datoslicitacion VALUES ('$tic1', 0, 0, '$
     /* ENVIO DE MAIL */
     $feclim1 = date("d-m-Y", strtotime($feclim));
 
+    $arraymail = [];
+
     $consulta=mysqli_query($datos_base, "SELECT correo FROM usuario WHERE idTipoUsuario = 2");
     while($listar = mysqli_fetch_array($consulta)) 
         {
             if(isset($listar['correo'])){
-                $dest = $listar['correo'];
-
-                $destinatario =  $dest.',';
-                
-                $header = 'Enviado desde Industrias Médicas';
-                $asunto = "Nueva licitación";
-                $fec = date("d-m-Y", strtotime($fechaActual));
-                $mensaje = "El día ".$fec." Industrias Médicas notifica que se ha abierto una nueva licitación con fecha de cierre: ".$feclim1.".\nPor favor ingrese a https://indumedsa.com.ar/ para ver más detalles."; 
-                $mensajeCompleto = $mensaje . "\nAtentamente: Industrias Médicas";
-                    
-                mail($destinatario, $asunto, $mensajeCompleto, $header);
+                $dest = $listar['correo'].",";
+                array_push($arraymail, $dest);
             }
         }
+        /* echo json_encode($arraymail); */
+        $destinatario = implode($arraymail);
+
+        $header = 'Enviado desde Industrias Médicas';
+        $asunto = "Nueva licitación";
+        $fec = date("d-m-Y", strtotime($fechaActual));
+        $mensaje = "El día ".$fec." Industrias Médicas notifica que se ha abierto una nueva licitación con fecha de cierre: ".$feclim1.".\nPor favor ingrese a https://indumedsa.com.ar/ para ver más detalles."; 
+        $mensajeCompleto = $mensaje . "\nAtentamente: Industrias Médicas";
+            
+        mail($destinatario, $asunto, $mensajeCompleto, $header);
 }
 
 header("Location: ../Sistema/Licitaciones/licCotizaciones.php?ok");

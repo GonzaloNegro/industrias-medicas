@@ -99,7 +99,7 @@ mysqli_query($datos_base, "UPDATE datoslicitacion SET idUsuario = '$postulante',
 
 
     /* ENVIO DE MAIL */
-    $sent= "SELECT correo FROM usuario WHERE idUsuario = '$idPos'";
+    $sent= "SELECT correo FROM usuario WHERE idUsuario = '$postulante'";
     $resultado = $datos_base->query($sent);
     $row = $resultado->fetch_assoc();
     $destinatario = $row['correo'];

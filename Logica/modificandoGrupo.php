@@ -18,22 +18,44 @@ $row = $resultado->fetch_assoc();
 $idUsu = $row['idUsuario'];
 
 $idGru = $_POST['idGrupo'];
-$nombre = limpiar_cadena($_POST['nombre']);
+$nombre = strtoupper($_POST['nombre']);
 
+
+//CORTAR ESPACIOS EN BLANCO:
+$sinEspacios = preg_replace("/[[:space:]]/","",($nombre));
+//CALCULAR EL TAMAÑO
+$tamaño = mb_strlen($sinEspacios);
+//ORDENAR ALFABÉTICAMENTE
+$letras = (str_split($sinEspacios));
+sort($letras, SORT_REGULAR);
+$respuesta = implode($letras);
 
 /* SI UNO DE LOS CAMPOS ESTA REPETIDO */
-$sql = "SELECT idGrupoProducto FROM grupoproducto WHERE (grupoProducto = '$nombre' AND idGrupoProducto != '$idGru')";
-$resultado = $datos_base->query($sql);
-$row = $resultado->fetch_assoc();
-$grup = $row['idGrupoProducto'];
+$contador = 0;
 
-if(isset($grup)){
-    header("Location: ../Sistema/Stock/gruposProductos.php?exist");
-}else{
-    mysqli_query($datos_base, "UPDATE grupoproducto SET grupoProducto = '$nombre' WHERE idGrupoProducto = '$idGru'");
-    /* UPDATE en la tabla de productos */
-    header("Location: ../Sistema/Stock/gruposProductos.php?modif");
+$consulta=mysqli_query($datos_base, "SELECT REPLACE(grupoProducto, ' ', '') AS GRUPO, idGrupoProducto FROM grupoproducto WHERE idGrupoProducto != '$idGru'");
+while($listar = mysqli_fetch_array($consulta)) 
+{
+  //CALCULAR EL TAMAÑO
+  $tamaño2 = mb_strlen($listar['GRUPO']);
+  //ORDENAR ALFABÉTICAMENTE
+  $letras2 = (str_split($listar['GRUPO']));
+  sort($letras2, SORT_REGULAR);
+  //var_dump($letras);
+  $respuesta2 = implode($letras2);
+
+  if($respuesta == $respuesta2 AND $tamaño == $tamaño2){
+    $contador ++;
+  }
 }
 
-mysqli_close($datos_base);
+if($contador > 0){
+    header("Location: ../Sistema/Stock/gruposProductos.php?exist");
+    mysqli_close($datos_base);
+}
+else{
+    mysqli_query($datos_base, "UPDATE grupoproducto SET grupoProducto = '$nombre' WHERE idGrupoProducto = '$idGru'");
+    header("Location: ../Sistema/Stock/gruposProductos.php?modif");
+    mysqli_close($datos_base);
+}
 ?>

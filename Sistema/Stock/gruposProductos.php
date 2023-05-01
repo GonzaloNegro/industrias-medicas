@@ -35,7 +35,7 @@ $idRol = $row['idRol'];
 <body>
 <script type="text/javascript">
         function exist(){
-            swal(  {title: "El grupo ya se encuentra registrado.",
+            swal.fire(  {title: "El grupo ya se encuentra registrado.",
                     icon: "error",
                     showConfirmButton: true,
                     showCancelButton: false,
@@ -43,7 +43,7 @@ $idRol = $row['idRol'];
 	</script>
     <script type="text/javascript">
     function agregado(){
-        swal(  {title: "Grupo agregado correctamente",
+        swal.fire(  {title: "Grupo agregado correctamente",
                 icon: "success",
                 showConfirmButton: true,
                 showCancelButton: false,
@@ -51,7 +51,7 @@ $idRol = $row['idRol'];
 	</script>
     <script type="text/javascript">
     function modif(){
-        swal(  {title: "Grupo modificado correctamente",
+        swal.fire(  {title: "Grupo modificado correctamente",
                 icon: "success",
                 showConfirmButton: true,
                 showCancelButton: false,

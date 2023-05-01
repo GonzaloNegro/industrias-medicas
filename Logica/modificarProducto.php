@@ -18,7 +18,7 @@ $row = $resultado->fetch_assoc();
 $idUsu = $row['idUsuario'];
 
 $idProd = $_POST['idProd'];
-$nombre = limpiar_cadena($_POST['nombre']);
+$nombre = strtoupper($_POST['nombre']);
 $grupo = $_POST['grupo'];
 $tipo = $_POST['tipo'];
 $minimo = $_POST['minimo'];
@@ -38,19 +38,43 @@ if($tipo == "200"){
     $tipo = $row2['idTipoProducto'];
 }
 
-/* SI UNO DE LOS CAMPOS ESTA REPETIDO */
-$sql = "SELECT idProducto FROM producto WHERE (producto = '$nombre' AND idGrupoProducto = '$grupo' AND idProducto != '$idProd')";
-$resultado = $datos_base->query($sql);
-$row = $resultado->fetch_assoc();
-$prod = $row['idProducto'];
 
-if(isset($prod)){
-    header("Location: ../Sistema/Stock/productos.php?exist");
-}else{
-    mysqli_query($datos_base, "UPDATE producto SET producto = '$nombre', idGrupoProducto = '$grupo', idTipoProducto = '$tipo', minimo = '$minimo', maximo = '$maximo' WHERE idProducto = '$idProd'");
-    /* UPDATE en la tabla de productos */
-    header("Location: ../Sistema/Stock/productos.php?modif");
+//CORTAR ESPACIOS EN BLANCO:
+$sinEspacios = preg_replace("/[[:space:]]/","",($nombre));
+//CALCULAR EL TAMAÑO
+$tamaño = mb_strlen($sinEspacios);
+//ORDENAR ALFABÉTICAMENTE
+$letras = (str_split($sinEspacios));
+sort($letras, SORT_REGULAR);
+$respuesta = implode($letras);
+
+/* SI UNO DE LOS CAMPOS ESTA REPETIDO */
+$contador = 0;
+
+$consulta=mysqli_query($datos_base, "SELECT REPLACE(producto, ' ', '') AS PROD, idProducto FROM producto WHERE idProducto != '$idProd'");
+while($listar = mysqli_fetch_array($consulta)) 
+{
+  //CALCULAR EL TAMAÑO
+  $tamaño2 = mb_strlen($listar['PROD']);
+  //ORDENAR ALFABÉTICAMENTE
+  $letras2 = (str_split($listar['PROD']));
+  sort($letras2, SORT_REGULAR);
+  //var_dump($letras);
+  $respuesta2 = implode($letras2);
+
+  if($respuesta == $respuesta2 AND $tamaño == $tamaño2){
+    $contador ++;
+  }
 }
 
-mysqli_close($datos_base);
+if($contador > 0){
+    header("Location: ../Sistema/Stock/productos.php?exist");
+    mysqli_close($datos_base);
+}
+else{
+    mysqli_query($datos_base, "UPDATE producto SET producto = '$nombre', idGrupoProducto = '$grupo', idTipoProducto = '$tipo', minimo = '$minimo', maximo = '$maximo' WHERE idProducto = '$idProd'");
+    header("Location: ../Sistema/Stock/productos.php?modif");
+    mysqli_close($datos_base);
+}
+
 ?>

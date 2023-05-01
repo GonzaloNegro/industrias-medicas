@@ -47,7 +47,7 @@ $idRol = $row['idRol'];
     ?>
 <script type="text/javascript">
 			function ok(){
-				swal(  {title: "Solicitud generada",
+				swal.fire(  {title: "Solicitud generada",
 						icon: "success",
 						showConfirmButton: true,
 						showCancelButton: false,
@@ -55,7 +55,7 @@ $idRol = $row['idRol'];
 			</script>
 <script type="text/javascript">
         function exist(){
-            swal(  {title: "El producto ya existe en el catalogo.",
+            swal.fire(  {title: "El producto ya existe en el catalogo.",
                     icon: "error",
                     showConfirmButton: true,
                     showCancelButton: false,
@@ -63,7 +63,7 @@ $idRol = $row['idRol'];
 	</script>
     <script type="text/javascript">
     function agregado(){
-        swal(  {title: "Producto agregado correctamente",
+        swal.fire(  {title: "Producto agregado correctamente",
                 icon: "success",
                 showConfirmButton: true,
                 showCancelButton: false,
@@ -71,7 +71,7 @@ $idRol = $row['idRol'];
 	</script>
     <script type="text/javascript">
     function modif(){
-        swal(  {title: "Producto modificado correctamente",
+        swal.fire(  {title: "Producto modificado correctamente",
                 icon: "success",
                 showConfirmButton: true,
                 showCancelButton: false,

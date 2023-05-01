@@ -55,7 +55,7 @@ if($regUsu == $usuarioregistrado)
     if($estadoActualUsuario == 2 AND $regEstado == 1){
         mysqli_query($datos_base, "UPDATE usuario SET usuario = '$regUsu', idRol = '$regRol', idTipoUsuario = '$regTipo', nombre = '$regNom', correo = '$regCor', direccion = '$regDir', idEstadoUsuario = '$regEstado' WHERE idUsuario = '$nroUsu'"); 
 
-    /* 	$destinatario = $regCor;
+    	$destinatario = $regCor;
         $asunto = 'Activación de usuario en Industrias Médicas.';
         $header = 'Enviado desde Industrias Médicas.';
         
@@ -63,7 +63,7 @@ if($regUsu == $usuarioregistrado)
         $nombre = 'INDUSTRIAS MÉDICAS';
         $mensajeCompleto = $mensaje . "\nAtentamente: " . $nombre;
         
-        mail($destinatario, $asunto, $mensajeCompleto, $header); */
+        mail($destinatario, $asunto, $mensajeCompleto, $header);
 
 
         header("Location: ../Sistema/usuarios.php?activo");

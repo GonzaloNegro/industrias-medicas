@@ -48,6 +48,7 @@ function ConsultarIncidente($no_tic)
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="../Css/estilos.css"/>
     <title>Industrias Médicas</title>
@@ -105,31 +106,41 @@ function ConsultarIncidente($no_tic)
                     <label for="direccion">Dirección</label>
                     <input type="text" name="regDir"  id="direccion" value="<?php echo $consulta[7]?>">
                 </div>
+
                 <div>
-                    <label id="rol">Rol: </label>
-                        <select name="rol">
-                            <option selected value="100"><?php echo $rol?></option>
+                    <label for="tip">Tipo Actual</label>
+                    <input type="text"  id="tip" style="border-bottom: none;" readonly value="<?php echo $tipo?>">
+                </div>
+                <div>
+                    <label for="ro">Rol Actual</label>
+                    <input type="text"  id="ro" style="border-bottom: none;" readonly value="<?php echo $rol?>">
+                </div>
+                
+                <div>
+                    <label>Tipo Usuario: </label>
+                    <select name="tipo" id="lista1" class="form-control" required>
+                        <option selected value="200"><?php echo $tipo?></option>
+                        <?php
+                        $consulta= "SELECT * FROM tipousuario";
+                        $ejecutar= mysqli_query($datos_base, $consulta) or die(mysqli_error($datos_base));
+                        ?>
+                        <?php foreach ($ejecutar as $opciones): ?> 
+                            <option value="<?php echo $opciones['idTipoUsuario']?>"><?php echo $opciones['tipo']?></option>
+                            <?php endforeach ?>
+                    </select>
+                </div>
+                <div id="select2lista">
+<!--                         <label>Rol:</label>
+                        <select name="rol" id="lista1" class="form-control" required>
+                            <option value="" selected disabled="rol">-SELECCIONE UNA-</option>
                             <?php
                             $consulta= "SELECT * FROM roles";
                             $ejecutar= mysqli_query($datos_base, $consulta) or die(mysqli_error($datos_base));
                             ?>
                             <?php foreach ($ejecutar as $opciones): ?> 
-                            <option value= <?php echo $opciones['idRol'] ?>><?php echo $opciones['rol']?></option>
-                            <?php endforeach?>
-                        </select>
-                </div>
-                <div>
-                    <label id="tipo">Tipo Usuario: </label>
-                        <select name="tipo">
-                            <option selected value="200"><?php echo $tipo?></option>
-                            <?php
-                            $consulta= "SELECT * FROM tipousuario";
-                            $ejecutar= mysqli_query($datos_base, $consulta) or die(mysqli_error($datos_base));
-                            ?>
-                            <?php foreach ($ejecutar as $opciones): ?> 
-                            <option value= <?php echo $opciones['idTipoUsuario'] ?>><?php echo $opciones['tipo']?></option>
-                            <?php endforeach?>
-                        </select>
+                            <option value="<?php echo $opciones['idRol']?>"><?php echo $opciones['rol']?></option>
+                            <?php endforeach ?>
+                        </select> -->
                 </div>
                 <div>
                     <label id="estado">Estado Usuario: </label>
@@ -154,6 +165,28 @@ function ConsultarIncidente($no_tic)
         </div>
         </section>
     </main>
+
+    <script type="text/javascript">
+        $(document).ready(function(){
+            recargarLista();
+
+            $('#lista1').change(function(){
+                recargarLista();
+            });
+        })
+    </script>
+    <script type="text/javascript">
+        function recargarLista(){
+            $.ajax({
+                type: "POST",
+                url: "./datosCarga.php",
+                data: "tipo=" + $('#lista1').val(),
+                success:function(r){
+                    $('#select2lista').html(r);
+                }
+            });
+        }
+    </script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
         <script>
             AOS.init();

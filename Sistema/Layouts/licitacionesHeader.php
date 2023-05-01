@@ -106,7 +106,7 @@
                                     <a class="dropdown-item nav-link variacion" href="./licRemitos.php">Remitos</a>
                                 </li>
                                 <li>
-                                    <a class="dropdown-item nav-link variacion" href="../licFacturas.php">Facturas</a>
+                                    <a class="dropdown-item nav-link variacion" href="./licFacturas.php">Facturas</a>
                                 </li>
                                 <li>
                                     <a class="dropdown-item nav-link variacion" href="./licOrdenPago.php">Orden de pago</a>

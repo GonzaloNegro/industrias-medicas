@@ -85,8 +85,9 @@ mysqli_query($datos_base, "INSERT INTO datoslicitacion VALUES ('$tic1', 0, 0, '$
     while($listar = mysqli_fetch_array($consulta)) 
         {
             if(isset($listar['correo'])){
+                $dest = $listar['correo'];
 
-                $destinatario =  $listar['correo'].";";/* CONSIDERAR LAS COMILLAS */
+                $destinatario =  $dest.',';
                 
                 $header = 'Enviado desde Industrias Médicas';
                 $asunto = "Nueva licitación";

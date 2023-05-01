@@ -110,7 +110,7 @@ $idRol = $row['idRol'];
         </div>
         <div class="agrStock">
         <form method="POST" id="formcot" action="../../Logica/solicitudProducto.php">
-                <div>
+                <div class="contenedorDinamico">
                     <table class="table"  id="tabla">
                         <tr class="fila-fija">
                             <td>

@@ -105,7 +105,7 @@ $idUsu = $row['idUsuario']
                     <input type="text" name="medico" id="" style="text-transform:uppercase" placeholder="Nombre medico/s" required>
                     <input type="text" name="paciente" id="" style="text-transform:uppercase" placeholder="Nombre paciente" required>
                 </div>
-                <div>
+                <div class="contenedorDinamico">
                     <table class="table"  id="tabla">
                         <tr class="fila-fija">
                             <td>

@@ -92,21 +92,20 @@ $idUsu = $row['idUsuario'];
                         Selecciona el orden
                         <select id="assigned-tutor-filter" id="orden" name="orden" class="form-control mt-2" >
                                 <?php if ($_POST["orden"] != ''){ ?>
-                                        <option value="<?php echo $_POST["orden"]; ?>">
-                                                <?php 
-                        if ($_POST["orden"] == '1'){echo 'Ordenar por nombre';} 
-                        if ($_POST["orden"] == '2'){echo 'Ordenar por Grupo';} 
-                        if ($_POST["orden"] == '3'){echo 'Ordenar por Cantidad';}
-                        if ($_POST["orden"] == '4'){echo 'Ordenar por Precio';} 
-                        ?>
-                        </option>
-                        <?php } ?>
-                        <option value="">Sin orden</option>
-                        <option value="1">Ordenar por nombre</option>
-                        <option value="2">Ordenar por Grupo</option>
-                        <option value="3">Ordenar por Cantidad</option>
-                        <option value="4">Ordenar por Precio</option>
-                </select>
+                                <option value="<?php echo $_POST["orden"]; ?>"><?php 
+                                if ($_POST["orden"] == '1'){echo 'Ordenar por nombre';} 
+                                if ($_POST["orden"] == '2'){echo 'Ordenar por Grupo';} 
+                                if ($_POST["orden"] == '3'){echo 'Ordenar por Cantidad';}
+                                if ($_POST["orden"] == '4'){echo 'Ordenar por Precio';} 
+                                ?>
+                                </option>
+                                <?php } ?>
+                                <option value="">Sin orden</option>
+                                <option value="1">Ordenar por nombre</option>
+                                <option value="2">Ordenar por Grupo</option>
+                                <option value="3">Ordenar por Cantidad</option>
+                                <option value="4">Ordenar por Precio</option>
+                        </select>
                 </div>
                 <div class="contFilter--search">
                     <input type="submit" class="btn " value="Ver" style="margin-top: 38px; background-color: blue; color: white;">

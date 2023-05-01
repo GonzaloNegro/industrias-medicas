@@ -1548,7 +1548,9 @@ tr:hover td {
   .ini-tit {
     margin-top: 20px;
     margin-bottom: 40px;
-    text-align: center; } }
+    text-align: center; }
+  .contenedorDinamico {
+    width: 300px; } }
 
 .detalles {
   display: flex;
@@ -1778,6 +1780,10 @@ p {
     width: 300px; }
   .agrStock form {
     width: 300px; }
+  .agrStock form input {
+    width: 280px; }
+  .agrStock form select {
+    width: 280px; }
   .file--tamaño {
     max-width: 280px; }
   .file--tamaño input {
@@ -1986,4 +1992,10 @@ p {
     width: 300px !important;
     height: 200px !important; }
   .grafica5 h1, .grafica5a h1, .grafica6 h1, .grafica6a h1, .grafica7 h1, .grafica7a h1 {
-    font-size: 18px; } }
+    font-size: 18px; }
+  .table-responsive {
+    width: 100%; }
+  .contFilter {
+    flex-direction: column; }
+  .contFilter--search {
+    flex-direction: row; } }

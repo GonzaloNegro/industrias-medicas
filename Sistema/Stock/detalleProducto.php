@@ -92,7 +92,7 @@ function ConsultarIncidente($no_tic)
                 </div>
                 <div style="text-align: center; padding:10px;">
                         <label for="nombre">Nombre producto: </label>
-                        <input type="text" style="width: 500px; text-transform:uppercase;" name="nombre" value="<?php echo $consulta[1]?>">
+                        <input type="text" style="text-transform:uppercase;" name="nombre" value="<?php echo $consulta[1]?>">
                 </div>
                 <div style="text-align: center; padding:10px;">
                         <label for="nombre">Mínimo: </label>

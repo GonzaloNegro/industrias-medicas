@@ -237,4 +237,13 @@
         font-size: 18px;
     }
 
+    .table-responsive{
+        width: 100%;
+    }
+    .contFilter{
+        flex-direction: column;
+    }
+    .contFilter--search{
+        flex-direction: row;
+    }
 }

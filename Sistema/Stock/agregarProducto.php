@@ -67,7 +67,7 @@ if(!isset($_SESSION['usuario']))
             <form method="POST" action="../../Logica/agregandoProducto.php">
                 <div style="text-align: center; padding:10px;">
                         <label for="nombre">Nombre producto: </label>
-                        <input type="text" style="width: 500px; text-transform:uppercase;" name="nombre" required>
+                        <input type="text" style="text-transform:uppercase;" name="nombre" required>
                 </div>
                 <div style="text-align: center; padding:10px;">
                         <label for="nombre">Mínimo: </label>

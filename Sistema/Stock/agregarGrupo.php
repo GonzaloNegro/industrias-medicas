@@ -53,7 +53,7 @@ if(!isset($_SESSION['usuario']))
             <form method="POST" action="../../Logica/agregandoGrupo.php">
                 <div style="text-align: center; padding:10px;">
                         <label for="nombre">Nombre Grupo: </label>
-                        <input type="text" style="width: 500px; text-transform:uppercase;" name="nombre" required>
+                        <input type="text" style="text-transform:uppercase;" name="nombre" required>
                 </div>
                 <div>
                     <button type="submit" class="btn btn-success">AGREGAR</button>

@@ -21,17 +21,17 @@ if(isset($destinatario)){
     /* ENVIO DE MAIL */
     $nombre = 'Industrias Médicas';
     $asunto = 'Reestablecimiento de contraseña';
-    $mensaje = "Buen día, nos comunicamos desde Industrias Médicas para reestablecer tu contraseña.\n Se te asignará una contraseña genérica, la cuál deberas cambiar al iniciar sesión nuevamente.\nTu nueva contraseña es: industrias";
+    $mensaje = "Hola, nos comunicamos desde Industrias Médicas para reestablecer tu contraseña.\n Se te asignará una contraseña genérica, la cuál deberas cambiar al iniciar sesión nuevamente.\nTu nueva contraseña es: industrias";
     
     $header = 'Enviado desde Industrias Médicas.';
     $mensajeCompleto = $mensaje . "\nAtentamente: " . $nombre;
     mail($destinatario, $asunto, $mensajeCompleto, $header);
 
 
-    header("Location: ../Principal/reestablecer.php?ok");
+    header("Location: ../Principal/restablecer.php?ok");
     mysqli_close($datos_base);
 }else{
 
-    header("Location: ../Principal/reestablecer.php?error");
+    header("Location: ../Principal/restablecer.php?error");
     mysqli_close($datos_base);
 }

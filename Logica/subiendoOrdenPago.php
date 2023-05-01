@@ -16,7 +16,7 @@ $row = $resultado->fetch_assoc();
 /*GUARDO LOS DATOS DEL ID_RESOLUTOR EN UNA VARIABLE*/
 $idUsu = $row['idUsuario'];
 $idd = $_POST['nroOP'];
-$nombre = $row['nombre'];
+$nombreUsu = $row['nombre'];
 
 date_default_timezone_set('UTC');
 date_default_timezone_set("America/Buenos_Aires");
@@ -44,7 +44,7 @@ if(file_exists($_FILES['fichero']['tmp_name'])){
         $asunto = "Nueva Orden de pago generada correspondiente a la venta N°".$idd.".";
         $fec = date("d-m-Y", strtotime($fechaActual));
         $destinatario = 'gonzalonnegro@gmail.com';
-        $mensaje = "El día ".$fec." la Obra social: ".$nombre." ha registrado una nueva Orden de pago correspondiente a su pedido médico N°".$idd.".\nPor favor ingrese a https://indumedsa.com.ar/ para ver el archivo."; 
+        $mensaje = "El día ".$fec." la Obra social: ".$nombreUsu." ha registrado una nueva Orden de pago correspondiente a su pedido médico N°".$idd.".\nPor favor ingrese a https://indumedsa.com.ar/ para ver el archivo."; 
         $mensajeCompleto = $mensaje . "\nAtentamente: Industrias Médicas";
 
         mail($destinatario, $asunto, $mensajeCompleto, $header);

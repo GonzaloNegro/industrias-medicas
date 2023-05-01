@@ -32,6 +32,14 @@ $idRol = $row['idRol'];
     <title>Industrias Médicas</title>
 </head>
 <body>
+    <?php
+        $rolgerente = 1;
+        $roladmin = 2;
+        $roldeposito = 3;
+        $rolventas = 4;
+        $rolobra = 5;
+        $rolproveedor = 6;
+    ?>
     <?php include('../Layouts/licitacionesHeader.php'); ?>
     <main>
     <section class="ini">

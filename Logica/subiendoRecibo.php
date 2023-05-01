@@ -54,6 +54,6 @@ if(file_exists($_FILES['fichero']['tmp_name'])){
     }
 };
 
-header("Location: ../Sistema/ventas/recibo.php?cargado");
+header("Location: ../Sistema/Ventas/recibo.php?cargado");
 mysqli_close($datos_base);
 ?>

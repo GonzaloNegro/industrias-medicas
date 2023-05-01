@@ -56,7 +56,7 @@ if($regUsu == $usuarioregistrado)
         mysqli_query($datos_base, "UPDATE usuario SET usuario = '$regUsu', idRol = '$regRol', idTipoUsuario = '$regTipo', nombre = '$regNom', correo = '$regCor', direccion = '$regDir', idEstadoUsuario = '$regEstado' WHERE idUsuario = '$nroUsu'"); 
 
     	$destinatario = $regCor;
-        $asunto = 'Activación de usuario en Industrias Médicas.';
+        $asunto = 'Alta de usuario en Industrias Médicas.';
         $header = 'Enviado desde Industrias Médicas.';
         
         $mensaje = 'Se ha activado su cuenta.';

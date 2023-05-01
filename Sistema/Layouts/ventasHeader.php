@@ -26,7 +26,7 @@
                                     $rolproveedor = 6;
                                     if($idRol == $rolgerente OR $idRol == $roladmin){
                                 ?>
-                                <li >
+                                <li>
                                     <a class="nav-link variacion" href="../usuarios.php">Usuarios</a>
                                 </li>
                                 <?php

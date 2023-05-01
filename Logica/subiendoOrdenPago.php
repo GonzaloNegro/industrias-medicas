@@ -43,7 +43,7 @@ if(file_exists($_FILES['fichero']['tmp_name'])){
         $header = 'Enviado desde Industrias Médicas';
         $asunto = "Nueva Orden de pago generada correspondiente a la venta N°".$idd.".";
         $fec = date("d-m-Y", strtotime($fechaActual));
-        $destinatario = 'info@industriasmedicas.com';
+        $destinatario = 'gonzalonnegro@gmail.com';
         $mensaje = "El día ".$fec." la Obra social: ".$nombre." ha registrado una nueva Orden de pago correspondiente a su pedido médico N°".$idd.".\nPor favor ingrese a https://indumedsa.com.ar/ para ver el archivo."; 
         $mensajeCompleto = $mensaje . "\nAtentamente: Industrias Médicas";
 

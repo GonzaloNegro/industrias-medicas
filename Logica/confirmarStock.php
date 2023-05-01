@@ -89,7 +89,7 @@ $header = 'Enviado desde Industrias Médicas';
 $asunto = "Confirmación de disponibilidad de productos del documento N°".$id;
 $fec = date("d-m-Y", strtotime($fechaActual));
 $mensaje = "El día ".$fec." el área de depósito autoriza el despacho de productos del documento N°".$id.".\nPor favor ingrese a https://indumedsa.com.ar/ para continuar con el proceso.";
-$destinatario = 'info@industriasmedicas.com';
+$destinatario = 'gonzalonnegro@gmail.com';
 
 $mensajeCompleto = $mensaje . "\nIndustrias Médicas";
 

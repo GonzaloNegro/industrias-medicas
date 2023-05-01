@@ -41,7 +41,7 @@ mysqli_query($datos_base, "INSERT INTO valoracionventa VALUES (DEFAULT, '$id', '
 $header = 'Enviado desde Industrias Médicas';
 $asunto = "Recibo N°:".$id." recibido y valoración registrada";
 $fec = date("d-m-Y", strtotime($fechaActual));
-$destinatario = 'info@industriasmedicas.com';
+$destinatario = 'gonzalonnegro@gmail.com';
 $mensaje = "El día ".$fec." la Obra social: ".$nombre." ha verificado el recibo N°".$id." generado por Industrias Médicas y valorado el proceso de venta.\nIngrese a https://indumedsa.com.ar/ para ver mas detalles.";
 $mensajeCompleto = $mensaje . "\nAtentamente: Industrias Médicas";
 

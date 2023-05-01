@@ -15,6 +15,7 @@ $row = $resultado->fetch_assoc();
 
 /*GUARDO LOS DATOS DEL ID_RESOLUTOR EN UNA VARIABLE*/
 $idUsu = $row['idUsuario'];
+$usuario = $_POST['usuario'];
 $idd = $_POST['nombreid'];
 
 if ($_POST['submit']){
@@ -36,6 +37,16 @@ if ($_POST['submit']){
 
             mysqli_query($datos_base, "UPDATE archivos SET ruta = '../upload/licitaciones/remitos/".$idd."' WHERE id = '$tic1'");
         }
+    /* ENVIO DE MAIL */
+
+    $header = 'Enviado desde Industrias Médicas';
+    $asunto = "Nuevo remito generado";
+    $destinatario = "gonzalonnegro@gmail.com";
+    $fec = date("d-m-Y", strtotime($fechaActual));
+    $mensaje = "El día ".$fec." el usuario ".$usuario." ha generado un nuevo remito para la licitación N°".$idd.".\nPor favor ingrese a https://indumedsa.com.ar/ para ver más detalles."; 
+    $mensajeCompleto = $mensaje . "\nAtentamente: Industrias Médicas";
+        
+    mail($destinatario, $asunto, $mensajeCompleto, $header);
     };
 
 header("Location: ../Sistema/Licitaciones/licRemitos.php?cargado");

@@ -53,7 +53,7 @@ $header = 'Enviado desde Industrias Médicas';
 $asunto = "Orden de compra N°".$id." aprobada - Envío a depósito para verificación";
 $fec = date("d-m-Y", strtotime($fechaActual));
 $mensaje = "El día ".$fec." Industrias Médicas ha aprobado la orden de compra del documento N°".$id." y se ha enviado a depósito para verificar disponibilidad de los productos solicitados.\nPor favor ingrese a https://indumedsa.com.ar/ y verifique la nueva solicitud.";
-$destinatario = 'info@industriasmedicas.com';
+    $destinatario = 'gonzalonnegro@gmail.com';
 
 $mensajeCompleto = $mensaje . "\nIndustrias Médicas";
 

@@ -97,6 +97,21 @@ $postulante = $row['idUsuario'];
 /* TABLA datoslicitacion Se modifica el el usuario que la gano, monto y observacion nueva del usuario ingresada*/
 mysqli_query($datos_base, "UPDATE datoslicitacion SET idUsuario = '$postulante', monto = '$coniva' WHERE idLicitacion = '$idLic'");
 
+
+    /* ENVIO DE MAIL */
+    $sent= "SELECT correo FROM usuario WHERE idUsuario = '$idPos'";
+    $resultado = $datos_base->query($sent);
+    $row = $resultado->fetch_assoc();
+    $destinatario = $row['correo'];
+
+    $header = 'Enviado desde Industrias Médicas';
+    $asunto = "Postulación a licitación confirmada";
+    $fec = date("d-m-Y", strtotime($fechaActual));
+    $mensaje = "El día ".$fec." Industrias Médicas ha aceptado el presupuesto de la licitación N°".$idLic.".\nPor favor ingrese a https://indumedsa.com.ar/ para ver más detalles."; 
+    $mensajeCompleto = $mensaje . "\nAtentamente: Industrias Médicas";
+        
+    mail($destinatario, $asunto, $mensajeCompleto, $header);
+
 header("Location: ../Sistema/Licitaciones/licOrdenCompra.php?ok");
 mysqli_close($datos_base);
 ?>

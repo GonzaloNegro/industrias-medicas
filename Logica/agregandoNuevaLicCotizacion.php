@@ -77,6 +77,26 @@ mysqli_query($datos_base, "INSERT INTO datoslicitacion VALUES ('$tic1', 0, 0, '$
         if($item1 === false && $item2 === false) break;
 
     }
+
+    /* ENVIO DE MAIL */
+    $feclim1 = date("d-m-Y", strtotime($feclim));
+
+    $consulta=mysqli_query($datos_base, "SELECT correo FROM usuario WHERE idTipoUsuario = 2");
+    while($listar = mysqli_fetch_array($consulta)) 
+        {
+            if(isset($listar['correo'])){
+
+                $destinatario =  $listar['correo'].";";/* CONSIDERAR LAS COMILLAS */
+                
+                $header = 'Enviado desde Industrias Médicas';
+                $asunto = "Nueva licitación";
+                $fec = date("d-m-Y", strtotime($fechaActual));
+                $mensaje = "El día ".$fec." Industrias Médicas notifica que se ha abierto una nueva licitación con fecha de cierre: ".$feclim1.".\nPor favor ingrese a https://indumedsa.com.ar/ para ver más detalles."; 
+                $mensajeCompleto = $mensaje . "\nAtentamente: Industrias Médicas";
+                    
+                mail($destinatario, $asunto, $mensajeCompleto, $header);
+            }
+        }
 }
 
 header("Location: ../Sistema/Licitaciones/licCotizaciones.php?ok");

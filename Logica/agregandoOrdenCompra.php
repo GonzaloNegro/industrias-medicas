@@ -53,7 +53,7 @@ mysqli_query($datos_base, "INSERT INTO movimientodocumento VALUES ('$id', 3, '$f
 $header = 'Enviado desde Industrias Médicas';
 $asunto = "Presupuesto aprobado";
 $fec = date("d-m-Y", strtotime($fechaActual));
-$destinatario = 'info@industriasmedicas.com';
+$destinatario = 'gonzalonnegro@gmail.com';
 $mensaje = "El día ".$fec." la Obra social: ".$nombre." ha aprobado el presupuesto N°".$id." generado por Industrias Médicas y ha generado una orden de compra.\nPor favor ingrese a https://indumedsa.com.ar/ para continuar con el proceso de venta.";
 $mensajeCompleto = $mensaje . "\nAtentamente: Industrias Médicas";
 
@@ -94,7 +94,7 @@ mysqli_query($datos_base, "INSERT INTO movimientodocumento VALUES ('$id', 9, '$f
 $header = 'Enviado desde Industrias Médicas';
 $asunto = "Presupuesto rechazado";
 $fec = date("d-m-Y", strtotime($fechaActual));
-$destinatario = 'info@industriasmedicas.com';
+$destinatario = 'gonzalonnegro@gmail.com';
 $mensaje = "El día ".$fec." la Obra social: ".$nombre." ha rechazado el presupuesto N°".$id." generado por Industrias Médicas.\nPor favor ingrese a https://indumedsa.com.ar/ para ver mas detalles.";
 $mensajeCompleto = $mensaje . "\nAtentamente: Industrias Médicas";
 

@@ -50,6 +50,25 @@ mysqli_query($datos_base, "UPDATE licitacion SET idEstadoLicitacion = 5 WHERE id
 /* movimientodocumento INSERTAR nuevo estado y fecha de vencimiento */
 mysqli_query($datos_base, "INSERT INTO movimientolicitacion VALUES ('$id', 5, '$fechaActual', '0000-00-00', '$diasRedondedos')");
 
+
+    /* ENVIO DE MAIL */
+    $sent= "SELECT da.idLicitacion, u.correo
+    FROM datoslicitacion da
+    LEFT JOIN usuario u ON u.idUsuario = da.idUsuario
+    WHERE da.idLicitacion = '$id'";
+    $resultado = $datos_base->query($sent);
+    $row = $resultado->fetch_assoc();
+    $destinatario = $row['correo'];
+
+    $header = 'Enviado desde Industrias Médicas';
+    $asunto = "Confirmación de la recepción del comprobante";
+    $fec = date("d-m-Y", strtotime($fechaActual));
+    $mensaje = "El día ".$fec." Industrias Médicas ha confirmado la recepción del comprobante correspondiente a la licitación N°".$id.".\nPor favor ingrese a https://indumedsa.com.ar/ para continuar con el proceso."; 
+    $mensajeCompleto = $mensaje . "\nAtentamente: Industrias Médicas";
+        
+    mail($destinatario, $asunto, $mensajeCompleto, $header);
+
+
 header("Location: ../Sistema/Licitaciones/licOrdenPago.php?ok");
 mysqli_close($datos_base);
 ?>

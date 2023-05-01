@@ -16,6 +16,7 @@ $row = $resultado->fetch_assoc();
 
 /*GUARDO LOS DATOS DEL ID_RESOLUTOR EN UNA VARIABLE*/
 $idUsu = $row['idUsuario'];
+$usuario = $row['usuario'];
 
 $id = $_POST['idlit'];
 $obs = limpiar_cadena($_POST['obs']);
@@ -43,6 +44,17 @@ if ($row = mysqli_fetch_row($tic)) {
 
         $actualizar=$datos_base->query("INSERT INTO datospostulacionlicitacion VALUES('$tic1', '$editPro', '$editCant', '$editPre')");
     }
+
+    /* ENVIO DE MAIL */
+
+    $header = 'Enviado desde Industrias Médicas';
+    $asunto = "Nueva postulación a licitación";
+    $destinatario = "gonzalonnegro@gmail.com";
+    $fec = date("d-m-Y", strtotime($fechaActual));
+    $mensaje = "El día ".$fec." el usuario ".$usuario." ha generado un nuevo presupuesto para la licitación N°".$id.".\nPor favor ingrese a https://indumedsa.com.ar/ para ver más detalles."; 
+    $mensajeCompleto = $mensaje . "\nAtentamente: Industrias Médicas";
+        
+    mail($destinatario, $asunto, $mensajeCompleto, $header);
 }
 
 header("Location: ../Sistema/Licitaciones/licCotizaciones.php?postulado");

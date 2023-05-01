@@ -71,7 +71,7 @@ foreach ($_POST['idpro'] as $ids)
 $header = 'Enviado desde Industrias Médicas';
 $asunto = "Remito N°:".$id." aprobado";
 $fec = date("d-m-Y", strtotime($fechaActual));
-$destinatario = 'info@industriasmedicas.com';
+$destinatario = 'gonzalonnegro@gmail.com';
 $mensaje = "El día ".$fec." la Obra social: ".$nombre." ha aprobado el remito N°".$id." generado por Industrias Médicas.\nPor favor ingrese a https://indumedsa.com.ar/ para continuar con el proceso de venta.";
 $mensajeCompleto = $mensaje . "\nAtentamente: Industrias Médicas";
 

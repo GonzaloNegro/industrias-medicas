@@ -128,7 +128,7 @@ function ConsultarIncidente($no_tic)
                                             <tr>
                                                 <td><h4 style='font-size:16px;'>".$listar['producto']."</h4 ></td>
                                                 <td><h4 style='font-size:16px;'>".$listar['cantidad']."</h4 ></td>
-                                                <td><h4 style='font-size:16px;'>$".$listar['precio']."</h4 ></td>
+                                                <td><h4 style='font-size:16px;'>$".number_format(($listar['precio']), 2, ',','.')."</h4 ></td>
                                             </tr>
                                         ";
                                     }

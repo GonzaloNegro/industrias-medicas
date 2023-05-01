@@ -48,8 +48,7 @@ $diasRedondedos = floor($dias);
 
 /* AGREGAR PRODUCTOS DE LA TABLA PRODUCTOS (STOCK) */
 
-foreach ($_POST['idpro'] as $ids) 
-{
+foreach ($_POST['idpro'] as $ids){
     /* TRAIGO CADA PRODUCTO CON EL ID */
     $editPro=mysqli_real_escape_string($datos_base, $_POST['idpro'][$ids]);
     $editCant=mysqli_real_escape_string($datos_base, $_POST['cant'][$ids]);
@@ -90,6 +89,23 @@ $solicitud = $row6['idSolicitud'];
 if(isset($solicitud)){
     mysqli_query($datos_base, "UPDATE solicitudes SET idEstadoSolicitud = 3 WHERE idLicitacion = '$id'");
 }
+
+    /* ENVIO DE MAIL */
+    $sent= "SELECT da.idLicitacion, u.correo
+    FROM datoslicitacion da
+    LEFT JOIN usuario u ON u.idUsuario = da.idUsuario
+    WHERE da.idLicitacion = '$id'";
+    $resultado = $datos_base->query($sent);
+    $row = $resultado->fetch_assoc();
+    $destinatario = $row['correo'];
+
+    $header = 'Enviado desde Industrias Médicas';
+    $asunto = "Confirmación de remito";
+    $fec = date("d-m-Y", strtotime($fechaActual));
+    $mensaje = "El día ".$fec." Industrias Médicas ha confirmado el remito de la licitación N°".$id.".\nPor favor ingrese a https://indumedsa.com.ar/ para continuar con el proceso."; 
+    $mensajeCompleto = $mensaje . "\nAtentamente: Industrias Médicas";
+        
+    mail($destinatario, $asunto, $mensajeCompleto, $header);
 
 header("Location: ../Sistema/Licitaciones/licFacturas.php?ok");
 mysqli_close($datos_base);

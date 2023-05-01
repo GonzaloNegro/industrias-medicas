@@ -82,7 +82,7 @@ mysqli_query($datos_base, "INSERT INTO datosdocumento VALUES ('$tic1', '$medico'
     }
     $header = 'Enviado desde Industrias Médicas';
     $asunto = "Nuevo pedido médico generado";
-    $destinatario = 'info@industriasmedicas.com';
+    $destinatario = 'gonzalonnegro@gmail.com';
     $fec = date("d-m-Y", strtotime($fechaActual));
     $mensaje = "El día ".$fec." la Obra social: ".$nombre." ha registrado un nuevo pedido médico.\nPor favor ingrese a https://indumedsa.com.ar/ y verifique la nueva solicitud.";
 

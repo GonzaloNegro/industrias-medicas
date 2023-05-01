@@ -15,6 +15,7 @@ $row = $resultado->fetch_assoc();
 
 /*GUARDO LOS DATOS DEL ID_RESOLUTOR EN UNA VARIABLE*/
 $idUsu = $row['idUsuario'];
+$usuario = $row['usuario'];
 
 $id = $_POST['idnro'];/* NRO DE LICITACION */
 date_default_timezone_set('UTC');
@@ -52,7 +53,19 @@ mysqli_query($datos_base, "UPDATE licitacion SET idEstadoLicitacion = 3 WHERE id
 
 /* movimientolicitacion INSERTAR nuevo estado y fecha de vencimiento */
 mysqli_query($datos_base, "INSERT INTO movimientolicitacion VALUES ('$id', 3, '$fechaActual', '0000-00-00', '$diasRedondedos')");
-header("Location: ../Sistema/Licitaciones/licRemitos.php?ok");
+
+
+
+    /* ENVIO DE MAIL */
+    $header = 'Enviado desde Industrias Médicas';
+    $asunto = "Confirmación de Orden de compra";
+    $destinatario = "gonzalonnegro@gmail.com";
+    $fec = date("d-m-Y", strtotime($fechaActual));
+    $mensaje = "El día ".$fec." el usuario ".$usuario." ha confirmado la orden de compra correspondiente a la licitación N°".$id.".\nPor favor ingrese a https://indumedsa.com.ar/ para ver más detalles."; 
+    $mensajeCompleto = $mensaje . "\nAtentamente: Industrias Médicas";
+        
+    mail($destinatario, $asunto, $mensajeCompleto, $header);
+    header("Location: ../Sistema/Licitaciones/licRemitos.php?ok");
 }
 
 
@@ -88,7 +101,17 @@ $diasRedondedos = floor($dias);
 
 /* movimientolicitacion INSERTAR nuevo estado y fecha de vencimiento */
 mysqli_query($datos_base, "INSERT INTO movimientolicitacion VALUES ('$id', 7, '$fechaActual', '0000-00-00', '$diasRedondedos')");
-header("Location: ../Sistema/Licitaciones/licRemitos.php?no");
+
+    /* ENVIO DE MAIL */
+    $header = 'Enviado desde Industrias Médicas';
+    $asunto = "Orden de compra rechazada";
+    $destinatario = "gonzalonnegro@gmail.com";
+    $fec = date("d-m-Y", strtotime($fechaActual));
+    $mensaje = "El día ".$fec." el usuario ".$usuario." ha rechazado la orden de compra correspondiente a la licitación N°".$id.".\nPor favor ingrese a https://indumedsa.com.ar/ para ver más detalles."; 
+    $mensajeCompleto = $mensaje . "\nAtentamente: Industrias Médicas";
+        
+    mail($destinatario, $asunto, $mensajeCompleto, $header);
+    header("Location: ../Sistema/Licitaciones/licRemitos.php?no");
 }
 
 

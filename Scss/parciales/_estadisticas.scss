@@ -206,14 +206,9 @@
 	display: none;
 }
 
-#MiGrafica4, #MiGrafica5, #MiGrafica, #MiGrafica1{
-    width: 900px !important;
-    height: 600px !important;
-}
-
-#MiGrafica2, #MiGrafica3{
-    width: 900px !important;
-    height: 400px !important;
+#MiGrafica4, #MiGrafica5, #MiGrafica, #MiGrafica1, #MiGrafica2, #MiGrafica3{
+    width: 100% !important;
+    height: auto !important;
 }
 
 /* ----------------- */
@@ -227,10 +222,12 @@
         gap: 5px;
     }
     .cuarto--info{
-        padding: 5px;
+        width: 300px;
+        margin: 0 auto;
+        
     }
     #MiGrafica4, #MiGrafica5, #MiGrafica, #MiGrafica1, #MiGrafica2, #MiGrafica3{
-        width: 300px !important;
+        width: 280px !important;
         height: 200px !important;
     }
     .grafica5 h1, .grafica5a h1, .grafica6 h1, .grafica6a h1, .grafica7 h1, .grafica7a h1{

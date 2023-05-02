@@ -1,5 +1,5 @@
 <?php
-error_reporting(0);
+/* error_reporting(0); */
 session_start(); 
 include('../Utils/conexion.php');
 if(!isset($_SESSION['usuario'])) 
@@ -15,6 +15,48 @@ $row = $resultado->fetch_assoc();
 $nom = $row['usuario'];
 $idUsu = $row['idUsuario'];
 $idRol = $row['idRol'];
+
+date_default_timezone_set('UTC');
+date_default_timezone_set("America/Buenos_Aires");
+$fechaActual = date('Y-m-d');
+
+$consulta=mysqli_query($datos_base, "SELECT idDocumento, idEstadoDocumento
+FROM documento
+WHERE idEstadoDocumento = 2");
+    while($listar = mysqli_fetch_array($consulta)) 
+    {
+        $numeroDoc = $listar['idDocumento'];
+
+        $sent= "SELECT fechaven, idDocumento FROM movimientodocumento WHERE idDocumento = '$numeroDoc' AND idEstadoDocumento = 2";
+        $resultado = $datos_base->query($sent);
+        $row = $resultado->fetch_assoc();
+        $documento = $row['idDocumento'];
+        $vencimiento = $row['fechaven'];
+
+        if($fechaActual > $vencimiento){
+            /* CALCULAR DIAS TRANSCURRIDOS ENTRE ANTERIOR ESTADO Y ESTE */
+            $sent= "SELECT fecha FROM movimientodocumento WHERE idDocumento = '$documento' AND idEstadoDocumento = 2";
+            $resultado = $datos_base->query($sent);
+            $row = $resultado->fetch_assoc();
+            $fechavieja = $row['fecha'];
+
+            $fec1 = $fechavieja;
+            $fec2 = $fechaActual;
+
+            $segundosFecha = strtotime($fec1);
+            $segundosFecha2 = strtotime($fec2);
+
+            $segundosTranscurridos = $segundosFecha2 - $segundosFecha;
+            $minutosTranscurridos = $segundosTranscurridos / 60;
+            $horas = $minutosTranscurridos / 60;
+            $dias = $horas / 24;
+            $diasRedondeados = floor($dias);
+
+
+            mysqli_query($datos_base, "UPDATE documento SET idEstadoDocumento = 9 WHERE idDocumento = '$documento'");
+            mysqli_query($datos_base, "INSERT INTO movimientodocumento VALUES('$documento', 9, '$fechaActual', '0000-00-00', '$diasRedondeados')");
+        }
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">

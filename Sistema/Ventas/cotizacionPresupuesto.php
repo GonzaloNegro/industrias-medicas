@@ -102,7 +102,7 @@ function ConsultarIncidente($no_tic)
                     <div>
                     <div>
                         <label for="fec">Fecha de vencimiento:</label>
-                        <input type="date" id="fec" name="fecven" required>
+                        <input type="date" id="fec" name="fecven" required min=<?php $hoy=date("Y-m-d"); echo $hoy;?>>
                     </div>
                     <textarea name="obs" style="text-transform:uppercase" id="" cols="30" rows="3" placeholder="Observaciones"></textarea>
                     </div>

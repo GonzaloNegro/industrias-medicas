@@ -47,7 +47,9 @@ $idRol = $row['idRol'];
         ?>
 <script type="text/javascript">
 			function ok(){
-				swal.fire(  {title: "Se ha aceptado la orden de pago correctamente.",
+				swal.fire(  {
+                        title: "Se ha aceptado la orden de pago correctamente.",
+                        text: 'Ya puede proceder a realizar la carga del recibo',
 						icon: "success",
 						showConfirmButton: true,
 						showCancelButton: false,

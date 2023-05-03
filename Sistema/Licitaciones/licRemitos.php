@@ -47,7 +47,9 @@ $idRol = $row['idRol'];
         ?>
 <script type="text/javascript">
 			function ok(){
-				swal.fire(  {title: "Se ha aceptado la Orden de compra",
+				swal.fire(  {
+                        title: "Se ha aceptado la Orden de compra",
+                        text: 'Ya puede proceder a realizar la carga del remito',
 						icon: "success",
 						showConfirmButton: true,
 						showCancelButton: false,

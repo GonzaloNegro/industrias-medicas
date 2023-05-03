@@ -17,6 +17,10 @@ $row = $resultado->fetch_assoc();
 $idUsu = $row['idUsuario'];
 $idd = $_POST['nombreid'];
 
+date_default_timezone_set('UTC');
+date_default_timezone_set("America/Buenos_Aires");
+$fechaActual = date('Y-m-d');
+
 if ($_POST['submit']){
 }
     if(file_exists($_FILES['fichero']['tmp_name'])){

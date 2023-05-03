@@ -9,14 +9,18 @@ if(!isset($_SESSION['usuario']))
         exit();
     };
 $iduser = $_SESSION['usuario'];
-$sql = "SELECT idUsuario, usuario FROM usuario WHERE usuario='$iduser'";
+$sql = "SELECT idUsuario, usuario FROM usuario WHERE usuario ='$iduser'";
 $resultado = $datos_base->query($sql);
 $row = $resultado->fetch_assoc();
 
 /*GUARDO LOS DATOS DEL ID_RESOLUTOR EN UNA VARIABLE*/
 $idUsu = $row['idUsuario'];
-$usuario = $_POST['usuario'];
+$usuario = $row['usuario'];
 $idd = $_POST['nombreid'];
+
+date_default_timezone_set('UTC');
+date_default_timezone_set("America/Buenos_Aires");
+$fechaActual = date('Y-m-d');
 
 if ($_POST['submit']){
 }

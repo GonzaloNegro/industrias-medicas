@@ -115,18 +115,18 @@ elseif(isset($_POST['registrar'])){
 			/* INSERTAR DEFAULT, USUARIO, CONTRASEÑA Y ROL*/
 			mysqli_query($datos_base, "INSERT INTO usuario VALUES (DEFAULT, '$regUsu', '$regPassword', '$tipo', 2, '$regNom', '$regCor', '$regDir', 2)");
 		}
+		$destinatario = $regCor;
+        $asunto = 'Usuario registrado';
+        $header = 'Enviado desde Industrias Médicas.';
+        
+        $mensaje = 'Su cuenta ha sido registrada correctamente. Recibirá un correo cuando Industrias Médicas habilite su cuenta para poder ingresar al sistema.';
+        $nombre = 'INDUSTRIAS MÉDICAS';
+        $mensajeCompleto = $mensaje . "\nAtentamente: " . $nombre;
+        
+        mail($destinatario, $asunto, $mensajeCompleto, $header);
 		header("location: ../Principal/login.php?reg");
 		}
 }
-
-/* if($filas){
-	session_start();
-	$_SESSION['usuario'] = $usuario; 
-	header("location: ../Principal/login.php?ok");
-}else{
-
-	header("location: ../Principal/login.php?error"); 
-} */
 
 mysqli_close($datos_base);
 ?>

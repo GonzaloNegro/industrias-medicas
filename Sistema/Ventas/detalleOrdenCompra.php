@@ -170,7 +170,7 @@ $idRol = $row['idRol'];
                                                     <tr>
                                                     <td><h4 style='font-size:16px;text-align: left;'>".$listar['producto']."</h4 ></td>
                                                     <td><h4 style='font-size:16px;text-align: right; margin-right: 5px;'>".$listar['cantidad']."</h4 ></td>
-                                                    <td><h4 style='font-size:16px;text-align: right; margin-right: 5px;'>$".$listar['precio']."</h4 ></td>
+                                                    <td><h4 style='font-size:16px;text-align: right; margin-right: 5px;'>$".number_format($listar['precio'], 2, ',','.')."</h4 ></td>
                                                     </tr>
                                                 ";
                                             }
@@ -201,7 +201,7 @@ $idRol = $row['idRol'];
                                 $row6 = $result6->fetch_assoc();
                                 $monto = $row6['monto'];
                     ?>
-                        <p><strong>Precio final (IVA INCLUIDO): $<?php echo $monto;?></strong></p>
+                        <p><strong>Precio final (IVA INCLUIDO): $<?php echo number_format($monto, 2, ',','.');?></strong></p>
                     </div>
                 </div>
             </div>

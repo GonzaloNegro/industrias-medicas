@@ -17,6 +17,19 @@ function ConsultarIncidente($no_tic)
 	];
 }
 
+if(!isset($_SESSION['usuario'])) 
+    {       
+        header('Location: ../../Principal/login.php'); 
+        exit();
+    };
+$iduser = $_SESSION['usuario'];
+$sql = "SELECT idUsuario, usuario, idRol FROM usuario WHERE usuario='$iduser'";
+$resultado = $datos_base->query($sql);
+$row = $resultado->fetch_assoc();
+
+$nom = $row['usuario'];
+$idUsu = $row['idUsuario'];
+$idRol = $row['idRol'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -155,7 +168,7 @@ function ConsultarIncidente($no_tic)
                                                     <tr>
                                                     <td><h4 style='font-size:16px;text-align:left; margin-left: 5px;'>".$listar['producto']."</h4 ></td>
                                                     <td><h4 style='font-size:16px;text-align: right; margin-right: 5px; '>".$listar['cantidad']."</h4 ></td>
-                                                    <td><h4 style='font-size:16px;text-align: right; margin-right: 5px; '>$".$listar['precio']."</h4 ></td>
+                                                    <td><h4 style='font-size:16px;text-align: right; margin-right: 5px; '>$".number_format($listar['precio'], 2, ',','.')."</h4 ></td>
                                                     </tr>
                                                 ";
                                             }
@@ -186,7 +199,7 @@ function ConsultarIncidente($no_tic)
                                 $row6 = $result6->fetch_assoc();
                                 $monto = $row6['monto'];
                     ?>
-                        <p><strong>Precio final (IVA INCLUIDO): $<?php echo $monto;?></strong></p>
+                        <p><strong>Precio final (IVA INCLUIDO): $<?php echo number_format($monto, 2, ',','.');?></strong></p>
                     </div>
                 </div>
 
@@ -201,7 +214,7 @@ function ConsultarIncidente($no_tic)
                         $row6 = $result6->fetch_assoc();
                         $est = $row6['idEstadoLicitacion'];
 
-                        if($est == 2){
+                        if($est == 2 AND $idRol == 6){
                             ?>
                             <button type="submit" class="btn btn-success" name="aceptar" id="imp">Aceptar OC</button>
                             <button type="submit" class="btn btn-danger" name="rechazar" id="imp">Rechazar OC</button>

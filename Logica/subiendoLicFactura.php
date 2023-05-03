@@ -15,7 +15,7 @@ $row = $resultado->fetch_assoc();
 
 /*GUARDO LOS DATOS DEL ID_RESOLUTOR EN UNA VARIABLE*/
 $idUsu = $row['idUsuario'];
-$usuario = $row['usuario']
+$usuario = $row['usuario'];
 $idd = $_POST['nombreid'];
 
 if ($_POST['submit']){

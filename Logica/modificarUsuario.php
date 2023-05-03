@@ -59,7 +59,7 @@ if($regUsu == $usuarioregistrado)
         $asunto = 'Alta de usuario en Industrias Médicas.';
         $header = 'Enviado desde Industrias Médicas.';
         
-        $mensaje = 'Se ha activado su cuenta.';
+        $mensaje = 'Su cuenta ha sido activada.';
         $nombre = 'INDUSTRIAS MÉDICAS';
         $mensajeCompleto = $mensaje . "\nAtentamente: " . $nombre;
         

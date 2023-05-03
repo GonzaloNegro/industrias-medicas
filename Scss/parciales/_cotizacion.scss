@@ -250,4 +250,89 @@ p{
     .file--tamaño input{
         max-width: 250px;
     }
+
+
+
+
+    .cot-cab{
+        width: 300px;
+    }
+    
+    .cot-cab-tit{
+        width: 200px;
+        padding: 0px;
+        margin-left: 3px;
+    }
+    .cot-cab-tit h1{
+        font-size: 12px;
+    }
+    .cot-cab-tit p{
+        font-size: 10px;
+    }
+    
+    .cot-cab-nombre{
+        width: 100px;
+        padding: 0px;
+        margin-left: 3px;
+    }
+    .cot-cab-nombre h1{
+        font-size: 12px;
+    }
+    .cot-cab-nombre p{
+        font-size: 10px;
+    }
+    
+    .cot-datos{
+        width: 300px;
+    }
+    
+    .cot-datos-info{
+        padding: 0px;
+        margin-left: 3px;
+    }
+    .cot-datos-info p{
+        font-size: 10px;
+    }
+    
+    .cot-info{
+        width: 300px;
+    }
+    .cot-info-inf{
+        padding: 0px;
+        margin-left: 3px;
+        display: flex;
+    }
+    .cot-info-inf h2{
+        font-size: 11px;
+    }
+    .cot-info-inf p{
+        font-size: 10px;
+    }
+
+
+    .cot-gri{
+        width: 300px;
+    }
+    .cot-gri-info{
+        width: 100%;
+        padding: 00px;
+        margin-left: 3px;
+        margin-bottom: 40px;
+    }
+    .cot-gri-info table{
+        width: 280px;
+        font-size: 14px;
+    }
+    
+    .cot-fin{
+        width: 300px;
+    }
+    
+    .cot-fin-info{
+        padding: 0px;
+        margin-left: 3px;
+    }
+    .cot-fin-info p{
+        font-size: 10px;
+    }
 }

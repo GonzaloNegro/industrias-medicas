@@ -104,8 +104,8 @@ $idRol = $row['idRol'];
                     </div>
                     <div class="cot-cab-nombre">
                         <h1>ORDEN DE COMPRA</h1>
-                        <?php echo str_pad($id, 10, "0", STR_PAD_LEFT); 
-                            
+                            <p><?php echo str_pad($id, 10, "0", STR_PAD_LEFT);?> </p>
+                            <?php
                             $sql6 = "SELECT fecha
                             FROM movimientodocumento
                             WHERE idDocumento = '$id' AND idEstadoDocumento = 3";

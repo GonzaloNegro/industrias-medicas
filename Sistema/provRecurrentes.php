@@ -223,7 +223,7 @@ $idUsu = $row['idUsuario'];
                 <tbody>
                 <?php While($rowSql = $sql->fetch_assoc()) {?>
                         <tr>
-                        <td><h4 style="font-size:14px; text-align:left; margin-left: 5px;"><?php echo $rowSql["usuario"]; ?></h4></td>
+                        <td><h4 style="font-size:14px; text-align:left; margin-left: 5px;text-transform:uppercase;"><?php echo $rowSql["usuario"]; ?></h4></td>
                         <td><h4 style="font-size:14px; text-align: right; margin-right: 5px;"><?php echo $rowSql["TOTAL"]; ?></h4></td>
                         <td><h4 style="font-size:14px; text-align: right; margin-right: 5px;"><?php echo "$".number_format($rowSql["monto"],2, ',','.'); ?></h4></td>
                         </tr>

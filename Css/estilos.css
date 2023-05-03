@@ -1164,7 +1164,7 @@ fieldset {
 
 .principal-datos {
   width: 80%;
-  height: 300px;
+  height: auto;
   margin: 0 auto;
   border-radius: 10px;
   background-color: rgba(230, 230, 230, 0.65);
@@ -1185,12 +1185,20 @@ fieldset {
 .principal-datos h2 {
   font-size: 30px; }
 
+.principal-datos-tit {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-left: 40px; }
+
 .principal-datos-cont p {
   font-size: 24px; }
 
 .principal-datos-cont {
   width: 90%;
-  margin-left: 20px; }
+  margin: 0 auto;
+  margin-bottom: 40px; }
 
 .principal-datos-cont table {
   width: 100%;
@@ -1322,6 +1330,10 @@ fieldset {
     height: auto; }
   .principal-datos h2 {
     font-size: 24px; }
+  .principal-datos-tit {
+    margin-left: 10px; }
+  .principal-datos-tit h2 {
+    font-size: 18px; }
   .principal-datos-cont p {
     font-size: 20px; }
   .principal-datos-cont table {

@@ -183,10 +183,10 @@ WHERE idEstadoLicitacion = 1");
                 </div>
 
                 <div class="principal-datos">
-                    <div class="principal-datos-cont">
+                    <div class="principal-datos-tit">
                         <h2>Estado últimas ventas</h2>
-                        <?php $fechaActual = date('d-m-Y'); ?>
-                        <p>Fecha actual: <?php echo $fechaActual;?></p>
+                    </div>
+                    <div class="principal-datos-cont">
                         <?php
                     echo "<table>
                             <thead class=colm>
@@ -206,7 +206,7 @@ WHERE idEstadoLicitacion = 1");
                                 LEFT JOIN usuario AS u ON u.idUsuario = da.idUsuario
                                 WHERE m.idEstadoDocumento = d.idEstadoDocumento
                                 ORDER BY m.fecha DESC, d.idDocumento DESC
-                                LIMIT 4
+                                LIMIT 3
                                 ");
                                     while($listar = mysqli_fetch_array($consulta)) 
                                     {
@@ -215,9 +215,53 @@ WHERE idEstadoLicitacion = 1");
                                         " 
                                             <tr>
                                             <td><h4 style='font-size:16px; text-align: right;'>".$listar['idDocumento']."</h4 ></td>
-                                            <td><h4 style='font-size:16px; text-align: center;'>".$listar['usuario']."</h4 ></td>
+                                            <td><h4 style='font-size:16px; text-align: center;text-transform:uppercase;'>".$listar['usuario']."</h4 ></td>
                                             <td><h4 style='font-size:16px; text-align: center;'>".$fecha."</h4 ></td>
-                                            <td><h4 style='font-size:16px; text-align: center;'>".$listar['estadoDocumento']."</h4 ></td>                                        
+                                            <td><h4 style='font-size:16px; text-align: center;text-transform:uppercase;'>".$listar['estadoDocumento']."</h4 ></td>                                        
+                                            </tr>
+                                        ";
+                                    }
+                                echo "</table>";
+                                    ?>
+                    </div>
+                    <div class="principal-datos-tit">
+                        <h2>Estado últimas Licitaciones</h2>
+                    </div>
+                    <div class="principal-datos-cont">
+                        <?php
+                    echo "<table>
+                            <thead class=colm>
+                                <tr>
+                                    <th><p style='text-align: center;'>N°LICITACIÓN</p></th>
+                                    <th><p style='text-align: center;'>USUARIO</p></th>
+                                    <th><p style='text-align: center;'>FECHA</p></th>
+                                    <th><p style='text-align: center;'>ESTADO</p></th>
+                                </tr>
+                            </thead>
+                        ";
+                                $consulta=mysqli_query($datos_base, "SELECT l.idLicitacion, m.fecha, u.usuario, e.estadoLicitacion
+                                FROM licitacion l
+                                LEFT JOIN movimientolicitacion m ON m.idLicitacion = l.idLicitacion
+                                LEFT JOIN estadolicitacion e ON e.idEstadoLicitacion = l.idEstadoLicitacion
+                                LEFT JOIN datoslicitacion da ON da.idLicitacion = l.idLicitacion
+                                LEFT JOIN usuario u ON u.idUsuario = da.idUsuario
+                                WHERE m.idEstadoLicitacion = l.idEstadoLicitacion
+                                ORDER BY m.fecha DESC, l.idLicitacion DESC
+                                LIMIT 3
+                                ");
+                                    while($listar = mysqli_fetch_array($consulta)) 
+                                    {
+                                        if($listar['usuario'] == null OR $listar['usuario'] == 0){
+                                            $listar['usuario'] = "SIN USUARIO";
+                                        }
+                                        $fecha = date("d-m-Y", strtotime($listar['fecha']));
+                                        echo
+                                        " 
+                                            <tr>
+                                            <td><h4 style='font-size:16px; text-align: right;'>".$listar['idLicitacion']."</h4 ></td>
+                                            <td><h4 style='font-size:16px; text-align: center;text-transform:uppercase;'>".$listar['usuario']."</h4 ></td>
+                                            <td><h4 style='font-size:16px; text-align: center;'>".$fecha."</h4 ></td>
+                                            <td><h4 style='font-size:16px; text-align: center;text-transform:uppercase;'>".$listar['estadoLicitacion']."</h4 ></td>                                        
                                             </tr>
                                         ";
                                     }

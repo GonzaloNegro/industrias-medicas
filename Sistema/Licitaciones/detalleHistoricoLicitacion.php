@@ -106,36 +106,13 @@ function ConsultarIncidente($no_tic)
                     echo "<table>
                             <thead>
                                 <tr>
-                                    <th><p>ESTADO</p></th>
+                                    <th><p style='text-align: left; margin-left: 5px;'>ESTADO</p></th>
                                     <th><p>CREACIÓN</p></th>
                                     <th><p>DÍAS TRANSCURRIDOS</p></th>
                                 </tr>
                             </thead>
                         ";
                         include('../../Utils/conexion.php');
-                        if(isset($_POST['btn2']))
-                                {
-                                    $doc = $_POST['buscar'];
-                                    $consulta=mysqli_query($datos_base, "SELECT e.estadoLicitacion, m.fecha, m.cantDias
-                                    FROM movimientolicitacion m
-                                    LEFT JOIN estadolicitacion e ON e.idEstadoLicitacion = m.idEstadoLicitacion
-                                    LEFT JOIN datoslicitacion da ON da.idLicitacion  = m.idLicitacion
-                                    LEFT JOIN usuario u ON u.idUsuario = da.idUsuario
-                                    WHERE m.idLicitacion = '$idlic' AND (d.idDocumento LIKE '%$doc%' OR e.estadoDocumento LIKE '%$doc%' OR u.usuario LIKE '%$doc%')");
-                                    while($listar = mysqli_fetch_array($consulta))
-                                    {
-                                        $fec = date("d-m-Y", strtotime($listar['fecha']));
-                                        echo
-                                        " 
-                                        <tr>
-                                        <td><h4 style='font-size:16px;'>".$listar['estadoLicitacion']."</h4 ></td>
-                                        <td><h4 style='font-size:16px;'>".$fec."</h4 ></td>
-                                        <td><h4 style='font-size:16px;text-align: right; margin-right: 5px; '>".$listar['cantDias']."</h4 ></td>
-                                        </tr>
-                                        ";
-                                    } 
-                                }
-                                else{
                                 $consulta=mysqli_query($datos_base, "SELECT e.estadoLicitacion, m.fecha, m.cantDias
                                 FROM movimientolicitacion m
                                 LEFT JOIN estadolicitacion e ON e.idEstadoLicitacion = m.idEstadoLicitacion
@@ -148,13 +125,12 @@ function ConsultarIncidente($no_tic)
                                         echo
                                         " 
                                             <tr>
-                                            <td><h4 style='font-size:16px;'>".$listar['estadoLicitacion']."</h4 ></td>
+                                            <td><h4 style='font-size:16px;text-transform:uppercase;text-align: left; margin-left: 5px;'>".$listar['estadoLicitacion']."</h4 ></td>
                                             <td><h4 style='font-size:16px;'>".$fec."</h4 ></td>
                                             <td><h4 style='font-size:16px; text-align: right; margin-right: 5px; '>".$listar['cantDias']."</h4 ></td>
                                             </tr>
                                         ";
                                     }
-                                }
                                 echo "</table><br><br>";
                                     ?>
             <div class="agregar">

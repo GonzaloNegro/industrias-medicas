@@ -98,9 +98,12 @@ $idRol = $row['idRol'];
                         </div>
                     </div>
                 </form>
+                <?php
+                if($idRol == $rolobra){?>
                 <div class="agregar">
                     <a href="./agregarCotizacion.php" class="nuevo" data-bs-toggle="tooltip" title="Nuevo pedido médico" data-bs-placement="left">+</a>
                 </div>
+                <?php };?>
             </div>
 
             <?php
@@ -257,13 +260,6 @@ $idRol = $row['idRol'];
 
                 }
                 ?>
-
-
-
-
-
-
-
                     <?php
 					if(isset($_GET['ok'])){
 						?>

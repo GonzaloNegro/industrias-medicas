@@ -113,7 +113,7 @@ function ConsultarIncidente($no_tic)
                     echo "<table>
                             <thead>
                                 <tr>
-                                    <th><p>ESTADO</p></th>
+                                    <th><p style='text-align: left; margin-left: 5px;'>ESTADO</p></th>
                                     <th><p>CREACIÓN</p></th>
                                     <th><p>DÍAS TRANSCURRIDOS HASTA EL ESTADO</p></th>
                                 </tr>
@@ -130,14 +130,14 @@ function ConsultarIncidente($no_tic)
                                         echo
                                         " 
                                             <tr>
-                                            <td><h4 style='font-size:16px;'>".$listar['estadoDocumento']."</h4></td>
+                                            <td><h4 style='font-size:16px;text-transform:uppercase;text-align: left; margin-left: 5px;'>".$listar['estadoDocumento']."</h4></td>
                                             <td><h4 style='font-size:16px;'>".$fec."</h4 ></td>
-                                            <td><h4 style='font-size:16px;text-align: right; margin-right: 5px; '>".$listar['cantDias']."</h4 ></td>
+                                            <td><h4 style='font-size:16px;text-align: right; margin-right: 5px;'>".$listar['cantDias']."</h4 ></td>
                                             </tr>
                                         ";
                                     }
                                 echo "</table>";
-                                    ?>      
+                                    ?>
             <div class="agregar">
                     <a href="./historicoVentas.php" class="volver"><i class="fa-sharp fa-solid fa-arrow-left"></i></a>
                 </div>

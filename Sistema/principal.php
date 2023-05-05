@@ -191,10 +191,10 @@ WHERE idEstadoLicitacion = 1");
                     echo "<table>
                             <thead class=colm>
                                 <tr>
-                                    <th><p style='text-align: center;'>N°VENTA</p></th>
-                                    <th><p style='text-align: center;'>USUARIO</p></th>
-                                    <th><p style='text-align: center;'>FECHA</p></th>
-                                    <th><p style='text-align: center;'>ESTADO</p></th>
+                                    <th><p style='text-align: center;'>N°DOC.</p></th>
+                                    <th><p style='text-align: left;'>USUARIO</p></th>
+                                    <th><p style='text-align: center;width:100px;'>FECHA</p></th>
+                                    <th><p style='text-align: left;'>ESTADO</p></th>
                                 </tr>
                             </thead>
                         ";
@@ -206,7 +206,7 @@ WHERE idEstadoLicitacion = 1");
                                 LEFT JOIN usuario AS u ON u.idUsuario = da.idUsuario
                                 WHERE m.idEstadoDocumento = d.idEstadoDocumento
                                 ORDER BY m.fecha DESC, d.idDocumento DESC
-                                LIMIT 3
+                                LIMIT 8
                                 ");
                                     while($listar = mysqli_fetch_array($consulta)) 
                                     {
@@ -214,10 +214,10 @@ WHERE idEstadoLicitacion = 1");
                                         echo
                                         " 
                                             <tr>
-                                            <td><h4 style='font-size:16px; text-align: right;'>".$listar['idDocumento']."</h4 ></td>
-                                            <td><h4 style='font-size:16px; text-align: center;text-transform:uppercase;'>".$listar['usuario']."</h4 ></td>
-                                            <td><h4 style='font-size:16px; text-align: center;'>".$fecha."</h4 ></td>
-                                            <td><h4 style='font-size:16px; text-align: center;text-transform:uppercase;'>".$listar['estadoDocumento']."</h4 ></td>                                        
+                                            <td><h4 style='font-size:16px; text-align: right;margin-right: 40px;'>".$listar['idDocumento']."</h4 ></td>
+                                            <td><h4 style='font-size:16px; text-align: left;text-transform:uppercase;'>".$listar['usuario']."</h4 ></td>
+                                            <td><h4 style='font-size:16px; text-align: center;width:100px;'>".$fecha."</h4 ></td>
+                                            <td><h4 style='font-size:16px; text-align: left;text-transform:uppercase;'>".$listar['estadoDocumento']."</h4 ></td>                                        
                                             </tr>
                                         ";
                                     }
@@ -232,10 +232,10 @@ WHERE idEstadoLicitacion = 1");
                     echo "<table>
                             <thead class=colm>
                                 <tr>
-                                    <th><p style='text-align: center;'>N°LICITACIÓN</p></th>
-                                    <th><p style='text-align: center;'>USUARIO</p></th>
-                                    <th><p style='text-align: center;'>FECHA</p></th>
-                                    <th><p style='text-align: center;'>ESTADO</p></th>
+                                    <th><p style='text-align: center;'>N°DOC.</p></th>
+                                    <th><p style='text-align: left;'>USUARIO</p></th>
+                                    <th><p style='text-align: center;width:100px;'>FECHA</p></th>
+                                    <th><p style='text-align: left;'>ESTADO</p></th>
                                 </tr>
                             </thead>
                         ";
@@ -247,7 +247,7 @@ WHERE idEstadoLicitacion = 1");
                                 LEFT JOIN usuario u ON u.idUsuario = da.idUsuario
                                 WHERE m.idEstadoLicitacion = l.idEstadoLicitacion
                                 ORDER BY m.fecha DESC, l.idLicitacion DESC
-                                LIMIT 3
+                                LIMIT 8
                                 ");
                                     while($listar = mysqli_fetch_array($consulta)) 
                                     {
@@ -258,10 +258,10 @@ WHERE idEstadoLicitacion = 1");
                                         echo
                                         " 
                                             <tr>
-                                            <td><h4 style='font-size:16px; text-align: right;'>".$listar['idLicitacion']."</h4 ></td>
-                                            <td><h4 style='font-size:16px; text-align: center;text-transform:uppercase;'>".$listar['usuario']."</h4 ></td>
-                                            <td><h4 style='font-size:16px; text-align: center;'>".$fecha."</h4 ></td>
-                                            <td><h4 style='font-size:16px; text-align: center;text-transform:uppercase;'>".$listar['estadoLicitacion']."</h4 ></td>                                        
+                                            <td><h4 style='font-size:16px; text-align: right;margin-right: 40px;'>".$listar['idLicitacion']."</h4 ></td>
+                                            <td><h4 style='font-size:16px; text-align: left;text-transform:uppercase;'>".$listar['usuario']."</h4 ></td>
+                                            <td><h4 style='font-size:16px; text-align: center;width:100px;'>".$fecha."</h4 ></td>
+                                            <td><h4 style='font-size:16px; text-align: left;text-transform:uppercase;'>".$listar['estadoLicitacion']."</h4 ></td>                                        
                                             </tr>
                                         ";
                                     }

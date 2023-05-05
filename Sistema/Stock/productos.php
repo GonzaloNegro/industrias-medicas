@@ -105,15 +105,16 @@ $idRol = $row['idRol'];
                     echo "<table>
                             <thead>
                                 <tr>
-                                    <th><p>CÓDIGO</p></th>
-                                    <th><p>PRODUCTO</p></th>
-                                    <th><p>GRUPO</p></th>
-                                    <th><p>MODIFICAR</p></th>
+                                    <th><p style='margin:5px;'>CÓDIGO</p></th>
+                                    <th><p style='text-align:left; margin-left: 5px;'>PRODUCTO</p></th>
+                                    <th><p style='text-align:left; margin-left: 5px;'>GRUPO</p></th>
+                                    <th><p style='margin:5px;'>MODIFICAR</p></th>
                                 </tr>
                             </thead>
                         ";
                         if(isset($_POST['btn2']))
                                 {
+                                    $cantidad = 0;
                                     $doc = $_POST['buscar'];
                                     $consulta=mysqli_query($datos_base, "SELECT p.idProducto, p.producto, g.grupoProducto 
                                     FROM producto p
@@ -122,7 +123,7 @@ $idRol = $row['idRol'];
                                     ORDER BY g.grupoProducto  ASC");
                                     while($listar = mysqli_fetch_array($consulta))
                                     {
-
+                                        $cantidad++;
                                         echo
                                         " 
                                             <tr>
@@ -138,6 +139,7 @@ $idRol = $row['idRol'];
                                     } 
                                 }
                                 else{
+                                $cantidad = 0;
                                 $consulta=mysqli_query($datos_base, "SELECT p.idProducto, p.producto, g.grupoProducto 
                                 FROM producto p
                                 LEFT JOIN grupoproducto g ON g.idGrupoProducto = p.idGrupoProducto
@@ -145,6 +147,7 @@ $idRol = $row['idRol'];
                                 ");
                                     while($listar = mysqli_fetch_array($consulta)) 
                                     {
+                                        $cantidad++;
                                         echo
                                         " 
                                             <tr>
@@ -159,7 +162,12 @@ $idRol = $row['idRol'];
                                         ";
                                     }
                                 }
-                                echo "</table>";
+                                if($doc != ""){
+                                    echo "<div style='margin-top:30px;'><p style='text-transform: uppercase;'><u>Filtrado por</u>: ".$doc."</p></div>";
+                                }
+                                echo "<div style='margin-top:10px;'><p style='text-transform: uppercase;'><u>Cantidad de registros</u>: ".$cantidad."</p></div>";
+                                echo"
+                            </table>";
                                     ?>
         </section>
             <?php

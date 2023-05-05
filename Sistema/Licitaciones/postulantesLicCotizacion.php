@@ -59,8 +59,39 @@ function ConsultarIncidente($no_tic)
             <div class="ini-tit">
             <h1>Postulantes licitación nro: <?php echo "$consulta[0]";?></h1>
             </div>
-            <div class="container">
+            <div class="agrStock">
+                <form action="">
+                    <p>PRODUCTO/S SOLICITADOS</p>
+                    <div class="gril">
+                        <?php
+                            $productos="SELECT p.producto, pl.cantidad, pl.precio, pl.idProducto
+                            FROM productolicitacion pl
+                            LEFT JOIN producto p ON p.idProducto = pl.idProducto
+                            WHERE pl.idLicitacion = $consulta[0]";
+                            $resProductos=$datos_base->query($productos);
+                        ?>
+                            <table class="table">
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Producto</th>
+                                    <th>Cantidad</th>
+                                </tr>
 
+                                <?php
+                                while ($registroProductos = $resProductos->fetch_array(MYSQLI_BOTH))
+                                {
+                                    echo'<tr>
+                                            <td><input class="corto" name="idpro['.$registroProductos['idProducto'].']" value="'.$registroProductos['idProducto'].'" readonly="readonly"/></td>
+                                            <td><input class="largo" name="pro['.$registroProductos['idProducto'].']" value="'.$registroProductos['producto'].'" readonly="readonly"/></td>
+                                            <td><input class="corto" name="cant['.$registroProductos['idProducto'].']" value="'.$registroProductos['cantidad'].'" readonly="readonly"/></td>
+                                        </tr>';
+                                }
+                                ?>
+                            </table>
+                    </div>
+                </form>
+            </div>
+            <div class="container">
                 <form method="POST" action="./postulantesLicCotizacion.php">
                     <div class="form-grilla">
                         <div class="form-grilla-busc">
@@ -78,11 +109,11 @@ function ConsultarIncidente($no_tic)
             </div>
 
              <?php
-                    echo "<table>
+                    echo "<table style='margin-bottom:20px;'>
                             <thead>
                                 <tr>
-                                    <th><p>POSTULANTE</p></th>
-                                    <th><p>DETALLES</p></th>
+                                    <th style='min-width:190px;'><p>POSTULANTE</p></th>
+                                    <th><p style='margin:5px;'>DETALLES</p></th>
                                 </tr>
                             </thead>
                         ";

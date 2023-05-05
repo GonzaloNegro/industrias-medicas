@@ -99,11 +99,11 @@ $idRol = $row['idRol'];
                     echo "<table>
                             <thead>
                                 <tr>
-                                    <th><p>ESTADO</p></th>
-                                    <th><p>PRODUCTO</p></th>
+                                    <th><p style='text-align:left; margin-left: 5px;'>ESTADO</p></th>
+                                    <th><p style='text-align:left; margin-left: 5px;'>PRODUCTO</p></th>
                                     <th style='width:85px;'><p>FECHA</p></th>
-                                    <th><p>CANT</p></th>
-                                    <th><p>DETALLES</p></th>
+                                    <th><p style='margin:5px;'>CANT</p></th>
+                                    <th><p style='margin:5px;'>DETALLES</p></th>
                                 </tr>
                             </thead>
                         ";
@@ -132,7 +132,7 @@ $idRol = $row['idRol'];
                                         echo
                                         " 
                                         <tr>
-                                        <td><h4 style='font-size:14px;color:".$color."'>".$listar['estadoSolicitud']."</h4 ></td>
+                                        <td><h4 style='font-size:14px;text-align:left; margin-left: 5px;color:".$color."'>".$listar['estadoSolicitud']."</h4 ></td>
                                         <td><h4 style='font-size:14px; text-align:left; margin-left: 5px;'>".$listar['producto']."</h4 ></td>
                                         <td><h4 style='font-size:14px;'>".$fec."</h4 ></td>
                                         <td><h4 style='font-size:14px;text-align: right; margin-right: 5px; '>".$listar['cantidad']."</h4 ></td>
@@ -167,7 +167,7 @@ $idRol = $row['idRol'];
                                         echo
                                         " 
                                             <tr>
-                                            <td><h4 style='font-size:14px;color:".$color."'>".$listar['estadoSolicitud']."</h4 ></td>
+                                            <td><h4 style='font-size:14px;text-align:left; margin-left: 5px;color:".$color."'>".$listar['estadoSolicitud']."</h4 ></td>
                                             <td><h4 style='font-size:14px; text-align:left; margin-left: 5px;'>".$listar['producto']."</h4 ></td>
                                             <td><h4 style='font-size:14px;'>".$fec."</h4 ></td>
                                             <td><h4 style='font-size:14px;text-align: right; margin-right: 5px; '>".$listar['cantidad']."</h4 ></td>

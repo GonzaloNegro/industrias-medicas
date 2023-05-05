@@ -71,16 +71,17 @@ $idRol = $row['idRol'];
                     echo "<table>
                             <thead>
                                 <tr>
-                                    <th style='width:85px;'><p>FECHA</p></th>
-                                    <th><p>PRODUCTO</p></th>
-                                    <th><p>ESTADO</p></th>
-                                    <th><p>CANTIDAD</p></th>
-                                    <th><p>OBSERVACIONES</p></th>
+                                    <th style='width:85px;margin:5px;'><p>FECHA</p></th>
+                                    <th><p style='text-align:left; margin-left: 5px;'>PRODUCTO</p></th>
+                                    <th><p style='text-align:left; margin-left: 5px;'>ESTADO</p></th>
+                                    <th><p style='margin:5px;'>CANTIDAD</p></th>
+                                    <th><p style='margin:5px;'>OBSERVACIONES</p></th>
                                 </tr>
                             </thead>
                         ";
                         if(isset($_POST['btn2']))
                                 {
+                                    $cantidad = 0;
                                     $bajo = 0;
                                     $reserva = 0;
                                     $disponible = 0;
@@ -93,7 +94,7 @@ $idRol = $row['idRol'];
                                     ORDER BY m.fecha DESC");
                                     while($listar = mysqli_fetch_array($consulta))
                                     {
-                                        if($$listar['estadoProducto'] == 'DISPONIBLE'){
+                                        if($$listar['estadoProducto'] == 'ALTA'){
                                             $color = 'green';
                                             $disponible++;
                                         }elseif($listar['estadoProducto'] == 'BAJA'){
@@ -107,6 +108,7 @@ $idRol = $row['idRol'];
                                         }
 
                                         $fec = date("d-m-Y", strtotime($listar['fecha']));
+                                        $cantidad++;
                                     echo
                                     " 
                                         <tr>
@@ -123,6 +125,7 @@ $idRol = $row['idRol'];
                                     } 
                                 }
                                 else{
+                                    $cantidad = 0;
                                     $bajo = 0;
                                     $reserva = 0;
                                     $disponible = 0;
@@ -133,7 +136,7 @@ $idRol = $row['idRol'];
                                     ORDER BY m.fecha DESC");
                                     while($listar = mysqli_fetch_array($consulta)) 
                                     {
-                                            if($listar['estadoProducto'] == 'DISPONIBLE'){
+                                            if($listar['estadoProducto'] == 'ALTA'){
                                                 $color = 'green';
                                                 $disponible++;
                                             }elseif($listar['estadoProducto'] == 'BAJA'){
@@ -147,6 +150,7 @@ $idRol = $row['idRol'];
                                             }
 
                                             $fec = date("d-m-Y", strtotime($listar['fecha']));
+                                            $cantidad++;
                                         echo
                                         " 
                                             <tr>
@@ -172,7 +176,12 @@ $idRol = $row['idRol'];
                                         <div class=contador_ter>
                                             <p style='color: green; font-weight: bold;'>DISPONIBLE: $disponible</p>
                                         </div>
-                                    </div> 
+                                    </div>";
+                                    if($doc != ""){
+                                        echo "<div style='margin-top:30px;'><p style='text-transform: uppercase;'><u>Filtrado por</u>: ".$doc."</p></div>";
+                                    }
+                                    echo "<div style='margin-top:10px;'><p style='text-transform: uppercase;'><u>Cantidad de registros</u>: ".$cantidad."</p></div>";
+                                    echo"
                                 </table>";
                                     ?>
         </section>

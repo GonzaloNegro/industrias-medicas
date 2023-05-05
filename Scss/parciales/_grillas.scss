@@ -213,6 +213,9 @@ tr:hover td{
 	transition-delay: 0s;
 }
 
+
+
+
 /* ----------------- */
 
 @media screen and (max-width: 768px){
@@ -249,5 +252,13 @@ tr:hover td{
 
     .contenedorDinamico{
         width: 300px;
+    }
+
+
+    .gril{
+        width: 280px;
+    }
+    .gril .corto{
+        width: 70px;
     }
 }

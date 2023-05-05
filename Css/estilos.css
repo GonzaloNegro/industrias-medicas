@@ -1562,7 +1562,11 @@ tr:hover td {
     margin-bottom: 40px;
     text-align: center; }
   .contenedorDinamico {
-    width: 300px; } }
+    width: 300px; }
+  .gril {
+    width: 280px; }
+  .gril .corto {
+    width: 70px; } }
 
 .detalles {
   display: flex;

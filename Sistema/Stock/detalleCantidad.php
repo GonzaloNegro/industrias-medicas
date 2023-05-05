@@ -1,7 +1,10 @@
 <?php
 error_reporting(0);
-session_start(); 
+session_start();
 include('../../Utils/conexion.php');
+
+$consultar = $_GET['no'];
+
 if(!isset($_SESSION['usuario'])) 
     {       
         header('Location: ../../Principal/login.php'); 
@@ -65,10 +68,19 @@ $idRol = $row['idRol'];
     <main>
         <section class="ini">
             <div class="ini-tit">
-                <h1>Productos en stock</h1>
+                <?php
+                if($consultar == "bajo"){
+                    echo "<h1>Stock bajo</h1>";
+                }elseif($consultar == "alto"){
+                    echo "<h1>Stock alto</h1>";
+                }elseif($consultar == "medio"){
+                    echo "<h1>Stock óptimo</h1>";
+                }
+                ?>
+                
             </div>
             <div class="container">
-                <form method="POST" action="./stock.php">
+                <form method="POST" action=<?php echo "./detalleCantidad.php?no=$consultar"?>>
                     <div class="form-grilla">
                         <div class="form-grilla-busc">
                             <input type="text" style="text-transform:uppercase;" name="buscar"  placeholder="Buscar" class="busc">
@@ -97,32 +109,54 @@ $idRol = $row['idRol'];
                         if(isset($_POST['btn2']))
                                 {
                                     $cantidad = 0;
-                                    $doc = $_POST['buscar'];
-                                    $consulta=mysqli_query($datos_base, "SELECT p.idProducto, p.producto, g.grupoProducto, t.tipoProducto, p.cantidad, p.minimo, p.maximo
-                                    FROM producto p
-                                    LEFT JOIN grupoproducto g ON g.idGrupoProducto = p.idGrupoProducto
-                                    LEFT JOIN tipoproducto t ON t.idTipoProducto = p.idTipoProducto
-                                    WHERE p.producto LIKE '%$doc%' OR g.grupoProducto LIKE '%$doc%' OR t.tipoProducto LIKE '%$doc%' OR p.cantidad LIKE '%$doc%'
-                                    ORDER BY t.tipoProducto ASC, p.cantidad ASC");
+
+                                    if($consultar == "bajo"){
+                                        $bajo = 0;
+                                        $doc = $_POST['buscar'];
+                                        $consulta=mysqli_query($datos_base, "SELECT p.idProducto, p.producto, g.grupoProducto, t.tipoProducto, p.cantidad, p.minimo, p.maximo
+                                        FROM producto p
+                                        LEFT JOIN grupoproducto g ON g.idGrupoProducto = p.idGrupoProducto
+                                        LEFT JOIN tipoproducto t ON t.idTipoProducto = p.idTipoProducto
+                                        WHERE p.cantidad < p.minimo AND (p.producto LIKE '%$doc%' OR g.grupoProducto LIKE '%$doc%' OR t.tipoProducto LIKE '%$doc%' OR p.cantidad LIKE '%$doc%')
+                                        ORDER BY t.tipoProducto ASC, p.cantidad ASC");
+                                    }
+
+                                    if($consultar == "alto"){
+                                        $alto = 0;
+                                        $doc = $_POST['buscar'];
+                                        $consulta=mysqli_query($datos_base, "SELECT p.idProducto, p.producto, g.grupoProducto, t.tipoProducto, p.cantidad, p.minimo, p.maximo
+                                        FROM producto p
+                                        LEFT JOIN grupoproducto g ON g.idGrupoProducto = p.idGrupoProducto
+                                        LEFT JOIN tipoproducto t ON t.idTipoProducto = p.idTipoProducto
+                                        WHERE p.cantidad > p.maximo AND (p.producto LIKE '%$doc%' OR g.grupoProducto LIKE '%$doc%' OR t.tipoProducto LIKE '%$doc%' OR p.cantidad LIKE '%$doc%')
+                                        ORDER BY t.tipoProducto ASC, p.cantidad ASC");
+                                    }
+
+                                    if($consultar == "medio"){
+                                        $medio = 0;
+                                        $doc = $_POST['buscar'];
+                                        $consulta=mysqli_query($datos_base, "SELECT p.idProducto, p.producto, g.grupoProducto, t.tipoProducto, p.cantidad, p.minimo, p.maximo
+                                        FROM producto p
+                                        LEFT JOIN grupoproducto g ON g.idGrupoProducto = p.idGrupoProducto
+                                        LEFT JOIN tipoproducto t ON t.idTipoProducto = p.idTipoProducto
+                                        WHERE (p.cantidad <= p.maximo AND p.cantidad >= p.minimo)  AND (p.producto LIKE '%$doc%' OR g.grupoProducto LIKE '%$doc%' OR t.tipoProducto LIKE '%$doc%' OR p.cantidad LIKE '%$doc%')
+                                        ORDER BY t.tipoProducto ASC, p.cantidad ASC");
+                                    }
+
+
                                     while($listar = mysqli_fetch_array($consulta))
                                     {
-                                        if($listar['cantidad'] >= $listar['minimo'] AND $listar['cantidad'] <= $listar['maximo']){
-                                            $color = 'green';
-                                        }elseif($listar['cantidad'] < $listar['minimo']){
-                                            $color = 'red';
-                                        }elseif($listar['cantidad'] > $listar['minimo']){
-                                            $color = 'blue';
-                                        }else{
-                                            $color = 'black';
-                                        }
+                                        if($consultar == "bajo"){$bajo++;}
+                                        if($consultar == "alto"){$alto++;}
+                                        if($consultar == "medio"){$medio++;}
                                         $cantidad++;
                                         echo
                                         " 
                                             <tr>
-                                            <td><h4 style='font-size:16px; text-align:left; margin-left: 5px; color:".$color."'>".$listar['producto']."</h4 ></td>
+                                            <td><h4 style='font-size:16px; text-align:left; margin-left: 5px;'>".$listar['producto']."</h4 ></td>
                                             <td><h4 style='font-size:16px; text-align:left; margin-left: 5px;'>".$listar['grupoProducto']."</h4 ></td>
                                             <td><h4 style='font-size:16px;text-transform:uppercase;'>".$listar['tipoProducto']."</h4 ></td>
-                                            <td><h4 style='font-size:16px; text-align: right; margin-right: 5px; color:".$color."'>".$listar['cantidad']."</h4 ></td>
+                                            <td><h4 style='font-size:16px; text-align: right; margin-right: 5px;'>".$listar['cantidad']."</h4 ></td>
                                             <td class='text-center text-nowrap'><a class='btn btn-sm btn-outline-primary' href=./detalleStock.php?no=".$listar['idProducto']." class=mod><svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-pencil-square' viewBox='0 0 16 16'>
                                                 <path d='M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z'/>
                                                 <path fill-rule='evenodd' d='M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z'/>
@@ -131,33 +165,56 @@ $idRol = $row['idRol'];
                                         ";
                                     } 
                                 }
+
+
+
+                                
                                 else{
                                     $cantidad = 0;
-                                    $consulta=mysqli_query($datos_base, "SELECT p.idProducto, p.producto, g.grupoProducto, t.tipoProducto, p.cantidad, p.minimo, p.maximo
-                                    FROM producto p
-                                    LEFT JOIN grupoproducto g ON g.idGrupoProducto = p.idGrupoProducto
-                                    LEFT JOIN tipoproducto t ON t.idTipoProducto = p.idTipoProducto
-                                    ORDER BY t.tipoProducto ASC, p.cantidad ASC
-                                ");
+
+                                    if($consultar == "bajo"){
+                                        $bajo = 0;
+                                        $consulta=mysqli_query($datos_base, "SELECT p.idProducto, p.producto, g.grupoProducto, t.tipoProducto, p.cantidad, p.minimo, p.maximo
+                                        FROM producto p
+                                        LEFT JOIN grupoproducto g ON g.idGrupoProducto = p.idGrupoProducto
+                                        LEFT JOIN tipoproducto t ON t.idTipoProducto = p.idTipoProducto
+                                        WHERE p.cantidad < p.minimo
+                                        ORDER BY t.tipoProducto ASC, p.cantidad ASC");
+                                    }
+
+                                    if($consultar == "alto"){
+                                        $alto = 0;
+                                        $consulta=mysqli_query($datos_base, "SELECT p.idProducto, p.producto, g.grupoProducto, t.tipoProducto, p.cantidad, p.minimo, p.maximo
+                                        FROM producto p
+                                        LEFT JOIN grupoproducto g ON g.idGrupoProducto = p.idGrupoProducto
+                                        LEFT JOIN tipoproducto t ON t.idTipoProducto = p.idTipoProducto
+                                        WHERE p.cantidad > p.maximo
+                                        ORDER BY t.tipoProducto ASC, p.cantidad ASC");
+                                    }
+
+                                    if($consultar == "medio"){
+                                        $medio = 0;
+                                        $consulta=mysqli_query($datos_base, "SELECT p.idProducto, p.producto, g.grupoProducto, t.tipoProducto, p.cantidad, p.minimo, p.maximo
+                                        FROM producto p
+                                        LEFT JOIN grupoproducto g ON g.idGrupoProducto = p.idGrupoProducto
+                                        LEFT JOIN tipoproducto t ON t.idTipoProducto = p.idTipoProducto
+                                        WHERE p.cantidad <= p.maximo AND p.cantidad >= p.minimo
+                                        ORDER BY t.tipoProducto ASC, p.cantidad ASC");
+                                    }
+
                                     while($listar = mysqli_fetch_array($consulta)) 
                                     {
-                                        if($listar['cantidad'] >= $listar['minimo'] AND $listar['cantidad'] <= $listar['maximo']){
-                                            $color = 'green';
-                                        }elseif($listar['cantidad'] < $listar['minimo']){
-                                            $color = 'red';
-                                        }elseif($listar['cantidad'] > $listar['minimo']){
-                                            $color = 'blue';
-                                        }else{
-                                            $color = 'black';
-                                        }
+                                        if($consultar == "bajo"){$bajo++;}
+                                        if($consultar == "alto"){$alto++;}
+                                        if($consultar == "medio"){$medio++;}
                                         $cantidad++;
                                         echo
                                         " 
                                             <tr>
-                                            <td><h4 style='font-size:16px; text-align:left; margin-left: 5px; color:".$color."'>".$listar['producto']."</h4 ></td>
+                                            <td><h4 style='font-size:16px; text-align:left; margin-left: 5px;'>".$listar['producto']."</h4 ></td>
                                             <td><h4 style='font-size:16px; text-align:left; margin-left: 5px;'>".$listar['grupoProducto']."</h4 ></td>
                                             <td><h4 style='font-size:16px;text-transform:uppercase;'>".$listar['tipoProducto']."</h4 ></td>
-                                            <td><h4 style='font-size:16px; text-align: right; margin-right: 5px; color:".$color."'>".$listar['cantidad']."</h4 ></td>
+                                            <td><h4 style='font-size:16px; text-align: right; margin-right: 5px;'>".$listar['cantidad']."</h4 ></td>
                                             <td class='text-center text-nowrap'><a class='btn btn-sm btn-outline-primary' href=./detalleStock.php?no=".$listar['idProducto']." class=mod><svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-pencil-square' viewBox='0 0 16 16'>
                                                 <path d='M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z'/>
                                                 <path fill-rule='evenodd' d='M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z'/>
@@ -166,42 +223,25 @@ $idRol = $row['idRol'];
                                         ";
                                     }
                                 }
-
-
-                                    $sql6="SELECT COUNT(idProducto) AS TOTAL, cantidad, minimo FROM producto WHERE cantidad < minimo";
-                                    $result6 = $datos_base->query($sql6);
-                                    $row6 = $result6->fetch_assoc();
-                                    $bajo = $row6['TOTAL'];
-
-
-                                    $sql6="SELECT COUNT(idProducto) AS TOTAL, cantidad, maximo FROM producto WHERE cantidad > maximo";
-                                    $result6 = $datos_base->query($sql6);
-                                    $row6 = $result6->fetch_assoc();
-                                    $alto = $row6['TOTAL'];
-                                    
-                                    $sql6="SELECT COUNT(idProducto) AS TOTAL, cantidad, maximo, minimo FROM producto WHERE cantidad <= maximo AND cantidad >= minimo";
-                                    $result6 = $datos_base->query($sql6);
-                                    $row6 = $result6->fetch_assoc();
-                                    $medio = $row6['TOTAL'];
-
-
                                 echo "<div class=contador>
+                                        <a href='./stock.php'><button class='btn btn-info'; style='color:white;'>← VOLVER A STOCK GENERAL</button></a>
                                         <div class=contador_pri>
-                                            <a href=./detalleCantidad.php?no=bajo><button class='btn btn-danger'><p style='color: white; font-weight: bold;'>STOCK BAJO: $bajo</p></button></a>
+                                        ";
+                                            if($consultar == "bajo"){
+                                                echo "<p style='color: #DC3545; font-weight: bold;'>STOCK BAJO: $bajo</p>";}
+                                            if($consultar == "alto"){
+                                                echo "<p style='color: blue; font-weight: bold;'>STOCK ALTO: $alto</p>";}
+                                            if($consultar == "medio"){
+                                                echo "<p style='color: #198754; font-weight: bold;'>STOCK ÓPTIMO: $medio</p>";}
+                                            echo "
                                         </div>
-                                        <div class=contador_seg>
-                                            <a href=./detalleCantidad.php?no=alto><button class='btn btn-info' style='background-color:blue;'><p style='color: white; font-weight: bold;'>STOCK ALTO: $alto</p></button></a>
-                                        </div>
-                                        <div class=contador_ter>
-                                            <a href=./detalleCantidad.php?no=medio><button class='btn btn-success'><p style='color: white; font-weight: bold;'>STOCK OPTIMO: $medio</p></button></a>
-                                        </div>
-                                        </div>";
+                                    </div>";
 
-                                        if($doc != ""){
-                                            echo "<div style='margin-top:30px;'><p style='text-transform: uppercase;'><u>Filtrado por</u>: ".$doc."</p></div>";
-                                        }
-                                        echo "<div style='margin-top:10px;'><p style='text-transform: uppercase;'><u>Cantidad de registros</u>: ".$cantidad."</p></div>";
-                                        echo "
+                                    if($doc != ""){
+                                        echo "<div style='margin-top:30px;'><p style='text-transform: uppercase;'><u>Filtrado por</u>: ".$doc."</p></div>";
+                                    }
+                                    echo "<div style='margin-top:10px;'><p style='text-transform: uppercase;'><u>Cantidad de registros</u>: ".$cantidad."</p></div>";
+                                    echo"
                                 </table>";
                                     ?>
         </section>

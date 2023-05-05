@@ -63,8 +63,28 @@ $idRol = $row['idRol'];
         </div>
         <div class="agrStock">
             <form method="POST" action="../../Logica/agregandoRecibo.php">
+            <div>
+                    <p style="text-transform: uppercase;">Orden de Pago N°: <?php echo $consulta[0];?></p>
+                    <?php
+                    $sql6 = "SELECT da.idDocumento, da.medico, da.paciente, c.centroMedico, u.usuario
+                    FROM datosdocumento da
+                    LEFT JOIN centromedico c ON c.idCentro = da.idCentro
+                    LEFT JOIN usuario u ON u.idUsuario = da.idUsuario
+                    WHERE da.idDocumento = $consulta[0];";
+                    $result6 = $datos_base->query($sql6);
+                    $row6 = $result6->fetch_assoc();
+                    $cli = $row6['usuario'];
+                    $clin = $row6['centroMedico'];
+                    $med = $row6['medico'];
+                    $pac = $row6['paciente'];
+                    ?>
+                    <p style="text-transform: uppercase;">Cliente: <?php echo $cli;?></p>
+                    <p style="text-transform: uppercase;">Clinica: <?php echo $clin;?></p>
+                    <p style="text-transform: uppercase;">Médico: <?php echo $med;?></p>
+                    <p style="text-transform: uppercase;">Paciente: <?php echo $pac;?></p>
+                </div>
                 <div>
-                    <label for="remito">PDF:</label>
+                    <label for="remito">DESCARGAR PDF:</label>
                     <input type="text" class="ocultar" name="nroOP" id="remito" value="<?php echo $consulta[0]?>">
                     <?php
                     $idd = $consulta[0];
@@ -97,7 +117,7 @@ $idRol = $row['idRol'];
             </form>
           
             <div class="agregar">
-                    <a href="./OrdenPago.php" class="volver"><i class="fa-sharp fa-solid fa-arrow-left"></i></a>
+                    <a href="./ordenPago.php" class="volver"><i class="fa-sharp fa-solid fa-arrow-left"></i></a><!-- MODIFICAR -->
                 </div>
         </div>
         </section>

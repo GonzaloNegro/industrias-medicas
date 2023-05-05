@@ -105,21 +105,22 @@ $idRol = $row['idRol'];
                     echo "<table>
                             <thead>
                                 <tr>
-                                    <th><p>CÓDIGO</p></th>
-                                    <th><p>GRUPO</p></th>
+                                    <th><p style='text-align:right; margin-right: 5px;'>CÓDIGO</p></th>
+                                    <th><p style='text-align:left; margin-left: 5px;'>GRUPO</p></th>
                                     <th><p>MODIFICAR</p></th>
                                 </tr>
                             </thead>
                         ";
                         if(isset($_POST['btn2']))
                                 {
+                                    $cantidad = 0;
                                     $doc = $_POST['buscar'];
                                     $consulta=mysqli_query($datos_base, "SELECT * FROM grupoproducto
                                     WHERE idGrupoProducto LIKE '%$doc%' OR grupoProducto LIKE '%$doc%'
                                     ORDER BY grupoProducto  ASC");
                                     while($listar = mysqli_fetch_array($consulta))
                                     {
-
+                                        $cantidad++;
                                         echo
                                         " 
                                         <tr>
@@ -134,10 +135,12 @@ $idRol = $row['idRol'];
                                     } 
                                 }
                                 else{
+                                $cantidad = 0;
                                 $consulta=mysqli_query($datos_base, "SELECT * FROM grupoproducto
                                 ORDER BY grupoProducto  ASC");
                                     while($listar = mysqli_fetch_array($consulta)) 
                                     {
+                                        $cantidad++;
                                         echo
                                         " 
                                             <tr>
@@ -151,7 +154,12 @@ $idRol = $row['idRol'];
                                         ";
                                     }
                                 }
-                                echo "</table>";
+                                if($doc != ""){
+                                    echo "<div style='margin-top:30px;'><p style='text-transform: uppercase;'><u>Filtrado por</u>: ".$doc."</p></div>";
+                                }
+                                echo "<div style='margin-top:10px;'><p style='text-transform: uppercase;'><u>Cantidad de registros</u>: ".$cantidad."</p></div>";
+                                echo"
+                            </table>";
                                     ?>
         </section>
         <?php

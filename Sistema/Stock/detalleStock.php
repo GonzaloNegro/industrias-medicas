@@ -114,7 +114,7 @@ function ConsultarIncidente($no_tic)
                         <input type="number" name="cant" id="cant" min=1 onkeypress="return valideKey(event);" <?php echo "max= ".$consulta[4]."";?> required>
                     </div>
                     <div>
-                        <button type="submit" class="btn btn-success">MODIFICAR</button>
+                        <button type="submit" class="btn btn-danger">DAR DE BAJA</button>
                     </div>
                 <?php
                     }else{echo"
@@ -124,7 +124,6 @@ function ConsultarIncidente($no_tic)
                     ";
                     }
                 ?>
-
             </form>
         
             <div class="agregar">
@@ -133,7 +132,7 @@ function ConsultarIncidente($no_tic)
             <div class="agregar">
                 <?php
                 echo
-                    "<a href=./agregarSolicitud.php?no=".$consulta[0]." class=agregando>SOLICITAR</a>";
+                    "<a href=./agregarSolicitud.php?no=".$consulta[0]." class='agregando'>SOLICITAR</a>";
                 ?>
             </div>
         </div>

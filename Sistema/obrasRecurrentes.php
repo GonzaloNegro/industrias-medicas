@@ -231,9 +231,9 @@ $idUsu = $row['idUsuario'];
             <table class="table">
                 <thead>
                         <tr>
-                            <th style=" text-align: center; width:400px;">O.SOCIAL</th>
-                            <th style=" text-align: center; width: 300px;">VENTAS CONCRETADAS</th>
-                            <th style=" text-align: center; width: 300px;">INVERSIÓN + IVA</th>
+                            <th style="text-align: left;margin-left:5px; width:400px;">O.SOCIAL</th>
+                            <th style="text-align: right;margin-right:5px; width: 300px;">VENTAS CONCRETADAS</th>
+                            <th style="text-align: right;margin-right:5px; width: 300px;">INVERSIÓN + IVA</th>
                         </tr>
                 </thead>
                 <tbody>

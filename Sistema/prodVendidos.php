@@ -219,10 +219,10 @@ $idUsu = $row['idUsuario'];
                 <table class="table">
                 <thead>
                         <tr>
-                            <th style=" text-align: center; width:500px;">PRODUCTO</th>
-                            <th style=" text-align: center; width:300px;">GRUPO</th>
-                            <th style=" text-align: center; width:200px;">CANTIDAD</th>
-                            <th style=" text-align: center; width:250px;">PRECIO + IVA</th>
+                            <th style="text-align: left; margin-left:5px; width:500px;">PRODUCTO</th>
+                            <th style="text-align: left; margin-left:5px; width:300px;">GRUPO</th>
+                            <th style="text-align: right; margin-right:5px; width:200px;">CANTIDAD</th>
+                            <th style="text-align: right; margin-tight:5px; width:250px;">PRECIO + IVA</th>
                         </tr>
                 </thead>
                 <tbody>

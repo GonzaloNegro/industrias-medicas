@@ -97,10 +97,10 @@ $idRol = $row['idRol'];
                     echo "<table>
                             <thead>
                                 <tr>
-                                    <th><p>N°LICITACIÓN</p></th>
+                                    <th><p style='text-align:right; margin-right: 5px;'>N°COTIZACIÓN</p></th>
                                     <th><p>FECHA APERTURA</p></th>
                                     <th><p>FECHA CIERRE</p></th>
-                                    <th><p>POSTULACIÓN</p></th>
+                                    <th><p style='text-align:left; margin-left: 5px;'>POSTULACIÓN</p></th>
                                     <th><p>POSTULANTES</p></th>
                                 </tr>
                             </thead>
@@ -135,9 +135,9 @@ $idRol = $row['idRol'];
                                             $vacio = $row6['idUsuario'];
                                             $est = $row6['idEstadoLicitacion'];
                                             if($vacio == 0 AND $est != 7){
-                                                echo "<td><h4 style='font-size:16px;'>ABIERTA</h4 ></td>";
+                                                echo "<td><h4 style='font-size:16px;color:green; text-align:left; margin-left: 5px;'>ABIERTA</h4 ></td>";
                                             }else{
-                                                echo "<td><h4 style='font-size:16px;'>CERRADA</h4 ></td>";
+                                                echo "<td><h4 style='font-size:16px;color:red; text-align:left; margin-left: 5px;'>CERRADA</h4 ></td>";
                                             }
                                             if($idUsu == 1){
                                                 echo 
@@ -182,9 +182,9 @@ $idRol = $row['idRol'];
                                             $vacio = $row6['idUsuario'];
                                             $est = $row6['idEstadoLicitacion'];
                                             if($vacio == 0 AND $est != 7){
-                                                echo "<td><h4 style='font-size:16px;'>ABIERTA</h4 ></td>";
+                                                echo "<td><h4 style='font-size:16px;color:green;text-align:left; margin-left: 5px;'>ABIERTA</h4 ></td>";
                                             }else{
-                                                echo "<td><h4 style='font-size:16px;'>CERRADA</h4 ></td>";
+                                                echo "<td><h4 style='font-size:16px;color:red;text-align:left; margin-left: 5px;'>CERRADA</h4 ></td>";
                                             }
                                             if($idUsu == 1){
                                                 echo 
@@ -207,7 +207,7 @@ $idRol = $row['idRol'];
                                 echo "<table>
                                 <thead>
                                     <tr>
-                                        <th><p>N°LICITACIÓN</p></th>
+                                    <th><p style='text-align:right; margin-right: 5px;'>N°COTIZACIÓN</p></th>
                                         <th><p>FECHA APERTURA</p></th>
                                         <th><p>FECHA CIERRE</p></th>
                                         <th><p>POSTULACIÓN</p></th>

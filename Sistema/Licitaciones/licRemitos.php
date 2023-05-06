@@ -112,6 +112,7 @@ function no(){
                         ";
                         if(isset($_POST['btn2']))
                                 {
+                                    $cantidad = 0;
                                     $doc = $_POST['buscar'];
                                     $consulta=mysqli_query($datos_base, "SELECT l.idLicitacion, m.fecha, u.usuario
                                     FROM licitacion l
@@ -123,6 +124,7 @@ function no(){
                                     ORDER BY l.idLicitacion DESC");
                                     while($listar = mysqli_fetch_array($consulta)) 
                                     {
+                                        $cantidad++;
                                         $fec = date("d-m-Y", strtotime($listar['fecha']));
                                         echo
                                         " 
@@ -137,6 +139,7 @@ function no(){
                                     } 
                                 }
                                 else{
+                                    $cantidad = 0;
                                     $consulta=mysqli_query($datos_base, "SELECT l.idLicitacion, m.fecha, u.usuario
                                     FROM licitacion l
                                     LEFT JOIN movimientolicitacion AS m ON m.idLicitacion = l.idLicitacion
@@ -147,6 +150,7 @@ function no(){
                                     ORDER BY l.idLicitacion DESC");
                                     while($listar = mysqli_fetch_array($consulta)) 
                                     {
+                                        $cantidad++;
                                         $fec = date("d-m-Y", strtotime($listar['fecha']));
                                         echo
                                         " 
@@ -160,6 +164,10 @@ function no(){
                                         ";
                                     }
                                 }
+                                if($doc != ""){
+                                    echo "<div style='margin-top:30px;'><p style='text-transform: uppercase;'><u>Filtrado por</u>: ".$doc."</p></div>";
+                                }
+                                echo "<div style='margin-top:10px;'><p style='text-transform: uppercase;'><u>Cantidad de registros</u>: ".$cantidad."</p></div>";
                                 echo "</table>";
                             }
                             elseif($idRol == $rolproveedor){
@@ -175,6 +183,7 @@ function no(){
                             ";
                             if(isset($_POST['btn2']))
                                     {
+                                        $cantidad = 0;
                                         $doc = $_POST['buscar'];
                                         $consulta=mysqli_query($datos_base, "SELECT l.idLicitacion, m.fecha, u.usuario
                                         FROM licitacion l
@@ -186,6 +195,7 @@ function no(){
                                         ORDER BY l.idLicitacion DESC");
                                         while($listar = mysqli_fetch_array($consulta)) 
                                         {
+                                            $cantidad++;
                                             $fec = date("d-m-Y", strtotime($listar['fecha']));
                                             echo
                                             " 
@@ -199,6 +209,7 @@ function no(){
                                         } 
                                     }
                                     else{
+                                        $cantidad = 0;
                                         $consulta=mysqli_query($datos_base, "SELECT l.idLicitacion, m.fecha, u.usuario
                                         FROM licitacion l
                                         LEFT JOIN movimientolicitacion AS m ON m.idLicitacion = l.idLicitacion
@@ -209,6 +220,7 @@ function no(){
                                         ORDER BY l.idLicitacion DESC");
                                         while($listar = mysqli_fetch_array($consulta)) 
                                         {
+                                            $cantidad++;
                                             $fec = date("d-m-Y", strtotime($listar['fecha']));
                                             echo
                                             " 
@@ -221,6 +233,10 @@ function no(){
                                             ";
                                         }
                                     }
+                                    if($doc != ""){
+                                        echo "<div style='margin-top:30px;'><p style='text-transform: uppercase;'><u>Filtrado por</u>: ".$doc."</p></div>";
+                                    }
+                                    echo "<div style='margin-top:10px;'><p style='text-transform: uppercase;'><u>Cantidad de registros</u>: ".$cantidad."</p></div>";
                                     echo "</table>";
                             }
                                     ?>

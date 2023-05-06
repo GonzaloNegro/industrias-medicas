@@ -40,7 +40,7 @@ $direccion = $row['direccion'];
 <body>
 <script type="text/javascript">
 			function ok(){
-				swal.fire(  {title: "Datos modificados correctamente",
+				Swal.fire(  {title: "Datos modificados correctamente",
 						icon: "success",
 						showConfirmButton: true,
 						showCancelButton: false,
@@ -49,7 +49,7 @@ $direccion = $row['direccion'];
 			</script>
 <script type="text/javascript">
 			function error(){
-				swal.fire(  {title: "No se ha podido modificar el usuario, verifique los datos ingresados",
+				Swal.fire(  {title: "No se ha podido modificar el usuario, verifique los datos ingresados",
 						icon: "error",
                         showConfirmButton: true,
 						showCancelButton: false,
@@ -60,12 +60,12 @@ $direccion = $row['direccion'];
     <main>
         <section>
            <?php 
-            $sql6 = "SELECT rol FROM roles WHERE idRol = $idRol";
+            $sql6 = "SELECT rol FROM roles WHERE idRol = '$idRol'";
             $result6 = $datos_base->query($sql6);
             $row6 = $result6->fetch_assoc();
             $rol = $row6['rol'];
 
-            $sql6 = "SELECT tipo FROM tipousuario WHERE idTipoUsuario = $idTipoUsuario";
+            $sql6 = "SELECT tipo FROM tipousuario WHERE idTipoUsuario = '$idTipoUsuario'";
             $result6 = $datos_base->query($sql6);
             $row6 = $result6->fetch_assoc();
             $tipo = $row6['tipo'];

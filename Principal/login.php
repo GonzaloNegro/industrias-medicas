@@ -59,7 +59,7 @@
 						);
 			}	
 			</script>
-                        <script type="text/javascript">
+            <script type="text/javascript">
 			function ina(){
 				swal.fire(  {title: "Usuario inactivo",
                         text: 'Su usuario aún no ha sido activado. Industrias Médicas se contactará con usted al darle de alta en el sistema.',
@@ -73,6 +73,16 @@
 						}
 						}
 						);
+			}	
+			</script>
+            <script type="text/javascript">
+			function datosmod(){
+				swal.fire(  {title: "Datos modificados correctamente!",
+                        text: 'Por favor vuelva a iniciar sesión con los nuevos datos registrados.',
+						icon: "success",
+						showConfirmButton: true,
+						showCancelButton: false,
+						});
 			}	
 			</script>
             <script type="text/javascript">
@@ -165,6 +175,11 @@
                     if(isset($_GET['cor'])){
                         ?>
                         <script>cor();</script>
+                        <?php
+                    }
+                    if(isset($_GET['datosmod'])){
+                        ?>
+                        <script>datosmod();</script>
                         <?php
                     }
 			    ?>

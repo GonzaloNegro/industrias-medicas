@@ -203,6 +203,11 @@ $idRol = $row['idRol'];
                                 ?>
                     </div>
                 </div>
+                <div class="cot-fin">
+                    <div class="cot-fin-info">
+                        <p><strong>Incluye set de alternativas y caja de instrumental específico a préstamo para traumatología.</strong></p>
+                    </div>
+                </div>
 
                 <div class="cot-fin">
                     <div class="cot-fin-info">

@@ -185,7 +185,9 @@ $idUsu = $row['idUsuario'];
                 $query .= " AND pr.idGrupoProducto = '".$_POST["grupo"]."'  ";
          } */
 
-
+         if ($_POST["orden"] == '' ){
+                $query .= " ORDER BY TOTAL DESC ";
+        }
          if ($_POST["orden"] == '1' ){
                     $query .= " ORDER BY u.usuario ASC ";
          }

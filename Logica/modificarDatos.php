@@ -33,7 +33,8 @@ if(isset($usuregistrado)){
     mysqli_close($datos_base);
 }else{
     mysqli_query($datos_base, "UPDATE usuario SET usuario = '$usuario', nombre = '$nombre', correo = '$correo', direccion = '$direccion' WHERE idUsuario = '$idUsu'");
-    header("Location: ../Sistema/datos.php?ok");
+    session_destroy();
+    header("Location: ../Principal/login.php?datosmod");
     mysqli_close($datos_base);
 }
 

@@ -107,6 +107,7 @@ $idRol = $row['idRol'];
                         ";
                         if(isset($_POST['btn2']))
                                 {
+                                    $cantidad = 0;
                                     $doc = $_POST['buscar'];
                                     $consulta=mysqli_query($datos_base, "SELECT l.idLicitacion, m.fecha, m.fechaVen
                                     FROM licitacion l
@@ -116,6 +117,7 @@ $idRol = $row['idRol'];
                                     ORDER BY l.idLicitacion DESC");
                                     while($listar = mysqli_fetch_array($consulta)) 
                                     {
+                                        $cantidad++;
                                         $lici = $listar['idLicitacion'];
                                         $fec = date("d-m-Y", strtotime($listar['fecha']));
                                         $fecven = date("d-m-Y", strtotime($listar['fechaVen']));
@@ -155,6 +157,7 @@ $idRol = $row['idRol'];
                                     } 
                                 }
                                 else{
+                                $cantidad = 0;
                                 $consulta=mysqli_query($datos_base, "SELECT l.idLicitacion, m.fecha, m.fechaVen
                                 FROM licitacion l
                                 LEFT JOIN movimientolicitacion AS m ON m.idLicitacion = l.idLicitacion
@@ -163,6 +166,7 @@ $idRol = $row['idRol'];
                                 ORDER BY l.idLicitacion DESC");
                                     while($listar = mysqli_fetch_array($consulta)) 
                                     {   
+                                        $cantidad++;
                                         $lici = $listar['idLicitacion'];
                                         $fec = date("d-m-Y", strtotime($listar['fecha']));
                                         $fecven = date("d-m-Y", strtotime($listar['fechaVen']));
@@ -201,6 +205,10 @@ $idRol = $row['idRol'];
                                         ";
                                     }
                                 }
+                                if($doc != ""){
+                                    echo "<div style='margin-top:30px;'><p style='text-transform: uppercase;'><u>Filtrado por</u>: ".$doc."</p></div>";
+                                }
+                                echo "<div style='margin-top:10px;'><p style='text-transform: uppercase;'><u>Cantidad de registros</u>: ".$cantidad."</p></div>";
                                 echo "</table>";
                             }
                             elseif($idRol == $rolproveedor){
@@ -216,6 +224,7 @@ $idRol = $row['idRol'];
                             ";
                             if(isset($_POST['btn2']))
                                     {
+                                        $cantidad = 0;
                                         $doc = $_POST['buscar'];
                                         $consulta=mysqli_query($datos_base, "SELECT l.idLicitacion, m.fecha, m.fechaVen
                                         FROM licitacion l
@@ -225,6 +234,7 @@ $idRol = $row['idRol'];
                                         ORDER BY l.idLicitacion DESC");
                                         while($listar = mysqli_fetch_array($consulta)) 
                                         {
+                                            $cantidad++;
                                             $lici = $listar['idLicitacion'];
                                             $fec = date("d-m-Y", strtotime($listar['fecha']));
                                             $fecven = date("d-m-Y", strtotime($listar['fechaVen']));
@@ -256,6 +266,7 @@ $idRol = $row['idRol'];
                                         } 
                                     }
                                     else{
+                                    $cantidad = 0;
                                     $consulta=mysqli_query($datos_base, "SELECT l.idLicitacion, m.fecha, m.fechaVen
                                     FROM licitacion l
                                     LEFT JOIN movimientolicitacion AS m ON m.idLicitacion = l.idLicitacion
@@ -264,6 +275,7 @@ $idRol = $row['idRol'];
                                     ORDER BY l.idLicitacion DESC");
                                         while($listar = mysqli_fetch_array($consulta)) 
                                         {   
+                                            $cantidad++;
                                             $lici = $listar['idLicitacion'];
                                             $fec = date("d-m-Y", strtotime($listar['fecha']));
                                             $fecven = date("d-m-Y", strtotime($listar['fechaVen']));
@@ -294,8 +306,14 @@ $idRol = $row['idRol'];
                                                 echo"</tr>";
                                         }
                                     }
+                                    if($doc != ""){
+                                        echo "<div style='margin-top:30px;'><p style='text-transform: uppercase;'><u>Filtrado por</u>: ".$doc."</p></div>";
+                                    }
+                                    echo "<div style='margin-top:10px;'><p style='text-transform: uppercase;'><u>Cantidad de registros</u>: ".$cantidad."</p></div>";
                                     echo "</table>";
-                                };?>
+                                };
+                                
+                                ?>
             <?php
             if(isset($_GET['ok'])){
                 ?>

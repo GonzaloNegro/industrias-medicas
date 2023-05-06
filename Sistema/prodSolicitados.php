@@ -189,7 +189,9 @@ $idUsu = $row['idUsuario'];
                 $query .= " AND pr.idGrupoProducto = '".$_POST["grupo"]."'  ";
          } */
 
-
+         if ($_POST["orden"] == '' ){
+                $query .= " ORDER BY cantidad DESC ";
+        }
          if ($_POST["orden"] == '1' ){
                     $query .= " ORDER BY pr.producto ASC ";
          }

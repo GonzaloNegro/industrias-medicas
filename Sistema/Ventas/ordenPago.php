@@ -108,6 +108,7 @@ function cargado(){
                         ";
                         if(isset($_POST['btn2']))
                                 {
+                                    $cantidad = 0;
                                     $doc = $_POST['buscar'];
                                     $consulta=mysqli_query($datos_base, "SELECT d.idDocumento, m.fecha, u.usuario, da.medico, da.paciente
                                     FROM documento d
@@ -119,6 +120,7 @@ function cargado(){
                                     ORDER BY d.idDocumento DESC");
                                     while($listar = mysqli_fetch_array($consulta))
                                     {
+                                        $cantidad++;
                                         $fec = date("d-m-Y", strtotime($listar['fecha']));
                                         $idd = $listar['idDocumento'];
                                         echo
@@ -137,6 +139,7 @@ function cargado(){
                                     } 
                                 }
                                 else{
+                                    $cantidad = 0;
                                     $consulta=mysqli_query($datos_base, "SELECT d.idDocumento, m.fecha, u.usuario, da.medico, da.paciente
                                     FROM documento d
                                     LEFT JOIN movimientodocumento AS m ON m.idDocumento = d.idDocumento
@@ -147,6 +150,7 @@ function cargado(){
                                     ORDER BY d.idDocumento DESC");
                                     while($listar = mysqli_fetch_array($consulta)) 
                                     {
+                                        $cantidad++;
                                         $fec = date("d-m-Y", strtotime($listar['fecha']));
                                         echo
                                         " 
@@ -163,6 +167,10 @@ function cargado(){
                                       ";
                                     }
                                 }
+                                if($doc != ""){
+                                    echo "<div style='margin-top:30px;'><p style='text-transform: uppercase;'><u>Filtrado por</u>: ".$doc."</p></div>";
+                                }
+                                echo "<div style='margin-top:10px;'><p style='text-transform: uppercase;'><u>Cantidad de registros</u>: ".$cantidad."</p></div>";
                                 echo "</table>";
                             }
 
@@ -187,6 +195,7 @@ function cargado(){
                             ";
                             if(isset($_POST['btn2']))
                                     {
+                                        $cantidad = 0;
                                         $doc = $_POST['buscar'];
                                         $consulta=mysqli_query($datos_base, "SELECT d.idDocumento, m.fecha, u.usuario, da.medico, da.paciente
                                         FROM documento d
@@ -198,6 +207,7 @@ function cargado(){
                                         ORDER BY d.idDocumento DESC");
                                         while($listar = mysqli_fetch_array($consulta))
                                         {
+                                            $cantidad++;
                                             $fec = date("d-m-Y", strtotime($listar['fecha']));
                                             $idd = $listar['idDocumento'];
                                             echo
@@ -214,6 +224,7 @@ function cargado(){
                                         } 
                                     }
                                     else{
+                                        $cantidad = 0;
                                         $consulta=mysqli_query($datos_base, "SELECT d.idDocumento, m.fecha, u.usuario, da.medico, da.paciente
                                         FROM documento d
                                         LEFT JOIN movimientodocumento AS m ON m.idDocumento = d.idDocumento
@@ -224,6 +235,7 @@ function cargado(){
                                         ORDER BY d.idDocumento DESC");
                                         while($listar = mysqli_fetch_array($consulta)) 
                                         {
+                                            $cantidad++;
                                             $fec = date("d-m-Y", strtotime($listar['fecha']));
                                             echo
                                             " 
@@ -238,6 +250,10 @@ function cargado(){
                                           ";
                                         }
                                     }
+                                    if($doc != ""){
+                                        echo "<div style='margin-top:30px;'><p style='text-transform: uppercase;'><u>Filtrado por</u>: ".$doc."</p></div>";
+                                    }
+                                    echo "<div style='margin-top:10px;'><p style='text-transform: uppercase;'><u>Cantidad de registros</u>: ".$cantidad."</p></div>";
                                     echo "</table>";
                             }
                                     ?>

@@ -97,8 +97,15 @@ $idRol = $row['idRol'];
                                         echo
                                         " 
                                         <tr>
-                                        <td><h4 style='font-size:16px;text-align: right; margin-right: 5px; '>".$listar['idLicitacion']."</h4 ></td>
-                                        <td><h4 style='font-size:16px;text-transform:uppercase; text-align:left; margin-left: 5px;'>".$listar['usuario']."</h4 ></td>
+                                        <td><h4 style='font-size:16px;text-align: right; margin-right: 5px; '>".$listar['idLicitacion']."</h4 ></td>";
+
+                                        $usuarioLic = $listar['usuario'];
+                                        if($usuarioLic == ""){
+                                            echo "<td><h4 style='font-size:16px;text-transform:uppercase; text-align:left; margin-left: 5px;'>SIN ASIGNAR</h4 ></td>";
+                                        }else{
+                                            echo "<td><h4 style='font-size:16px;text-transform:uppercase; text-align:left; margin-left: 5px;'>".$listar['usuario']."</h4 ></td>";
+                                        }
+                                        echo "
                                         <td><h4 style='font-size:16px;text-transform:uppercase; text-align:left; margin-left: 5px;'>".$listar['estadoLicitacion']."</h4 ></td>
                                         <td class='text-center text-nowrap'><a class='btn btn-sm' href=detalleHistoricoLicitacion.php?no=".$listar['idLicitacion']." class=mod><i class='fa-solid fa-pen-to-square fa-2x'></i></a></td>
                                         </tr>
@@ -121,8 +128,15 @@ $idRol = $row['idRol'];
                                         echo
                                         " 
                                             <tr>
-                                            <td><h4 style='font-size:16px;text-align: right; margin-right: 5px; '>".$listar['idLicitacion']."</h4 ></td>
-                                            <td><h4 style='font-size:16px;text-transform:uppercase; text-align:left; margin-left: 5px;'>".$listar['usuario']."</h4 ></td>
+                                            <td><h4 style='font-size:16px;text-align: right; margin-right: 5px; '>".$listar['idLicitacion']."</h4 ></td>";
+
+                                            $usuarioLic = $listar['usuario'];
+                                            if($usuarioLic == ""){
+                                                echo "<td><h4 style='font-size:16px;text-transform:uppercase; text-align:left; margin-left: 5px;'>SIN ASIGNAR</h4 ></td>";
+                                            }else{
+                                                echo "<td><h4 style='font-size:16px;text-transform:uppercase; text-align:left; margin-left: 5px;'>".$listar['usuario']."</h4 ></td>";
+                                            }
+                                            echo "
                                             <td><h4 style='font-size:16px;text-transform:uppercase; text-align:left; margin-left: 5px;'>".$listar['estadoLicitacion']."</h4 ></td>
                                             <td class='text-center text-nowrap'><a class='btn btn-sm' href=detalleHistoricoLicitacion.php?no=".$listar['idLicitacion']." class=mod><i class='fa-solid fa-pen-to-square fa-2x'></i></a></td>
                                             </tr>

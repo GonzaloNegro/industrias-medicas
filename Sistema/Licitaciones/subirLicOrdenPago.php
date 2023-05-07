@@ -52,6 +52,21 @@ function ConsultarIncidente($no_tic)
 
             <form action="../../Logica/subiendoLicOrdenPago.php" method="POST" enctype="multipart/form-data">
                 <div>
+                    <p style="text-transform: uppercase;">Orden de Pago N°: <?php echo $consulta[0];?></p>
+                    <?php
+                    $sql6 = "SELECT da.idLicitacion, u.usuario, da.monto
+                    FROM datoslicitacion da
+                    LEFT JOIN usuario u ON u.idUsuario = da.idUsuario
+                    WHERE da.idLicitacion = $consulta[0];";
+                    $result6 = $datos_base->query($sql6);
+                    $row6 = $result6->fetch_assoc();
+                    $cli = $row6['usuario'];
+                    $mon = $row6['monto'];
+                    ?>
+                    <p style="text-transform: uppercase;">Proveedor: <?php echo $cli;?></p>
+                    <p style="text-transform: uppercase;">Precio final (+IVA): <?php echo "$".number_format($mon, 2, ',','.');?></p>
+                </div>
+                <div>
                     <label for="licRemito">Orden de Pago</label>
                     <input type="text" class="ocultar" name="nombreid" id="licRemito" value="<?php echo $idd;?>"> 
                 </div>

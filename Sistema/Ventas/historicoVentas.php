@@ -148,7 +148,7 @@ $idRol = $row['idRol'];
                                         <td><h4 style='font-size:16px;text-transform:uppercase; text-align:left; margin-left: 5px;''>".$listar['medico']."</h4 ></td>
                                         <td><h4 style='font-size:16px;text-transform:uppercase; text-align:left; margin-left: 5px;'>".$listar['paciente']."</h4 ></td>
                                         <td class='text-center text-nowrap botones'><a class='btn btn-sm' href=detalleHistoricoVenta.php?no=".$listar['idDocumento']." class=mod><i class='fa-solid fa-pen-to-square fa-2x'></i></a>";
-                                        if($listar['estadoDocumento'] == "Rechazado" OR $listar['estadoDocumento'] == "Pagado"){
+                                        if($listar['estadoDocumento'] == "Rechazado" OR $listar['estadoDocumento'] == "Pagado" OR $listar['estadoDocumento'] == "Factura" OR $listar['estadoDocumento'] == "Orden de pago"){
                                         }else{
                                             echo "<a href='./anularDoc.php?no=".$listar['idDocumento']."' onclick='return confirmacion()'><i class='fa-sharp fa-solid fa-file-circle-xmark fa-2x'></i></a>";
                                         }
@@ -177,7 +177,7 @@ $idRol = $row['idRol'];
                                             <td><h4 style='font-size:16px;text-transform:uppercase; text-align:left; margin-left: 5px;'>".$listar['medico']."</h4 ></td>
                                             <td><h4 style='font-size:16px;text-transform:uppercase; text-align:left; margin-left: 5px;'>".$listar['paciente']."</h4 ></td>
                                             <td class='text-center text-nowrap botones'><a class='btn btn-sm' href=detalleHistoricoVenta.php?no=".$listar['idDocumento']." class=mod><i class='fa-solid fa-pen-to-square fa-2x'></i></a>";
-                                            if($listar['estadoDocumento'] == "Rechazado" OR $listar['estadoDocumento'] == "Pagado"){
+                                            if($listar['estadoDocumento'] == "Rechazado" OR $listar['estadoDocumento'] == "Pagado" OR $listar['estadoDocumento'] == "Factura" OR $listar['estadoDocumento'] == "Orden de pago"){
                                             }else{
                                                 echo "<a href='./anularDoc.php?no=".$listar['idDocumento']."' onclick='return confirmacion()'><i class='fa-sharp fa-solid fa-file-circle-xmark fa-2x'></i></a>";
                                             }

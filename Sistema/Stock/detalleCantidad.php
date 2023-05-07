@@ -234,7 +234,6 @@ $idRol = $row['idRol'];
                                     if($doc != ""){
                                         echo "<div style='margin-top:30px;'><p style='text-transform: uppercase;'><u>Filtrado por</u>: ".$doc."</p></div>";
                                     }
-                                    echo "<div style='margin-top:10px;'><p style='text-transform: uppercase;'><u>Cantidad de registros</u>: ".$cantidad."</p></div>";
                                     echo"
                                 </table>";
                                     ?>

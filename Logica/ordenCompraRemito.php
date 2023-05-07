@@ -76,7 +76,7 @@ mysqli_query($datos_base, "UPDATE licitacion SET idEstadoLicitacion = 7 WHERE id
 
 /* CALCULAR DIAS TRANSCURRIDOS ENTRE ANTERIOR ESTADO Y ESTE */
 
-$sent= "SELECT fecha FROM movimientolicitacion WHERE idLicitacion = '$idLic' AND idEstadoLicitacion = 2";
+$sent= "SELECT fecha FROM movimientolicitacion WHERE idLicitacion = '$id' AND idEstadoLicitacion = 2";
 $resultado = $datos_base->query($sent);
 $row = $resultado->fetch_assoc();
 $fechavieja = $row['fecha'];

@@ -115,11 +115,11 @@ elseif(isset($_POST['registrar'])){
 			/* INSERTAR DEFAULT, USUARIO, CONTRASEÑA Y ROL*/
 			mysqli_query($datos_base, "INSERT INTO usuario VALUES (DEFAULT, '$regUsu', '$regPassword', '$tipo', 2, '$regNom', '$regCor', '$regDir', 2)");
 		}
-		$destinatario = $regCor;
+		$destinatario = 'gonzalonnegro@gmail.com';
         $asunto = 'Usuario registrado';
         $header = 'Enviado desde Industrias Médicas.';
         
-        $mensaje = 'Su cuenta ha sido registrada correctamente. Recibirá un correo cuando Industrias Médicas habilite su cuenta para poder ingresar al sistema.';
+        $mensaje = 'Se ha registrado un nuevo usuario en el sistema. Por favor ingrese para validar su activación.';
         $nombre = 'INDUSTRIAS MÉDICAS';
         $mensajeCompleto = $mensaje . "\nAtentamente: " . $nombre;
         

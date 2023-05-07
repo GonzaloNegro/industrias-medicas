@@ -44,7 +44,7 @@ $idRol = $row['idRol'];
         $rolventas = 4;
         $rolobra = 5;
         $rolproveedor = 6;
-        if($idRol == $roldeposito OR $idRol == $roladmin OR $idRol == $rolobra OR $idRol == $rolproveedor){
+        if($idRol == $roladmin OR $idRol == $rolobra OR $idRol == $rolproveedor){
             header("Location: ../principal.php");
         }
         ?>

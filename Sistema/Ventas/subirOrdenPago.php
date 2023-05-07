@@ -51,7 +51,27 @@ function ConsultarIncidente($no_tic)
         <div class="agrStock">
 
             <form action="../../Logica/subiendoOrdenPago.php" method="POST" enctype="multipart/form-data">
-            <div>
+                <div>
+                    <p style="text-transform: uppercase;">Orden de Pago N°: <?php echo $consulta[0];?></p>
+                    <?php
+                    $sql6 = "SELECT da.idDocumento, da.medico, da.paciente, c.centroMedico, u.usuario
+                    FROM datosdocumento da
+                    LEFT JOIN centromedico c ON c.idCentro = da.idCentro
+                    LEFT JOIN usuario u ON u.idUsuario = da.idUsuario
+                    WHERE da.idDocumento = $consulta[0];";
+                    $result6 = $datos_base->query($sql6);
+                    $row6 = $result6->fetch_assoc();
+                    $cli = $row6['usuario'];
+                    $clin = $row6['centroMedico'];
+                    $med = $row6['medico'];
+                    $pac = $row6['paciente'];
+                    ?>
+                    <p style="text-transform: uppercase;">Cliente: <?php echo $cli;?></p>
+                    <p style="text-transform: uppercase;">Clinica: <?php echo $clin;?></p>
+                    <p style="text-transform: uppercase;">Médico: <?php echo $med;?></p>
+                    <p style="text-transform: uppercase;">Paciente: <?php echo $pac;?></p>
+                </div>
+                <div>
                     <label for="remito">Orden de Pago</label>
                     <input type="text" class="ocultar" name="nroOP" id="remito" value="<?php echo $idd?>">
                     <!-- <input type="text" name="nombreid" value="<?php ;?>">  -->

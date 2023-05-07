@@ -184,7 +184,7 @@ WHERE idEstadoLicitacion = 1");
 
                 <div class="principal-datos">
                     <div class="principal-datos-tit">
-                        <h2>Estado últimas ventas</h2>
+                        <h2>Últimos movimientos</h2>
                     </div>
                     <div class="principal-datos-cont">
                         <?php
@@ -282,13 +282,11 @@ WHERE idEstadoLicitacion = 1");
                                                         data-aos-delay="300"
                                                         data-aos-offset="0">
                         <div class="principal-datos-cont">
-                            <h2>Estado últimas ventas</h2>
-                            <?php $fechaActual = date('d-m-Y'); ?>
-                            <p>Fecha actual: <?php echo $fechaActual;?></p>
+                            <h2>Últimos movimientos</h2>
                             <?php                    echo "<table>
                             <thead class=colm>
                                 <tr>
-                                    <th><p>N°VENTA</p></th>
+                                    <th><p>N°VDOC</p></th>
                                     <th><p>FECHA ÚLT ACTIVIDAD</p></th>
                                     <th><p>ESTADO</p></th>
                                 </tr>
@@ -302,7 +300,7 @@ WHERE idEstadoLicitacion = 1");
                                 LEFT JOIN usuario AS u ON u.idUsuario = da.idUsuario
                                 WHERE m.idEstadoDocumento = d.idEstadoDocumento AND da.idUsuario = $idUsu
                                 ORDER BY m.fecha DESC
-                                LIMIT 3
+                                LIMIT 8
                                 ");
                                     while($listar = mysqli_fetch_array($consulta)) 
                                     {
@@ -335,12 +333,10 @@ WHERE idEstadoLicitacion = 1");
                                                         data-aos-offset="0">
                         <div class="principal-datos-cont">
                             <h2>Estado últimas licitaciones</h2>
-                            <?php $fechaActual = date('d-m-Y'); ?>
-                            <p>Fecha actual: <?php echo $fechaActual;?></p>
                             <?php                    echo "<table>
                             <thead class=colm>
                                 <tr>
-                                    <th><p>N°VENTA</p></th>
+                                    <th><p>N°DOC</p></th>
                                     <th><p>FECHA ÚLT ACTIVIDAD</p></th>
                                     <th><p>ESTADO</p></th>
                                 </tr>
@@ -354,7 +350,7 @@ WHERE idEstadoLicitacion = 1");
                                 LEFT JOIN usuario AS u ON u.idUsuario = da.idUsuario
                                 WHERE m.idEstadoLicitacion = l.idEstadoLicitacion AND da.idUsuario = $idUsu
                                 ORDER BY m.fecha DESC
-                                LIMIT 3
+                                LIMIT 8
                                 ");
                                     while($listar = mysqli_fetch_array($consulta)) 
                                     {

@@ -98,6 +98,7 @@ mysqli_query($datos_base, "INSERT INTO datoslicitacion VALUES ('$tic1', 0, 0, '$
         $header = 'Enviado desde Industrias Médicas';
         $asunto = "Nueva licitación";
         $fec = date("d-m-Y", strtotime($fechaActual));
+        $from = "test@hostinger-tutorials.com";
         $mensaje = "El día ".$fec." Industrias Médicas notifica que se ha abierto una nueva licitación con fecha de cierre: ".$feclim1.".\nPor favor ingrese a https://indumedsa.com.ar/ para ver más detalles."; 
         $mensajeCompleto = $mensaje . "\nAtentamente: Industrias Médicas";
             

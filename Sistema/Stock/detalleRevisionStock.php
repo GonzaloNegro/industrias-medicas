@@ -107,6 +107,7 @@ function ConsultarIncidente($no_tic)
                     <?php 
                         if($acumulado > 0){
                             echo "<p>No hay stock suficiente, por favor realice una solicitud de compra.</p>";
+                            echo "";
                         } else{
                     ?>
                     <button class="btn btn-success">CONFIRMAR</button>
@@ -116,6 +117,7 @@ function ConsultarIncidente($no_tic)
                     </div>
                 </form>
             </div>
+            <a href='../Licitaciones/solLic.php'><button class='btn btn-success'>Ir a licitación</button></a>
         </section>
             <div class="agregar">
                 <a href="./stockRevisar.php" class="volver" id="vlv"><i class="fa-sharp fa-solid fa-arrow-left"></i></a>

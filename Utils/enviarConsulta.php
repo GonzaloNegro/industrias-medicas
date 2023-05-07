@@ -8,7 +8,7 @@ $tel = limpiar_cadena($_POST['tel']);
 $asunto = limpiar_cadena($_POST['asunto']);
 $mensaje = limpiar_cadena($_POST['consulta']);
 
-$destinatario = 'info@industriasmedicas.com';
+$destinatario = 'gonzalonnegro@gmail.com.com';
 $header = 'Enviado desde Industrias Médicas';
 
 $mensajeCompleto = $mensaje . "\nAtentamente: " . $nombre . "\nTeléfono: " . $tel . "\nCorreo: " . $email;

@@ -49,8 +49,8 @@ function ConsultarIncidente($no_tic)
         </div>
         <div class="agrStock">
             <form method="POST" action="../../Logica/agregandoLicOrdenPago.php">
-                <div>
-                    <p style="text-transform: uppercase;">FACTURA N°: <?php echo $consulta[0];?></p>
+            <div>
+                    <p style="text-transform: uppercase;">Factura N°: <?php echo $consulta[0];?></p>
                     <?php
                     $sql6 = "SELECT da.idLicitacion, u.usuario, da.monto
                     FROM datoslicitacion da

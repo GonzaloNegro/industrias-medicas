@@ -63,7 +63,7 @@ $idRol = $row['idRol'];
         </div>
         <div class="agrStock">
             <form method="POST" action="../../Logica/agregandoRecibo.php">
-            <div>
+                <div>
                     <p style="text-transform: uppercase;">Orden de Pago N°: <?php echo $consulta[0];?></p>
                     <?php
                     $sql6 = "SELECT da.idDocumento, da.medico, da.paciente, c.centroMedico, u.usuario

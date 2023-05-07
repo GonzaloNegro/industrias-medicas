@@ -39,7 +39,7 @@ $idRol = $row['idRol'];
         $rolventas = 4;
         $rolobra = 5;
         $rolproveedor = 6;
-        if($idRol == $roldeposito OR $idRol == $rolventas OR $idRol == $rolobra){
+        if($idRol == $roldeposito OR $idRol == $rolobra){
             header("Location: ../principal.php");
         }
     ?>
@@ -67,7 +67,7 @@ $idRol = $row['idRol'];
 
              <?php
                     /* LO QUE VA A VER IM, ES DECIR, TODO */
-                    if($idRol == $rolgerente OR $idRol == $roladmin)
+                    if($idRol == $rolgerente OR $idRol == $roladmin OR $idRol == $rolventas )
                     {
                     echo "<table>
                             <thead>

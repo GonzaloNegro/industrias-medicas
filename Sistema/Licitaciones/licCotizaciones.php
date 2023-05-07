@@ -83,7 +83,7 @@ $idRol = $row['idRol'];
                         </div>
                     </div>
                 </form>
-                <?php if($idRol == $roladmin OR $idRol == $rolgerente){ ?>
+                <?php if($idRol == $roladmin OR $idRol == $rolgerente OR $idRol == $rolventas ){ ?>
                 <div class="agregar">
                     <a href="./agregarLicCotizacion.php" class="nuevo" data-bs-toggle="tooltip" title="Nueva licitación" data-bs-placement="left">+</a>
                 </div>
@@ -92,7 +92,7 @@ $idRol = $row['idRol'];
 
              <?php
                     /* LO QUE VA A VER IM, ES DECIR, TODO */
-                    if($idRol == $rolgerente OR $idRol == $roladmin)
+                    if($idRol == $rolgerente OR $idRol == $roladmin  OR $idRol == $rolventas )
                     {
                     echo "<table>
                             <thead>

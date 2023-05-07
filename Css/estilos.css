@@ -1349,7 +1349,19 @@ fieldset {
   .principal-datos-cont table tr td {
     padding: 5px; }
   .inicio-tit {
-    text-align: center; } }
+    text-align: center; }
+  /* VENTAS Y LICITACIONES */
+  .principal-ventaslicitaciones {
+    width: 300px;
+    height: 500px;
+    padding: 0px; }
+  .principal-ventaslicitaciones-img {
+    height: 50%;
+    width: 100%;
+    font-size: 18px;
+    justify-content: space-between; }
+  .principal-ventaslicitaciones-img img {
+    width: 100%; } }
 
 .ini {
   height: auto;

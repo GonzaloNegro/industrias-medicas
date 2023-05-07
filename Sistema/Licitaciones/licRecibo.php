@@ -89,7 +89,7 @@ function cargado(){
 
              <?php
                     /* LO QUE VA A VER IM, ES DECIR, TODO */
-                    if($idRol == $rolgerente OR $idRol == $roladmin)
+                    if($idRol == $rolgerente OR $idRol == $roladmin OR $idRol == $rolventas )
                     {
                     echo "<table>
                             <thead>

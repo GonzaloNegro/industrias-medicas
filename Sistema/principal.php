@@ -286,7 +286,7 @@ WHERE idEstadoLicitacion = 1");
                             <?php                    echo "<table>
                             <thead class=colm>
                                 <tr>
-                                    <th><p>N°VDOC</p></th>
+                                    <th><p>N° DOC</p></th>
                                     <th><p>FECHA ÚLT ACTIVIDAD</p></th>
                                     <th><p>ESTADO</p></th>
                                 </tr>
@@ -336,7 +336,7 @@ WHERE idEstadoLicitacion = 1");
                             <?php                    echo "<table>
                             <thead class=colm>
                                 <tr>
-                                    <th><p>N°DOC</p></th>
+                                    <th><p>N° DOC</p></th>
                                     <th><p>FECHA ÚLT ACTIVIDAD</p></th>
                                     <th><p>ESTADO</p></th>
                                 </tr>

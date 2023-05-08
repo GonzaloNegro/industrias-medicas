@@ -168,7 +168,7 @@ $idRol = $row['idRol'];
                                             <p style='color: blue; font-weight: bold;'>EN RESERVA: $reserva</p>
                                         </div>
                                         <div class=contador_ter>
-                                            <p style='color: green; font-weight: bold;'>DISPONIBLE: $disponible</p>
+                                            <p style='color: green; font-weight: bold;'>ALTA: $disponible</p>
                                         </div>
                                     </div>";
                                     if($doc != ""){
